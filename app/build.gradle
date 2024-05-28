@@ -27,9 +27,6 @@ android {
         }
     }
 
-    lintOptions {
-        abortOnError false // for Travis CI
-    }
 
     testOptions {
         unitTests.returnDefaultValues = true
@@ -40,6 +37,9 @@ android {
     }
     useLibrary 'android.test.mock'
     namespace 'com.ds.avare'
+    lint {
+        abortOnError false
+    }
 
     applicationVariants.all { variant ->
         def productFlavor = variant.productFlavors[0] != null ? "${variant.productFlavors[0].name.capitalize()}" : ""
