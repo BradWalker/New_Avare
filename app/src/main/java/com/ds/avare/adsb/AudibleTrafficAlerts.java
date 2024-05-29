@@ -105,7 +105,7 @@ public class AudibleTrafficAlerts implements Runnable {
     private static final long MIN_ALERT_SEPARATION_MS = 750;
 
     protected enum DistanceCalloutOption {
-        NONE, ROUNDED, DECIMAL;
+        NONE, ROUNDED, DECIMAL
     }
     protected enum TrafficIdCalloutOption {
         NONE, PHONETIC_ALPHA_ID, FULL_CALLSIGN
@@ -413,10 +413,11 @@ public class AudibleTrafficAlerts implements Runnable {
      * @param doDecimal Whether to speak 1st decimal into alert (false ==> rounded to whole #)
      */
     protected final void addNumericalAlertAudio(final List<Integer> alertAudio, final double numeric, final boolean doDecimal) {
+        double roundedVal = doDecimal ? numeric : Math.round(numeric);
         if (this.numberFormatOption == NumberFormatOption.COLLOQUIAL)
-            addColloquialNumericBaseAlertAudio(alertAudio, doDecimal ? numeric : Math.round(numeric));
+            addColloquialNumericBaseAlertAudio(alertAudio, roundedVal);
         else
-            addNumberSequenceNumericBaseAlertAudio(alertAudio, doDecimal ? numeric : Math.round(numeric));
+            addNumberSequenceNumericBaseAlertAudio(alertAudio, roundedVal);
 
         if (doDecimal) {
             addFirstDecimalAlertAudioSequence(alertAudio, numeric);

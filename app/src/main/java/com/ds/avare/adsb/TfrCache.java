@@ -12,14 +12,14 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.adsb;
 
 
-import android.content.Context;
-
 import com.ds.avare.StorageService;
 import com.ds.avare.shapes.TFRShape;
 import com.ds.avare.storage.Preferences;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 
@@ -28,16 +28,16 @@ import java.util.LinkedList;
  */
 public class TfrCache {
 
-    private HashMap<String, AdsbTfr> mTfrs;
+    private Map<String, AdsbTfr> mTfrs;
     private Preferences mPref;
 
     public TfrCache() {
-        mTfrs = new HashMap<String, AdsbTfr>();
+        mTfrs = new HashMap<>();
         mPref = StorageService.getInstance().getPreferences();
     }
 
-    public LinkedList<TFRShape> getShapes() {
-        LinkedList<TFRShape> ret = new LinkedList<TFRShape>();
+    public List<TFRShape> getShapes() {
+        List<TFRShape> ret = new LinkedList<>();
 
         for (AdsbTfr s : mTfrs.values()) {
             if(s.shape != null && s.text != null) {
@@ -47,7 +47,6 @@ public class TfrCache {
         }
         return ret;
     }
-
 
     /**
      * 
@@ -77,7 +76,7 @@ public class TfrCache {
             }
         }
 
-        if(from != null && (!from.equals(""))) {
+        if(from != null && (!from.isEmpty())) {
             t.timeFrom = from;
         }
 
@@ -85,24 +84,22 @@ public class TfrCache {
             t.timeTo = to;
         }
 
-
         // Make shapes
         if(shape.equals("polygon") && points != null && (!points.equals(""))) {
             t.points = points;
             // Only draw polygons
             t.shape = new TFRShape(t.text == null ? "" : t.text, new java.util.Date(time));
-            String tokens[] = t.points.split("[;]");
-            for(int j = 0; j < tokens.length; j++) {
-                String point[] = tokens[j].split("[:]");
+            String[] tokens = t.points.split("[;]");
+            for (String token : tokens) {
+                String[] point = token.split("[:]");
                 try {
                     double lon = Double.parseDouble(point[0]);
                     double lat = Double.parseDouble(point[1]);
-                    if(0 == lat || 0 == lon) {
+                    if (0 == lat || 0 == lon) {
                         continue;
                     }
                     t.shape.add(lon, lat, false);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                 }
             }
             t.shape.makePolygon();
@@ -118,12 +115,12 @@ public class TfrCache {
         long now = System.currentTimeMillis();
         int expiry = mPref.getExpiryTime() * 60 * 1000;
 
-        LinkedList<String> keys;
+        List<String> keys;
 
         /*
          * Winds
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mTfrs.keySet()) {
             AdsbTfr t = mTfrs.get(key);
             long diff = (now - t.timestamp) - expiry;

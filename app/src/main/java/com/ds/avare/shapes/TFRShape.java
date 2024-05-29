@@ -21,6 +21,7 @@ import com.ds.avare.position.LabelCoordinate;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -48,7 +49,7 @@ public class TFRShape extends Shape {
      * @param gameTfrLabels
      * @param shouldShow
      */
-    public static void drawGame(DrawingContext ctx, LinkedList<LabelCoordinate> gameTfrLabels, boolean shouldShow) {
+    public static void drawGame(DrawingContext ctx, List<LabelCoordinate> gameTfrLabels, boolean shouldShow) {
         if (!shouldShow) {
             return;
         }
@@ -96,7 +97,7 @@ public class TFRShape extends Shape {
      * @param shapes
      * @param shouldShow
      */
-    public static void draw(DrawingContext ctx, LinkedList<TFRShape> shapes, boolean shouldShow) {
+    public static void draw(DrawingContext ctx, List<TFRShape> shapes, boolean shouldShow) {
 
         ctx.paint.setColor(Color.RED);
         ctx.paint.setShadowLayer(0, 0, 0, 0);

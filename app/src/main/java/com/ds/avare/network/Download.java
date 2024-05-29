@@ -51,6 +51,8 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import okhttp3.OkHttpClient;
+
 /**
  * 
  * @author zkhan
@@ -106,9 +108,9 @@ public class Download {
 
     /**
      * 
-     * @param isStatic
      * @param path
      * @param filename
+     * @param isStatic
      */
     public void start(String path, String filename, boolean isStatic) {
         mDt = new DownloadTask();
@@ -170,9 +172,9 @@ public class Download {
             BufferedInputStream input;
             BufferedOutputStream output;
             int count;
-            byte data[] = new byte[blocksize];
+            byte[] data = new byte[blocksize];
             long fileLength;
-            boolean flags[] = new boolean[1];
+            boolean[] flags = new boolean[1];
 
             mVersion = NetworkHelper.getVersion(mRoot, mName, flags);
 
@@ -241,7 +243,7 @@ public class Download {
                 long downloadedSize = 0;
                 if (connectionField != null) {
                     String[] connectionRanges = connectionField.substring("bytes=".length()).split("-");
-                    downloadedSize = Long.valueOf(connectionRanges[0]);
+                    downloadedSize = Long.parseLong(connectionRanges[0]);
                 }
                 
                 mCode = "code unable to get file from server ";
@@ -362,9 +364,9 @@ public class Download {
                                 mCode = "code unable to delete/replace Chart Supplement";
                                 String newRegion = (tokens[1].split("_"))[0];
                                 String[] info = dir.list();
-                                for(int i = 0; i < info.length; i++) {
-                                    if(info[i].startsWith(newRegion)) {
-                                        (new File(path + "/afd/" + info[i])).delete();
+                                for (String s : info) {
+                                    if (s.startsWith(newRegion)) {
+                                        (new File(path + "/afd/" + s)).delete();
                                     }
                                 }
                             }

@@ -17,9 +17,9 @@ import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Traffic {
-
     public int mIcaoAddress;
     public float mLat;
     public float mLon;
@@ -175,7 +175,7 @@ public class Traffic {
             int diff;
             String text = "";
             // hide callsign if configured in prefs
-            if (ctx.pref.showAdsbCallSign() && !t.mCallSign.equals("")) {
+            if (ctx.pref.showAdsbCallSign() && !t.mCallSign.isEmpty()) {
                 text = t.mCallSign + ":";
             }
 
@@ -263,13 +263,10 @@ public class Traffic {
                     text, Color.BLACK, (float)x, (float)y + radius + ctx.textPaint.getTextSize());
 
 
-            if (true == bRotated) {
+            if (bRotated) {
                 ctx.canvas.restore();
             }
-
         }
-
-
     }
 
 
@@ -281,8 +278,8 @@ public class Traffic {
      */
     public static void draw(StorageService service, AreaMapper mapper, TerrainRenderer renderer) {
         if (service != null) {
-            LinkedList<Traffic> traffic = service.getTrafficCache().getTraffic();
-            Vector4d ships[] = new Vector4d[traffic.size()];
+            List<Traffic> traffic = service.getTrafficCache().getTraffic();
+            Vector4d[] ships = new Vector4d[traffic.size()];
             int i = 0;
             for (Traffic t : traffic) {
                 ships[i] = mapper.gpsToAxis(t.mLon, t.mLat, t.mAltitude, t.mHeading);

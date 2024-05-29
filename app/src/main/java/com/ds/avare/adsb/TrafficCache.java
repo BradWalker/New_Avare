@@ -55,15 +55,10 @@ public class TrafficCache {
             if(null == left && null == right) {
                 return 0;
             }
+
             double l = findDistance(left.mLon, left.mLat);
             double r = findDistance(right.mLon, right.mLat);
-            if(l > r) {
-                return 1;
-            }
-            if(l < r) {
-                return -1;
-            }
-            return 0;
+            return Double.compare(l, r);
         }
     }
 
@@ -126,7 +121,7 @@ public class TrafficCache {
             // update
             if(mTraffic[i].mIcaoAddress == address) {
                 // callsign not available. use last one
-                if(callsign.equals("")) {
+                if(callsign.isEmpty()) {
                     callsign = mTraffic[i].mCallSign;
                 }
                 final Traffic traffic = new Traffic(callsign, address, isAirborne, lat, lon, altitude, heading, speed, vspeed, time);

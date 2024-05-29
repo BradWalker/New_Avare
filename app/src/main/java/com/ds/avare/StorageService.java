@@ -77,6 +77,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -668,22 +669,22 @@ public class StorageService  {
     /**
      * @return
      */
-    public ArrayList<ShapeFileShape> getShapeShapes() {
+    public List<ShapeFileShape> getShapeShapes() {
         return mShapeFetcher.getShapes();
     }
 
     /**
      * @return
      */
-    public LinkedList<TFRShape> getTFRShapes() {
+    public List<TFRShape> getTFRShapes() {
         return mTFRFetcher.getShapes();
     }
 
-    public LinkedList<TFRShape> getAdsbTFRShapes() {
+    public List<TFRShape> getAdsbTFRShapes() {
         return mAdsbTfrCache.getShapes();
     }
 
-    public LinkedList<LabelCoordinate> getGameTfrLabels() {
+    public List<LabelCoordinate> getGameTfrLabels() {
         return mGameTfrLabels;
     }
 

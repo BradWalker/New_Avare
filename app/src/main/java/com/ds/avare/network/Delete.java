@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Observable;
 
 import com.ds.avare.utils.Helper;
@@ -114,7 +115,7 @@ public class Delete extends Observable {
             /*
              * Get files to delete
              */
-            LinkedList<String> list = getFiles(chart, path);
+            List<String> list = getFiles(chart, path);
             
             int fileLength = list.size();
             int total = 0;
@@ -149,8 +150,8 @@ public class Delete extends Observable {
      * @param name
      * @return
      */
-    LinkedList<String> getFiles(String name, String path) {
-    	LinkedList<String> files2Delete = new LinkedList<String>();
+    List<String> getFiles(String name, String path) {
+    	List<String> files2Delete = new LinkedList<>();
     	/*
     	 * Read file with that name
     	 */
@@ -176,7 +177,7 @@ public class Delete extends Observable {
                 
                 br.close();
             }
-            catch (IOException e) {
+            catch (IOException ignored) {
             }
         }
         

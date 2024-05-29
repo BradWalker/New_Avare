@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 android {
-    compileSdkVersion 33
-    buildToolsVersion '33.0.2'
+    compileSdk 34
+    buildToolsVersion '34'
 
     defaultConfig {
         applicationId "com.ds.avare"
@@ -19,14 +19,12 @@ android {
     dependencies {
     }
 
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
 
     testOptions {
         unitTests.returnDefaultValues = true
@@ -49,6 +47,7 @@ android {
 }
 
 dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation 'org.xmlunit:xmlunit-core:2.3.0'
     implementation 'oro:oro:2.0.8'
     implementation 'org.xmlunit:xmlunit-matchers:2.3.0'

@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -110,7 +111,7 @@ public class ShapeFileShape extends Shape {
      * @param shapes
      * @param shouldShow
      */
-    public static void draw(DrawingContext ctx, ArrayList<ShapeFileShape> shapes, boolean shouldShow) {
+    public static void draw(DrawingContext ctx, List<ShapeFileShape> shapes, boolean shouldShow) {
 
         ctx.paint.setShadowLayer(0, 0, 0, 0);
 

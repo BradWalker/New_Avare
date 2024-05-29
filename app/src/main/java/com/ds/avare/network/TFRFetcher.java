@@ -28,6 +28,7 @@
 package com.ds.avare.network;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import com.ds.avare.StorageService;
 import com.ds.avare.shapes.TFRShape;
@@ -43,10 +44,8 @@ import android.os.AsyncTask;
  *
  */
 public class TFRFetcher {
-
-    
     private TFRTask mTask;
-    private LinkedList<TFRShape> mShapes;
+    private List<TFRShape> mShapes;
 
     /**
      * 
@@ -79,7 +78,7 @@ public class TFRFetcher {
      * This will be non null if we have recieved TFR shapes from internet
      * @return
      */
-    public LinkedList<TFRShape> getShapes() {
+    public List<TFRShape> getShapes() {
         return mShapes;
     }
 

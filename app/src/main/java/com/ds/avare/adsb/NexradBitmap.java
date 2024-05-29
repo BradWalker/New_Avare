@@ -232,7 +232,7 @@ public class NexradBitmap {
      */
     private static void drawImage(SparseArray<NexradBitmap> bitmaps, DrawingContext ctx) {
         if (null != bitmaps) {
-            // Draw all nexrad blocks, do not smooth for nexrad, it looks odd
+            // Draw all NEXRAD blocks, do not smooth for NEXRAD, it looks odd
             boolean fl = ctx.paint.isFilterBitmap();
             ctx.paint.setFilterBitmap(false);
             for (int i = 0; i < bitmaps.size(); i++) {

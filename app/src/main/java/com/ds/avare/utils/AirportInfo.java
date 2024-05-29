@@ -53,7 +53,7 @@ public class AirportInfo extends AsyncTask<Object, String, String> {
     private Preferences mPref;
 
 
-    private String getTfrTextOnTouch(LinkedList<TFRShape> shapes) {
+    private String getTfrTextOnTouch(List<TFRShape> shapes) {
         String out = "";
         if (null != shapes) {
             for (int shape = 0; shape < shapes.size(); shape++) {

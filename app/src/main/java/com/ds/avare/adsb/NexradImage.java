@@ -49,7 +49,7 @@ public class NexradImage {
     private long mUpdated;
     
     public NexradImage() { 
-        mImg = new SparseArray<NexradBitmap>();
+        mImg = new SparseArray<>();
         mUpdated = 0;
     }
     
@@ -63,7 +63,7 @@ public class NexradImage {
      * @param cols
      * @param rows
      */
-    public void putImg(long time, int block, int empty[], boolean isConus, int data[], int cols, int rows) {
+    public void putImg(long time, int block, int[] empty, boolean isConus, int[] data, int cols, int rows) {
         
         if(null != empty) {
             /*
