@@ -19,6 +19,7 @@ import android.location.LocationManager;
 import com.ds.avare.adsb.TfrCache;
 import com.ds.avare.adsb.TrafficCache;
 import com.ds.avare.cap.DrawCapLines;
+import com.ds.avare.content.DataSource;
 import com.ds.avare.externalFlightPlan.ExternalPlanMgr;
 import com.ds.avare.flight.Aircraft;
 import com.ds.avare.flight.FlightStatus;
@@ -44,7 +45,6 @@ import com.ds.avare.orientation.OrientationInterface;
 import com.ds.avare.place.Area;
 import com.ds.avare.place.Destination;
 import com.ds.avare.place.Favorites;
-import com.ds.avare.place.Obstacle;
 import com.ds.avare.place.Plan;
 import com.ds.avare.position.LabelCoordinate;
 import com.ds.avare.position.Movement;
@@ -56,7 +56,6 @@ import com.ds.avare.shapes.RadarLayer;
 import com.ds.avare.shapes.ShapeFileShape;
 import com.ds.avare.shapes.TFRShape;
 import com.ds.avare.shapes.TileMap;
-import com.ds.avare.content.DataSource;
 import com.ds.avare.storage.Preferences;
 import com.ds.avare.userDefinedWaypoints.UDWMgr;
 import com.ds.avare.utils.BitmapHolder;
@@ -74,12 +73,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * @author zkhan
@@ -186,12 +181,12 @@ public class StorageService  {
     /*
      * A list of GPS listeners
      */
-    private LinkedList<GpsInterface> mGpsCallbacks;
+    private List<GpsInterface> mGpsCallbacks;
 
     /*
  * A list of GPS listeners
  */
-    private LinkedList<OrientationInterface> mOrientationCallbacks;
+    private List<OrientationInterface> mOrientationCallbacks;
 
     /*
      * A diagram bitmap
@@ -202,8 +197,6 @@ public class StorageService  {
      * A
      */
     private BitmapHolder mPlateDiagramBitmap;
-
-    private int mCounter;
 
     private TileMap mTiles;
     
@@ -309,8 +302,8 @@ public class StorageService  {
         mShapeFetcher.parse();
         mGpsParamsExtended = new ExtendedGpsParams();
 
-        mGpsCallbacks = new LinkedList<GpsInterface>();
-        mOrientationCallbacks = new LinkedList<OrientationInterface>();
+        mGpsCallbacks = new LinkedList<>();
+        mOrientationCallbacks = new LinkedList<>();
         mAfdDiagramBitmap = null;
         mPlateDiagramBitmap = null;
         mIcaoAddress = 0;
@@ -404,10 +397,10 @@ public class StorageService  {
 
             /**
              * 
-             * @return
+             * {@return a list of GpsInterface/s}
              */
-            private LinkedList<GpsInterface> extracted() {
-                return (LinkedList<GpsInterface>)mGpsCallbacks.clone();
+            private List<GpsInterface> extracted() {
+                return new LinkedList<>(mGpsCallbacks);
             }
 
             /*
@@ -416,10 +409,8 @@ public class StorageService  {
              */            
             @Override
             public void statusCallback(GpsStatus gpsStatus) {
-                LinkedList<GpsInterface> list = extracted();
-                Iterator<GpsInterface> it = list.iterator();
-                while (it.hasNext()) {
-                    GpsInterface infc = it.next();
+                List<GpsInterface> list = extracted();
+                for (GpsInterface infc : list) {
                     infc.statusCallback(gpsStatus);
                 }
             }
@@ -432,7 +423,7 @@ public class StorageService  {
             public void locationCallback(Location location) {
                 
                 if(mDownloading) {
-                    /**
+                    /*
                      * Download runs the tasks, so dont do it since we are
                      * updating files. This flag is set by Download activity.
                      */
@@ -445,10 +436,8 @@ public class StorageService  {
                     return;
                 }
 
-                LinkedList<GpsInterface> list = extracted();
-                Iterator<GpsInterface> it = list.iterator();
-                while (it.hasNext()) {
-                    GpsInterface infc = it.next();
+                List<GpsInterface> list = extracted();
+                for (GpsInterface infc : list) {
                     infc.locationCallback(location);
                 }
                 
@@ -517,20 +506,16 @@ public class StorageService  {
              */
             @Override
             public void timeoutCallback(boolean timeout) {
-                LinkedList<GpsInterface> list = extracted();
-                Iterator<GpsInterface> it = list.iterator();
-                while (it.hasNext()) {
-                    GpsInterface infc = it.next();
+                List<GpsInterface> list = extracted();
+                for (GpsInterface infc : list) {
                     infc.timeoutCallback(timeout);
                 }                
             }
 
             @Override
             public void enabledCallback(boolean enabled) {
-                LinkedList<GpsInterface> list = extracted();
-                Iterator<GpsInterface> it = list.iterator();
-                while (it.hasNext()) {
-                    GpsInterface infc = it.next();
+                List<GpsInterface> list = extracted();
+                for (GpsInterface infc : list) {
                     infc.enabledCallback(enabled);
                 }
                 if(enabled) {
@@ -549,25 +534,22 @@ public class StorageService  {
 
             /**
              *
-             * @return
+             * {@return a list of OrientationInterface/s}
              */
-            private LinkedList<OrientationInterface> extracted() {
-                return (LinkedList<OrientationInterface>)mOrientationCallbacks.clone();
+            private List<OrientationInterface> extracted() {
+                return new LinkedList<>(mOrientationCallbacks);
             }
 
             @Override
             public void onSensorChanged(double yaw, double pitch, double roll, double slip, double acceleration, double yawrate, double aoa, double airspeed, double altitude, double vsi) {
-                LinkedList<OrientationInterface> list = extracted();
-                Iterator<OrientationInterface> it = list.iterator();
-                while (it.hasNext()) {
-                    OrientationInterface infc = it.next();
+                List<OrientationInterface> list = extracted();
+                for (OrientationInterface infc : list) {
                     infc.onSensorChanged(yaw, pitch, roll, slip, acceleration, yawrate, aoa, airspeed, altitude, vsi);
                 }
             }
         };
 
         mFavorites = new Favorites(this);
-
     }
 
     private static StorageService mService = null;
@@ -635,7 +617,7 @@ public class StorageService  {
     
     /**
      * 
-     * @return
+     * {@return a TileMap}
      */
     public TileMap getTiles() {
         return mTiles;
@@ -647,7 +629,7 @@ public class StorageService  {
 
     /**
      * 
-     * @return
+     * {@return the current TFRFetcher}
      */
     public TFRFetcher getTFRFetcher() {
         return mTFRFetcher;
@@ -660,21 +642,21 @@ public class StorageService  {
 
     /**
      *
-     * @return
+     * {@return the current TFRCache}
      */
     public TfrCache getAdsbTfrCache() {
         return mAdsbTfrCache;
     }
 
     /**
-     * @return
+     * {@return a list of ShapeFileShape}
      */
     public List<ShapeFileShape> getShapeShapes() {
         return mShapeFetcher.getShapes();
     }
 
     /**
-     * @return
+     * {@return a list of TFRShape}
      */
     public List<TFRShape> getTFRShapes() {
         return mTFRFetcher.getShapes();
@@ -697,14 +679,14 @@ public class StorageService  {
     }
 
     /**
-     * @return
+     * {@return the current DataSource}
      */
     public DataSource getDBResource() {
         return mDataSource;
     }
     
     /**
-     * @return
+     * {@return the current Destination}
      */
     public Destination getDestination() {
         return mDestination;
@@ -847,14 +829,12 @@ public class StorageService  {
     }
 
     /**
-     * @return
      */
     public void newPlan() {
         mPlan = new Plan();
     }
 
     /**
-     * @return
      */
     public void newPlanFromStorage(String storage, boolean reverse) {
         mPlan = new Plan(storage, reverse);
@@ -931,7 +911,6 @@ public class StorageService  {
 
     /**
      *
-     * @return
      */
     public void setMatrix(float[] matrix) {
         mMatrix = matrix;
@@ -1019,7 +998,7 @@ public class StorageService  {
     
     /**
      * 
-     * @return
+     * {@return the current FlightTimer object}
      */
     public FlightTimer getFlightTimer() {
         return mFlightTimer;
@@ -1233,20 +1212,18 @@ public class StorageService  {
 		return mCap;
 	}
 
-
     /**
      * Receive data for weather / traffic etc
-     * @return
      */
     public void getDataFromIO(String text) {
 
-        if(text == null) {
+        if (text == null) {
             return;
         }
 
-            /*
-             * Get JSON
-             */
+        /*
+         * Get JSON
+         */
         try {
             JSONObject object = new JSONObject(text);
 
@@ -1263,7 +1240,7 @@ public class StorageService  {
                         (float)object.getDouble("longitude"),
                         object.getInt("altitude"),
                         (float)object.getDouble("bearing"),
-                        (int)object.getInt("speed"),
+                        object.getInt("speed"),
                         object.optInt("vspeed", Integer.MAX_VALUE),
                         Helper.getMillisGMT()
                             /*XXX:object.getLong("time")*/);
@@ -1332,6 +1309,8 @@ public class StorageService  {
                 if(alt <= MIN_ALTITUDE) {
                     alt = geoAltitude;
                 }
+
+                // FIXME
                 if(alt <= MIN_ALTITUDE) {
                     alt = deviceAltitude;
                 }
@@ -1376,11 +1355,11 @@ public class StorageService  {
                 if(emptyArray == null || dataArray == null) {
                     return;
                 }
-                int empty[] = new int[emptyArray.length()];
+                int[] empty = new int[emptyArray.length()];
                 for(int i = 0; i < empty.length; i++) {
                     empty[i] = emptyArray.getInt(i);
                 }
-                int data[] = new int[dataArray.length()];
+                int[] data = new int[dataArray.length()];
                 for(int i = 0; i < data.length; i++) {
                     data[i] = dataArray.getInt(i);
                 }
