@@ -68,7 +68,7 @@ public class TfrCache {
         }
         t.timestamp = System.currentTimeMillis();
 
-        if(text != null && (!text.equals(""))) {
+        if(text != null && (!text.isEmpty())) {
 
             t.text = text;
             if(t.shape != null) {
@@ -80,12 +80,12 @@ public class TfrCache {
             t.timeFrom = from;
         }
 
-        if(to != null && (!to.equals(""))) {
+        if(to != null && (!to.isEmpty())) {
             t.timeTo = to;
         }
 
         // Make shapes
-        if(shape.equals("polygon") && points != null && (!points.equals(""))) {
+        if(shape.equals("polygon") && points != null && (!points.isEmpty())) {
             t.points = points;
             // Only draw polygons
             t.shape = new TFRShape(t.text == null ? "" : t.text, new java.util.Date(time));

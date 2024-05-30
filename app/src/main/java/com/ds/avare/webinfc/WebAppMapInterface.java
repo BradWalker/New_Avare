@@ -104,7 +104,7 @@ public class WebAppMapInterface {
                         String p = WeatherHelper.formatPirepHTML(a.getRawText(), mPref.isWeatherTranslated());
                         airep += p + "<br><br>";
                     }
-                    if(!airep.equals("")) {
+                    if(!airep.isEmpty()) {
                         airep = "<hr><b>" + WeatherHelper.addColor("PIREP", "yellow") + "</b><br>" + airep;
                     }
                 }
@@ -117,7 +117,7 @@ public class WebAppMapInterface {
 
                 String tfr = "";
                 if(data.getTfr() != null) {
-                    if(!data.getTfr().equals("")) {
+                    if(!data.getTfr().isEmpty()) {
                         tfr = "<hr><b>" + WeatherHelper.addColor("TFR", "yellow") + "</b><br>";
                         tfr += data.getTfr().replace("\n", "<br>");
                     }
@@ -128,7 +128,7 @@ public class WebAppMapInterface {
                         "<hr><b>" + WeatherHelper.addColor("Weather/SUA Source", "yellow") + "</b>ADS-B<br>" :
                         "<hr><b>" + WeatherHelper.addColor("Weather/SUA Source", "yellow") + "</b>Internet<br>";
                 if(data.getLayer() != null) {
-                    if(!data.getLayer().equals("")) {
+                    if(!data.getLayer().isEmpty()) {
                         layer += "<b>" + WeatherHelper.addColor("Weather Layer Time", "yellow") + "</b> ";
                         layer += data.getLayer();
                     }
@@ -136,7 +136,7 @@ public class WebAppMapInterface {
 
                 String mets = "";
                 if(data.getMets() != null) {
-                    if(!data.getMets().equals("")) {
+                    if(!data.getMets().isEmpty()) {
                         mets = "<hr><b>" + WeatherHelper.addColor("SIG/AIRMETs", "yellow") + "</b><br>";
                         mets += data.getMets().replace("\n", "<br>");
                     }
@@ -144,7 +144,7 @@ public class WebAppMapInterface {
 
                 String performance = "";
                 if(data.getPerformance() != null) {
-                    if(!data.getPerformance().equals("")) {
+                    if(!data.getPerformance().isEmpty()) {
                         performance = "<hr><b>" + WeatherHelper.addColor("Performance", "yellow") + "</b> ";
                         performance += data.getPerformance().replace("\n", "<br>");
                     }

@@ -260,7 +260,7 @@ public class LocationContentProviderHelper {
                     LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
                     // find airport
                     String[] parts = c.getString(3).trim().split("[.]"); //LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION
-                    if(parts[0].equals("")) {
+                    if(parts[0].isEmpty()) {
                         parts = c.getString(8).trim().split("[.]");
                     }
                     params.put(ELEVATION, parts[0] + "ft");
@@ -856,11 +856,11 @@ public class LocationContentProviderHelper {
                             c.getString(c.getColumnIndex(LocationContract.SUA_LOWER_LIMIT)) + " to " +
                             c.getString(c.getColumnIndex(LocationContract.SUA_UPPER_LIMIT)) + "\n";
                     String freqtx = c.getString(c.getColumnIndex(LocationContract.SUA_TX_FREQUENCY));
-                    if(!freqtx.equals("")) {
+                    if(!freqtx.isEmpty()) {
                         sua += "TX " + freqtx + "\n";
                     }
                     String freqrx = c.getString(c.getColumnIndex(LocationContract.SUA_RX_FREQUENCY));
-                    if(!freqrx.equals("")) {
+                    if(!freqrx.isEmpty()) {
                         sua += "RX " + freqrx + "\n";
                     }
 
@@ -874,7 +874,7 @@ public class LocationContentProviderHelper {
         }
         CursorManager.close(c);
 
-        if(ret.equals("")) {
+        if(ret.isEmpty()) {
             ret = null;
         }
         return ret;
@@ -1515,24 +1515,24 @@ public class LocationContentProviderHelper {
                     String lon = Helper.removeLeadingZeros(c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_LONGITUDE)));
 
                     String Elevation = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_ELEVATION));
-                    if(Elevation.equals("")) {
+                    if(Elevation.isEmpty()) {
                         Elevation = params.get(ELEVATION);
                     }
                     String Heading = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_HEADING));
                     String DT = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_DT));
-                    if(DT.equals("")) {
+                    if(DT.isEmpty()) {
                         DT = "0";
                     }
                     String Lighted = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_LIGHTS));
-                    if(Lighted.equals("0") || Lighted.equals("")) {
+                    if(Lighted.equals("0") || Lighted.isEmpty()) {
                         Lighted = ctx.getString(R.string.No);
                     }
                     String ILS = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_ILS));
-                    if(ILS.equals("")) {
+                    if(ILS.isEmpty()) {
                         ILS = ctx.getString(R.string.No);
                     }
                     String VGSI = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_VGSI));
-                    if(VGSI.equals("")) {
+                    if(VGSI.isEmpty()) {
                         VGSI = ctx.getString(R.string.No);
                     }
                     String Pattern = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_LE_PATTERN));
@@ -1569,24 +1569,24 @@ public class LocationContentProviderHelper {
                         lon = Helper.removeLeadingZeros(c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_LONGITUDE)));
 
                         Elevation = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION));
-                        if(Elevation.equals("")) {
+                        if(Elevation.isEmpty()) {
                             Elevation = params.get(ELEVATION);
                         }
                         Heading = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_HEADING));
                         DT = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_DT));
-                        if(DT.equals("")) {
+                        if(DT.isEmpty()) {
                             DT = "0";
                         }
                         Lighted = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_LIGHTS));
-                        if(Lighted.equals("0") || Lighted.equals("")) {
+                        if(Lighted.equals("0") || Lighted.isEmpty()) {
                             Lighted = ctx.getString(R.string.No);
                         }
                         ILS = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_ILS));
-                        if(ILS.equals("")) {
+                        if(ILS.isEmpty()) {
                             ILS = ctx.getString(R.string.No);
                         }
                         VGSI = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_VGSI));
-                        if(VGSI.equals("")) {
+                        if(VGSI.isEmpty()) {
                             VGSI = ctx.getString(R.string.No);
                         }
                         Pattern = c.getString(c.getColumnIndex(LocationContract.AIRPORT_RUNWAYS_HE_PATTERN));

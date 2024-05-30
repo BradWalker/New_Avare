@@ -170,7 +170,7 @@ public class SkyCondition {
 			temp += " (cumulonimbus)";
 		} else if (isToweringCumulus) {
 			temp += " (towering cumulus)";
-		} else if ((modifier != null) && !modifier.equals("")) {
+		} else if ((modifier != null) && !modifier.isEmpty()) {
 			temp += "("+modifier+")";
 		}
 

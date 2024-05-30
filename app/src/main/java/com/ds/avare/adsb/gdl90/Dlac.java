@@ -40,7 +40,7 @@ public class Dlac {
         if (null == in) {
             return in;
         }
-        if (!in.equals("")) {
+        if (!in.isEmpty()) {
             in = in.split("\u001E")[0];
             in = in.replaceAll("\n\t[A-Z]{1}", "\n"); /* remove invalid chars after newline */
         }

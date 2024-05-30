@@ -53,7 +53,7 @@ public class Favorites {
             if((dbType.equals(Destination.GPS) && destType.equals(Destination.GPS) || (dbType.equals(Destination.MAPS) && destType.equals(Destination.MAPS)))) {
                 s = StringPreference.parseHashedNameId(s);
                 id = StringPreference.parseHashedNameIdBefore(s);
-                if(id.equals("")) { // not a favorite GPS destination
+                if(id.isEmpty()) { // not a favorite GPS destination
                     continue;
                 }
                 String after = StringPreference.parseHashedNameIdAfter(s);

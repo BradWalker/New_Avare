@@ -40,7 +40,7 @@ public class Id413Product extends Product {
         }
 
         mText = Dlac.format(mText);
-        if (!mText.equals("")) {
+        if (!mText.isEmpty()) {
             mParts = mText.split(" ", 3);
             Logger.Logit(mText);
         }

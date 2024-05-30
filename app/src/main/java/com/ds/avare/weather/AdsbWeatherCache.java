@@ -279,7 +279,7 @@ public class AdsbWeatherCache {
         }
         s.setTimestamp(System.currentTimeMillis());
 
-        if(text != null && (!text.equals(""))) {
+        if(text != null && (!text.isEmpty())) {
 
             s.setHazard("ALL"); // for unknown types
             s.setMaxFt("");
@@ -318,17 +318,17 @@ public class AdsbWeatherCache {
             }
         }
 
-        if(from != null && (!from.equals(""))) {
+        if(from != null && (!from.isEmpty())) {
             s.setTimeFrom(from);
         }
 
-        if(to != null && (!to.equals(""))) {
+        if(to != null && (!to.isEmpty())) {
             s.setTimeTo(to);
         }
 
 
         // Make shapes
-        if(shape.equals("polygon") && points != null && (!points.equals(""))) {
+        if(shape.equals("polygon") && points != null && (!points.isEmpty())) {
             s.setPoints(points);
             // Only draw polygons
             s.setShape(new MetShape(s.getRawText() == null ? "" : s.getRawText(), new Date(time)));

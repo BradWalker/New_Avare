@@ -181,10 +181,10 @@ public class LmfsPlan {
         aircraftColor = StorageService.getInstance().getAircraft().getColor();
 		fuelEndurance = String.valueOf(StorageService.getInstance().getAircraft().getEndurance());
 
-        if(surveillanceEquipment == null || surveillanceEquipment.equals("")) {
+        if(surveillanceEquipment == null || surveillanceEquipment.isEmpty()) {
             surveillanceEquipment = "N";
         }
-        if(aircraftEquipment == null || aircraftEquipment.equals("")) {
+        if(aircraftEquipment == null || aircraftEquipment.isEmpty()) {
             aircraftEquipment = "N";
         }
 		mValid = true;

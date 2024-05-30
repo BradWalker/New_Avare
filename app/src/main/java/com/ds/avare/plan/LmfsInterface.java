@@ -152,7 +152,7 @@ public class LmfsInterface {
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);
-		if(!loc.equals("")) {
+		if(!loc.isEmpty()) {
 			// Only when overdue
 			params.put("closeDestinationInfo", loc);
 		}

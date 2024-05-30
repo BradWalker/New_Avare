@@ -189,7 +189,7 @@ public class Cifp {
             int altidx = 0;
 
             for (String wp : wps) {
-                if(last.equals(wp) || wp.equals("")) {
+                if(last.equals(wp) || wp.isEmpty()) {
                     altidx++;
                     continue;
                 }

@@ -226,31 +226,31 @@ public class WindsAloft {
             }
 
             w0k = String.format("%02d%02d", (int)mdir, (int)mspeed);
-            if (w3k.equals("")) {
+            if (w3k.isEmpty()) {
                 w3k = w0k;
             }
-            if (w6k.equals("")) {
+            if (w6k.isEmpty()) {
                 w6k = w0k;
             }
-            if (w9k.equals("")) {
+            if (w9k.isEmpty()) {
                 w9k = w0k;
             }
-            if (w12k.equals("")) {
+            if (w12k.isEmpty()) {
                 w12k = w0k;
             }
-            if (w18k.equals("")) {
+            if (w18k.isEmpty()) {
                 w18k = w0k;
             }
-            if (w24k.equals("")) {
+            if (w24k.isEmpty()) {
                 w24k = w0k;
             }
-            if (w30k.equals("")) {
+            if (w30k.isEmpty()) {
                 w30k = w0k;
             }
-            if (w34k.equals("")) {
+            if (w34k.isEmpty()) {
                 w34k = w0k;
             }
-            if (w39k.equals("")) {
+            if (w39k.isEmpty()) {
                 w39k = w0k;
             }
         }
@@ -261,31 +261,31 @@ public class WindsAloft {
         // wind_intercept = wind_at_lower_altitude - slope * lower_altitude
 
         // fill missing wind from higher altitude
-        if(w34k.equals("")) {
+        if(w34k.isEmpty()) {
             w34k = w39k;
         }
-        if(w30k.equals("")) {
+        if(w30k.isEmpty()) {
             w30k = w34k;
         }
-        if(w24k.equals("")) {
+        if(w24k.isEmpty()) {
             w24k = w30k;
         }
-        if(w18k.equals("")) {
+        if(w18k.isEmpty()) {
             w18k = w24k;
         }
-        if(w12k.equals("")) {
+        if(w12k.isEmpty()) {
             w12k = w18k;
         }
-        if(w9k.equals("")) {
+        if(w9k.isEmpty()) {
             w9k = w12k;
         }
-        if(w6k.equals("")) {
+        if(w6k.isEmpty()) {
             w6k = w9k;
         }
-        if(w3k.equals("")) {
+        if(w3k.isEmpty()) {
             w3k = w6k;
         }
-        if(w0k.equals("")) {
+        if(w0k.isEmpty()) {
             w0k = w3k;
         }
         wind[0] = 0;

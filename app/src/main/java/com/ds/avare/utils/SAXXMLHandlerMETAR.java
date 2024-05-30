@@ -58,7 +58,7 @@ public class SAXXMLHandlerMETAR extends DefaultHandler {
             mTempCategory = mTempVal;
         }
         if(qName.equalsIgnoreCase("METAR")) {
-            if(mTempText.equals("") || mTempCategory.equals("")) {
+            if(mTempText.isEmpty() || mTempCategory.isEmpty()) {
             }
             else {
                 mText.add(mTempCategory + "," + mTempText);

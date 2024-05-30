@@ -180,7 +180,7 @@ public class WebAppPlanInterface implements Observer {
 				}
 			}
 		}
-		if(route.equals("")) {
+		if(route.isEmpty()) {
 			route = LmfsPlan.DIRECT;
 		}
 
@@ -1563,7 +1563,7 @@ public class WebAppPlanInterface implements Observer {
 					/*
 					 *  Get TAFs
 					 */
-					if (!stations.equals("")) {
+					if (!stations.isEmpty()) {
 						String out = NetworkHelper.getTAFPlan(stations);
 						String[] outm = out.split("::::");
 						for (int i = 0; i < outm.length; i++) {
@@ -1586,7 +1586,7 @@ public class WebAppPlanInterface implements Observer {
 					/*
 					 *
 					 */
-					if (!stations.equals("")) {
+					if (!stations.isEmpty()) {
 						String out = NetworkHelper.getMETARPlan(stations);
 						String[] outm = out.split("::::");
 						for (int i = 0; i < outm.length; i++) {
@@ -1618,7 +1618,7 @@ public class WebAppPlanInterface implements Observer {
 						}
 					}
 				}
-				if (!plann.equals("")) {
+				if (!plann.isEmpty()) {
 					plann = plann.replaceAll(",$", "");
 					notams = NetworkHelper.getNotams(plann);
 					if (notams == null) {

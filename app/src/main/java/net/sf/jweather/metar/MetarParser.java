@@ -451,7 +451,7 @@ public class MetarParser {
 
 				visibility = new Float(whole);
 
-				if (!fraction.equals("")) {
+				if (!fraction.isEmpty()) {
 					// we have a fraction to convert
 					ArrayList frac = new ArrayList();
 					try {

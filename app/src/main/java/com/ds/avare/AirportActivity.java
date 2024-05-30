@@ -215,20 +215,20 @@ public class AirportActivity extends BaseActivity implements Observer {
             // Create the string for the first frequency/phone pair
             String f1 = awos1.getFreq1();
             String p1 = awos1.getPhone1();
-            separator = (f1.equals("") || p1.equals("")) ? "" : " / ";
-            if (!f1.equals("") || !p1.equals("")) {
+            separator = (f1.isEmpty() || p1.isEmpty()) ? "" : " / ";
+            if (!f1.isEmpty() || !p1.isEmpty()) {
                 f1p1 = f1 + separator + p1;
             }
             // Create the string for the second frequency/phone pair
             String f2 = awos1.getFreq2();
             String p2 = awos1.getPhone2();
-            separator = (f2.equals("") || p2.equals("")) ? "" : " / ";
-            if (!f2.equals("") || !p2.equals("")) {
+            separator = (f2.isEmpty() || p2.isEmpty()) ? "" : " / ";
+            if (!f2.isEmpty() || !p2.isEmpty()) {
                 f2p2 = "\n" + f2 + separator + p2;
             }
             // Create the string for the remarks
             String rem = awos1.getRemarks();
-            if (!rem.equals("") && (!f1p1.equals("") || !f2p2.equals(""))) {
+            if (!rem.isEmpty() && (!f1p1.isEmpty() || !f2p2.isEmpty())) {
                 rem = "\n\n" + rem;
             }
 

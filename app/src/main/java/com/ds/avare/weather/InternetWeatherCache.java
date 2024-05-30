@@ -130,16 +130,16 @@ public class InternetWeatherCache {
                     b.append(asm.getReportType());
                     b.append(" ");
                     b.append(asm.getHazard());
-                    if(!asm.getSeverity().equals("")) {
+                    if(!asm.getSeverity().isEmpty()) {
                         b.append(" ");
                         b.append(asm.getSeverity());
                     }
                     b.append("\n");
-                    if(!asm.getMinFt().equals("")) {
+                    if(!asm.getMinFt().isEmpty()) {
                         b.append(asm.getMinFt());
                         b.append(" to ");
                     }
-                    if(!asm.getMaxFt().equals("")) {
+                    if(!asm.getMaxFt().isEmpty()) {
                         b.append(asm.getMaxFt());
                         b.append(" ft MSL");
                     }
