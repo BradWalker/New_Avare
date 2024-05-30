@@ -116,7 +116,7 @@ public class PfdActivity extends BaseActivity {
         setContentView(view);
 
         mPitotStaticRates = new PitotStaticRates();
-        mPfdView = (PfdView) view.findViewById(R.id.pfd_view);
+        mPfdView = view.findViewById(R.id.pfd_view);
 
 
     }

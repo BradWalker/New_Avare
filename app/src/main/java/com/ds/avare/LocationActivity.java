@@ -386,7 +386,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.location, null);
         setContentView(view);
-        mLocationView = (LocationView)view.findViewById(R.id.location);
+        mLocationView = view.findViewById(R.id.location);
 
         mMenuOut = false;
 
@@ -481,7 +481,7 @@ public class LocationActivity extends BaseActivity implements Observer {
 
         });
 
-        mChartOption = (OptionButton)view.findViewById(R.id.location_spinner_chart);
+        mChartOption = view.findViewById(R.id.location_spinner_chart);
         mChartOption.setCallback(new GenericCallback() {
             @Override
             public Object callback(Object o, Object o1) {
@@ -512,7 +512,7 @@ public class LocationActivity extends BaseActivity implements Observer {
             );
         }
 
-        mLayerOption = (OptionButton)view.findViewById(R.id.location_spinner_layer);
+        mLayerOption = view.findViewById(R.id.location_spinner_layer);
         mLayerOption.setCallback(new GenericCallback() {
             @Override
             public Object callback(Object o, Object o1) {
@@ -522,7 +522,7 @@ public class LocationActivity extends BaseActivity implements Observer {
             }
         });
 
-        mCenterButton = (ImageButton)view.findViewById(R.id.location_button_center);
+        mCenterButton = view.findViewById(R.id.location_button_center);
         mCenterButton.getBackground().setAlpha(255);
         mCenterButton.setOnClickListener(new OnClickListener() {
 
@@ -552,7 +552,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         });
 
 
-        mMenuButton = (Button)view.findViewById(R.id.location_button_menu);
+        mMenuButton = view.findViewById(R.id.location_button_menu);
         mMenuButton.getBackground().setAlpha(255);
         mMenuButton.setOnClickListener(new OnClickListener() {
 
@@ -563,7 +563,7 @@ public class LocationActivity extends BaseActivity implements Observer {
 
         });
 
-        mHelpButton = (Button)view.findViewById(R.id.location_button_help);
+        mHelpButton = view.findViewById(R.id.location_button_help);
         mHelpButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -576,7 +576,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         });
 
 
-        mDrawClearButton = (Button)view.findViewById(R.id.location_button_draw_clear);
+        mDrawClearButton = view.findViewById(R.id.location_button_draw_clear);
         mDrawClearButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -587,7 +587,7 @@ public class LocationActivity extends BaseActivity implements Observer {
             }
         });
 
-        mDownloadButton = (Button)view.findViewById(R.id.location_button_dl);
+        mDownloadButton = view.findViewById(R.id.location_button_dl);
         mDownloadButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -598,7 +598,7 @@ public class LocationActivity extends BaseActivity implements Observer {
             }
         });
 
-        mPrefButton = (Button)view.findViewById(R.id.location_button_pref);
+        mPrefButton = view.findViewById(R.id.location_button_pref);
         mPrefButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -612,7 +612,7 @@ public class LocationActivity extends BaseActivity implements Observer {
 
         });
 
-        mWebButton = (Button)view.findViewById(R.id.location_button_sos);
+        mWebButton = view.findViewById(R.id.location_button_sos);
         mWebButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -651,7 +651,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         });
 
 
-        mSimButton = (TwoButton)view.findViewById(R.id.location_button_sim);
+        mSimButton = view.findViewById(R.id.location_button_sim);
         if(mPref.isSimulationMode()) {
             mSimButton.setText(getString(R.string.SimulationMode));
             mSimButton.setChecked(true);
@@ -688,7 +688,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         /*
          * Draw
          */
-        mDrawButton = (TwoButton)view.findViewById(R.id.location_button_draw);
+        mDrawButton = view.findViewById(R.id.location_button_draw);
         mDrawButton.setTwoClickListener(new TwoClickListener() {
 
             @Override
@@ -715,7 +715,7 @@ public class LocationActivity extends BaseActivity implements Observer {
          * The tracking button handler. Enable/Disable the saving of track points
          * to a KML file
          */
-        mTracksButton = (TwoButton)view.findViewById(R.id.location_button_tracks);
+        mTracksButton = view.findViewById(R.id.location_button_tracks);
         mTracksButton.setTwoClickListener(new TwoClickListener() {
 
             @Override
@@ -789,7 +789,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         // activated.
 
         // Previous - set next destination to the previous waypoint
-        mPlanPrev = (Button)view.findViewById(R.id.plan_prev);
+        mPlanPrev = view.findViewById(R.id.plan_prev);
         mPlanPrev.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -803,7 +803,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         });
 
         // Pause - Do no process any waypoint passage logic
-        mPlanPause = (ImageButton)view.findViewById(R.id.plan_pause);
+        mPlanPause = view.findViewById(R.id.plan_pause);
         mPlanPause.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -821,7 +821,7 @@ public class LocationActivity extends BaseActivity implements Observer {
         });
 
         // Next - advance the destination to the next waypoint
-        mPlanNext = (Button)view.findViewById(R.id.plan_next);
+        mPlanNext = view.findViewById(R.id.plan_next);
         mPlanNext.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -1365,7 +1365,7 @@ public class LocationActivity extends BaseActivity implements Observer {
                     mToast.show();
                     return;
                 }
-                if((Destination)arg0 != mDestination) {
+                if(arg0 != mDestination) {
                     /*
                      * If user presses a selection repeatedly, reject previous
                      */

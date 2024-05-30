@@ -113,7 +113,7 @@ public class PlanActivity extends BaseActivity {
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.plan, null);
         setContentView(view);
-        mWebView = (WebView)view.findViewById(R.id.plan_mainpage);
+        mWebView = view.findViewById(R.id.plan_mainpage);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
         mInfc = new WebAppPlanInterface(mWebView, new GenericCallback() {
@@ -189,11 +189,11 @@ public class PlanActivity extends BaseActivity {
         /*
          * Progress bar
          */
-        mProgressBarSearch = (ProgressBar)(view.findViewById(R.id.plan_load_progress));
+        mProgressBarSearch = view.findViewById(R.id.plan_load_progress);
         mProgressBarSearch.setVisibility(View.VISIBLE);
 
         
-        mBackButton = (Button)view.findViewById(R.id.plan_button_back);
+        mBackButton = view.findViewById(R.id.plan_button_back);
         mBackButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -202,7 +202,7 @@ public class PlanActivity extends BaseActivity {
             }
         });
 
-        mForwardButton = (Button)view.findViewById(R.id.plan_button_forward);
+        mForwardButton = view.findViewById(R.id.plan_button_forward);
         mForwardButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -212,7 +212,7 @@ public class PlanActivity extends BaseActivity {
             
         });
 
-        mActivateButton = (Button)view.findViewById(R.id.plan_button_activate);
+        mActivateButton = view.findViewById(R.id.plan_button_activate);
         mActivateButton.setOnClickListener(new OnClickListener() {
 
             @Override

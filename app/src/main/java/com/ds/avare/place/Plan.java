@@ -526,7 +526,7 @@ public class Plan implements Observer {
             GpsParams params = new GpsParams(
                     mDestination[findNextNotPassed()].getLocation());
             // Set speed to the aircraft TAS in simulation mode
-            params.setSpeed((int)mService.getAircraft().getCruiseTas());
+            params.setSpeed(mService.getAircraft().getCruiseTas());
             params.setAltitude(mAltitude);
             updateLocation(params);
         }

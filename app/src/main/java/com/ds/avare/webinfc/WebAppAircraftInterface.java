@@ -111,7 +111,7 @@ public class WebAppAircraftInterface {
         LinkedList<WeightAndBalance> wnbs = mService.getDBResource().getUserWnbs();
 
         for (WeightAndBalance wnb : wnbs) {
-            Message m = mHandler.obtainMessage(MSG_ADD_WNB_SAVE, (Object)("'" + Helper.formatJsArgs(wnb.getName()) + "'"));
+            Message m = mHandler.obtainMessage(MSG_ADD_WNB_SAVE, "'" + Helper.formatJsArgs(wnb.getName()) + "'");
             mHandler.sendMessage(m);
         }
     }
@@ -177,7 +177,7 @@ public class WebAppAircraftInterface {
         LinkedList<Aircraft> ac = mService.getDBResource().getUserAircraft();
 
         for (Aircraft a : ac) {
-            Message m = mHandler.obtainMessage(MSG_ADD_AC_SAVE, (Object)("'" + Helper.formatJsArgs(a.getId()) + "'"));
+            Message m = mHandler.obtainMessage(MSG_ADD_AC_SAVE, "'" + Helper.formatJsArgs(a.getId()) + "'");
             mHandler.sendMessage(m);
         }
 
@@ -246,7 +246,7 @@ public class WebAppAircraftInterface {
      */
     public void addItemToList(String item) {
     	// Add using javascript to show on page, strings require '' around them
-    	Message m = mHandler.obtainMessage(MSG_ADD_LIST, (Object)("'" + Helper.formatJsArgs(item) + "'"));
+    	Message m = mHandler.obtainMessage(MSG_ADD_LIST, "'" + Helper.formatJsArgs(item) + "'");
     	mHandler.sendMessage(m);
     }
 
@@ -262,7 +262,7 @@ public class WebAppAircraftInterface {
         }
 
         for (Checklist cl : lists) {
-        	Message m = mHandler.obtainMessage(MSG_ADD_LIST_SAVE, (Object)("'" + Helper.formatJsArgs(cl.getName()) + "'"));
+        	Message m = mHandler.obtainMessage(MSG_ADD_LIST_SAVE, "'" + Helper.formatJsArgs(cl.getName()) + "'");
         	mHandler.sendMessage(m);
         }
     }
@@ -580,7 +580,7 @@ public class WebAppAircraftInterface {
         		mWebView.loadUrl("javascript:list_clear()");
         	}
         	else if(MSG_ADD_LIST == msg.what) {
-            	String func = "javascript:list_add(" + (String)msg.obj + ")";
+            	String func = "javascript:list_add(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_CLEAR_LIST_SAVE == msg.what) {
@@ -588,14 +588,14 @@ public class WebAppAircraftInterface {
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_ADD_LIST_SAVE == msg.what) {
-            	String func = "javascript:save_add(" + (String)msg.obj + ")";
+            	String func = "javascript:save_add(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_NOTBUSY == msg.what) {
-        		mCallback.callback((Object) AircraftActivity.UNSHOW_BUSY, null);
+        		mCallback.callback(AircraftActivity.UNSHOW_BUSY, null);
         	}
         	else if(MSG_BUSY == msg.what) {
-        		mCallback.callback((Object) AircraftActivity.SHOW_BUSY, null);
+        		mCallback.callback(AircraftActivity.SHOW_BUSY, null);
         	}
             else if(MSG_UPDATE_WNB == msg.what) {
                 /*
@@ -611,7 +611,7 @@ public class WebAppAircraftInterface {
                 }
             }
             else if(MSG_ADD_WNB_SAVE == msg.what) {
-                String func = "javascript:wnb_save_add(" + (String)msg.obj + ")";
+                String func = "javascript:wnb_save_add(" + msg.obj + ")";
                 mWebView.loadUrl(func);
             }
             else if(MSG_CLEAR_WNB_SAVE == msg.what) {
@@ -630,7 +630,7 @@ public class WebAppAircraftInterface {
                 }
             }
             else if(MSG_ADD_AC_SAVE == msg.what) {
-                String func = "javascript:ac_save_add(" + (String)msg.obj + ")";
+                String func = "javascript:ac_save_add(" + msg.obj + ")";
                 mWebView.loadUrl(func);
             }
             else if(MSG_CLEAR_AC_SAVE == msg.what) {

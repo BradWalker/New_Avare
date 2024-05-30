@@ -129,7 +129,7 @@ public class Delete extends Observable {
                     mHandler.sendMessage(m);
                     return;
                 }
-                newp = (int) (total * 50 / fileLength);
+                newp = total * 50 / fileLength;
                 
                 Helper.deleteDir(new File(name));
                 

@@ -108,14 +108,14 @@ public class BufferProcessor {
                 RTMMessage tm = (RTMMessage)m;
                 try {
                     object.put("type", "traffic");
-                    object.put("longitude", (double)tm.mLon);
-                    object.put("latitude", (double)tm.mLat);
+                    object.put("longitude", tm.mLon);
+                    object.put("latitude", tm.mLat);
                     object.put("speed", (double)(tm.mSpeed));
                     object.put("bearing", (double)tm.mDirection);
-                    object.put("altitude", (double)((double)tm.mAltitude));
-                    object.put("callsign", (String)"");
-                    object.put("address", (int)tm.mIcaoAddress);
-                    object.put("time", (long)tm.getTime());
+                    object.put("altitude", (double)tm.mAltitude);
+                    object.put("callsign", "");
+                    object.put("address", tm.mIcaoAddress);
+                    object.put("time", tm.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }                
@@ -133,12 +133,12 @@ public class BufferProcessor {
                 Ownship om = nmeaOwnship;
                 try {
                     object.put("type", "ownship");
-                    object.put("longitude", (double)om.mLon);
-                    object.put("latitude", (double)om.mLat);
+                    object.put("longitude", om.mLon);
+                    object.put("latitude", om.mLat);
                     object.put("speed", (double)(om.mHorizontalVelocity));
                     object.put("bearing", (double)om.mDirection);
-                    object.put("altitude", (double)((double)om.mAltitude));
-                    object.put("time", (long)om.getTime());
+                    object.put("altitude", (double)om.mAltitude);
+                    object.put("time", om.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }
@@ -166,16 +166,16 @@ public class BufferProcessor {
                 TrafficReportMessage tm = (TrafficReportMessage)m;
                 try {
                     object.put("type", "traffic");
-                    object.put("longitude", (double)tm.mLon);
-                    object.put("latitude", (double)tm.mLat);
+                    object.put("longitude", tm.mLon);
+                    object.put("latitude", tm.mLat);
                     object.put("isairborne", tm.mIsAirborne);
                     object.put("speed", (double)(tm.mHorizVelocity));
                     object.put("vspeed", tm.mVertVelocity);
-                    object.put("bearing", (double)tm.mHeading);
-                    object.put("altitude", (double)((double)tm.mAltitude));
-                    object.put("callsign", (String)tm.mCallSign);
-                    object.put("address", (int)tm.mIcaoAddress);
-                    object.put("time", (long)tm.getTime());
+                    object.put("bearing", tm.mHeading);
+                    object.put("altitude", (double)tm.mAltitude);
+                    object.put("callsign", tm.mCallSign);
+                    object.put("address", tm.mIcaoAddress);
+                    object.put("time", tm.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }                
@@ -193,14 +193,14 @@ public class BufferProcessor {
                 BasicReportMessage tm = (BasicReportMessage)m;
                 try {
                     object.put("type", "traffic");
-                    object.put("longitude", (double)tm.mLon);
-                    object.put("latitude", (double)tm.mLat);
+                    object.put("longitude", tm.mLon);
+                    object.put("latitude", tm.mLat);
                     object.put("speed", (double)(tm.mSpeed));
-                    object.put("bearing", (double)tm.mHeading);
-                    object.put("altitude", (double)((double)tm.mAltitude));
-                    object.put("callsign", (String)tm.mCallSign);
-                    object.put("address", (int)tm.mIcaoAddress);
-                    object.put("time", (long)tm.getTime());
+                    object.put("bearing", tm.mHeading);
+                    object.put("altitude", (double)tm.mAltitude);
+                    object.put("callsign", tm.mCallSign);
+                    object.put("address", tm.mIcaoAddress);
+                    object.put("time", tm.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }
@@ -230,7 +230,7 @@ public class BufferProcessor {
                     object.put("airspeed", tm.mAirspeed);
                     object.put("altitude", tm.mAltitude);
                     object.put("vsi", tm.mVsi);
-                    object.put("time", (long)tm.getTime());
+                    object.put("time", tm.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }
@@ -248,14 +248,14 @@ public class BufferProcessor {
                 LongReportMessage tm = (LongReportMessage)m;
                 try {
                     object.put("type", "traffic");
-                    object.put("longitude", (double)tm.mLon);
-                    object.put("latitude", (double)tm.mLat);
+                    object.put("longitude", tm.mLon);
+                    object.put("latitude", tm.mLat);
                     object.put("speed", (double)(tm.mSpeed));
-                    object.put("bearing", (double)tm.mHeading);
-                    object.put("altitude", (double)((double)tm.mAltitude));
-                    object.put("callsign", (String)tm.mCallSign);
-                    object.put("address", (int)tm.mIcaoAddress);
-                    object.put("time", (long)tm.getTime());
+                    object.put("bearing", tm.mHeading);
+                    object.put("altitude", (double)tm.mAltitude);
+                    object.put("callsign", tm.mCallSign);
+                    object.put("address", tm.mIcaoAddress);
+                    object.put("time", tm.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }
@@ -268,13 +268,13 @@ public class BufferProcessor {
                 try {
                     object.put("type", "geoaltitude");
 
-                    int altitude = (int)((OwnshipGeometricAltitudeMessage)m).mAltitudeWGS84;
+                    int altitude = ((OwnshipGeometricAltitudeMessage)m).mAltitudeWGS84;
                     if(altitude == Integer.MIN_VALUE) {
                         // invalid
                         continue;
                     }
                     object.put("altitude", (double) altitude);
-                    object.put("time", (long) m.getTime());
+                    object.put("time", m.getTime());
                 } catch (JSONException e1) {
                     continue;
                 }
@@ -341,7 +341,7 @@ public class BufferProcessor {
                     
                         try {
                             object.put("type", "nexrad");
-                            object.put("time", (long)pn.getTime().getTimeInMillis());
+                            object.put("time", pn.getTime().getTimeInMillis());
                             object.put("conus", pn.isConus());
                             object.put("blocknumber", (long)pn.getBlockNumber());
                             object.put("x", Constants.COLS_PER_BIN);
@@ -364,7 +364,7 @@ public class BufferProcessor {
                         
                         String data = pn.getData();
                         String type = pn.getHeader();
-                        long time = (long)pn.getTime().getTimeInMillis();
+                        long time = pn.getTime().getTimeInMillis();
                         
                         /*
                          * Clear garbage spaces etc. Convert to Avare format
@@ -514,15 +514,15 @@ public class BufferProcessor {
                 OwnshipMessage om = (OwnshipMessage)m;
                 try {
                     object.put("type", "ownship");
-                    object.put("longitude", (double)om.mLon);
-                    object.put("latitude", (double)om.mLat);
+                    object.put("longitude", om.mLon);
+                    object.put("latitude", om.mLat);
                     object.put("isairborne", om.mIsAirborne);
                     object.put("speed", (double)(om.mHorizontalVelocity));
                     object.put("vspeed", om.mVerticalVelocity);
-                    object.put("bearing", (double)om.mDirection);
-                    object.put("time", (long)om.getTime());
+                    object.put("bearing", om.mDirection);
+                    object.put("time", om.getTime());
                     object.put("altitude", (double) om.mAltitude);
-                    object.put("address", (int)om.mIcaoAddress);
+                    object.put("address", om.mIcaoAddress);
                 } catch (JSONException e1) {
                     continue;
                 }

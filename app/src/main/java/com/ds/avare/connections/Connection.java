@@ -177,7 +177,7 @@ public abstract class Connection {
             @Override
             public void run() {
                 mRunning = true;
-                mCb.callback((Object) mService.getPreferences(), null);
+                mCb.callback(mService.getPreferences(), null);
             }
         };
         mThread.start();

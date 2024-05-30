@@ -46,8 +46,8 @@ public class FileFragment extends IOFragment {
 
         View view = inflater.inflate(R.layout.layout_play, container, false);
 
-        mTextFile = (SavedEditText)view.findViewById(R.id.main_file_name);
-        mConnectButton = (Button)view.findViewById(R.id.main_button_connect_file);
+        mTextFile = view.findViewById(R.id.main_file_name);
+        mConnectButton = view.findViewById(R.id.main_button_connect_file);
         mConnectButton.setOnClickListener(new OnClickListener() {
             
             @Override

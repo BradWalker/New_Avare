@@ -92,12 +92,12 @@ public class RegisterActivity extends BaseActivity {
         // do not compress buttons but pan
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        mEmailEditText = (EditText) findViewById(R.id.edittext_register);
-        mButtonRegister = (Button) findViewById(R.id.btn_register);
+        mEmailEditText = findViewById(R.id.edittext_register);
+        mButtonRegister = findViewById(R.id.btn_register);
         /*
          * privacy policy load
          */
-        mPrivacy = (WebView)findViewById(R.id.privacy_webview);
+        mPrivacy = findViewById(R.id.privacy_webview);
         mPrivacy.loadUrl(com.ds.avare.utils.Helper.getWebViewFile(getApplicationContext(), "privacy"));
 
         // Check if Internet present

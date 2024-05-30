@@ -45,11 +45,11 @@ public class USBOutFragment extends IOFragment {
 
         View view = inflater.inflate(R.layout.layout_usbout, container, false);
 
-        mParamsText = (SavedEditText) view.findViewById(R.id.usbout_params_text);
+        mParamsText = view.findViewById(R.id.usbout_params_text);
 
         mUSB = ConnectionFactory.getConnection(ConnectionFactory.CF_USBConnectionOut, mContext);
 
-        mConnectButton = (Button) view.findViewById(R.id.usbout_button_connect);
+        mConnectButton = view.findViewById(R.id.usbout_button_connect);
         mConnectButton.setOnClickListener(new OnClickListener() {
 
             @Override

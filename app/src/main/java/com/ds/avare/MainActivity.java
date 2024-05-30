@@ -148,9 +148,9 @@ public class MainActivity extends TabActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.main);
-        mScrollView = (HorizontalScrollView)findViewById(R.id.tabscroll);
-        mTextView = (TextView)findViewById(R.id.main_textview);
-        mButton = (Button)findViewById(R.id.main_button);
+        mScrollView = findViewById(R.id.tabscroll);
+        mTextView = findViewById(R.id.main_textview);
+        mButton = findViewById(R.id.main_button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -230,7 +230,7 @@ public class MainActivity extends TabActivity {
      */
     private View createTabView(Context context, String text) {
         View view = LayoutInflater.from(context).inflate(R.layout.tabs_bg, null);
-        TextView tv = (TextView) view.findViewById(R.id.tabs_text);
+        TextView tv = view.findViewById(R.id.tabs_text);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.adjustTextSize(context, R.dimen.TextSize) * 0.9f);
         tv.setText(text);
         return view;

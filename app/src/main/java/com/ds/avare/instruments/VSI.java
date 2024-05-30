@@ -34,7 +34,7 @@ public class VSI {
         double tdiff = ((double)(gpsParams.getTime() - mVSIParams.getTime()) / 1000.0);
     	// Calculate the instantaneous vertical speed in ft/min if it's been more than a minute
     	if(tdiff > 1) {
-    		mVSI = ((double)(gpsParams.getAltitude() - mVSIParams.getAltitude())) * (60 / tdiff);
+    		mVSI = (gpsParams.getAltitude() - mVSIParams.getAltitude()) * (60 / tdiff);
     		mVSIParams = gpsParams;
     	}
 	}

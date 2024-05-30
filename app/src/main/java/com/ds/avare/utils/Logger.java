@@ -29,7 +29,7 @@ public class Logger {
 
     public static void Logit(String msg) {
         Message m = mHandler.obtainMessage();
-        m.obj = (Object)msg;
+        m.obj = msg;
         mHandler.sendMessage(m);
     }
 

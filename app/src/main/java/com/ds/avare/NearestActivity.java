@@ -138,7 +138,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
         /*
          * Dest button
          */
-        mButtonFuel = (Button)view.findViewById(R.id.nearest_button_fuel);
+        mButtonFuel = view.findViewById(R.id.nearest_button_fuel);
         mButtonFuel.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -165,7 +165,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
         /*
          * Dest button
          */
-        mButton2000 = (Button)view.findViewById(R.id.nearest_button_2000);
+        mButton2000 = view.findViewById(R.id.nearest_button_2000);
         mButton2000.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -191,7 +191,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
         /*
          * Dest button
          */
-        mButton4000 = (Button)view.findViewById(R.id.nearest_button_4000);
+        mButton4000 = view.findViewById(R.id.nearest_button_4000);
         mButton4000.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -218,7 +218,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
         /*
          * Dest button
          */
-        mButton6000 = (Button)view.findViewById(R.id.nearest_button_6000);
+        mButton6000 = view.findViewById(R.id.nearest_button_6000);
         mButton6000.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -242,7 +242,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
             
         });
 
-        mNearest = (ListView)view.findViewById(R.id.nearest_list);
+        mNearest = view.findViewById(R.id.nearest_list);
 
         mDestinationAlertDialog = new DestinationAlertDialog(NearestActivity.this);
         mDestinationAlertDialog.setCallback(
@@ -485,7 +485,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
                     mToast.show();
                     return;
                 }
-                if((Destination)arg0 != mDestination) {
+                if(arg0 != mDestination) {
                     /*
                      * If user presses a selection repeatedly, reject previous
                      */

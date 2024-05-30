@@ -51,13 +51,13 @@ public class RMCMessage extends Message {
         double tmp1;
         try {
             tmp = Double.parseDouble(tokens[3]);
-            tmp1 = (double)((int)tmp / (int)100);
+            tmp1 = (int)tmp / 100;
             mLat = (float)(tmp - (tmp1 * 100.0)) / 60.f + (float)tmp1;
             if(tokens[4].equals("S")) {
                 mLat = -mLat;
             }
             tmp = Double.parseDouble(tokens[5]);
-            tmp1 = (double)((int)tmp / (int)100);
+            tmp1 = (int)tmp / 100;
             mLon = (float)(tmp - (tmp1 * 100.0)) / 60.f + (float)tmp1;
             if(tokens[6].equals("W")) {
                 mLon = -mLon;

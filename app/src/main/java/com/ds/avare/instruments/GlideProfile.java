@@ -112,7 +112,7 @@ public class GlideProfile {
         }
 
         int stepSizeDirection =
-                (int)(360 / DIRECTION_STEPS);
+                360 / DIRECTION_STEPS;
 
         // calculate airspeed from ground speed, direction, and wind speed.
         double[] waa = wa.getWindAtAltitude(altitudeGps, metarWinds);
@@ -124,7 +124,7 @@ public class GlideProfile {
         // Put wind/elevation/airspeed in string. this will be shown on the ring
         mWind = String.format("w%03d@%d/t%d", (int)waa[1],
                 (int)(waa[0] / Preferences.feetConversion * 3600),
-                (int)((double)as * 3600 / Preferences.feetConversion));
+                (int)(as * 3600 / Preferences.feetConversion));
 
         // calculate winds from current altitude to ground.
         for(int dir = 0; dir < DIRECTION_STEPS; dir++) {
@@ -216,7 +216,7 @@ public class GlideProfile {
         /*
          * Draw the shape
          */
-        int stepSizeDirection = (int)(360 / DIRECTION_STEPS);
+        int stepSizeDirection = 360 / DIRECTION_STEPS;
 
         double dist = mDistanceTotal[0];
         double angle = 0;

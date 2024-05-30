@@ -65,14 +65,14 @@ public class GPSSimulatorFragment extends IOFragment {
 
         View view = inflater.inflate(R.layout.layout_gpssim, container, false);
 
-        mLandAtCb = (SavedCheckbox)view.findViewById(R.id.main_button_gpssim_land_at);
-        mFlyToCb = (SavedCheckbox)view.findViewById(R.id.main_button_gpssim_fly_to);
-        mTextLon = (SavedEditText)view.findViewById(R.id.main_gpssim_lon);
-        mTextLat = (SavedEditText)view.findViewById(R.id.main_gpssim_lat);
-        mTextAltitude = (SavedEditText)view.findViewById(R.id.main_gpssim_altitude);
-        mTextSpeed = (SavedEditText)view.findViewById(R.id.main_gpssim_speed);
-        mTextHeading = (SavedEditText)view.findViewById(R.id.main_gpssim_heading);
-        mButtonStart = (Button)view.findViewById(R.id.main_button_gpssim_start);
+        mLandAtCb = view.findViewById(R.id.main_button_gpssim_land_at);
+        mFlyToCb = view.findViewById(R.id.main_button_gpssim_fly_to);
+        mTextLon = view.findViewById(R.id.main_gpssim_lon);
+        mTextLat = view.findViewById(R.id.main_gpssim_lat);
+        mTextAltitude = view.findViewById(R.id.main_gpssim_altitude);
+        mTextSpeed = view.findViewById(R.id.main_gpssim_speed);
+        mTextHeading = view.findViewById(R.id.main_gpssim_heading);
+        mButtonStart = view.findViewById(R.id.main_button_gpssim_start);
 
         mButtonStart.setOnClickListener(new OnClickListener() {
             @Override

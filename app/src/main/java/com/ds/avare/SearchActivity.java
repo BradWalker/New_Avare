@@ -137,12 +137,12 @@ public class SearchActivity extends BaseActivity implements Observer {
         /*
          * For a search query
          */
-        mSearchListView = (ListView) view.findViewById(R.id.search_list_view);
+        mSearchListView = view.findViewById(R.id.search_list_view);
 
         /*
          * Progress bar
          */
-        mProgressBar = (ProgressBar) (view.findViewById(R.id.search_progress_bar));
+        mProgressBar = view.findViewById(R.id.search_progress_bar);
 
         /*
          * Set on click
@@ -359,7 +359,7 @@ public class SearchActivity extends BaseActivity implements Observer {
         /*
          * For searching, start search on every new key press
          */
-        mSearchText = (EditText)view.findViewById(R.id.search_edit_text);
+        mSearchText = view.findViewById(R.id.search_edit_text);
         mSearchText.addTextChangedListener(new TextWatcher() { 
             @Override
             public void afterTextChanged(Editable arg0) {
@@ -497,7 +497,7 @@ public class SearchActivity extends BaseActivity implements Observer {
                     mToast.show();
                     return;
                 }
-                if((Destination)arg0 != mDestination) {
+                if(arg0 != mDestination) {
                     /*
                      * If user presses a selection repeatedly, reject previous
                      */

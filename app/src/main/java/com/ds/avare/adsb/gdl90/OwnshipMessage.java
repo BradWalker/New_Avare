@@ -51,15 +51,15 @@ public class OwnshipMessage extends Message {
         /*
          * Lon/lat
          */
-        mLat = this.calculateDegrees((int) (msg[4] & 0xFF), (int) (msg[5] & 0xFF), (int) (msg[6] & 0xFF));
-        mLon = this.calculateDegrees((int) (msg[7] & 0xFF), (int) (msg[8] & 0xFF), (int) (msg[9] & 0xFF));
+        mLat = this.calculateDegrees(msg[4] & 0xFF, msg[5] & 0xFF, msg[6] & 0xFF);
+        mLon = this.calculateDegrees(msg[7] & 0xFF, msg[8] & 0xFF, msg[9] & 0xFF);
 
         /*
          * Altitude
          * XXX: Correct for -ve value;
          */
-        int upper = ((int) (msg[10] & 0xFF)) << 4;
-        int lower = ((int) (msg[11] & 0xF0)) >> 4;
+        int upper = (msg[10] & 0xFF) << 4;
+        int lower = (msg[11] & 0xF0) >> 4;
         int alt = upper + lower;
         if (alt == 0xFFF) {
             mAltitude = -305; // -1000 ft
@@ -92,8 +92,8 @@ public class OwnshipMessage extends Message {
         /*
          * Velocity
          */
-        upper = ((int) (msg[13] & 0xFF)) << 4;
-        lower = ((int) (msg[14] & 0xF0)) >> 4;
+        upper = (msg[13] & 0xFF) << 4;
+        lower = (msg[14] & 0xF0) >> 4;
 
         if (upper == 0xFF0 && lower == 0xF) {
             /*
@@ -112,11 +112,11 @@ public class OwnshipMessage extends Message {
          * VS
          */
         if (((int) msg[14] & 0x08) == 0) {
-            mVerticalVelocity = (int) (((int) msg[14] & 0x0F) << 14) + (((int) msg[15] & 0xFF) << 6);
+            mVerticalVelocity = (((int) msg[14] & 0x0F) << 14) + (((int) msg[15] & 0xFF) << 6);
         } else if (msg[15] == 0) {
             mVerticalVelocity = Integer.MAX_VALUE;
         } else {
-            mVerticalVelocity = (int) (((int) msg[14] & 0x0F) << 14) + (((int) msg[15] & 0xFF) << 6) - 0x40000;
+            mVerticalVelocity = (((int) msg[14] & 0x0F) << 14) + (((int) msg[15] & 0xFF) << 6) - 0x40000;
         }
 
         /*
@@ -155,7 +155,7 @@ public class OwnshipMessage extends Message {
 
             position |= 0xFF000000;
 
-            yy = (int) position;
+            yy = position;
             xx = (float) (yy);
         } else {
             xx = (position & 0x7FFFFF);

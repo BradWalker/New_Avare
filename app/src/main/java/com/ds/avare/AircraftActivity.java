@@ -78,7 +78,7 @@ public class AircraftActivity extends BaseActivity {
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.checklist, null);
         setContentView(view);
-        mWebView = (WebView)view.findViewById(R.id.list_mainpage);
+        mWebView = view.findViewById(R.id.list_mainpage);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
         mInfc = new WebAppAircraftInterface(mWebView, new GenericCallback() {
@@ -161,7 +161,7 @@ public class AircraftActivity extends BaseActivity {
         /*
          * Progress bar
          */
-        mProgressBarSearch = (ProgressBar)(view.findViewById(R.id.list_load_progress));
+        mProgressBarSearch = view.findViewById(R.id.list_load_progress);
         mProgressBarSearch.setVisibility(View.VISIBLE);
         
 

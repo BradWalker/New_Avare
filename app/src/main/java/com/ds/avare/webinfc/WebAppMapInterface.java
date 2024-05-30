@@ -189,7 +189,7 @@ public class WebAppMapInterface {
                 mWebView.loadUrl(func);
             }
             else if (MSG_ACTION == msg.what) {
-                mCallback.callback((String)msg.obj, null);
+                mCallback.callback(msg.obj, null);
             }
         }
     };

@@ -153,8 +153,8 @@ public class Layer {
         /*
          * Stretch out the image to fit the projection
          */
-        float scalex = (float)(x1 - x0) / b.getWidth();
-        float scaley = (float)(y1 - y0) / b.getHeight();
+        float scalex = (x1 - x0) / b.getWidth();
+        float scaley = (y1 - y0) / b.getHeight();
         b.getTransform().setScale(scalex, scaley);
         b.getTransform().postTranslate(x0, y0);
 

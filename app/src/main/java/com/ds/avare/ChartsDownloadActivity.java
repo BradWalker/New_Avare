@@ -106,7 +106,7 @@ public class ChartsDownloadActivity extends BaseActivity {
             mChartAdapter.refreshIt();
         }
         
-        ExpandableListView list = (ExpandableListView)view.findViewById(R.id.chart_download_list);
+        ExpandableListView list = view.findViewById(R.id.chart_download_list);
         list.setAdapter(mChartAdapter);
         list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -119,11 +119,11 @@ public class ChartsDownloadActivity extends BaseActivity {
             }
         });
 
-        mWebview = (WebView)view.findViewById(R.id.chart_download_webview);
+        mWebview = view.findViewById(R.id.chart_download_webview);
         mWebview.loadUrl((com.ds.avare.utils.Helper.getWebViewFile(getApplicationContext(), "chart")));
         mWebview.getSettings().setBuiltInZoomControls(true);
 
-        mDLButton = (Button)view.findViewById(R.id.chart_download_button_dl);
+        mDLButton = view.findViewById(R.id.chart_download_button_dl);
         mDLButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -133,7 +133,7 @@ public class ChartsDownloadActivity extends BaseActivity {
             
         });
 
-        mLegendButton = (Button)view.findViewById(R.id.chart_download_button_legend);
+        mLegendButton = view.findViewById(R.id.chart_download_button_legend);
         mLegendButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -148,7 +148,7 @@ public class ChartsDownloadActivity extends BaseActivity {
         });
 
 
-        mUpdateButton = (Button)view.findViewById(R.id.chart_download_button_update);
+        mUpdateButton = view.findViewById(R.id.chart_download_button_update);
         mUpdateButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -158,7 +158,7 @@ public class ChartsDownloadActivity extends BaseActivity {
             }
         });
         
-        mDeleteButton = (Button)view.findViewById(R.id.chart_download_button_delete);
+        mDeleteButton = view.findViewById(R.id.chart_download_button_delete);
         mDeleteButton.setOnClickListener(new OnClickListener() {
 
             @Override

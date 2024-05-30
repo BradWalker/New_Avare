@@ -87,7 +87,7 @@ public class CDI {
 		mBarCount = 11;
 		
 		// The height of each bar is the basis for the entire instrument size
-		mBarHeight = (int) (minSize / 16);
+		mBarHeight = minSize / 16;
 		
 		// Width is 1/4 of the height
 		mBarWidth = mBarHeight / 4;
@@ -151,7 +151,7 @@ public class CDI {
         }
 	    mCDIPaint.setStrokeWidth(mBarWidth);	// Width of each bar
 	    for(int idx = 0; idx < mBarCount; idx++) {
-	        int extend = (idx == (int)(mBarCount / 2)) ? mInstHeight / 3 : 0;
+	        int extend = (idx == (mBarCount / 2)) ? mInstHeight / 3 : 0;
 	    	int barLeft = mInstLeft + (int)((float)mBarWidth * 1.5) + 
 	    			idx * (mBarWidth + mBarSpace);
 	        canvas.drawLine(barLeft, mInstTop + mBarWidth, barLeft, 

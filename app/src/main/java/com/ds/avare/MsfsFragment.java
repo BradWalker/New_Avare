@@ -46,9 +46,9 @@ public class MsfsFragment extends IOFragment {
 
         View view = inflater.inflate(R.layout.layout_msfs, container, false);
         
-        mTextMsfsIp = (TextView)view.findViewById(R.id.main_msfs_ip);
-        mTextMsfsPort = (SavedEditText)view.findViewById(R.id.main_msfs_port);
-        mMsfsCb = (CheckBox)view.findViewById(R.id.main_button_msfs_connect);
+        mTextMsfsIp = view.findViewById(R.id.main_msfs_ip);
+        mTextMsfsPort = view.findViewById(R.id.main_msfs_port);
+        mMsfsCb = view.findViewById(R.id.main_button_msfs_connect);
         mTextMsfsIp.setText(mTextMsfsIp.getText() + "(" + Util.getIpAddr(mContext) + ")");
         mMsfsCb.setOnClickListener(new OnClickListener() {
             

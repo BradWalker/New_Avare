@@ -59,7 +59,7 @@ public class WebActivity extends BaseActivity  {
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.web, null);
         setContentView(view);
-        mWebView = (WebView) view.findViewById(R.id.web_mainpage);
+        mWebView = view.findViewById(R.id.web_mainpage);
         mWebView.getSettings().setBuiltInZoomControls(true);
         mWebView.loadUrl(getIntent().getStringExtra("url"));
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -84,12 +84,12 @@ public class WebActivity extends BaseActivity  {
         /*
          * Progress bar
          */
-        mProgressBar = (ProgressBar)(view.findViewById(R.id.web_progress_bar));
+        mProgressBar = view.findViewById(R.id.web_progress_bar);
                 
         /*
          * For searching, start search on every new key press
          */
-        mSearchText = (EditText)view.findViewById(R.id.web_edit_text);
+        mSearchText = view.findViewById(R.id.web_edit_text);
         mSearchText.addTextChangedListener(new TextWatcher() { 
             @Override
             public void afterTextChanged(Editable arg0) {
@@ -117,7 +117,7 @@ public class WebActivity extends BaseActivity  {
             }
         });
 
-        mNextButton = (Button)view.findViewById(R.id.web_button_next);
+        mNextButton = view.findViewById(R.id.web_button_next);
         mNextButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -128,7 +128,7 @@ public class WebActivity extends BaseActivity  {
         });
 
 
-        mLastButton = (Button)view.findViewById(R.id.web_button_last);
+        mLastButton = view.findViewById(R.id.web_button_last);
         mLastButton.setOnClickListener(new OnClickListener() {
 
             @Override

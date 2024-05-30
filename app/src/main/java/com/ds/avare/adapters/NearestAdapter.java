@@ -145,11 +145,11 @@ public class NearestAdapter extends ArrayAdapter<String> {
         if(null == rowView) {
             rowView = inflater.inflate(R.layout.nearest_list, parent, false);
         }
-        TextView textView = (TextView)rowView.findViewById(R.id.nearest_list_distance);
+        TextView textView = rowView.findViewById(R.id.nearest_list_distance);
         textView.setText(mDistance[position]);
-        textView = (TextView)rowView.findViewById(R.id.nearest_list_bearing);
+        textView = rowView.findViewById(R.id.nearest_list_bearing);
         textView.setText(mBearing[position]);
-        textView = (TextView)rowView.findViewById(R.id.nearest_list_aid_name);
+        textView = rowView.findViewById(R.id.nearest_list_aid_name);
         textView.setText(mName[position] + (mFuel[position].isEmpty() ? "" : "$ " + mContext.getString(R.string.Fuel)));
         /*
          * If cannot glide, mark it reddish, or yellowish if can
@@ -163,7 +163,7 @@ public class NearestAdapter extends ArrayAdapter<String> {
         /*
          * Fuel shows as Fuel or none
          */
-        textView = (TextView)rowView.findViewById(R.id.nearest_list_elevation);
+        textView = rowView.findViewById(R.id.nearest_list_elevation);
         textView.setText(mLongestRunway[position].isEmpty() ? "" : (mLongestRunway[position] + "ft @" + mElevation[position]));
         
         return rowView;

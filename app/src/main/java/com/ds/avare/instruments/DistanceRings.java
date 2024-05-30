@@ -243,7 +243,7 @@ public class DistanceRings {
             /*
              * its / 60 as units is in minutes
              */
-            mRings[RING_SPEED] = (float) ((float)origin.getPixelsInNmAtLatitude((speed / 60) * mPref.getTimerRingSize() / fac, lat));
+            mRings[RING_SPEED] = (float)origin.getPixelsInNmAtLatitude((speed / 60) * mPref.getTimerRingSize() / fac, lat);
         }
 
         /*

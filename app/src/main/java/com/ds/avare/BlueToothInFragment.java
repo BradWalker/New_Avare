@@ -58,8 +58,8 @@ public class BlueToothInFragment extends IOFragment {
         /*
          * BT connection
          */
-        mSpinner = (Spinner) view.findViewById(R.id.main_spinner);
-        mTextFileSave = (SavedEditText)view.findViewById(R.id.main_file_name_save);
+        mSpinner = view.findViewById(R.id.main_spinner);
+        mTextFileSave = view.findViewById(R.id.main_file_name_save);
 
         /*
          * List of BT devices is same
@@ -79,8 +79,8 @@ public class BlueToothInFragment extends IOFragment {
             Logger.Logit(getString(R.string.NoBtDevice));
         }
 
-        mSecureCb = (SavedCheckbox) view.findViewById(R.id.main_cb_btin);
-        mConnectButton = (Button) view.findViewById(R.id.main_button_connect);
+        mSecureCb = view.findViewById(R.id.main_cb_btin);
+        mConnectButton = view.findViewById(R.id.main_button_connect);
         mConnectButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -112,7 +112,7 @@ public class BlueToothInFragment extends IOFragment {
             }
         });
 
-        mConnectFileSaveButton = (Button)view.findViewById(R.id.main_button_connect_file_save);
+        mConnectFileSaveButton = view.findViewById(R.id.main_button_connect_file_save);
         mConnectFileSaveButton.setOnClickListener(new OnClickListener() {
             
             @Override

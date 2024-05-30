@@ -102,12 +102,12 @@ public class MsfsConnection extends Connection {
                             Ownship om = nmeaOwnship;
                             try {
                                 object.put("type", "ownship");
-                                object.put("longitude", (double) om.mLon);
-                                object.put("latitude", (double) om.mLat);
+                                object.put("longitude", om.mLon);
+                                object.put("latitude", om.mLat);
                                 object.put("speed", (double) (om.mHorizontalVelocity));
                                 object.put("bearing", (double) om.mDirection);
-                                object.put("altitude", (double) ((double) om.mAltitude));
-                                object.put("time", (long) om.getTime());
+                                object.put("altitude", (double) om.mAltitude);
+                                object.put("time", om.getTime());
                             } catch (JSONException e1) {
                                 continue;
                             }

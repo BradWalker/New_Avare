@@ -85,10 +85,10 @@ public class AirportActivity extends BaseActivity implements Observer {
         LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.airport, null);
         setContentView(view);
-        mAirportView = (ListView)view.findViewById(R.id.airport_list);
-        mAfdView = (AfdView)view.findViewById(R.id.airport_afd);
+        mAirportView = view.findViewById(R.id.airport_list);
+        mAfdView = view.findViewById(R.id.airport_afd);
         
-        mViewButton = (Button)view.findViewById(R.id.airport_button_views);
+        mViewButton = view.findViewById(R.id.airport_button_views);
         mViewButton.getBackground().setAlpha(255);
         mViewButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -117,7 +117,7 @@ public class AirportActivity extends BaseActivity implements Observer {
             }
         });         
         
-        mAirportButton = (Button)view.findViewById(R.id.airport_button_airports);
+        mAirportButton = view.findViewById(R.id.airport_button_airports);
         mAirportButton.getBackground().setAlpha(255);
         mAirportButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class AirportActivity extends BaseActivity implements Observer {
             }
         });              
 
-        mCenterButton = (ImageButton)view.findViewById(R.id.airport_button_center);
+        mCenterButton = view.findViewById(R.id.airport_button_center);
         mCenterButton.getBackground().setAlpha(255);
         mCenterButton.getBackground().setColorFilter(0xFF444444, PorterDuff.Mode.MULTIPLY);
         mCenterButton.setOnClickListener(new OnClickListener() {
@@ -564,7 +564,7 @@ public class AirportActivity extends BaseActivity implements Observer {
                     mToast.show();
                     return;
                 }
-                if((Destination)observable != mDestination) {
+                if(observable != mDestination) {
                     /*
                      * If user presses a selection repeatedly, reject previous
                      */

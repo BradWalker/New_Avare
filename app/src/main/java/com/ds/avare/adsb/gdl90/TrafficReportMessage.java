@@ -65,7 +65,7 @@ public class TrafficReportMessage extends Message {
 
             position |= 0xFF000000;
 
-            yy = (int) position;
+            yy = position;
             xx = (float) (yy);
         } else {
             xx = (position & 0x7FFFFF);
@@ -106,12 +106,12 @@ public class TrafficReportMessage extends Message {
         /*
          * next 3 bytes are lat value with resolution = 180 / (2^23) degrees
          */
-        mLat = this.calculateDegrees((int) (msg[4] & 0xFF), (int) (msg[5] & 0xFF), (int) (msg[6] & 0xFF));
+        mLat = this.calculateDegrees(msg[4] & 0xFF, msg[5] & 0xFF, msg[6] & 0xFF);
 
         /*
          * next 3 bytes are lon value with resolution = 180 / (2^23) degrees
          */
-        mLon = this.calculateDegrees((int) (msg[7] & 0xFF), (int) (msg[8] & 0xFF), (int) (msg[9] & 0xFF));
+        mLon = this.calculateDegrees(msg[7] & 0xFF, msg[8] & 0xFF, msg[9] & 0xFF);
 
         /*
          * next 12 bits are altitude

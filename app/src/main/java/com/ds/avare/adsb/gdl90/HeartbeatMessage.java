@@ -51,9 +51,9 @@ public class HeartbeatMessage extends Message {
 
         long timeStamp = ((d1 & 0x80L) << 9) | (d3 << 8) | d2;
         double mHourFrac = (float) timeStamp / 3600.0f;
-        mHour = (int) Math.floor((double) mHourFrac);
-        double mMinuteFrac = (double) mHourFrac - (double) mHour;
-        mMinute = (int) Math.floor((double) mMinuteFrac * 60.0f);
+        mHour = (int) Math.floor(mHourFrac);
+        double mMinuteFrac = mHourFrac - (double) mHour;
+        mMinute = (int) Math.floor(mMinuteFrac * 60.0f);
         double mSecondsFrac = (mMinuteFrac * 60) - mMinute;
         mSecond = (int) Math.round(mSecondsFrac * 60.0f);
         if (mSecond == 60) {

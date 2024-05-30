@@ -51,7 +51,7 @@ public class BlueToothOutFragment extends IOFragment {
 
 
         View view = inflater.inflate(R.layout.layout_ap, container, false);
-        mSpinner = (Spinner) view.findViewById(R.id.main_spinner_out);
+        mSpinner = view.findViewById(R.id.main_spinner_out);
 
         /*
          * List of BT devices is same
@@ -70,9 +70,9 @@ public class BlueToothOutFragment extends IOFragment {
             Logger.Logit(getString(R.string.NoBtDevice));
         }
 
-        mSecureCb = (SavedCheckbox) view.findViewById(R.id.main_cb_btout);
+        mSecureCb = view.findViewById(R.id.main_cb_btout);
         
-        mConnectButton = (Button) view.findViewById(R.id.main_button_connect_out);
+        mConnectButton = view.findViewById(R.id.main_button_connect_out);
         mConnectButton.setOnClickListener(new OnClickListener() {
 
             @Override

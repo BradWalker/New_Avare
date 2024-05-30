@@ -44,7 +44,7 @@ public class Logger {
     
     public static void Logit(String msg) {
         Message m = mHandler.obtainMessage();
-        m.obj = (Object)msg;
+        m.obj = msg;
         mHandler.sendMessage(m);
     }
 
@@ -80,7 +80,7 @@ public class Logger {
                     mTv.setText("");
                 }
                 else {
-                    mTv.setText((String)msg.obj + "\n" + txt);
+                    mTv.setText(msg.obj + "\n" + txt);
                 }
             }
         }

@@ -772,7 +772,7 @@ public class PfdView extends View {
             slip = -10;
         }
 
-        mInclinometer = (float)slip;
+        mInclinometer = slip;
     }
 
     public void setYawRate(float trend) {

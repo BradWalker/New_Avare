@@ -143,7 +143,7 @@ public class MetarParser {
 		// split the second line, the METAR data, on whitespace into tokens for
 		// processing
 		try {
-			utility.split(tokens, ((String)metarData));
+			utility.split(tokens, metarData);
 		} catch(MalformedPerl5PatternException e) {
 
 			throw new MetarParseException("error spliting metar data on whitespace: "+e);
@@ -226,8 +226,8 @@ public class MetarParser {
 		// format: (AUTO or COR)
 		//     AUTO - fully automated with no human intervention or oversight
 		//     COR  - corrected report
-		if (((String)tokens.get(index)).equals(MetarConstants.METAR_AUTOMATED) ||
-		    ((String)tokens.get(index)).equals(MetarConstants.METAR_CORRECTED))
+		if (tokens.get(index).equals(MetarConstants.METAR_AUTOMATED) ||
+		    tokens.get(index).equals(MetarConstants.METAR_CORRECTED))
 		{
 			metar.setReportModifier((String)tokens.get(index));
 			// on to the next token
@@ -379,7 +379,7 @@ public class MetarParser {
 			// Visibility greater than 10Km, no cloud below 5000 ft or minimum
 			// sector altitude, whichever is the lowest and no CB (Cumulonimbus) or
 			// over development and no significant weather.
-			if (((String)tokens.get(index)).equals(MetarConstants.METAR_CAVOK)) {
+			if (tokens.get(index).equals(MetarConstants.METAR_CAVOK)) {
 				metar.setIsCavok(true);
 
 				// on to the next token
@@ -396,7 +396,7 @@ public class MetarParser {
 					index++;
 				}
 			// Horizontal visibility of 10Km and above
-			} else if (((String)tokens.get(index)).equals("9999")) {
+			} else if (tokens.get(index).equals("9999")) {
 				metar.setVisibilityInKilometers(new Float(10));
 
 				// on to the next token
@@ -857,7 +857,7 @@ public class MetarParser {
 
 
 		// remarks
-		if (!((String)tokens.get(index)).equals(MetarConstants.METAR_REMARKS)) {
+		if (!tokens.get(index).equals(MetarConstants.METAR_REMARKS)) {
 			// we have no remarks
 
 		} else {
@@ -944,14 +944,14 @@ public class MetarParser {
 
 
 				// if we have an obscuration
-				} else if (((String)tokens.get(index)).equals(MetarConstants.METAR_MIST) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_FOG) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_SMOKE) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_VOLCANIC_ASH) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_WIDESPREAD_DUST) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_SAND) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_HAZE) ||
-						   ((String)tokens.get(index)).equals(MetarConstants.METAR_SPRAY))
+				} else if (tokens.get(index).equals(MetarConstants.METAR_MIST) ||
+						   tokens.get(index).equals(MetarConstants.METAR_FOG) ||
+						   tokens.get(index).equals(MetarConstants.METAR_SMOKE) ||
+						   tokens.get(index).equals(MetarConstants.METAR_VOLCANIC_ASH) ||
+						   tokens.get(index).equals(MetarConstants.METAR_WIDESPREAD_DUST) ||
+						   tokens.get(index).equals(MetarConstants.METAR_SAND) ||
+						   tokens.get(index).equals(MetarConstants.METAR_HAZE) ||
+						   tokens.get(index).equals(MetarConstants.METAR_SPRAY))
 				{
 					// we have an obscuration
 					obscuration = new Obscuration();
@@ -976,7 +976,7 @@ public class MetarParser {
 
 					index++;
 				// there has been no significant change in weather
-				} else if (((String)tokens.get(index)).equals(MetarConstants.METAR_NO_SIGNIFICANT_CHANGE)) {
+				} else if (tokens.get(index).equals(MetarConstants.METAR_NO_SIGNIFICANT_CHANGE)) {
 					// have no significant change
 					metar.setIsNoSignificantChange(true);
 				}

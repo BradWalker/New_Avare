@@ -316,7 +316,7 @@ public class BlueToothConnectionIn extends Connection {
             return list;
         }
         for(BluetoothDevice bt : pairedDevices) {
-            list.add((String)bt.getName());
+            list.add(bt.getName());
         }
 
         return list;

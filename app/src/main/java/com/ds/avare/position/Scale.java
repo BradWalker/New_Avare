@@ -84,7 +84,7 @@ public class Scale {
      * @param factor
      */
     public void setScaleFactor(float factor) {
-        mScaleFactor = (double)factor;
+        mScaleFactor = factor;
     }
     
     /**

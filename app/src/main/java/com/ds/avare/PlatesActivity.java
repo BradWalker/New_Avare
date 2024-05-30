@@ -261,9 +261,9 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.plates, null);
         setContentView(view);
-        mPlatesView = (PlatesView)view.findViewById(R.id.plates);
+        mPlatesView = view.findViewById(R.id.plates);
         
-        mPlatesButton = (Button)view.findViewById(R.id.plates_button_plates);
+        mPlatesButton = view.findViewById(R.id.plates_button_plates);
         mPlatesButton.getBackground().setAlpha(255);
         mPlatesButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -293,7 +293,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
             }
         });
 
-        mApproachButton = (Button)view.findViewById(R.id.plates_button_approach);
+        mApproachButton = view.findViewById(R.id.plates_button_approach);
         mApproachButton.getBackground().setAlpha(255);
         mApproachButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -349,7 +349,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         };
 
 
-        mPlatesTimerButton = (Button)view.findViewById(R.id.plates_button_timer);
+        mPlatesTimerButton = view.findViewById(R.id.plates_button_timer);
         mPlatesTimerButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -373,7 +373,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         /*
          * Draw
          */
-        mDrawButton = (TwoButton)view.findViewById(R.id.plate_button_draw);
+        mDrawButton = view.findViewById(R.id.plate_button_draw);
         mDrawButton.setTwoClickListener(new TwoClickListener() {
 
             @Override
@@ -397,7 +397,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
             mDrawButton.setVisibility(View.INVISIBLE);
         }
 
-        mDrawClearButton = (Button)view.findViewById(R.id.plate_button_draw_clear);
+        mDrawClearButton = view.findViewById(R.id.plate_button_draw_clear);
         mDrawClearButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -408,7 +408,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
             }
         });
         
-        mAirportButton = (Button)view.findViewById(R.id.plates_button_airports);
+        mAirportButton = view.findViewById(R.id.plates_button_airports);
         mAirportButton.getBackground().setAlpha(255);
         mAirportButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -435,7 +435,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
             }
         });      
                
-        mCenterButton = (ImageButton)view.findViewById(R.id.plates_button_center);
+        mCenterButton = view.findViewById(R.id.plates_button_center);
         mCenterButton.getBackground().setAlpha(255);
         mCenterButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -462,7 +462,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         });
 
 
-        mPlatesTagButton = (Button)view.findViewById(R.id.plates_button_tag);
+        mPlatesTagButton = view.findViewById(R.id.plates_button_tag);
         mPlatesTagButton.getBackground().setAlpha(255);
         mPlatesTagButton.setOnClickListener(new OnClickListener() {
             @Override

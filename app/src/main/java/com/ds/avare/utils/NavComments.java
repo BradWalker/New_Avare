@@ -79,7 +79,7 @@ public class NavComments {
 		
 		// Search for the spot on the screen to place the text
 	 	View parent = (View) view.getParent();
-        Button mMenuButton = (Button)parent.findViewById(R.id.location_button_menu);
+        Button mMenuButton = parent.findViewById(R.id.location_button_menu);
         
         // If we found the position then get the rest of the measurements
         if(null != mMenuButton) {

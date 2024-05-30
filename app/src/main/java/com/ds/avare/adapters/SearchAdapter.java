@@ -100,9 +100,9 @@ public class SearchAdapter extends ArrayAdapter<String> {
         if(null == rowView) {
             rowView = inflater.inflate(R.layout.search_list, parent, false);
         }
-        ImageView imgView = (ImageView)rowView.findViewById(R.id.search_list_image);
-        TextView textView = (TextView)rowView.findViewById(R.id.search_list_text);
-        TextView textView2 = (TextView)rowView.findViewById(R.id.search_list_name);
+        ImageView imgView = rowView.findViewById(R.id.search_list_image);
+        TextView textView = rowView.findViewById(R.id.search_list_text);
+        TextView textView2 = rowView.findViewById(R.id.search_list_name);
         
         /*
          * This string is formatted as

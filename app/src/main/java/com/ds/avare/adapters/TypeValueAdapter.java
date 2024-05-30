@@ -81,7 +81,7 @@ public class TypeValueAdapter extends ArrayAdapter<String> {
 		if (null == rowView) {
 			rowView = inflater.inflate(R.layout.typevalue, parent, false);
 		}
-		TextView textView = (TextView) rowView
+		TextView textView = rowView
 				.findViewById(R.id.typevalue_type);
 
         // Set colors in list to separate out frequencies, fuel, etc.
@@ -129,7 +129,7 @@ public class TypeValueAdapter extends ArrayAdapter<String> {
 				break;
 		}
 		textView.setText(mType[position]);
-		textView = (TextView) rowView.findViewById(R.id.typevalue_value);
+		textView = rowView.findViewById(R.id.typevalue_value);
 		textView.setText(mValue[position]);
 		/*
 		 * This will make links out of certain text patterns eg. Phone numbers,

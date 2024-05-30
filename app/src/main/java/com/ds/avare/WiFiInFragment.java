@@ -53,9 +53,9 @@ public class WiFiInFragment extends IOFragment {
 
         mWifi = WifiConnection.getInstance(mContext);
 
-        mTextFileSave = (SavedEditText)view.findViewById(R.id.main_file_name_save);
-        mWifiCb = (CheckBox)view.findViewById(R.id.main_button_connectwifi);
-        mTextWifiPort = (SavedEditText)view.findViewById(R.id.main_wifi_port);
+        mTextFileSave = view.findViewById(R.id.main_file_name_save);
+        mWifiCb = view.findViewById(R.id.main_button_connectwifi);
+        mTextWifiPort = view.findViewById(R.id.main_wifi_port);
         mWifiCb.setOnClickListener(new OnClickListener() {
             
             
@@ -76,7 +76,7 @@ public class WiFiInFragment extends IOFragment {
             }
         });
 
-        mConnectFileSaveButton = (Button)view.findViewById(R.id.main_button_connect_file_save);
+        mConnectFileSaveButton = view.findViewById(R.id.main_button_connect_file_save);
         mConnectFileSaveButton.setOnClickListener(new OnClickListener() {
             
             @Override

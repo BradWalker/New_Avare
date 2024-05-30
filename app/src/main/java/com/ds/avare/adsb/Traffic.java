@@ -259,7 +259,7 @@ public class Traffic {
 
 
             ctx.service.getShadowedText().draw(ctx.canvas, ctx.textPaint,
-                    text, Color.BLACK, (float)x, (float)y + radius + ctx.textPaint.getTextSize());
+                    text, Color.BLACK, x, y + radius + ctx.textPaint.getTextSize());
 
 
             if (bRotated) {

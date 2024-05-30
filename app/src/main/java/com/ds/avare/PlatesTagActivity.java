@@ -245,7 +245,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.platestag, null);
         setContentView(view);
-        mPlatesView = (PlatesTagView)view.findViewById(R.id.platestag_view);
+        mPlatesView = view.findViewById(R.id.platestag_view);
      
         /*
          * Create toast beforehand so multiple clicks dont throw up a new toast
@@ -255,7 +255,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         /*
          * The button that adds a point
          */
-        mSetButton[0] = (Button)view.findViewById(R.id.platestag_button_tag1);
+        mSetButton[0] = view.findViewById(R.id.platestag_button_tag1);
         mSetButton[0].setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,7 +267,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         /*
          * The button that adds a point
          */
-        mSetButton[1] = (Button)view.findViewById(R.id.platestag_button_tag2);
+        mSetButton[1] = view.findViewById(R.id.platestag_button_tag2);
         mSetButton[1].setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -279,7 +279,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         /*
          * The button that adds a point
          */
-        Button b = (Button)view.findViewById(R.id.platestag_button_process);
+        Button b = view.findViewById(R.id.platestag_button_process);
         b.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -290,7 +290,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         /*
          * The button that adds a point
          */
-        b = (Button)view.findViewById(R.id.platestag_button_verify);
+        b = view.findViewById(R.id.platestag_button_verify);
         b.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -302,7 +302,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
         /*
          * Clear button
          */
-        b = (Button)view.findViewById(R.id.platestag_button_clear);
+        b = view.findViewById(R.id.platestag_button_clear);
         b.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

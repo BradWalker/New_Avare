@@ -185,32 +185,30 @@ public class WebAppPlanInterface implements Observer {
 		}
 
 		// Fill form
-		Message m = mHandler.obtainMessage(MSG_FILL_FORM, (Object)(
-				"'" +  checkNull(pl.aircraftId) + "'," +
-						"'" +  checkNull(pl.flightRule)  + "'," +
-						"'" +  checkNull(pl.flightType)  + "'," +
-						"'" +  checkNull(pl.noOfAircraft)  + "'," +
-						"'" +  checkNull(pl.aircraftType) + "'," +
-						"'" +  checkNull(pl.wakeTurbulence) + "'," +
-						"'" +  checkNull(pl.aircraftEquipment) + "'," +
-						"'" +  checkNull(departure) + "'," +
-						"'" +  checkNull(LmfsPlan.getTimeFromInstance(departureInstant)) + "'," +
-						"'" +  checkNull(pl.cruisingSpeed) + "'," +
-						"'" +  checkNull(String.format(Locale.US, "%03d", p.getAltitude() / 100)) + "'," +
-						"'" +  checkNull(pl.surveillanceEquipment) + "'," +
-						"'" +  checkNull(route) + "'," +
-						"'" +  checkNull(pl.otherInfo) + "'," +
-						"'" +  checkNull(destination) + "'," +
-						"'" +  checkNull(LmfsPlan.durationToTime(flightDuration)) + "'," +
-						"'" +  checkNull(pl.alternate1) + "'," +
-						"'" +  checkNull(pl.alternate2) + "'," +
-						"'" +  checkNull(LmfsPlan.durationToTime(fuelOnBoard)) + "'," +
-						"'" +  checkNull(pl.peopleOnBoard) + "'," +
-						"'" +  checkNull(pl.aircraftColor) + "'," +
-						"'" +  checkNull(pl.supplementalRemarks) + "'," +
-						"'" +  checkNull(pl.pilotInCommand) + "'," +
-						"'" +  checkNull(pl.pilotInfo) + "'"
-		));
+		Message m = mHandler.obtainMessage(MSG_FILL_FORM, "'" +  checkNull(pl.aircraftId) + "'," +
+                "'" +  checkNull(pl.flightRule)  + "'," +
+                "'" +  checkNull(pl.flightType)  + "'," +
+                "'" +  checkNull(pl.noOfAircraft)  + "'," +
+                "'" +  checkNull(pl.aircraftType) + "'," +
+                "'" +  checkNull(pl.wakeTurbulence) + "'," +
+                "'" +  checkNull(pl.aircraftEquipment) + "'," +
+                "'" +  checkNull(departure) + "'," +
+                "'" +  checkNull(LmfsPlan.getTimeFromInstance(departureInstant)) + "'," +
+                "'" +  checkNull(pl.cruisingSpeed) + "'," +
+                "'" +  checkNull(String.format(Locale.US, "%03d", p.getAltitude() / 100)) + "'," +
+                "'" +  checkNull(pl.surveillanceEquipment) + "'," +
+                "'" +  checkNull(route) + "'," +
+                "'" +  checkNull(pl.otherInfo) + "'," +
+                "'" +  checkNull(destination) + "'," +
+                "'" +  checkNull(LmfsPlan.durationToTime(flightDuration)) + "'," +
+                "'" +  checkNull(pl.alternate1) + "'," +
+                "'" +  checkNull(pl.alternate2) + "'," +
+                "'" +  checkNull(LmfsPlan.durationToTime(fuelOnBoard)) + "'," +
+                "'" +  checkNull(pl.peopleOnBoard) + "'," +
+                "'" +  checkNull(pl.aircraftColor) + "'," +
+                "'" +  checkNull(pl.supplementalRemarks) + "'," +
+                "'" +  checkNull(pl.pilotInCommand) + "'," +
+                "'" +  checkNull(pl.pilotInfo) + "'");
 		mHandler.sendMessage(m);
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
 	}
@@ -255,7 +253,7 @@ public class WebAppPlanInterface implements Observer {
 		if(null != err) {
 			// failed to get plan
 			mHandler.sendEmptyMessage(MSG_NOTBUSY);
-			Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+			Message m = mHandler.obtainMessage(MSG_ERROR, err);
 			mHandler.sendMessage(m);
 			return;
 		}
@@ -266,7 +264,7 @@ public class WebAppPlanInterface implements Observer {
 			// success
 			err = mContext.getString(R.string.Success);
 		}
-		Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+		Message m = mHandler.obtainMessage(MSG_ERROR, err);
 		mHandler.sendMessage(m);
 
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
@@ -338,7 +336,7 @@ public class WebAppPlanInterface implements Observer {
 			getPlans();
 			return;
 		}
-		Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+		Message m = mHandler.obtainMessage(MSG_ERROR, err);
 		mHandler.sendMessage(m);
 
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
@@ -418,7 +416,7 @@ public class WebAppPlanInterface implements Observer {
 			getPlans();
 			return;
 		}
-		Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+		Message m = mHandler.obtainMessage(MSG_ERROR, err);
 		mHandler.sendMessage(m);
 
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
@@ -465,7 +463,7 @@ public class WebAppPlanInterface implements Observer {
 			return;
 		}
 
-		Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+		Message m = mHandler.obtainMessage(MSG_ERROR, err);
 		mHandler.sendMessage(m);
 	}
 
@@ -486,7 +484,7 @@ public class WebAppPlanInterface implements Observer {
 			err = mContext.getString(R.string.Success);
 		}
 
-		Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+		Message m = mHandler.obtainMessage(MSG_ERROR, err);
 		mHandler.sendMessage(m);
 
 		mHandler.sendEmptyMessage(MSG_FAA_PLANS);
@@ -515,38 +513,36 @@ public class WebAppPlanInterface implements Observer {
 		if(null != err) {
 			// failed to get plan
 			mHandler.sendEmptyMessage(MSG_NOTBUSY);
-			Message m = mHandler.obtainMessage(MSG_ERROR, (Object)err);
+			Message m = mHandler.obtainMessage(MSG_ERROR, err);
 			mHandler.sendMessage(m);
 			return;
 		}
 
 		// Fill form
-		Message m = mHandler.obtainMessage(MSG_FILL_FORM, (Object)(
-				"'" +  checkNull(pl.aircraftId) + "'," +
-						"'" +  checkNull(pl.flightRule)  + "'," +
-						"'" +  checkNull(pl.flightType)  + "'," +
-						"'" +  checkNull(pl.noOfAircraft)  + "'," +
-						"'" +  checkNull(pl.aircraftType) + "'," +
-						"'" +  checkNull(pl.wakeTurbulence) + "'," +
-						"'" +  checkNull(pl.aircraftEquipment) + "'," +
-						"'" +  checkNull(pl.departure) + "'," +
-						"'" +  checkNull(LmfsPlan.getTimeFromInstance(pl.departureDate)) + "'," +
-						"'" +  checkNull(pl.cruisingSpeed) + "'," +
-						"'" +  checkNull(pl.level) + "'," +
-						"'" +  checkNull(pl.surveillanceEquipment) + "'," +
-						"'" +  checkNull(pl.route) + "'," +
-						"'" +  Helper.formatJsArgs(checkNull(pl.otherInfo)) + "'," +
-						"'" +  checkNull(pl.destination) + "'," +
-						"'" +  checkNull(LmfsPlan.durationToTime(pl.totalElapsedTime)) + "'," +
-						"'" +  checkNull(pl.alternate1) + "'," +
-						"'" +  checkNull(pl.alternate2) + "'," +
-						"'" +  checkNull(LmfsPlan.durationToTime(pl.fuelEndurance)) + "'," +
-						"'" +  checkNull(pl.peopleOnBoard) + "'," +
-						"'" +  checkNull(pl.aircraftColor) + "'," +
-						"'" +  Helper.formatJsArgs(checkNull(pl.supplementalRemarks)) + "'," +
-						"'" +  Helper.formatJsArgs(checkNull(pl.pilotInCommand)) + "'," +
-						"'" +  Helper.formatJsArgs(checkNull(pl.pilotInfo)) + "'"
-		));
+		Message m = mHandler.obtainMessage(MSG_FILL_FORM, "'" +  checkNull(pl.aircraftId) + "'," +
+                "'" +  checkNull(pl.flightRule)  + "'," +
+                "'" +  checkNull(pl.flightType)  + "'," +
+                "'" +  checkNull(pl.noOfAircraft)  + "'," +
+                "'" +  checkNull(pl.aircraftType) + "'," +
+                "'" +  checkNull(pl.wakeTurbulence) + "'," +
+                "'" +  checkNull(pl.aircraftEquipment) + "'," +
+                "'" +  checkNull(pl.departure) + "'," +
+                "'" +  checkNull(LmfsPlan.getTimeFromInstance(pl.departureDate)) + "'," +
+                "'" +  checkNull(pl.cruisingSpeed) + "'," +
+                "'" +  checkNull(pl.level) + "'," +
+                "'" +  checkNull(pl.surveillanceEquipment) + "'," +
+                "'" +  checkNull(pl.route) + "'," +
+                "'" +  Helper.formatJsArgs(checkNull(pl.otherInfo)) + "'," +
+                "'" +  checkNull(pl.destination) + "'," +
+                "'" +  checkNull(LmfsPlan.durationToTime(pl.totalElapsedTime)) + "'," +
+                "'" +  checkNull(pl.alternate1) + "'," +
+                "'" +  checkNull(pl.alternate2) + "'," +
+                "'" +  checkNull(LmfsPlan.durationToTime(pl.fuelEndurance)) + "'," +
+                "'" +  checkNull(pl.peopleOnBoard) + "'," +
+                "'" +  checkNull(pl.aircraftColor) + "'," +
+                "'" +  Helper.formatJsArgs(checkNull(pl.supplementalRemarks)) + "'," +
+                "'" +  Helper.formatJsArgs(checkNull(pl.pilotInCommand)) + "'," +
+                "'" +  Helper.formatJsArgs(checkNull(pl.pilotInfo)) + "'");
 		mHandler.sendMessage(m);
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
 	}
@@ -605,7 +601,7 @@ public class WebAppPlanInterface implements Observer {
      */
     public void addWaypointToPlan(String id, String type, String subtype) {
     	// Add using javascript to show on page, strings require '' around them
-    	Message m = mHandler.obtainMessage(MSG_ADD_PLAN, (Object)("'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(subtype) + "'"));
+    	Message m = mHandler.obtainMessage(MSG_ADD_PLAN, "'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(subtype) + "'");
     	mHandler.sendMessage(m);
     }
 
@@ -629,25 +625,25 @@ public class WebAppPlanInterface implements Observer {
     	
     	// For each name we were given, add it to the list
     	for(String planName : planNames) {
-        	Message m = mHandler.obtainMessage(MSG_ADD_PLAN_SAVE, (Object)("'" + Helper.formatJsArgs(planName) + "'"));
+        	Message m = mHandler.obtainMessage(MSG_ADD_PLAN_SAVE, "'" + Helper.formatJsArgs(planName) + "'");
         	mHandler.sendMessage(m);
         }
     	
     	// Tell the plan list table to show the plans
-    	Message m = mHandler.obtainMessage(MSG_SAVE_HIDE, (Object)("true"));
+    	Message m = mHandler.obtainMessage(MSG_SAVE_HIDE, "true");
     	mHandler.sendMessage(m);
 
     	// Set the state of the "PREV" list button, hide if we are in the first page
-    	m = mHandler.obtainMessage(MSG_PREV_HIDE, (Object)(mPlanIdx == 0 ? "true" : "false"));
+    	m = mHandler.obtainMessage(MSG_PREV_HIDE, mPlanIdx == 0 ? "true" : "false");
     	mHandler.sendMessage(m);
 
     	// Set the state of the "NEXT" list button, hide if we are on the last page
-    	m = mHandler.obtainMessage(MSG_NEXT_HIDE, (Object)(((mPlanIdx + mPlanCnt) == mFilteredSize) ? "true" : "false"));
+    	m = mHandler.obtainMessage(MSG_NEXT_HIDE, ((mPlanIdx + mPlanCnt) == mFilteredSize) ? "true" : "false");
     	mHandler.sendMessage(m);
     	
     	// A text string showing what plans are being displayed
     	String planCount = String.format("%d - %d of %d",  mFilteredSize == 0 ? 0 : mPlanIdx + 1, mPlanIdx + mPlanCnt, mFilteredSize);
-    	m = mHandler.obtainMessage(MSG_PLAN_COUNT, (Object)("'" + planCount + "'"));
+    	m = mHandler.obtainMessage(MSG_PLAN_COUNT, "'" + planCount + "'");
     	mHandler.sendMessage(m);
 
     	// We're done updating. Turn off the spinny gizmo
@@ -712,7 +708,7 @@ public class WebAppPlanInterface implements Observer {
 
     @JavascriptInterface
     public void lastPage() {
-    	mPlanIdx = (int)((mFilteredSize - 1) / MAX_PLANS_SHOWN) * MAX_PLANS_SHOWN;
+    	mPlanIdx = ((mFilteredSize - 1) / MAX_PLANS_SHOWN) * MAX_PLANS_SHOWN;
     	newSavePlan();
     }
     
@@ -1293,7 +1289,7 @@ public class WebAppPlanInterface implements Observer {
 
             if(null == selection || false == result) {
             	mHandler.sendEmptyMessage(MSG_NOTBUSY);
-				Message m = mHandler.obtainMessage(MSG_ERROR, (Object)mContext.getString(R.string.InvalidPoint));
+				Message m = mHandler.obtainMessage(MSG_ERROR, mContext.getString(R.string.InvalidPoint));
 				mHandler.sendMessage(m);
                 return;
             }
@@ -1390,7 +1386,7 @@ public class WebAppPlanInterface implements Observer {
 	            String type = StringPreference.parseHashedNameDestType(val);
 	            String dbtype = StringPreference.parseHashedNameDbType(val);
 
-	        	Message m = mHandler.obtainMessage(MSG_ADD_SEARCH, (Object)("'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(name) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(dbtype) + "'"));
+	        	Message m = mHandler.obtainMessage(MSG_ADD_SEARCH, "'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(name) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(dbtype) + "'");
 	        	mHandler.sendMessage(m);
             }
         	mHandler.sendEmptyMessage(MSG_NOTBUSY);
@@ -1410,11 +1406,11 @@ public class WebAppPlanInterface implements Observer {
         		mWebView.loadUrl("javascript:plan_clear()");
         	}
         	else if(MSG_ADD_PLAN == msg.what) {
-            	String func = "javascript:plan_add(" + (String)msg.obj + ")";
+            	String func = "javascript:plan_add(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_ADD_SEARCH == msg.what) {
-            	String func = "javascript:search_add(" + (String)msg.obj + ")";
+            	String func = "javascript:search_add(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
         	else if (MSG_TIMER == msg.what) {
@@ -1426,46 +1422,46 @@ public class WebAppPlanInterface implements Observer {
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_ADD_PLAN_SAVE == msg.what) {
-            	String func = "javascript:save_add(" + (String)msg.obj + ")";
+            	String func = "javascript:save_add(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
         	else if(MSG_NOTBUSY == msg.what) {
-        		mCallback.callback((Object)PlanActivity.UNSHOW_BUSY, null);
+        		mCallback.callback(PlanActivity.UNSHOW_BUSY, null);
         	}
         	else if(MSG_BUSY == msg.what) {
-        		mCallback.callback((Object)PlanActivity.SHOW_BUSY, null);
+        		mCallback.callback(PlanActivity.SHOW_BUSY, null);
         	}
         	else if(MSG_ACTIVE == msg.what) {
-        		mCallback.callback((Object)PlanActivity.ACTIVE, null);
+        		mCallback.callback(PlanActivity.ACTIVE, null);
         	}
         	else if(MSG_INACTIVE == msg.what) {
-        		mCallback.callback((Object)PlanActivity.INACTIVE, null);
+        		mCallback.callback(PlanActivity.INACTIVE, null);
         	}
            	else if(MSG_SAVE_HIDE == msg.what) {	
-            	String func = "javascript:save_hide(" + (String)msg.obj + ")";
+            	String func = "javascript:save_hide(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
            	else if(MSG_PREV_HIDE == msg.what) {	
-            	String func = "javascript:disable_prev(" + (String)msg.obj + ")";
+            	String func = "javascript:disable_prev(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
            	else if(MSG_NEXT_HIDE == msg.what) {	
-            	String func = "javascript:disable_next(" + (String)msg.obj + ")";
+            	String func = "javascript:disable_next(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
            	else if(MSG_PLAN_COUNT == msg.what) {	
-            	String func = "javascript:set_plan_count(" + (String)msg.obj + ")";
+            	String func = "javascript:set_plan_count(" + msg.obj + ")";
             	mWebView.loadUrl(func);
         	}
 			else if(MSG_UPDATE_WEATHER == msg.what) {
-				String func = "javascript:update_weather(" + (String)msg.obj + ")";
+				String func = "javascript:update_weather(" + msg.obj + ")";
 				mWebView.loadUrl(func);
 			}
 			else if(MSG_ERROR == msg.what) {
-        		mCallback.callback((Object)PlanActivity.MESSAGE, msg.obj);
+        		mCallback.callback(PlanActivity.MESSAGE, msg.obj);
         	}
 			else if(MSG_FILL_FORM == msg.what) {
-				String func = "javascript:plan_fill(" + (String)msg.obj + ")";
+				String func = "javascript:plan_fill(" + msg.obj + ")";
 				mWebView.loadUrl(func);
 			}
 			else if(MSG_FAA_PLANS == msg.what) {
@@ -1642,7 +1638,7 @@ public class WebAppPlanInterface implements Observer {
             String weather = time + "<br></br>" + plan + Metar + Taf + Pirep + notams;
 
             // now send to webview
-			Message m = mHandler.obtainMessage(MSG_UPDATE_WEATHER, (Object)("'" + Helper.formatJsArgs(weather) + "'"));
+			Message m = mHandler.obtainMessage(MSG_UPDATE_WEATHER, "'" + Helper.formatJsArgs(weather) + "'");
 			mHandler.sendMessage(m);
 
         	mHandler.sendEmptyMessage(MSG_NOTBUSY);

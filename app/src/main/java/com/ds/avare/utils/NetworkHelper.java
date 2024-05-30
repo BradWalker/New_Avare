@@ -470,7 +470,7 @@ public class NetworkHelper {
         }
         
         // like 1510 = 15, 10 (15 means 2015, 10 means #28 days)
-        int cycleupper = (int)(cycle / 100);
+        int cycleupper = cycle / 100;
         int cyclelower = cycle - (cycleupper * 100);
         int firstdate = getFirstDate(2000 + cycleupper);
         if(firstdate < 1) {
@@ -505,7 +505,7 @@ public class NetworkHelper {
         }
         
         // like 1510 = 15, 10 (15 means 2015, 10 means #28 days)
-        int cycleupper = (int)(cycle / 100);
+        int cycleupper = cycle / 100;
         int cyclelower = cycle - (cycleupper * 100);
         int firstdate = getFirstDate(2000 + cycleupper);
         if(firstdate < 1) {

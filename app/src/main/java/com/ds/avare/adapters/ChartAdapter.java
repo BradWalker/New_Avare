@@ -484,7 +484,7 @@ public class ChartAdapter extends BaseExpandableListAdapter {
             rowView = inflater.inflate(R.layout.textview, parent, false);
         }
         
-        TextView tv = (TextView)rowView.findViewById(R.id.textview_textview);
+        TextView tv = rowView.findViewById(R.id.textview_textview);
         
         int total = mChildren[group].length;
         boolean expired = false;
@@ -526,14 +526,14 @@ public class ChartAdapter extends BaseExpandableListAdapter {
         if(null == rowView) {
             rowView = inflater.inflate(R.layout.chart_download_list, parent, false);
         }
-        ImageView imgView = (ImageView)rowView.findViewById(R.id.chart_download_list_image);
-        TextView textView = (TextView)rowView.findViewById(R.id.chart_download_list_item);
+        ImageView imgView = rowView.findViewById(R.id.chart_download_list_image);
+        TextView textView = rowView.findViewById(R.id.chart_download_list_item);
         textView.setText(mChildren[groupPosition][childPosition]);
         
         /*
          * Get status of chart item from preferences.
          */
-        TextView textView2 = (TextView)rowView.findViewById(R.id.chart_download_list_state);
+        TextView textView2 = rowView.findViewById(R.id.chart_download_list_state);
         if(mVers[groupPosition][childPosition] != null) {
             textView2.setText(mVers[groupPosition][childPosition] + " " + NetworkHelper.getVersionRange(mVers[groupPosition][childPosition]));
             imgView.setImageBitmap(mOkBitmapHolder.getBitmap());

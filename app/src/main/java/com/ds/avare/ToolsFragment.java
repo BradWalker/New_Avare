@@ -99,24 +99,24 @@ public class ToolsFragment extends IOFragment {
         mPref = StorageService.getInstance().getPreferences();
 
         View view = inflater.inflate(R.layout.layout_satellite, container, false);
-        mSatelliteView = (SatelliteView)view.findViewById(R.id.satellite);
+        mSatelliteView = view.findViewById(R.id.satellite);
 
-        mGpsText = (TextView)view.findViewById(R.id.satellite_text_gps_details);
-        mMemView = (MemView)view.findViewById(R.id.memory);
-        mMemText = (TextView)view.findViewById(R.id.satellite_text_mem_details);
-        mMapAreaText = (TextView)view.findViewById(R.id.satellite_text_map_details);
+        mGpsText = view.findViewById(R.id.satellite_text_gps_details);
+        mMemView = view.findViewById(R.id.memory);
+        mMemText = view.findViewById(R.id.satellite_text_mem_details);
+        mMapAreaText = view.findViewById(R.id.satellite_text_map_details);
 
         // update periodically
         mRunning = true;
         mHandler.postDelayed(mRunnable, 1000);
 
-        mProgressBarExport = (ProgressBar) view.findViewById(R.id.import_export_progress_bar_export);
-        mProgressBarImport = (ProgressBar) view.findViewById(R.id.import_export_progress_bar_import);
-        mProgressBarDelete = (ProgressBar) view.findViewById(R.id.import_export_progress_bar_delete);
-        mSpinnerTypeExport = (Spinner) view.findViewById(R.id.import_export_spinner_export);
-        mSpinnerTypeDelete = (Spinner) view.findViewById(R.id.import_export_spinner_delete);
+        mProgressBarExport = view.findViewById(R.id.import_export_progress_bar_export);
+        mProgressBarImport = view.findViewById(R.id.import_export_progress_bar_import);
+        mProgressBarDelete = view.findViewById(R.id.import_export_progress_bar_delete);
+        mSpinnerTypeExport = view.findViewById(R.id.import_export_spinner_export);
+        mSpinnerTypeDelete = view.findViewById(R.id.import_export_spinner_delete);
 
-        Button b = (Button)view.findViewById(R.id.import_export_button_export);
+        Button b = view.findViewById(R.id.import_export_button_export);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +130,7 @@ public class ToolsFragment extends IOFragment {
             }
         });
 
-        b = (Button)view.findViewById(R.id.import_export_button_import);
+        b = view.findViewById(R.id.import_export_button_import);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +141,7 @@ public class ToolsFragment extends IOFragment {
             }
         });
 
-        b = (Button)view.findViewById(R.id.import_export_button_delete);
+        b = view.findViewById(R.id.import_export_button_delete);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

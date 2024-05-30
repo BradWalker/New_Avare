@@ -33,7 +33,7 @@ public class TwilightCalculator {
     /** Value of {@link #mState} if it is currently night */
     public static final int NIGHT = 1;
 
-    private static final double DEGREES_TO_RADIANS = (double) (Math.PI / 180.0f);
+    private static final double DEGREES_TO_RADIANS = Math.PI / 180.0f;
 
     // element for calculating solar transit.
     private static final double J0 = 0.0009f;
@@ -106,7 +106,7 @@ public class TwilightCalculator {
                 * Math.sin(2 * meanAnomaly) + C3 * Math.sin(3 * meanAnomaly);
 
         // ecliptic longitude
-        final double solarLng = trueAnomaly + 1.796593063f + (double) Math.PI;
+        final double solarLng = trueAnomaly + 1.796593063f + Math.PI;
 
         // solar transit in days since 2000
         final double arcLongitude = -longitude / 360;
@@ -135,7 +135,7 @@ public class TwilightCalculator {
             return;
         }
 
-        double hourAngle = (double) (Math.acos(cosHourAngle) / (2 * Math.PI));
+        double hourAngle = Math.acos(cosHourAngle) / (2 * Math.PI);
 
         mSunset = Math.round((solarTransitJ2000 + hourAngle) * DateUtils.DAY_IN_MILLIS) + UTC_2000;
         mSunrise = Math.round((solarTransitJ2000 - hourAngle) * DateUtils.DAY_IN_MILLIS) + UTC_2000;

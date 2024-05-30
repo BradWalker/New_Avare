@@ -162,9 +162,9 @@ public class ThreeDActivity extends BaseActivity {
         View view = layoutInflater.inflate(R.layout.threed, null);
         setContentView(view);
 
-        mGlSurfaceView = (ThreeDSurfaceView) view.findViewById(R.id.threed_surface);
+        mGlSurfaceView = view.findViewById(R.id.threed_surface);
 
-        mGlassView = (GlassView) view.findViewById(R.id.threed_overlay_view);
+        mGlassView = view.findViewById(R.id.threed_overlay_view);
 
         // Check if the system supports OpenGL ES 2.0.
         ActivityManager activityManager =
@@ -199,7 +199,7 @@ public class ThreeDActivity extends BaseActivity {
                     /*
                      * This runs in opengl thread context.
                      */
-                    if (((String) o1).equals(TerrainRenderer.SURFACE_CREATED)) {
+                    if (o1.equals(TerrainRenderer.SURFACE_CREATED)) {
                         // cannot call widgets from opengl thread so handler
                         mHandler.sendEmptyMessage(MESSAGE_INIT);
 
@@ -207,7 +207,7 @@ public class ThreeDActivity extends BaseActivity {
 
                         mTime = System.currentTimeMillis();
                     }
-                    else if (((String) o1).equals(TerrainRenderer.DRAW_FRAME)) {
+                    else if (o1.equals(TerrainRenderer.DRAW_FRAME)) {
 
                         // Do heavy load stuff every second
                         if ((System.currentTimeMillis() - 1000) > mTime) {
@@ -317,7 +317,7 @@ public class ThreeDActivity extends BaseActivity {
                                                 }
                                                 mRenderer.setAltitude(256); // this tells shader to skip palette for texture
                                             }
-                                            return (Float)mAreaMapper.getTerrainRatio();
+                                            return mAreaMapper.getTerrainRatio();
                                         }
 
                                         @Override
@@ -422,7 +422,7 @@ public class ThreeDActivity extends BaseActivity {
 
         mAreaMapper = new AreaMapper();
 
-        mCenterButton = (ImageButton) view.findViewById(R.id.threed_button_center);
+        mCenterButton = view.findViewById(R.id.threed_button_center);
         mCenterButton.getBackground().setAlpha(255);
         mCenterButton.setOnClickListener(new View.OnClickListener() {
 
@@ -446,10 +446,10 @@ public class ThreeDActivity extends BaseActivity {
             }
         });
 
-        mText = (TextView) view.findViewById(R.id.threed_text);
+        mText = view.findViewById(R.id.threed_text);
 
         // Charts different from main view
-        OptionButton chartOption = (OptionButton) view.findViewById(R.id.threed_spinner_chart);
+        OptionButton chartOption = view.findViewById(R.id.threed_spinner_chart);
         chartOption.setCallback(new GenericCallback() {
             @Override
             public Object callback(Object o, Object o1) {

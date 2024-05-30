@@ -50,13 +50,13 @@ public class GGAMessage extends Message {
         double tmp1;
         try {
             tmp = Double.parseDouble(tokens[2]);
-            tmp1 = (double)((int)tmp / (int)100);
+            tmp1 = (int)tmp / 100;
             mLat = (float)(tmp - (tmp1 * 100.0)) / 60.f + (float)tmp1;
             if(tokens[3].equals("S")) {
                 mLat = -mLat;
             }
             tmp = Double.parseDouble(tokens[4]);
-            tmp1 = (double)((int)tmp / (int)100);
+            tmp1 = (int)tmp / 100;
             mLon = (float)(tmp - (tmp1 * 100.0)) / 60.f + (float)tmp1;
             if(tokens[5].equals("W")) {
                 mLon = -mLon;

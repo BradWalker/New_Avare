@@ -41,8 +41,8 @@ public class Dump1090Fragment extends IOFragment {
         /*
          * Dump1090 connection
          */
-        mIpAddress = (SavedEditText)view.findViewById(R.id.main_ip_address);
-        mConState = (CheckBox)view.findViewById(R.id.main_connect1090);
+        mIpAddress = view.findViewById(R.id.main_ip_address);
+        mConState = view.findViewById(R.id.main_connect1090);
         mConState.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

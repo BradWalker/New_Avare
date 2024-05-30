@@ -94,8 +94,8 @@ public class IOActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.activity_io, null);
-        mTextLog = (TextView)view.findViewById(R.id.main_text_log);
-        mIO = (Spinner)view.findViewById(R.id.main_spinner_ios);
+        mTextLog = view.findViewById(R.id.main_text_log);
+        mIO = view.findViewById(R.id.main_spinner_ios);
         Logger.setTextView(mTextLog);
         Logger.setContext(this);
         setContentView(view);

@@ -47,9 +47,9 @@ public class XplaneFragment extends IOFragment {
 
         View view = inflater.inflate(R.layout.layout_xplane, container, false);
         
-        mTextXplaneIp = (TextView)view.findViewById(R.id.main_xplane_ip);
-        mTextXplanePort = (SavedEditText)view.findViewById(R.id.main_xplane_port);
-        mXplaneCb = (CheckBox)view.findViewById(R.id.main_button_xplane_connect);
+        mTextXplaneIp = view.findViewById(R.id.main_xplane_ip);
+        mTextXplanePort = view.findViewById(R.id.main_xplane_port);
+        mXplaneCb = view.findViewById(R.id.main_button_xplane_connect);
         mTextXplaneIp.setText(mTextXplaneIp.getText() + "(" + Util.getIpAddr(mContext) + ")");
         mXplaneCb.setOnClickListener(new OnClickListener() {
             

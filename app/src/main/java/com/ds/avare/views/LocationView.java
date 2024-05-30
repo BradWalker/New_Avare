@@ -1099,7 +1099,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
                         /*
                          * Set move with pan after new tiles are finally loaded
                          */
-                        mPan.setMove((float) (mPan.getMoveX() * t.factor), (float) (mPan.getMoveY() * t.factor));
+                        mPan.setMove(mPan.getMoveX() * t.factor, mPan.getMoveY() * t.factor);
 
                         int index = Integer.parseInt(mPref.getChartType());
                         String type = Boundaries.getChartType(index);

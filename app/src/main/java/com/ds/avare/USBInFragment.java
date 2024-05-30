@@ -47,19 +47,19 @@ public class USBInFragment extends IOFragment {
         
         View view = inflater.inflate(R.layout.layout_usbin, container, false);
 
-        mParamsText = (SavedEditText)view.findViewById(R.id.usbin_params_text);
+        mParamsText = view.findViewById(R.id.usbin_params_text);
         
         /*
          * BT connection
          */
-        mTextFileSave = (SavedEditText)view.findViewById(R.id.usbin_file_name_save);
+        mTextFileSave = view.findViewById(R.id.usbin_file_name_save);
 
         /*
          * List of BT devices is same
          */
         mUSB = ConnectionFactory.getConnection(ConnectionFactory.CF_USBConnectionIn, mContext);
         
-        mConnectButton = (Button) view.findViewById(R.id.usbin_button_connect);
+        mConnectButton = view.findViewById(R.id.usbin_button_connect);
         mConnectButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -92,7 +92,7 @@ public class USBInFragment extends IOFragment {
             }
         });
 
-        mConnectFileSaveButton = (Button)view.findViewById(R.id.usbin_button_connect_file_save);
+        mConnectFileSaveButton = view.findViewById(R.id.usbin_button_connect_file_save);
         mConnectFileSaveButton.setOnClickListener(new OnClickListener() {
             
             @Override

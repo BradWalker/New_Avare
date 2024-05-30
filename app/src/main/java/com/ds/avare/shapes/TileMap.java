@@ -94,7 +94,7 @@ public class TileMap extends MapBase {
                  * Now draw in background, but first find tiles in foreground
                  * Find tile at my GPS location
                  */
-                gpsTile = new Tile(lon, lat, (double) scale.downSample());
+                gpsTile = new Tile(lon, lat, scale.downSample());
 
                 offsets[0] = gpsTile.getOffsetX(lon);
                 offsets[1] = gpsTile.getOffsetY(lat);
@@ -129,8 +129,8 @@ public class TileMap extends MapBase {
                  */
                 int i = 0;
                 tileNames = new String[getTilesNum()];
-                int ty = (int) (getYTilesNum() / 2);
-                int tx = (int) (getXTilesNum() / 2);
+                int ty = getYTilesNum() / 2;
+                int tx = getXTilesNum() / 2;
                 for (int tiley = ty; tiley >= -ty; tiley--) {
                     for (int tilex = -tx; tilex <= tx; tilex++) {
                         tileNames[i++] = centerTile.getTileNeighbor(tilex, tiley);

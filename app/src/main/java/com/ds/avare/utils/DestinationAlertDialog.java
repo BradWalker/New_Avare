@@ -53,7 +53,7 @@ public class DestinationAlertDialog extends AlertDialog {
             @Override
             public Object callback(Object o, Object o1) {
 
-                if(((String)o).equals("X")) {
+                if(o.equals("X")) {
                     dismiss();
                 }
                 else if(null == mCb) {

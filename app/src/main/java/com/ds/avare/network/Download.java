@@ -321,7 +321,7 @@ public class Download {
                         }
 
                         mCode = "code stopped by unzip, corrupt file";
-                        ZipEntry entry = (ZipEntry)entries.nextElement();
+                        ZipEntry entry = entries.nextElement();
 
                         /*
                          * Keep un-zipping and creating folders
@@ -404,7 +404,7 @@ public class Download {
                         copyInputStream(zipFile.getInputStream(entry),
                                 new BufferedOutputStream(new FileOutputStream(path + "/" + entry.getName()), blocksize));
                         totalnum++;
-                        newp = (int)(50 + totalnum * 50 / filenum);
+                        newp = 50 + totalnum * 50 / filenum;
                         if(lastp != newp) {
                             lastp = newp;
                             Message m = mHandler.obtainMessage(newp, Download.this);
