@@ -104,25 +104,19 @@ public class WeatherCondition {
 	protected void setDescriptor(String descriptor) {
 		this.descriptor = descriptor;
 
-		if (descriptor.equals(MetarConstants.METAR_SHALLOW)) {
-			isShallow = true;
-		} else if (descriptor.equals(MetarConstants.METAR_PARTIAL)) {
-			isPartial = true;
-		} else if (descriptor.equals(MetarConstants.METAR_PATCHES)) {
-			isPatches = true;
-		} else if (descriptor.equals(MetarConstants.METAR_LOW_DRIFTING)) {
-			isLowDrifting = true;
-		} else if (descriptor.equals(MetarConstants.METAR_BLOWING)) {
-			isBlowing = true;
-		} else if (descriptor.equals(MetarConstants.METAR_SHOWERS)) {
-			isShowers = true;
-		} else if (descriptor.equals(MetarConstants.METAR_THUNDERSTORMS)) {
-			isThunderstorms = true;
-		} else if (descriptor.equals(MetarConstants.METAR_FREEZING)) {
-			isFreezing = true;
-		} else {
-			// shouldn't get here
-		}
+        switch (descriptor) {
+            case MetarConstants.METAR_SHALLOW -> isShallow = true;
+            case MetarConstants.METAR_PARTIAL -> isPartial = true;
+            case MetarConstants.METAR_PATCHES -> isPatches = true;
+            case MetarConstants.METAR_LOW_DRIFTING -> isLowDrifting = true;
+            case MetarConstants.METAR_BLOWING -> isBlowing = true;
+            case MetarConstants.METAR_SHOWERS -> isShowers = true;
+            case MetarConstants.METAR_THUNDERSTORMS -> isThunderstorms = true;
+            case MetarConstants.METAR_FREEZING -> isFreezing = true;
+            default -> {
+            }
+            // shouldn't get here
+        }
 	}
 
     /**
@@ -134,55 +128,37 @@ public class WeatherCondition {
 	protected void setPhenomena(String phenomena) {
 		this.phenomena = phenomena;
 
-		if (phenomena.equals(MetarConstants.METAR_DRIZZLE)) {
-			isDrizzle = true;
-		} else if (phenomena.equals(MetarConstants.METAR_RAIN)) {
-			isRain = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SNOW)) {
-			isSnow = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SNOW_GRAINS)) {
-			isSnowGrains = true;
-		} else if (phenomena.equals(MetarConstants.METAR_ICE_CRYSTALS)) {
-			isIceCrystals = true;
-		} else if (phenomena.equals(MetarConstants.METAR_ICE_PELLETS)) {
-			isIcePellets = true;
-		} else if (phenomena.equals(MetarConstants.METAR_HAIL)) {
-			isHail = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SMALL_HAIL)) {
-			isSmallHail = true;
-		} else if (phenomena.equals(MetarConstants.METAR_UNKNOWN_PRECIPITATION)) {
-			isUnknownPrecipitation = true;
-		} else if (phenomena.equals(MetarConstants.METAR_MIST)) {
-			isMist = true;
-		} else if (phenomena.equals(MetarConstants.METAR_FOG)) {
-			isFog = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SMOKE)) {
-			isSmoke = true;
-		} else if (phenomena.equals(MetarConstants.METAR_VOLCANIC_ASH)) {
-			isVolcanicAsh = true;
-		} else if (phenomena.equals(MetarConstants.METAR_WIDESPREAD_DUST)) {
-			isWidespreadDust = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SAND)) {
-			isSand = true;
-		} else if (phenomena.equals(MetarConstants.METAR_HAZE)) {
-			isHaze = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SPRAY)) {
-			isSpray = true;
-		} else if (phenomena.equals(MetarConstants.METAR_DUST_SAND_WHIRLS)) {
-			isDustSandWhirls = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SQUALLS)) {
-			isSqualls = true;
-		} else if (phenomena.equals(MetarConstants.METAR_FUNNEL_CLOUD)) {
-			isFunnelCloud = true;
-			isTornado = true;
-			isWaterspout = false;
-		} else if (phenomena.equals(MetarConstants.METAR_SAND_STORM)) {
-			isSandstorm = true;
-		} else if (phenomena.equals(MetarConstants.METAR_DUST_STORM)) {
-			isDuststorm = true;
-		} else {
-			// shouldn't get here
-		}
+        switch (phenomena) {
+            case MetarConstants.METAR_DRIZZLE -> isDrizzle = true;
+            case MetarConstants.METAR_RAIN -> isRain = true;
+            case MetarConstants.METAR_SNOW -> isSnow = true;
+            case MetarConstants.METAR_SNOW_GRAINS -> isSnowGrains = true;
+            case MetarConstants.METAR_ICE_CRYSTALS -> isIceCrystals = true;
+            case MetarConstants.METAR_ICE_PELLETS -> isIcePellets = true;
+            case MetarConstants.METAR_HAIL -> isHail = true;
+            case MetarConstants.METAR_SMALL_HAIL -> isSmallHail = true;
+            case MetarConstants.METAR_UNKNOWN_PRECIPITATION -> isUnknownPrecipitation = true;
+            case MetarConstants.METAR_MIST -> isMist = true;
+            case MetarConstants.METAR_FOG -> isFog = true;
+            case MetarConstants.METAR_SMOKE -> isSmoke = true;
+            case MetarConstants.METAR_VOLCANIC_ASH -> isVolcanicAsh = true;
+            case MetarConstants.METAR_WIDESPREAD_DUST -> isWidespreadDust = true;
+            case MetarConstants.METAR_SAND -> isSand = true;
+            case MetarConstants.METAR_HAZE -> isHaze = true;
+            case MetarConstants.METAR_SPRAY -> isSpray = true;
+            case MetarConstants.METAR_DUST_SAND_WHIRLS -> isDustSandWhirls = true;
+            case MetarConstants.METAR_SQUALLS -> isSqualls = true;
+            case MetarConstants.METAR_FUNNEL_CLOUD -> {
+                isFunnelCloud = true;
+                isTornado = true;
+                isWaterspout = false;
+            }
+            case MetarConstants.METAR_SAND_STORM -> isSandstorm = true;
+            case MetarConstants.METAR_DUST_STORM -> isDuststorm = true;
+            default -> {
+            }
+            // shouldn't get here
+        }
 	}
 
 	/**

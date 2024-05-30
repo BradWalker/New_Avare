@@ -4,22 +4,13 @@ package com.ds.avare.place;
  * Created by zkhan on 2/9/17.
  */
 
-
 public class DestinationFactory {
-
     public static Destination build(String name, String type) {
-
-        if(type.equals(Destination.GPS)) {
-            return new GpsDestination(name);
-        }
-        else if(type.equals(Destination.MAPS)) {
-            return new MapsDestination(name);
-        }
-        else if(type.equals(Destination.UDW)) {
-            return new UDWDestination(name);
-        }
-        else {
-            return new DatabaseDestination(name, type);
-        }
+        return switch (type) {
+            case Destination.GPS -> new GpsDestination(name);
+            case Destination.MAPS -> new MapsDestination(name);
+            case Destination.UDW -> new UDWDestination(name);
+            default -> new DatabaseDestination(name, type);
+        };
     }
 }

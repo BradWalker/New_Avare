@@ -114,85 +114,37 @@ public class SearchAdapter extends ArrayAdapter<String> {
         if(id != null && dbType != null && name != null) {
             textView.setText(id);
             textView2.setText(name);
-            
-            if(dbType.equals("TACAN")) {
-                imgView.setImageBitmap(mTACANBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("NDB/DME")) {
-                imgView.setImageBitmap(mNDBDMEBitmapHolder.getBitmap());
-            }
-            else if(
-                    dbType.equals("MARINE NDB") ||
-                    dbType.equals("UHF/NDB") ||
-                    dbType.equals("NDB")) {
-                imgView.setImageBitmap(mNDBBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("VOR/DME")) {
-                imgView.setImageBitmap(mVORDMEBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("VOT")) {
-                imgView.setImageBitmap(mVOTBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("VORTAC")) {
-                imgView.setImageBitmap(mVORTACBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("FAN MARKER")) {
-                imgView.setImageBitmap(mMakerBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals("VOR")) {
-                imgView.setImageBitmap(mVORBitmapHolder.getBitmap());
-            }
-            else if(
+
+            switch (dbType) {
+                case "TACAN" -> imgView.setImageBitmap(mTACANBitmapHolder.getBitmap());
+                case "NDB/DME" -> imgView.setImageBitmap(mNDBDMEBitmapHolder.getBitmap());
+                case "MARINE NDB", "UHF/NDB", "NDB" ->
+                        imgView.setImageBitmap(mNDBBitmapHolder.getBitmap());
+                case "VOR/DME" -> imgView.setImageBitmap(mVORDMEBitmapHolder.getBitmap());
+                case "VOT" -> imgView.setImageBitmap(mVOTBitmapHolder.getBitmap());
+                case "VORTAC" -> imgView.setImageBitmap(mVORTACBitmapHolder.getBitmap());
+                case "FAN MARKER" -> imgView.setImageBitmap(mMakerBitmapHolder.getBitmap());
+                case "VOR" -> imgView.setImageBitmap(mVORBitmapHolder.getBitmap());
+                case "AIRPORT", "SEAPLANE BAS", "HELIPORT", "ULTRALIGHT", "GLIDERPORT", "BALLOONPORT" ->
                     /*
                      * These are placeholders for future addition for appropriate icons
                      */
-                    dbType.equals("AIRPORT") ||
-                    dbType.equals("SEAPLANE BAS") ||
-                    dbType.equals("HELIPORT") ||
-                    dbType.equals("ULTRALIGHT") ||
-                    dbType.equals("GLIDERPORT") ||
-                    dbType.equals("BALLOONPORT")) {
-                imgView.setImageBitmap(mAirportBitmapHolder.getBitmap());
-            }
-            else if(
+
+                        imgView.setImageBitmap(mAirportBitmapHolder.getBitmap());
+                case "YREP-PT", "YRNAV-WP", "NARTCC-BDRY", "NAWY-INTXN", "NTURN-PT", "YWAYPOINT", "YMIL-REP-PT", "YCOORDN-FIX", "YMIL-WAYPOINT", "YNRS-WAYPOINT", "YVFR-WP", "YGPS-WP", "YCNF", "YRADAR", "NDME-FIX", "NNOT-ASSIGNED", "NDP-TRANS-XING", "NSTAR-TRANS-XIN", "NBRG-INTXN" ->
                     /*
                      * All strings direct from FAA database
                      */
-                    dbType.equals("YREP-PT") ||
-                    dbType.equals("YRNAV-WP") ||
-                    dbType.equals("NARTCC-BDRY") ||
-                    dbType.equals("NAWY-INTXN") ||
-                    dbType.equals("NTURN-PT") ||
-                    dbType.equals("YWAYPOINT") ||
-                    dbType.equals("YMIL-REP-PT") ||
-                    dbType.equals("YCOORDN-FIX") ||
-                    dbType.equals("YMIL-WAYPOINT") ||
-                    dbType.equals("YNRS-WAYPOINT") ||
-                    dbType.equals("YVFR-WP") ||
-                    dbType.equals("YGPS-WP") ||
-                    dbType.equals("YCNF") ||
-                    dbType.equals("YRADAR") ||
-                    dbType.equals("NDME-FIX") ||
-                    dbType.equals("NNOT-ASSIGNED") ||
-                    dbType.equals("NDP-TRANS-XING") ||
-                    dbType.equals("NSTAR-TRANS-XIN") ||
-                    dbType.equals("NBRG-INTXN")) {
-                imgView.setImageBitmap(mFixBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals(Destination.GPS)) {
-                imgView.setImageBitmap(mGeoBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals(Destination.MAPS)) {
-                imgView.setImageBitmap(mMapBitmapHolder.getBitmap());
-            }
-            else if(dbType.equals(Destination.UDW)) {
-                imgView.setImageBitmap(mUDWBitmapHolder.getBitmap());
-            }
-            else {
-                /*
-                 * Unrecognized, dont show any but take space
-                 */
-                imgView.setImageBitmap(mNoBitmapHolder.getBitmap());                    
+
+                        imgView.setImageBitmap(mFixBitmapHolder.getBitmap());
+                case Destination.GPS -> imgView.setImageBitmap(mGeoBitmapHolder.getBitmap());
+                case Destination.MAPS -> imgView.setImageBitmap(mMapBitmapHolder.getBitmap());
+                case Destination.UDW -> imgView.setImageBitmap(mUDWBitmapHolder.getBitmap());
+                default ->
+                    /*
+                     * Unrecognized, dont show any but take space
+                     */
+                        imgView.setImageBitmap(mNoBitmapHolder.getBitmap());
             }
         }
 

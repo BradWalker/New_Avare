@@ -695,33 +695,35 @@ public class LocationContentProviderHelper {
         String[] arguments = new String[] {name};
 
         try {
-            if(type.equals(Destination.BASE)) {
-                String qry = LocationContract.AIRPORTS_LOCATION_ID + " = ?";
-                c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, null, qry, arguments, null);
-                if(c != null) {
-                    if(c.moveToFirst()) {
-                        return new String(c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)) + "," +
-                                c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE)));
+            switch (type) {
+                case Destination.BASE -> {
+                    String qry = LocationContract.AIRPORTS_LOCATION_ID + " = ?";
+                    c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, null, qry, arguments, null);
+                    if (c != null) {
+                        if (c.moveToFirst()) {
+                            return new String(c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE)));
+                        }
                     }
                 }
-            }
-            else if(type.equals(Destination.NAVAID)) {
-                String qry = LocationContract.NAV_LOCATION_ID + " = ?";
-                c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_NAV, null, qry, arguments, null);
-                if(c != null) {
-                    if(c.moveToFirst()) {
-                        return new String(c.getString(c.getColumnIndex(LocationContract.NAV_LONGITUDE)) + "," +
-                                c.getString(c.getColumnIndex(LocationContract.NAV_LATITUDE)));
+                case Destination.NAVAID -> {
+                    String qry = LocationContract.NAV_LOCATION_ID + " = ?";
+                    c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_NAV, null, qry, arguments, null);
+                    if (c != null) {
+                        if (c.moveToFirst()) {
+                            return new String(c.getString(c.getColumnIndex(LocationContract.NAV_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.NAV_LATITUDE)));
+                        }
                     }
                 }
-            }
-            else if(type.equals(Destination.FIX)) {
-                String qry = LocationContract.FIX_LOCATION_ID + " = ?";
-                c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_FIX, null, qry, arguments, null);
-                if(c != null) {
-                    if(c.moveToFirst()) {
-                        return new String(c.getString(c.getColumnIndex(LocationContract.FIX_LONGITUDE)) + "," +
-                                c.getString(c.getColumnIndex(LocationContract.FIX_LATITUDE)));
+                case Destination.FIX -> {
+                    String qry = LocationContract.FIX_LOCATION_ID + " = ?";
+                    c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_FIX, null, qry, arguments, null);
+                    if (c != null) {
+                        if (c.moveToFirst()) {
+                            return new String(c.getString(c.getColumnIndex(LocationContract.FIX_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.FIX_LATITUDE)));
+                        }
                     }
                 }
             }
@@ -1286,127 +1288,108 @@ public class LocationContentProviderHelper {
                     /*
                      * Put ID and name first
                      */
-                    if(type.equals(Destination.NAVAID)) {
-                        params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.NAV_LOCATION_ID)));
-                        params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.NAV_FACILITY_NAME)));
-                        params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.NAV_LATITUDE)))));
-                        params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.NAV_LONGITUDE)))));
-                        params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.NAV_TYPE)).trim());
-                    }
-
-                    else if(type.equals(Destination.FIX)) {
-                        params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.FIX_LOCATION_ID)));
-                        params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.FIX_FACILITY_NAME)));
-                        params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.FIX_LATITUDE)))));
-                        params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.FIX_LONGITUDE)))));
-                        params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.FIX_TYPE)).trim());
-                    }
-
-                    else if(type.equals(Destination.BASE)) {
-
-                        params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LOCATION_ID)));
-                        params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FACILITY_NAME)));
-                        params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE)))));
-                        params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)))));
-                        params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_TYPE)).trim());
-                        String use = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_USE)).trim();
-
-                        if(use.equals("PU")) {
-                            use = "PUBLIC";
+                    switch (type) {
+                        case Destination.NAVAID -> {
+                            params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.NAV_LOCATION_ID)));
+                            params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.NAV_FACILITY_NAME)));
+                            params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.NAV_LATITUDE)))));
+                            params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.NAV_LONGITUDE)))));
+                            params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.NAV_TYPE)).trim());
                         }
-                        else if(use.equals("PR")) {
-                            use = "PRIVATE";
+                        case Destination.FIX -> {
+                            params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.FIX_LOCATION_ID)));
+                            params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.FIX_FACILITY_NAME)));
+                            params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.FIX_LATITUDE)))));
+                            params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.FIX_LONGITUDE)))));
+                            params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.FIX_TYPE)).trim());
                         }
-                        else  {
-                            use = "MILITARY";
-                        }
-                        params.put(USE, use);
-                        params.put(MANAGER, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_MANAGER)).trim());
-                        params.put(MANAGER_PHONE, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_MANAGER_PHONE)).trim());
-                        params.put(ELEVATION, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_ELEVATION)).trim());
-                        params.put(MAGNETIC_VARIATION, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_VARIATION)).trim());
-                        String customs = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_CUSTOMS));
-                        if(customs.equals("YN")) {
-                            params.put(CUSTOMS, "Intl. Entry");
-                        }
-                        else if(customs.equals("NY")) {
-                            params.put(CUSTOMS, "Lndg. Rights");
-                        }
-                        else if(customs.equals("YY")) {
-                            params.put(CUSTOMS, "Lndg. Rights, Intl. Entry");
-                        }
-                        else {
-                            params.put(CUSTOMS, ctx.getString(R.string.No));
-                        }
-                        String bcn = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_BEACON));
-                        if(bcn.equals("")) {
-                            bcn = ctx.getString(R.string.No);
-                        }
-                        params.put(BEACON, bcn);
-                        String sc = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_SEGMENTED_CIRCLE));
-                        if(sc.equals("Y")) {
-                            params.put(SEGCIRCLE, ctx.getString(R.string.Yes));
-                        }
-                        else {
-                            params.put(SEGCIRCLE, ctx.getString(R.string.No));
-                        }
-                        String pa = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_TPA)).trim();
-                        String paout = "";
-                        if(pa.equals("")) {
-                            try {
-                                paout = "" + Math.round(Double.parseDouble(params.get(ELEVATION)) + 1000);
+                        case Destination.BASE -> {
+                            params.put(LOCATION_ID, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LOCATION_ID)));
+                            params.put(FACILITY_NAME, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FACILITY_NAME)));
+                            params.put(LATITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE)))));
+                            params.put(LONGITUDE, Double.toString(Helper.truncGeo(c.getDouble(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)))));
+                            params.put(TYPE, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_TYPE)).trim());
+                            String use = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_USE)).trim();
+                            if (use.equals("PU")) {
+                                use = "PUBLIC";
+                            } else if (use.equals("PR")) {
+                                use = "PRIVATE";
+                            } else {
+                                use = "MILITARY";
                             }
-                            catch (Exception e) {
-
+                            params.put(USE, use);
+                            params.put(MANAGER, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_MANAGER)).trim());
+                            params.put(MANAGER_PHONE, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_MANAGER_PHONE)).trim());
+                            params.put(ELEVATION, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_ELEVATION)).trim());
+                            params.put(MAGNETIC_VARIATION, c.getString(c.getColumnIndex(LocationContract.AIRPORTS_VARIATION)).trim());
+                            String customs = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_CUSTOMS));
+                            switch (customs) {
+                                case "YN" -> params.put(CUSTOMS, "Intl. Entry");
+                                case "NY" -> params.put(CUSTOMS, "Lndg. Rights");
+                                case "YY" -> params.put(CUSTOMS, "Lndg. Rights, Intl. Entry");
+                                default -> params.put(CUSTOMS, ctx.getString(R.string.No));
                             }
-                        }
-                        else {
-                            try {
-                                paout = "" + Math.round((Double.parseDouble(params.get(ELEVATION)) +
-                                        (Double.parseDouble(pa))));
+                            String bcn = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_BEACON));
+                            if (bcn.equals("")) {
+                                bcn = ctx.getString(R.string.No);
                             }
-                            catch (Exception e) {
-
+                            params.put(BEACON, bcn);
+                            String sc = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_SEGMENTED_CIRCLE));
+                            if (sc.equals("Y")) {
+                                params.put(SEGCIRCLE, ctx.getString(R.string.Yes));
+                            } else {
+                                params.put(SEGCIRCLE, ctx.getString(R.string.No));
                             }
-                        }
-                        params.put(TPA, paout);
-                        String fuel = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FUEL_TYPES)).trim();
-                        if(fuel.equals("")) {
-                            fuel = ctx.getString(R.string.No);
-                        }
-                        params.put(FUEL_TYPES, fuel);
-                        String ct = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_ATCT)).trim();
-                        if(ct.equals("Y")) {
-                            ct = ctx.getString(R.string.Yes);
-                        }
-                        else {
-                            ct = ctx.getString(R.string.No);
-                        }
-                        params.put(CONTROL_TOWER, ct);
+                            String pa = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_TPA)).trim();
+                            String paout = "";
+                            if (pa.equals("")) {
+                                try {
+                                    paout = "" + Math.round(Double.parseDouble(params.get(ELEVATION)) + 1000);
+                                } catch (Exception e) {
 
-                        String unicom = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_UNICOM_FREQUENCIES)).trim();
-                        if(!unicom.equals("")) {
-                            freq.put(UNICOM, unicom);
-                        }
-                        String ctaf = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_CTAF_FREQUNCY)).trim();
-                        if(!ctaf.equals("")) {
-                            freq.put(CTAF, ctaf);
-                        }
+                                }
+                            } else {
+                                try {
+                                    paout = "" + Math.round((Double.parseDouble(params.get(ELEVATION)) +
+                                            (Double.parseDouble(pa))));
+                                } catch (Exception e) {
 
-                        String fee = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_NON_COMMERCIAL_LANDING_FEE)).trim();
-                        if(fee.equals("Y")) {
-                            fee = ctx.getString(R.string.Yes);
+                                }
+                            }
+                            params.put(TPA, paout);
+                            String fuel = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FUEL_TYPES)).trim();
+                            if (fuel.equals("")) {
+                                fuel = ctx.getString(R.string.No);
+                            }
+                            params.put(FUEL_TYPES, fuel);
+                            String ct = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_ATCT)).trim();
+                            if (ct.equals("Y")) {
+                                ct = ctx.getString(R.string.Yes);
+                            } else {
+                                ct = ctx.getString(R.string.No);
+                            }
+                            params.put(CONTROL_TOWER, ct);
+                            String unicom = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_UNICOM_FREQUENCIES)).trim();
+                            if (!unicom.equals("")) {
+                                freq.put(UNICOM, unicom);
+                            }
+                            String ctaf = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_CTAF_FREQUNCY)).trim();
+                            if (!ctaf.equals("")) {
+                                freq.put(CTAF, ctaf);
+                            }
+                            String fee = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_NON_COMMERCIAL_LANDING_FEE)).trim();
+                            if (fee.equals("Y")) {
+                                fee = ctx.getString(R.string.Yes);
+                            } else {
+                                fee = ctx.getString(R.string.No);
+                            }
+                            params.put(LANDING_FEE, fee);
+                            String fss = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FSS_PHONE));
+                            if (fss.equals("1-800-WX-BRIEF")) {
+                                fss = "1-800-992-7433";
+                            }
+                            params.put(FSSPHONE, fss);
                         }
-                        else {
-                            fee = ctx.getString(R.string.No);
-                        }
-                        params.put(LANDING_FEE, fee);
-                        String fss = c.getString(c.getColumnIndex(LocationContract.AIRPORTS_FSS_PHONE));
-                        if (fss.equals("1-800-WX-BRIEF")) {
-                            fss = "1-800-992-7433";
-                        }
-                        params.put(FSSPHONE, fss);
-
                     }
                 }
             }

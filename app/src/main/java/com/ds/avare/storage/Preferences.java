@@ -177,16 +177,20 @@ public class Preferences implements SharedPreferences.OnSharedPreferenceChangeLi
             editor.commit();
             val = "0";
         }
-        if (val.equals("0")) {
-            return "http://www.apps4av.org/new/";
-        } else if (val.equals("1")) {
-            return "https://avare.bubble.org/";
-        } else if (val.equals("2")) {
-            val = mPref.getString(mContext.getString(R.string.PrivateServer), "http://127.0.0.1/");
-            if (!val.substring(val.length() - 1).equals("/")) {
-                val = val + "/";
+        switch (val) {
+            case "0" -> {
+                return "http://www.apps4av.org/new/";
             }
-            return val;
+            case "1" -> {
+                return "https://avare.bubble.org/";
+            }
+            case "2" -> {
+                val = mPref.getString(mContext.getString(R.string.PrivateServer), "http://127.0.0.1/");
+                if (!val.substring(val.length() - 1).equals("/")) {
+                    val = val + "/";
+                }
+                return val;
+            }
         }
         return ("");
     }

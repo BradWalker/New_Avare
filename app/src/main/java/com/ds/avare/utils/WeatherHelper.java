@@ -25,23 +25,21 @@ public class WeatherHelper {
      * @return
      */
     public static int metarColor(String type) {
-        if(type.equals("VFR")) {
-            //green
-            return(0xff78e825);
-        }
-        else if(type.equals("IFR")) {
-            // red
-            return(0xffff2a00);
-        }
-        else if(type.equals("MVFR")) {
-            // blue
-            return(0xff4884ff);
-        }
-        else if(type.equals("LIFR")) {
-            // magenta
-            return(0xffff54f9);
-        }
-        return(0xff333333);
+        return switch (type) {
+            case "VFR" ->
+                //green
+                    (0xff78e825);
+            case "IFR" ->
+                // red
+                    (0xffff2a00);
+            case "MVFR" ->
+                // blue
+                    (0xff4884ff);
+            case "LIFR" ->
+                // magenta
+                    (0xffff54f9);
+            default -> (0xff333333);
+        };
     }
 
     /**
@@ -50,19 +48,13 @@ public class WeatherHelper {
      * @return
      */
     public static String metarColorString(String type) {
-        if(type.equals("VFR")) {
-            return("#78e825");
-        }
-        else if(type.equals("IFR")) {
-            return("#ff2a00");
-        }
-        else if(type.equals("MVFR")) {
-            return("#008aff");
-        }
-        else if(type.equals("LIFR")) {
-            return("#ff54f9");
-        }
-        return("white");
+        return switch (type) {
+            case "VFR" -> ("#78e825");
+            case "IFR" -> ("#ff2a00");
+            case "MVFR" -> ("#008aff");
+            case "LIFR" -> ("#ff54f9");
+            default -> ("white");
+        };
     }
 
     public static String addColorWithStroke(String input, String color) {

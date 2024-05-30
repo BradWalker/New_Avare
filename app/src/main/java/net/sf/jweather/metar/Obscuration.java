@@ -57,23 +57,16 @@ public class Obscuration {
 	protected void setPhenomena(String phenomena) {
 		this.phenomena = phenomena;
 
-		if (phenomena.equals(MetarConstants.METAR_MIST)) {
-			isMist  = true;
-		} else if (phenomena.equals(MetarConstants.METAR_FOG)) {
-			isFog   = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SMOKE)) {
-			isSmoke = true;
-		} else if (phenomena.equals(MetarConstants.METAR_VOLCANIC_ASH)) {
-			isVolcanicAsh = true;
-		} else if (phenomena.equals(MetarConstants.METAR_WIDESPREAD_DUST)) {
-			isDust  = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SAND)) {
-			isSand  = true;
-		} else if (phenomena.equals(MetarConstants.METAR_HAZE)) {
-			isHaze  = true;
-		} else if (phenomena.equals(MetarConstants.METAR_SPRAY)) {
-			isSpray = true;
-		}
+        switch (phenomena) {
+            case MetarConstants.METAR_MIST -> isMist = true;
+            case MetarConstants.METAR_FOG -> isFog = true;
+            case MetarConstants.METAR_SMOKE -> isSmoke = true;
+            case MetarConstants.METAR_VOLCANIC_ASH -> isVolcanicAsh = true;
+            case MetarConstants.METAR_WIDESPREAD_DUST -> isDust = true;
+            case MetarConstants.METAR_SAND -> isSand = true;
+            case MetarConstants.METAR_HAZE -> isHaze = true;
+            case MetarConstants.METAR_SPRAY -> isSpray = true;
+        }
 	}
 
     /**
@@ -84,15 +77,12 @@ public class Obscuration {
 	protected void setContraction(String contraction) {
 		this.contraction = contraction;
 
-		if (contraction.equals(MetarConstants.METAR_FEW)) {
-			isSlight = true;
-		} else if (contraction.equals(MetarConstants.METAR_SCATTERED)) {
-			isModerate = true;
-		} else if (contraction.equals(MetarConstants.METAR_BROKEN)) {
-			isHeavy = true;
-		} else if (contraction.equals(MetarConstants.METAR_OVERCAST)) {
-			isSevere = true;
-		}
+        switch (contraction) {
+            case MetarConstants.METAR_FEW -> isSlight = true;
+            case MetarConstants.METAR_SCATTERED -> isModerate = true;
+            case MetarConstants.METAR_BROKEN -> isHeavy = true;
+            case MetarConstants.METAR_OVERCAST -> isSevere = true;
+        }
 	}
 
 	public boolean isSlight() {

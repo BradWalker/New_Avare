@@ -236,14 +236,16 @@ public class NetworkHelper {
         if(file.equals("TFRs.zip")) {
             return(root + "/" + file);
         }
-        if(file.equals("GameTFRs.zip")) {
-            return(root + "/" + file);
-        }
-        else if(file.equals("weather.zip")) {
-            return(root + "/" + file);
-        }
-        else if(file.equals("conus.zip")) {
-            return(root + "/" + file);
+        switch (file) {
+            case "GameTFRs.zip" -> {
+                return (root + "/" + file);
+            }
+            case "weather.zip" -> {
+                return (root + "/" + file);
+            }
+            case "conus.zip" -> {
+                return (root + "/" + file);
+            }
         }
 
         // See if it is a static chart (not updated every 28 days)

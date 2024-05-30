@@ -446,18 +446,17 @@ public class WebAppPlanInterface implements Observer {
 			return;
 		}
 		mHandler.sendEmptyMessage(MSG_BUSY);
-		if(action.equals("Activate")) {
-			// Activate plan with given ID
-			infc.activateFlightPlan(id, ver, arg);
-		}
-		else if(action.equals("Close")) {
-			// Activate plan with given ID
-			infc.closeFlightPlan(id, arg);
-		}
-		else if(action.equals("Cancel")) {
-			// Activate plan with given ID
-			infc.cancelFlightPlan(id);
-		}
+        switch (action) {
+            case "Activate" ->
+                // Activate plan with given ID
+                    infc.activateFlightPlan(id, ver, arg);
+            case "Close" ->
+                // Activate plan with given ID
+                    infc.closeFlightPlan(id, arg);
+            case "Cancel" ->
+                // Activate plan with given ID
+                    infc.cancelFlightPlan(id);
+        }
 		err = infc.getError();
 		mHandler.sendEmptyMessage(MSG_NOTBUSY);
 		if(null == err) {

@@ -52,23 +52,16 @@ public class SkyCondition {
      */
 	protected void setContraction(String contraction) {
 		this.contraction = contraction;
-		if (contraction.equals(MetarConstants.METAR_VERTICAL_VISIBILITY)) {
-			isVerticalVisibility = true;
-		} else if (contraction.equals(MetarConstants.METAR_SKY_CLEAR)) {
-			isClear = true;
-		} else if (contraction.equals(MetarConstants.METAR_CLEAR)) {
-			isClear = true;
-		} else if (contraction.equals(MetarConstants.METAR_FEW)) {
-			isFewClouds = true;
-		} else if (contraction.equals(MetarConstants.METAR_SCATTERED)) {
-			isScatteredClouds = true;
-		} else if (contraction.equals(MetarConstants.METAR_BROKEN)) {
-			isBrokenClouds = true;
-		} else if (contraction.equals(MetarConstants.METAR_OVERCAST)) {
-			isOvercast = true;
-		} else if (contraction.equals(MetarConstants.METAR_NO_SIGNIFICANT_CLOUDS)) {
-			isNoSignificantClouds = true;
-		}
+        switch (contraction) {
+            case MetarConstants.METAR_VERTICAL_VISIBILITY -> isVerticalVisibility = true;
+            case MetarConstants.METAR_SKY_CLEAR -> isClear = true;
+            case MetarConstants.METAR_CLEAR -> isClear = true;
+            case MetarConstants.METAR_FEW -> isFewClouds = true;
+            case MetarConstants.METAR_SCATTERED -> isScatteredClouds = true;
+            case MetarConstants.METAR_BROKEN -> isBrokenClouds = true;
+            case MetarConstants.METAR_OVERCAST -> isOvercast = true;
+            case MetarConstants.METAR_NO_SIGNIFICANT_CLOUDS -> isNoSignificantClouds = true;
+        }
 	}
 
     /**

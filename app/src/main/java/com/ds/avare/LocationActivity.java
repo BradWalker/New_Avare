@@ -873,45 +873,50 @@ public class LocationActivity extends BaseActivity implements Observer {
                     return null;
                 }
 
-                if (param.equals("CSup")) {
-                    /*
-                     * Chart Supplement
-                     */
-                    if (!mAirportPressed.contains("&")) {
-                        mService.setLastAfdAirport(mAirportPressed);
-                        ((MainActivity) LocationActivity.this.getParent()).showAfdTab();
+                switch (param) {
+                    case "CSup" -> {
+                        /*
+                         * Chart Supplement
+                         */
+                        if (!mAirportPressed.contains("&")) {
+                            mService.setLastAfdAirport(mAirportPressed);
+                            ((MainActivity) LocationActivity.this.getParent()).showAfdTab();
+                        }
+                        mAirportPressed = null;
                     }
-                    mAirportPressed = null;
-                } else if (param.equals("Plate")) {
-                    /*
-                     * Plate
-                     */
-                    if (!mAirportPressed.contains("&")) {
-                        mService.setLastPlateAirport(mAirportPressed);
-                        mService.setLastPlateIndex(0);
-                        ((MainActivity) LocationActivity.this.getParent()).showPlatesTab();
+                    case "Plate" -> {
+                        /*
+                         * Plate
+                         */
+                        if (!mAirportPressed.contains("&")) {
+                            mService.setLastPlateAirport(mAirportPressed);
+                            mService.setLastPlateIndex(0);
+                            ((MainActivity) LocationActivity.this.getParent()).showPlatesTab();
+                        }
+                        mAirportPressed = null;
                     }
-                    mAirportPressed = null;
-                } else if (param.equals("+Plan")) {
-                    String type = Destination.BASE;
-                    if (mAirportPressed.contains("&")) {
-                        type = Destination.GPS;
+                    case "+Plan" -> {
+                        String type = Destination.BASE;
+                        if (mAirportPressed.contains("&")) {
+                            type = Destination.GPS;
+                        }
+                        planTo(mAirportPressed, type);
+                        mAirportPressed = null;
                     }
-                    planTo(mAirportPressed, type);
-                    mAirportPressed = null;
-                } else if (param.equals("->D")) {
+                    case "->D" -> {
 
-                    /*
-                     * On click, find destination that was pressed on in view
-                     * If button pressed was a destination go there, otherwise if none, then delete current dest
-                     */
-                    String dest = mAirportPressed;
-                    mAirportPressed = null;
-                    String type = Destination.BASE;
-                    if (dest.contains("&")) {
-                        type = Destination.GPS;
+                        /*
+                         * On click, find destination that was pressed on in view
+                         * If button pressed was a destination go there, otherwise if none, then delete current dest
+                         */
+                        String dest = mAirportPressed;
+                        mAirportPressed = null;
+                        String type = Destination.BASE;
+                        if (dest.contains("&")) {
+                            type = Destination.GPS;
+                        }
+                        goTo(dest, type);
                     }
-                    goTo(dest, type);
                 }
                 return null;
             }

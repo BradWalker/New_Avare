@@ -99,15 +99,12 @@ public class MessageFactory {
         /**
          * Find which message we have
          */
-        if(type.equals(MessageType.RecommendedMinimumSentence)) {
-            m = new RMCMessage();
-        }
-        else if(type.equals(MessageType.EssentialFix)) {
-            m = new GGAMessage();
-        }
-        else if(type.equals(MessageType.Traffic)) {
-            m = new RTMMessage();
-        }
+        m = switch (type) {
+            case MessageType.RecommendedMinimumSentence -> new RMCMessage();
+            case MessageType.EssentialFix -> new GGAMessage();
+            case MessageType.Traffic -> new RTMMessage();
+            default -> m;
+        };
                 
         /*
          * Parse it.

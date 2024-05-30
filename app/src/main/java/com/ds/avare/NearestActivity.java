@@ -259,29 +259,34 @@ public class NearestActivity extends BaseActivity  implements Observer {
                             return null;
                         }
 
-                        if (param.equals("CSup")) {
-                            if (null != mSelected) {
-                                mService.setLastAfdAirport(mSelected);
-                                ((MainActivity) NearestActivity.this.getParent()).showAfdTab();
-                            }
-                        } else if (param.equals("Plate")) {
-                            if (null != mSelected) {
-                                if (PlatesActivity.doesAirportHavePlates(mPref.getServerDataFolder(), mSelected)) {
-                                    mService.setLastPlateAirport(mSelected);
-                                    mService.setLastPlateIndex(0);
-                                    ((MainActivity) NearestActivity.this.getParent()).showPlatesTab();
+                        switch (param) {
+                            case "CSup" -> {
+                                if (null != mSelected) {
+                                    mService.setLastAfdAirport(mSelected);
+                                    ((MainActivity) NearestActivity.this.getParent()).showAfdTab();
                                 }
                             }
-                        } else if (param.equals("+Plan")) {
-                            if (null != mSelected) {
-                                planTo(mSelected);
+                            case "Plate" -> {
+                                if (null != mSelected) {
+                                    if (PlatesActivity.doesAirportHavePlates(mPref.getServerDataFolder(), mSelected)) {
+                                        mService.setLastPlateAirport(mSelected);
+                                        mService.setLastPlateIndex(0);
+                                        ((MainActivity) NearestActivity.this.getParent()).showPlatesTab();
+                                    }
+                                }
                             }
-                        } else if (param.equals("->D")) {
-                            if (mSelected == null) {
-                                return null;
+                            case "+Plan" -> {
+                                if (null != mSelected) {
+                                    planTo(mSelected);
+                                }
                             }
-                            // It's ok if dbType is null
-                            goTo(mSelected);
+                            case "->D" -> {
+                                if (mSelected == null) {
+                                    return null;
+                                }
+                                // It's ok if dbType is null
+                                goTo(mSelected);
+                            }
                         }
                         return null;
                     }

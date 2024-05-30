@@ -234,34 +234,48 @@ public class SearchActivity extends BaseActivity implements Observer {
                             return null;
                         }
 
-                        if (param.equals("CSup")) {
-                            if (null != mSelected) {
-                                String id = StringPreference.parseHashedNameId(mSelected);
-                                if (id == null) {
-                                    return null;
-                                }
-                                String base = StringPreference.parseHashedNameDestType(mSelected);
-                                if (!base.equals(Destination.BASE)) {
-                                    return null; // no CSup for !airport
-                                }
+                        switch (param) {
+                            case "CSup" -> {
+                                if (null != mSelected) {
+                                    String id = StringPreference.parseHashedNameId(mSelected);
+                                    if (id == null) {
+                                        return null;
+                                    }
+                                    String base = StringPreference.parseHashedNameDestType(mSelected);
+                                    if (!base.equals(Destination.BASE)) {
+                                        return null; // no CSup for !airport
+                                    }
 
-                                mService.setLastAfdAirport(id);
-                                ((MainActivity) SearchActivity.this.getParent()).showAfdTab();
-                            }
-                        } else if (param.equals("Plate")) {
-                            if (null != mSelected) {
-                                String id = StringPreference.parseHashedNameId(mSelected);
-                                if (id == null) {
-                                    return null;
-                                }
-                                if (PlatesActivity.doesAirportHavePlates(mPref.getServerDataFolder(), id)) {
-                                    mService.setLastPlateAirport(id);
-                                    mService.setLastPlateIndex(0);
-                                    ((MainActivity) SearchActivity.this.getParent()).showPlatesTab();
+                                    mService.setLastAfdAirport(id);
+                                    ((MainActivity) SearchActivity.this.getParent()).showAfdTab();
                                 }
                             }
-                        } else if (param.equals("+Plan")) {
-                            if (null != mSelected) {
+                            case "Plate" -> {
+                                if (null != mSelected) {
+                                    String id = StringPreference.parseHashedNameId(mSelected);
+                                    if (id == null) {
+                                        return null;
+                                    }
+                                    if (PlatesActivity.doesAirportHavePlates(mPref.getServerDataFolder(), id)) {
+                                        mService.setLastPlateAirport(id);
+                                        mService.setLastPlateIndex(0);
+                                        ((MainActivity) SearchActivity.this.getParent()).showPlatesTab();
+                                    }
+                                }
+                            }
+                            case "+Plan" -> {
+                                if (null != mSelected) {
+                                    String id = StringPreference.parseHashedNameId(mSelected);
+                                    String destType = StringPreference.parseHashedNameDestType(mSelected);
+                                    String dbType = StringPreference.parseHashedNameDbType(mSelected);
+                                    if (id == null || destType == null) {
+                                        return null;
+                                    }
+                                    // It's ok if dbType is null
+                                    planTo(id, destType, dbType);
+                                }
+                            }
+                            case "->D" -> {
                                 String id = StringPreference.parseHashedNameId(mSelected);
                                 String destType = StringPreference.parseHashedNameDestType(mSelected);
                                 String dbType = StringPreference.parseHashedNameDbType(mSelected);
@@ -269,78 +283,72 @@ public class SearchActivity extends BaseActivity implements Observer {
                                     return null;
                                 }
                                 // It's ok if dbType is null
-                                planTo(id, destType, dbType);
+                                goTo(id, destType, dbType);
                             }
-                        } else if (param.equals("->D")) {
-                            String id = StringPreference.parseHashedNameId(mSelected);
-                            String destType = StringPreference.parseHashedNameDestType(mSelected);
-                            String dbType = StringPreference.parseHashedNameDbType(mSelected);
-                            if (id == null || destType == null) {
-                                return null;
-                            }
-                            // It's ok if dbType is null
-                            goTo(id, destType, dbType);
-                        } else if (param.equals("Save")) {
-                            if (null != mSelected) {
-                                String id = StringPreference.parseHashedNameId(mSelected);
-                                String destType = StringPreference.parseHashedNameDestType(mSelected);
-                                String dbType = StringPreference.parseHashedNameDbType(mSelected);
-                                String name = StringPreference.parseHashedNameFacilityName(mSelected);
-                                mService.getDBResource().setUserRecent(new StringPreference(destType, dbType, name, id));
-                                mSearchText.setText("");
-                            }
-                        } else if (param.equals("Delete")) {
-                            if (null != mSelected) {
-                                mService.getDBResource().deleteUserRecent(StringPreference.parseHashedNameId(mSelected));
-                                initList();
-                                mSearchText.setText("");
-                            }
-                            mSelected = null;
-                        } else if (param.equals("Label")) {
-                            if (null != mSelected) {
-                                final EditText edit = new EditText(SearchActivity.this);
-                                String type = StringPreference.parseHashedNameDbType(mSelected);
-                                if (type == null) {
-                                    mToast.setText(R.string.GpsOnly);
-                                    mToast.show();
-                                    return null;
+                            case "Save" -> {
+                                if (null != mSelected) {
+                                    String id = StringPreference.parseHashedNameId(mSelected);
+                                    String destType = StringPreference.parseHashedNameDestType(mSelected);
+                                    String dbType = StringPreference.parseHashedNameDbType(mSelected);
+                                    String name = StringPreference.parseHashedNameFacilityName(mSelected);
+                                    mService.getDBResource().setUserRecent(new StringPreference(destType, dbType, name, id));
+                                    mSearchText.setText("");
                                 }
-                                if (!type.equals(Destination.GPS)) {
-                                    mToast.setText(R.string.GpsOnly);
-                                    mToast.show();
-                                    return null;
+                            }
+                            case "Delete" -> {
+                                if (null != mSelected) {
+                                    mService.getDBResource().deleteUserRecent(StringPreference.parseHashedNameId(mSelected));
+                                    initList();
+                                    mSearchText.setText("");
                                 }
-
-                                edit.setText(StringPreference.parseHashedNameIdBefore(mSelected));
-
-                                mAlertDialogEdit = new DecoratedAlertDialogBuilder(SearchActivity.this).create();
-                                mAlertDialogEdit.setTitle(getString(R.string.Label));
-                                mAlertDialogEdit.setCanceledOnTouchOutside(true);
-                                mAlertDialogEdit.setCancelable(true);
-                                mAlertDialogEdit.setView(edit);
-                                mAlertDialogEdit.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.OK), new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        /*
-                                         * Edit and save description field
-                                         */
-                                        String nameid = StringPreference.parseHashedNameId(mSelected);
-                                        String id = StringPreference.parseHashedNameIdAfter(nameid);
-                                        String newName = edit.getText().toString().toUpperCase() + "@" + id;
-                                        mService.getDBResource().replaceUserRecentName(nameid, newName);
-                                        initList();
-                                        mSelected = null;
-                                        dialog.dismiss();
-
+                                mSelected = null;
+                            }
+                            case "Label" -> {
+                                if (null != mSelected) {
+                                    final EditText edit = new EditText(SearchActivity.this);
+                                    String type = StringPreference.parseHashedNameDbType(mSelected);
+                                    if (type == null) {
+                                        mToast.setText(R.string.GpsOnly);
+                                        mToast.show();
+                                        return null;
                                     }
-                                });
-                                mAlertDialogEdit.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.Cancel), new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        mSelected = null;
-                                        dialog.dismiss();
+                                    if (!type.equals(Destination.GPS)) {
+                                        mToast.setText(R.string.GpsOnly);
+                                        mToast.show();
+                                        return null;
                                     }
-                                });
-                                if (!isFinishing()) {
-                                    mAlertDialogEdit.show();
+
+                                    edit.setText(StringPreference.parseHashedNameIdBefore(mSelected));
+
+                                    mAlertDialogEdit = new DecoratedAlertDialogBuilder(SearchActivity.this).create();
+                                    mAlertDialogEdit.setTitle(getString(R.string.Label));
+                                    mAlertDialogEdit.setCanceledOnTouchOutside(true);
+                                    mAlertDialogEdit.setCancelable(true);
+                                    mAlertDialogEdit.setView(edit);
+                                    mAlertDialogEdit.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.OK), new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            /*
+                                             * Edit and save description field
+                                             */
+                                            String nameid = StringPreference.parseHashedNameId(mSelected);
+                                            String id = StringPreference.parseHashedNameIdAfter(nameid);
+                                            String newName = edit.getText().toString().toUpperCase() + "@" + id;
+                                            mService.getDBResource().replaceUserRecentName(nameid, newName);
+                                            initList();
+                                            mSelected = null;
+                                            dialog.dismiss();
+
+                                        }
+                                    });
+                                    mAlertDialogEdit.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            mSelected = null;
+                                            dialog.dismiss();
+                                        }
+                                    });
+                                    if (!isFinishing()) {
+                                        mAlertDialogEdit.show();
+                                    }
                                 }
                             }
                         }
