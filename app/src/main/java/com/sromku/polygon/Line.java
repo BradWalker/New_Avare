@@ -39,10 +39,10 @@ public class Line
 	 */
 	public boolean isInside(Point point)
 	{
-		float maxX = _start.x > _end.x ? _start.x : _end.x;
-		float minX = _start.x < _end.x ? _start.x : _end.x;
-		float maxY = _start.y > _end.y ? _start.y : _end.y;
-		float minY = _start.y < _end.y ? _start.y : _end.y;
+		float maxX = Math.max(_start.x, _end.x);
+		float minX = Math.min(_start.x, _end.x);
+		float maxY = Math.max(_start.y, _end.y);
+		float minY = Math.min(_start.y, _end.y);
 
 		if ((point.x >= minX && point.x <= maxX) && (point.y >= minY && point.y <= maxY))
 		{

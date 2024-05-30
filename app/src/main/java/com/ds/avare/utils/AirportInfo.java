@@ -145,7 +145,7 @@ public class AirportInfo extends AsyncTask<Object, String, String> {
         }
 
         if (null == airport) {
-            airport = "" + Helper.truncGeo(lat) + "&" + Helper.truncGeo(lon);
+            airport = Helper.truncGeo(lat) + "&" + Helper.truncGeo(lon);
         } else {
             taf = mService.getDBResource().getTaf(airport);
             if (isCancelled()) {

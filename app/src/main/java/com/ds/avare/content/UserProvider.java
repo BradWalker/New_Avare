@@ -56,24 +56,15 @@ public class UserProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case PLANS:
-                return CONTENT_TYPE;
-            case LISTS:
-                return CONTENT_TYPE;
-            case WNBS:
-                return CONTENT_TYPE;
-            case RECENTS:
-                return CONTENT_TYPE;
-            case TAGS:
-                return CONTENT_TYPE;
-            case DRAWS:
-                return CONTENT_TYPE;
-            case AIRCRAFTS:
-                return CONTENT_TYPE;
-            default:
-                return null;
-        }
+        return switch (uriType) {
+            case PLANS, LISTS -> CONTENT_TYPE;
+            case WNBS -> CONTENT_TYPE;
+            case RECENTS -> CONTENT_TYPE;
+            case TAGS -> CONTENT_TYPE;
+            case DRAWS -> CONTENT_TYPE;
+            case AIRCRAFTS -> CONTENT_TYPE;
+            default -> null;
+        };
     }
 
     @Override

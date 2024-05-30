@@ -110,8 +110,6 @@ public class FisGraphics {
             9-15 - Future Use
         */
         switch (format) {
-            case 0:
-                return false;
             case 2:
                 length = (((int) data[6] & 0xFF) << 8) + ((int) data[7] & 0xFF);
                 if (data.length - length < 6) {
@@ -278,6 +276,8 @@ public class FisGraphics {
                         return false;
                 }
                 break;
+
+            case 0:
             default:
                 return false;
         }
