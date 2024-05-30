@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.views;
 
-import android.accessibilityservice.GestureDescription;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

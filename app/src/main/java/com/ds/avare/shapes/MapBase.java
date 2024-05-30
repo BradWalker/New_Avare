@@ -18,7 +18,6 @@ import android.view.WindowManager;
 import androidx.collection.LruCache;
 
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.GenericCallback;
 

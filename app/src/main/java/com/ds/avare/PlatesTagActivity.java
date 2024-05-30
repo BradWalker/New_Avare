@@ -12,42 +12,26 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare;
 
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.location.GpsStatus;
-import android.location.Location;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ds.avare.gps.GpsInterface;
 import com.ds.avare.place.Destination;
 import com.ds.avare.place.DestinationFactory;
 import com.ds.avare.position.Coordinate;
 import com.ds.avare.position.PixelCoordinate;
-import com.ds.avare.position.Projection;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.DecoratedAlertDialogBuilder;
-import com.ds.avare.utils.Helper;
 import com.ds.avare.utils.OptionButton;
 import com.ds.avare.views.PlatesTagView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;

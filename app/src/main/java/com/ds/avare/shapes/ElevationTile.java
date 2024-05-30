@@ -11,11 +11,9 @@ Redistribution and use in source and binary forms, with or without modification,
 */
 package com.ds.avare.shapes;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.BitmapHolder;
 
 /**

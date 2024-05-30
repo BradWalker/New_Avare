@@ -20,7 +20,6 @@ import com.ds.avare.place.GameTFR;
 import com.ds.avare.position.LabelCoordinate;
 
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

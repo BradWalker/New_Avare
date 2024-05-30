@@ -1,7 +1,5 @@
 package com.ds.avare.place;
 
-import com.ds.avare.StorageService;
-
 /**
  * Created by zkhan on 2/9/17.
  */

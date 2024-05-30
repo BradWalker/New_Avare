@@ -19,7 +19,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
 

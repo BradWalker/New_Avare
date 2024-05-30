@@ -12,10 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.instruments;
 
-import android.content.Context;
-
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;

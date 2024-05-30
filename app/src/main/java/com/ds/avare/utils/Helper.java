@@ -22,7 +22,6 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.os.Environment;
 import android.text.format.Time;
 import android.util.TypedValue;
 import android.view.WindowManager;
@@ -31,7 +30,6 @@ import com.ds.avare.R;
 import com.ds.avare.StorageService;
 import com.ds.avare.shapes.TFRShape;
 import com.ds.avare.storage.Preferences;
-import com.sromku.polygon.Line;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

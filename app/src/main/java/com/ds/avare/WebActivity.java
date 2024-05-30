@@ -13,24 +13,13 @@ package com.ds.avare;
 
 
 
-import com.ds.avare.gps.GpsInterface;
-import com.ds.avare.utils.Helper;
-
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.location.GpsStatus;
-import android.location.Location;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.webkit.WebView;

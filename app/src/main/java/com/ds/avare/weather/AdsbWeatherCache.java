@@ -11,7 +11,6 @@ Redistribution and use in source and binary forms, with or without modification,
 */
 package com.ds.avare.weather;
 
-import android.content.Context;
 import android.util.SparseArray;
 
 import com.ds.avare.StorageService;

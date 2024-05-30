@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare;
 
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,8 +24,6 @@ import com.ds.avare.connections.Connection;
 import com.ds.avare.connections.ConnectionFactory;
 import com.ds.avare.storage.Preferences;
 import com.ds.avare.storage.SavedEditText;
-
-import java.io.File;
 
 /**
  * 

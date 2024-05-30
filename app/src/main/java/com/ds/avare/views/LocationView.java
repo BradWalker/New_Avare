@@ -14,13 +14,11 @@ package com.ds.avare.views;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -31,22 +29,18 @@ import android.view.ViewConfiguration;
 
 import com.ds.avare.R;
 import com.ds.avare.StorageService;
-import com.ds.avare.adsb.AudibleTrafficAlerts;
 import com.ds.avare.adsb.NexradBitmap;
 import com.ds.avare.adsb.Traffic;
 import com.ds.avare.connections.ConnectionFactory;
 import com.ds.avare.gps.GpsParams;
-import com.ds.avare.place.Airport;
 import com.ds.avare.place.Boundaries;
 import com.ds.avare.place.Destination;
-import com.ds.avare.place.NavAid;
 import com.ds.avare.place.Obstacle;
 import com.ds.avare.place.Runway;
 import com.ds.avare.position.Movement;
 import com.ds.avare.position.Origin;
 import com.ds.avare.position.Pan;
 import com.ds.avare.position.Projection;
-import com.ds.avare.position.Scale;
 import com.ds.avare.shapes.DrawingContext;
 import com.ds.avare.shapes.Layer;
 import com.ds.avare.shapes.MetShape;
@@ -65,19 +59,10 @@ import com.ds.avare.utils.DisplayIcon;
 import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Helper;
 import com.ds.avare.utils.InfoLines.InfoLineFieldLoc;
-import com.ds.avare.utils.NavAidHelper;
 import com.ds.avare.utils.NavComments;
-import com.ds.avare.utils.WeatherHelper;
 import com.ds.avare.weather.AdsbWeatherCache;
-import com.ds.avare.weather.AirSigMet;
-import com.ds.avare.weather.Airep;
-import com.ds.avare.weather.Metar;
-import com.ds.avare.weather.Taf;
-import com.ds.avare.weather.WindsAloft;
 
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
 
 /**
  * @author zkhan

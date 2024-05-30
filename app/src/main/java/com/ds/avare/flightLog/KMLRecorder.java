@@ -40,13 +40,11 @@ import java.util.LinkedList;
 import java.util.Locale;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 
 import com.ds.avare.StorageService;
 import com.ds.avare.gps.GpsParams;
 import com.ds.avare.shapes.CrumbsShape;
 import com.ds.avare.shapes.Shape;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.Helper;
 
 /**

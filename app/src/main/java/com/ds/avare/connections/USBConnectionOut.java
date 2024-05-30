@@ -12,12 +12,10 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.connections;
 
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Logger;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
@@ -27,7 +25,6 @@ import com.hoho.android.usbserial.driver.UsbSerialProber;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 

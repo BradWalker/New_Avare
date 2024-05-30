@@ -27,7 +27,6 @@
  */
 package com.ds.avare.network;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import com.ds.avare.StorageService;
@@ -35,7 +34,6 @@ import com.ds.avare.shapes.TFRShape;
 import com.ds.avare.utils.Helper;
 
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 /**

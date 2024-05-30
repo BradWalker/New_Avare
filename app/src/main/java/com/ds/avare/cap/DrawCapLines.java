@@ -30,7 +30,6 @@ package com.ds.avare.cap;
 
 import java.util.LinkedList;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;

@@ -2,9 +2,7 @@ package com.ds.avare.views;
 
 import android.content.Context;
 import android.graphics.Point;
-import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;

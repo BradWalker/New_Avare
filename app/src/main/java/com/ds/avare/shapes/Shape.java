@@ -12,14 +12,10 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.shapes;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.ds.avare.place.Plan;
 import com.ds.avare.position.Coordinate;
-import com.ds.avare.position.Movement;
 import com.ds.avare.position.Origin;
-import com.ds.avare.position.Scale;
 import com.ds.avare.utils.Helper;
 import com.sromku.polygon.Point;
 import com.sromku.polygon.Polygon;
@@ -27,7 +23,6 @@ import com.sromku.polygon.Polygon.Builder;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 
 /**
  * @author zkhan

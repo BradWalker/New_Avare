@@ -13,23 +13,15 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare;
 
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.location.GpsStatus;
-import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
@@ -38,10 +30,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ds.avare.adapters.SearchAdapter;
-import com.ds.avare.gps.GpsInterface;
 import com.ds.avare.place.Destination;
 import com.ds.avare.place.DestinationFactory;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.storage.StringPreference;
 import com.ds.avare.touch.LongTouchDestination;
 import com.ds.avare.utils.AirportInfo;

@@ -13,7 +13,6 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.connections;
 
 import android.content.Context;
-import android.net.Uri;
 
 import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.GenericCallback;

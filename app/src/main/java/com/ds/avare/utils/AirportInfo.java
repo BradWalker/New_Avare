@@ -5,9 +5,6 @@ import android.os.AsyncTask;
 
 import com.ds.avare.R;
 import com.ds.avare.StorageService;
-import com.ds.avare.content.DataSource;
-import com.ds.avare.content.LocationContentProviderHelper;
-import com.ds.avare.gps.GpsParams;
 import com.ds.avare.place.DatabaseDestination;
 import com.ds.avare.place.NavAid;
 import com.ds.avare.position.Projection;

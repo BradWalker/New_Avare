@@ -15,10 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 
 public class ExternalPlanMgr {
 	List<ExternalFlightPlan> 	mPlans;	// Collection of external flight plans

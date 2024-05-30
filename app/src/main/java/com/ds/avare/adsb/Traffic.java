@@ -2,7 +2,6 @@ package com.ds.avare.adsb;
 
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.util.SparseArray;
 
 import com.ds.avare.StorageService;
 import com.ds.avare.gps.GpsParams;

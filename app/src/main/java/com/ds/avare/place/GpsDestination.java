@@ -2,7 +2,6 @@ package com.ds.avare.place;
 
 import android.os.AsyncTask;
 
-import com.ds.avare.StorageService;
 import com.ds.avare.content.LocationContentProviderHelper;
 import com.ds.avare.utils.Helper;
 

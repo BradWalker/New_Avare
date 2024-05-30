@@ -15,7 +15,6 @@ package com.ds.avare.webinfc;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -27,7 +26,6 @@ import android.webkit.WebView;
 import com.ds.avare.PlanActivity;
 import com.ds.avare.R;
 import com.ds.avare.StorageService;
-import com.ds.avare.WebActivity;
 import com.ds.avare.externalFlightPlan.ExternalFlightPlan;
 import com.ds.avare.place.Airway;
 import com.ds.avare.place.Destination;

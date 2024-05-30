@@ -27,7 +27,6 @@
  */
 package com.ds.avare.orientation;
 
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,7 +36,6 @@ import android.os.Looper;
 import android.os.Message;
 
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.MovingAverage;
 
 import java.util.List;

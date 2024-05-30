@@ -14,7 +14,6 @@ package com.ds.avare;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +23,6 @@ import android.widget.TextView;
 
 import com.ds.avare.connections.Connection;
 import com.ds.avare.connections.ConnectionFactory;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.storage.SavedEditText;
 import com.ds.avare.utils.Util;
 

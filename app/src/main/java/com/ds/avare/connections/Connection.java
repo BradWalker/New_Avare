@@ -32,7 +32,6 @@ import android.os.Looper;
 import android.os.Message;
 
 import com.ds.avare.StorageService;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Logger;
 

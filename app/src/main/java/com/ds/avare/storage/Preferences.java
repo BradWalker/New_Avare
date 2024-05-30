@@ -20,7 +20,6 @@ import android.content.pm.PackageInfo;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -28,22 +27,8 @@ import android.view.WindowManager;
 
 import com.ds.avare.MainActivity;
 import com.ds.avare.R;
-import com.ds.avare.flight.Checklist;
-import com.ds.avare.flight.WeightAndBalance;
-import com.ds.avare.place.Destination;
-import com.ds.avare.utils.BTListPreferenceWithSummary;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 /**
  * Preferences for main activity

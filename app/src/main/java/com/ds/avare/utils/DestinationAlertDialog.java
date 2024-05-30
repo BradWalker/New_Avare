@@ -11,8 +11,6 @@ import android.webkit.WebViewClient;
 import com.ds.avare.touch.LongTouchDestination;
 import com.ds.avare.webinfc.WebAppMapInterface;
 
-import java.util.LinkedList;
-
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class DestinationAlertDialog extends AlertDialog {

@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.shapes;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 import com.ds.avare.StorageService;
@@ -20,7 +19,6 @@ import com.ds.avare.place.Boundaries;
 import com.ds.avare.place.Obstacle;
 import com.ds.avare.position.Pan;
 import com.ds.avare.position.Scale;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Helper;

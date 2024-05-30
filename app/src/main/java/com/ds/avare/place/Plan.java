@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 
 package com.ds.avare.place;
 
-import android.content.Context;
 import android.location.Location;
 
 import com.ds.avare.StorageService;

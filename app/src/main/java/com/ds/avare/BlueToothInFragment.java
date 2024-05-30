@@ -13,17 +13,13 @@ package com.ds.avare;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.ds.avare.connections.Connection;
 import com.ds.avare.connections.ConnectionFactory;
@@ -32,7 +28,6 @@ import com.ds.avare.storage.SavedCheckbox;
 import com.ds.avare.storage.SavedEditText;
 import com.ds.avare.utils.Logger;
 
-import java.io.File;
 import java.util.List;
 
 /**

@@ -13,13 +13,8 @@ package com.ds.avare;
 
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,10 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ds.avare.connections.FileConnectionIn;
-import com.ds.avare.storage.Preferences;
 import com.ds.avare.storage.SavedEditText;
-
-import java.io.File;
 
 /**
  * 

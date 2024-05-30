@@ -15,13 +15,9 @@ import com.ds.avare.gps.GpsInterface;
 import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.Helper;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.location.GpsStatus;
 import android.location.Location;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.preference.PreferenceActivity;
 import android.view.Window;
 
