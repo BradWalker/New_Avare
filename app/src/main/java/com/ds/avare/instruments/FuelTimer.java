@@ -49,7 +49,7 @@ public class FuelTimer extends Observable {
 	public FuelTimer() {
 		mInterval = StorageService.getInstance().getPreferences().getFuelTimerInterval();
 		mCounting = false;
-		mObservers = new ArrayList<Observer>();
+		mObservers = new ArrayList<>();
 		reset();
 	}
 

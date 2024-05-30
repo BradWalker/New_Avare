@@ -29,7 +29,7 @@ public class MorseCodeGenerator {
      * Singleton
      */
     private MorseCodeGenerator() {
-        mMap = new HashMap<String, String>();
+        mMap = new HashMap<>();
         mMap.put("A", ".-");
         mMap.put("B", "-...");
         mMap.put("C", "-.-.");

@@ -58,7 +58,7 @@ public class ShapeFileShape extends Shape {
     public static ArrayList<ShapeFileShape> readFile(String file) throws IOException,
             InvalidShapeFileException {
 
-        ArrayList<ShapeFileShape> ret = new ArrayList<ShapeFileShape>();
+        ArrayList<ShapeFileShape> ret = new ArrayList<>();
 
         // for all shape files
         FileInputStream is = new FileInputStream(file);

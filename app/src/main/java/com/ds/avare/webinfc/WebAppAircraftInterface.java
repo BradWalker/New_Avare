@@ -278,8 +278,8 @@ public class WebAppAircraftInterface {
             updateList();
             return;
         }
-        for(int i = 0; i < steps.length; i++) {
-            addItemToList(steps[i]);
+        for (String step : steps) {
+            addItemToList(step);
         }
 
         updateList();

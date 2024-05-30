@@ -33,13 +33,13 @@ public class HexaUtil {
 
   public static final String byteArrayToString(final byte[] b) {
     StringBuffer sb = new StringBuffer();
-    for (int i = 0; i < b.length; i++) {
-      int v = b[i] >= 0 ? b[i] : b[i] + 256;
-      int left = v / 16;
-      int right = v % 16;
-      sb.append(decimalToHexa(left));
-      sb.append(decimalToHexa(right));
-    }
+      for (byte value : b) {
+          int v = value >= 0 ? value : value + 256;
+          int left = v / 16;
+          int right = v % 16;
+          sb.append(decimalToHexa(left));
+          sb.append(decimalToHexa(right));
+      }
     return sb.toString();
   }
 

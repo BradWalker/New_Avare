@@ -94,7 +94,7 @@ public class Nexrad {
              * Make a list of empty blocks
              */
             mData = null;
-            mEmpty = new LinkedList<Integer>();
+            mEmpty = new LinkedList<>();
             mEmpty.add(mBlock);
             int bitmaplen = (int) msg[index] & 0x0F;
 

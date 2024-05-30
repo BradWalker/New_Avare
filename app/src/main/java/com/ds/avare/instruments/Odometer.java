@@ -92,6 +92,5 @@ public class Odometer {
 	    	// Set our last used GPS params
     		mGpsParams = gpsParams;
 		}
-		return;
 	}
 }

@@ -31,7 +31,7 @@ public class DataBuffer {
      */
     public DataBuffer(int size) {
         mSize = size;
-        mIndexes = new LinkedList<Integer>();
+        mIndexes = new LinkedList<>();
         mElem = 0;
         mBuffer = new byte[size];
         mBuffer2 = new byte[size];

@@ -550,7 +550,7 @@ public class SearchActivity extends BaseActivity implements Observer {
 
             String srch = (String)vals[0];
 
-            LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
+            LinkedHashMap<String, String> params = new LinkedHashMap<>();
             synchronized (SearchActivity.class) {
                 /*
                  * This is not to be done repeatedly with new text input so sync.

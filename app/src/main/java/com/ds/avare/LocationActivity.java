@@ -933,7 +933,7 @@ public class LocationActivity extends BaseActivity implements Observer {
                     }
                 }
 
-                mConnectionTask = new AsyncTask<Void, Void, Boolean>() {
+                mConnectionTask = new AsyncTask<>() {
 
                     @Override
                     protected Boolean doInBackground(Void... vals) {
@@ -953,7 +953,7 @@ public class LocationActivity extends BaseActivity implements Observer {
                         connect(ConnectionFactory.getConnection(ConnectionFactory.CF_USBConnectionIn, getApplicationContext()),
                                 false,
                                 mPref.getLastConnectedUSB());
-                        return(true);
+                        return (true);
                     }
                 };
 

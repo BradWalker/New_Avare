@@ -24,7 +24,7 @@ public class SAXXMLHandlerTAF extends DefaultHandler {
     private String mTempVal;
  
     public SAXXMLHandlerTAF() {
-        mText = new ArrayList<String>();
+        mText = new ArrayList<>();
     }
  
     public List<String> getText() {

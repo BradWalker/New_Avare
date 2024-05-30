@@ -283,36 +283,33 @@ public class ThreeDActivity extends BaseActivity {
                                         }
                                     }
 
-                                    mLoadTask = new AsyncTask<Object, Void, Float>() {
+                                    mLoadTask = new AsyncTask<>() {
 
                                         @Override
                                         protected Float doInBackground(Object... params) {
                                             // load tiles for elevation
-                                            if(mTempBitmap != null) {
+                                            if (mTempBitmap != null) {
                                                 mTempBitmap.recycle();
                                             }
                                             mTempBitmap = new BitmapHolder(SubTile.DIM, SubTile.DIM);
-                                            if(mPref.showObstacles()) {
+                                            if (mPref.showObstacles()) {
                                                 mObstacles = StorageService.getInstance().getDBResource().getObstacles(mAreaMapper.getElevationTile().getLongitude(), mAreaMapper.getElevationTile().getLatitude(), 0); // show all obstacles
-                                            }
-                                            else {
+                                            } else {
                                                 mObstacles = null;
                                             }
-                                            if(!mAreaMapper.getElevationTile().load(mTempBitmap, mPref.getServerDataFolder())) {
+                                            if (!mAreaMapper.getElevationTile().load(mTempBitmap, mPref.getServerDataFolder())) {
                                                 mVertices = null;
-                                            }
-                                            else {
+                                            } else {
                                                 mVertices = Map.genTerrainFromBitmap(mTempBitmap.getBitmap());
                                             }
                                             // load tiles for map/texture
-                                            if(mPref.getChartType3D().equals("6")) {
+                                            if (mPref.getChartType3D().equals("6")) {
                                                 // Show palette when elevation is chosen for height guidance
                                                 mAreaMapper.getMapTile(); // clear flag
                                                 mTempBitmap = new BitmapHolder(mService.getApplicationContext(), R.drawable.palette);
-                                                mRenderer.setAltitude((float)Helper.findPixelFromElevation((float)mAreaMapper.getGpsParams().getAltitude()));
-                                            }
-                                            else {
-                                                if(!mAreaMapper.getMapTile().load(mTempBitmap, mPref.getServerDataFolder())) {
+                                                mRenderer.setAltitude((float) Helper.findPixelFromElevation((float) mAreaMapper.getGpsParams().getAltitude()));
+                                            } else {
+                                                if (!mAreaMapper.getMapTile().load(mTempBitmap, mPref.getServerDataFolder())) {
                                                     mTempBitmap.recycle();
                                                 }
                                                 mRenderer.setAltitude(256); // this tells shader to skip palette for texture
@@ -321,7 +318,7 @@ public class ThreeDActivity extends BaseActivity {
                                         }
 
                                         @Override
-                                        protected void onPreExecute () {
+                                        protected void onPreExecute() {
                                             // Show we are loading new data
                                             Message m = mHandler.obtainMessage();
                                             m.obj = mService.getApplicationContext().getString(R.string.LoadingMaps);

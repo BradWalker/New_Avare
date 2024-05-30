@@ -100,7 +100,7 @@ public class UDWMgr {
 		clear();
 		
 		// Start off with an empty collection
-		mPoints = new ArrayList<Waypoint>();
+		mPoints = new ArrayList<>();
 
 		// Ensure that the directory we are given is semi-reasonable
 		if(null != directory && directory.length() > 0) {

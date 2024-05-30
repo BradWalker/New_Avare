@@ -611,7 +611,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                     };
 
                     String[] aplates = new File(mapFolder + "/myplates/").list(filter);
-                    TreeMap<String, String> plates = new TreeMap<String, String>();
+                    TreeMap<String, String> plates = new TreeMap<>();
 
                     if (aplates != null) {
                         for (String plate : aplates) {
@@ -622,7 +622,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
 
                     if (plates.size() > 0) {
                         mPlateFound = Arrays.asList(plates.values().toArray()).toArray(new String[plates.values().toArray().length]);
-                        mListPlates = new ArrayList<String>(plates.keySet());
+                        mListPlates = new ArrayList<>(plates.keySet());
                     }
                 }
 
@@ -652,7 +652,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                     String[] aplates = new File(mapFolder + "/area/" + airport).list(filter);
                     String[] mins = mService.getDBResource().findMinimums(airport);
 
-                    TreeMap<String, String> plates = new TreeMap<String, String>(new PlatesComparable());
+                    TreeMap<String, String> plates = new TreeMap<>(new PlatesComparable());
                     if (dplates != null) {
                         for (String plate : dplates) {
                             String[] tokens = plate.split(Preferences.IMAGE_EXTENSION);
@@ -673,7 +673,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                     }
                     if (plates.size() > 0) {
                         mPlateFound = Arrays.asList(plates.values().toArray()).toArray(new String[plates.values().toArray().length]);
-                        mListPlates = new ArrayList<String>(plates.keySet());
+                        mListPlates = new ArrayList<>(plates.keySet());
                     }
                 }
             }
@@ -798,10 +798,10 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         super.onResume();
         mService.registerGpsListener(mGpsInfc);
 
-        mListPlates = new ArrayList<String>();
-        mListApproaches = new ArrayList<String>();
+        mListPlates = new ArrayList<>();
+        mListApproaches = new ArrayList<>();
 
-        mListAirports = new ArrayList<String>();
+        mListAirports = new ArrayList<>();
         mListAirports.add(mDestString);
         mListAirports.add(nearString);
         mListAirports.add(myString);
@@ -850,10 +850,10 @@ public class PlatesActivity extends BaseActivity implements Observer  {
          * Now add all the airports that are in the recently found list
          */
         String [] vals = mService.getDBResource().getUserRecents();
-        for(int pos=0; pos < vals.length; pos++) {
-            String destType = StringPreference.parseHashedNameDestType(vals[pos]);
-            if(destType != null && destType.equals("Base")) {
-                String id = StringPreference.parseHashedNameId(vals[pos]);
+        for (String val : vals) {
+            String destType = StringPreference.parseHashedNameDestType(val);
+            if (destType != null && destType.equals("Base")) {
+                String id = StringPreference.parseHashedNameId(val);
 
                 addAirport(id);
             }
@@ -889,12 +889,12 @@ public class PlatesActivity extends BaseActivity implements Observer  {
              * Airport diagram must be first
              */
             String[] type = {AD, "AREA", "ILS-", "HI-ILS-", "LOC-", "HI-LOC-", "LDA-", "SDA-", "GPS-", "RNAV-GPS-", "RNAV-RNP-", "VOR-", "HI-VOR-", "TACAN-", "HI-TACAN-", "NDB-", "COPTER-", "CUSTOM-", "LAHSO", "HOT-SPOT", "Min."};
-            
-            for(int i = 0; i < type.length; i++) {
-                if(o1.startsWith(type[i]) && (!o2.startsWith(type[i]))) {
+
+            for (String s : type) {
+                if (o1.startsWith(s) && (!o2.startsWith(s))) {
                     return -1;
                 }
-                if(o2.startsWith(type[i]) && (!o1.startsWith(type[i]))) {
+                if (o2.startsWith(s) && (!o1.startsWith(s))) {
                     return 1;
                 }
             }

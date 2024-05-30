@@ -643,7 +643,7 @@ public class Helper {
         /*
          * Create a shapes list
          */
-        LinkedList<TFRShape> shapeList = new LinkedList<TFRShape>();
+        LinkedList<TFRShape> shapeList = new LinkedList<>();
         Preferences p = StorageService.getInstance().getPreferences();
 
         String filename = p.getServerDataFolder() + File.separator + "tfr.txt";

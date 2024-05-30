@@ -792,18 +792,16 @@ public class Metar {
 				           getDewPointMostPreciseInFahrenheit() + " F");
 
 		if (getWeatherConditions() != null) {
-			Iterator i = getWeatherConditions().iterator();
-			while (i.hasNext()) {
-				WeatherCondition weatherCondition = (WeatherCondition)i.next();
-				System.out.println(weatherCondition.getNaturalLanguageString());
-			}
+            for (Object o : getWeatherConditions()) {
+                WeatherCondition weatherCondition = (WeatherCondition) o;
+                System.out.println(weatherCondition.getNaturalLanguageString());
+            }
 		}
 		if (getSkyConditions() != null) {
-			Iterator i = getSkyConditions().iterator();
-			while (i.hasNext()) {
-				SkyCondition skyCondition = (SkyCondition)i.next();
-				System.out.println(skyCondition.getNaturalLanguageString());
-			}
+            for (Object o : getSkyConditions()) {
+                SkyCondition skyCondition = (SkyCondition) o;
+                System.out.println(skyCondition.getNaturalLanguageString());
+            }
 		}
 	}
 }

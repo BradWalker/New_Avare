@@ -8,14 +8,14 @@ public class BAUtil {
     } else {
       System.out.print(prompt + " byte array[" + b.length + "]: ");
       boolean isFirst = true;
-      for (int i = 0; i < b.length; i++) {
-        if (isFirst) {
-          isFirst = false;
-        } else {
-          System.out.print(", ");
+        for (byte value : b) {
+            if (isFirst) {
+                isFirst = false;
+            } else {
+                System.out.print(", ");
+            }
+            System.out.print(value);
         }
-        System.out.print(b[i]);
-      }
     }
     System.out.println();
   }

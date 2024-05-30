@@ -614,15 +614,15 @@ public class Plan implements Observer {
 
             Coordinate[] coord = getCoordinates();
 
-            for (int id = 0; id < coord.length; id++) {
-                double lon = coord[id].getLongitude();
-                double lat = coord[id].getLatitude();
+            for (Coordinate coordinate : coord) {
+                double lon = coordinate.getLongitude();
+                double lat = coordinate.getLatitude();
                 double lon1 = dest.getLocation().getLongitude();
                 double lat1 = dest.getLocation().getLatitude();
                 double dist = (lon - lon1) * (lon - lon1) + (lat - lat1)
                         * (lat - lat1);
 
-                if (coord[id].isSeparate()) {
+                if (coordinate.isSeparate()) {
                     indexc++;
                 }
 

@@ -44,17 +44,16 @@ public class Boundaries {
      * @return
      */
     public String findChartOn(String chartIndex, double lon, double lat) {
-        Iterator it = mPolygons.entrySet().iterator();
-        while (it.hasNext()) {
-            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>)it.next();
+        for (java.util.Map.Entry<String, Shape> stringShapeEntry : mPolygons.entrySet()) {
+            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>) stringShapeEntry;
             ChartShape s = pair.getValue();
             String name = pair.getKey();
             String type = s.getName();
             // Search only specific type
-            if(type.equals(chartIndex)) {
+            if (type.equals(chartIndex)) {
                 // find if this point is in this chart
                 type = s.getTextIfTouched(lon, lat);
-                if(type != null) {
+                if (type != null) {
                     return name;
                 }
             }
@@ -75,7 +74,7 @@ public class Boundaries {
 
     // Make chart boundary shapes
     private void makePolygons() {
-        mPolygons = new HashMap<String, Shape>();
+        mPolygons = new HashMap<>();
 
         // loop and add shapes
         for (int i = 0; i < mData.length; i += 4) {
@@ -96,9 +95,8 @@ public class Boundaries {
         }
 
         // Make all shapes
-        Iterator it = mPolygons.entrySet().iterator();
-        while (it.hasNext()) {
-            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>)it.next();
+        for (java.util.Map.Entry<String, Shape> stringShapeEntry : mPolygons.entrySet()) {
+            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>) stringShapeEntry;
             ChartShape s = pair.getValue();
             s.makePolygon();
         }
@@ -122,7 +120,7 @@ public class Boundaries {
     }
 
     public static ArrayList<String> getChartTypes() {
-        return new ArrayList<String>(Arrays.asList(mChartType));
+        return new ArrayList<>(Arrays.asList(mChartType));
     }
 
     private static String[] mChartType = {

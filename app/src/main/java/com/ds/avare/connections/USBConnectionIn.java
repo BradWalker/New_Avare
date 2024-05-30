@@ -222,7 +222,7 @@ public class USBConnectionIn extends Connection {
 
     @Override
     public List<String> getDevices() {
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
 

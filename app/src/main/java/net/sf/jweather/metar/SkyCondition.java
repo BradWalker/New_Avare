@@ -54,8 +54,7 @@ public class SkyCondition {
 		this.contraction = contraction;
         switch (contraction) {
             case MetarConstants.METAR_VERTICAL_VISIBILITY -> isVerticalVisibility = true;
-            case MetarConstants.METAR_SKY_CLEAR -> isClear = true;
-            case MetarConstants.METAR_CLEAR -> isClear = true;
+            case MetarConstants.METAR_SKY_CLEAR, MetarConstants.METAR_CLEAR -> isClear = true;
             case MetarConstants.METAR_FEW -> isFewClouds = true;
             case MetarConstants.METAR_SCATTERED -> isScatteredClouds = true;
             case MetarConstants.METAR_BROKEN -> isBrokenClouds = true;

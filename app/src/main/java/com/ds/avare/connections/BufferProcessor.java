@@ -92,7 +92,7 @@ public class BufferProcessor {
      */
     public LinkedList<String> decode(Preferences pref) {
 
-        LinkedList<String> objs = new LinkedList<String>();
+        LinkedList<String> objs = new LinkedList<>();
         
         byte[] buf;
         
@@ -328,8 +328,8 @@ public class BufferProcessor {
                         
                         int[] data = pn.getData();
                         if(null != data) {
-                            for(int i = 0; i < data.length; i++) {
-                                arrayData.put(data[i]);
+                            for (int datum : data) {
+                                arrayData.put(datum);
                             }
                         }
                         LinkedList<Integer> empty = pn.getEmpty();

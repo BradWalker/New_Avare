@@ -660,7 +660,7 @@ public class WebAppPlanInterface implements Observer {
     	
     	//Init some local variables we will be using
     	int planIdx = 0;	// Used to count where we are in the plan list
-    	ArrayList<String> planNames = new ArrayList<String>();
+    	ArrayList<String> planNames = new ArrayList<>();
     	Iterator<String> it = mSavedPlans.keySet().iterator();
 
     	// As long as we have items in the list and need items for display
@@ -1226,7 +1226,7 @@ public class WebAppPlanInterface implements Observer {
      */
     private class CreateTask extends AsyncTask<Object, Void, Boolean> {
 
-    	LinkedList<String> selection = new LinkedList<String>();
+    	LinkedList<String> selection = new LinkedList<>();
 
         /* (non-Javadoc)
          * @see android.os.AsyncTask#doInBackground(Params[])
@@ -1342,7 +1342,7 @@ public class WebAppPlanInterface implements Observer {
                 return true;
             }
             
-            LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
+            LinkedHashMap<String, String> params = new LinkedHashMap<>();
 
             mService.getDBResource().search(srch, params, true);
 			mService.getUDWMgr().search(srch, params);			// From user defined points of interest
@@ -1378,16 +1378,14 @@ public class WebAppPlanInterface implements Observer {
             /*
              * Add each to the plan search
              */
-            for (int num = 0; num < selection.length; num++) {
-            	String val = selection[num];
-            	
-	            String id = StringPreference.parseHashedNameId(val);
-	            String name = StringPreference.parseHashedNameFacilityName(val);
-	            String type = StringPreference.parseHashedNameDestType(val);
-	            String dbtype = StringPreference.parseHashedNameDbType(val);
+            for (String val : selection) {
+                String id = StringPreference.parseHashedNameId(val);
+                String name = StringPreference.parseHashedNameFacilityName(val);
+                String type = StringPreference.parseHashedNameDestType(val);
+                String dbtype = StringPreference.parseHashedNameDbType(val);
 
-	        	Message m = mHandler.obtainMessage(MSG_ADD_SEARCH, "'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(name) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(dbtype) + "'");
-	        	mHandler.sendMessage(m);
+                Message m = mHandler.obtainMessage(MSG_ADD_SEARCH, "'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(name) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(dbtype) + "'");
+                mHandler.sendMessage(m);
             }
         	mHandler.sendEmptyMessage(MSG_NOTBUSY);
         }
@@ -1562,13 +1560,13 @@ public class WebAppPlanInterface implements Observer {
 					if (!stations.isEmpty()) {
 						String out = NetworkHelper.getTAFPlan(stations);
 						String[] outm = out.split("::::");
-						for (int i = 0; i < outm.length; i++) {
-							String taf = WeatherHelper.formatWeatherHTML(outm[i], mPref.isWeatherTranslated());
-							String[] vals = taf.split(" ");
-							taf = WeatherHelper.formatVisibilityHTML(WeatherHelper.formatTafHTML(WeatherHelper.formatWindsHTML(WeatherHelper.formatWeatherHTML(taf.replace(vals[0], ""), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()));
-							Taf += "<b><font size='5' color='white'>" + vals[0] + "</b><br>";
-							Taf += "<font size='5' color='white'>" + taf + "<br></br>";
-						}
+                        for (String s : outm) {
+                            String taf = WeatherHelper.formatWeatherHTML(s, mPref.isWeatherTranslated());
+                            String[] vals = taf.split(" ");
+                            taf = WeatherHelper.formatVisibilityHTML(WeatherHelper.formatTafHTML(WeatherHelper.formatWindsHTML(WeatherHelper.formatWeatherHTML(taf.replace(vals[0], ""), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()));
+                            Taf += "<b><font size='5' color='white'>" + vals[0] + "</b><br>";
+                            Taf += "<font size='5' color='white'>" + taf + "<br></br>";
+                        }
 					}
 				} catch (Exception e) {
 					Taf = mContext.getString(R.string.WeatherError);
@@ -1585,13 +1583,13 @@ public class WebAppPlanInterface implements Observer {
 					if (!stations.isEmpty()) {
 						String out = NetworkHelper.getMETARPlan(stations);
 						String[] outm = out.split("::::");
-						for (int i = 0; i < outm.length; i++) {
-							String[] vals = outm[i].split(",");
-							String[] vals2 = vals[1].split(" ");
-							String color = WeatherHelper.metarColorString(vals[0]);
-							Metar += "<b><font size='5' + color='" + color + "'>" + vals2[0] + "</b><br>";
-							Metar += "<font size='5'>" + WeatherHelper.addColorWithStroke(WeatherHelper.formatMetarHTML(vals[1].replace(vals2[0], ""), mPref.isWeatherTranslated()), color) + "<br></br>";
-						}
+                        for (String s : outm) {
+                            String[] vals = s.split(",");
+                            String[] vals2 = vals[1].split(" ");
+                            String color = WeatherHelper.metarColorString(vals[0]);
+                            Metar += "<b><font size='5' + color='" + color + "'>" + vals2[0] + "</b><br>";
+                            Metar += "<font size='5'>" + WeatherHelper.addColorWithStroke(WeatherHelper.formatMetarHTML(vals[1].replace(vals2[0], ""), mPref.isWeatherTranslated()), color) + "<br></br>";
+                        }
 					}
 				} catch (Exception e) {
 					Metar = mContext.getString(R.string.WeatherError);

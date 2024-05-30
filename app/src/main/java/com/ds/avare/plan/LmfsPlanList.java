@@ -63,7 +63,7 @@ public class LmfsPlanList {
 			 */
 			JSONObject json = new JSONObject(data);
 			JSONArray array = json.getJSONArray("flightPlanSummary");
-			mPlans = new LinkedList<LmfsPlan>();
+			mPlans = new LinkedList<>();
 		    for(int plan = 0 ; plan < array.length(); plan++) {
 		    	LmfsPlan pl = new LmfsPlan();
 		    	JSONObject obj = array.getJSONObject(plan);

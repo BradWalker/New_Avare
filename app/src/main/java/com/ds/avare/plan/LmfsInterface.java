@@ -96,7 +96,7 @@ public class LmfsInterface {
 		String avareMethod = "FP/" + webUserName + "/retrieveFlightPlanSummaries";
 		String httpMethod = "GET";
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);
@@ -122,7 +122,7 @@ public class LmfsInterface {
 		String avareMethod = "FP/" + id + "/retrieve";
 		String httpMethod = "GET";
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);
@@ -148,7 +148,7 @@ public class LmfsInterface {
 		String avareMethod = "FP/" + id + "/close";
 		String httpMethod = "POST";
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);
@@ -178,7 +178,7 @@ public class LmfsInterface {
 		String avareMethod = "FP/" + id + "/activate";
 		String httpMethod = "POST";
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);
@@ -206,7 +206,7 @@ public class LmfsInterface {
 		String avareMethod = "FP/" + id + "/cancel";
 		String httpMethod = "POST";
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
 		params.put("webUserName", webUserName);
 		params.put("avareMethod", avareMethod);
 		params.put("httpMethod", httpMethod);

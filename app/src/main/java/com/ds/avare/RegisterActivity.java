@@ -141,13 +141,13 @@ public class RegisterActivity extends BaseActivity {
 
                     Toast.makeText(RegisterActivity.this, getString(R.string.unregistering_server), Toast.LENGTH_LONG).show();
 
-                    mRegisterTask = new AsyncTask<Void, Void, Boolean>() {
+                    mRegisterTask = new AsyncTask<>() {
 
                         @Override
                         protected Boolean doInBackground(Void... vals) {
 
                             String serverUrl = NetworkHelper.getServer() + "unregister.php";
-                            Map<String, String> params = new HashMap<String, String>();
+                            Map<String, String> params = new HashMap<>();
                             params.put("name", "anonymous");
                             params.put("email", mPref.getRegisteredEmail());
                             params.put("regId", "");
@@ -161,8 +161,7 @@ public class RegisterActivity extends BaseActivity {
                                 try {
                                     NetworkHelper.post(serverUrl, params);
                                     return true;
-                                }
-                                catch (Exception e) {
+                                } catch (Exception e) {
                                 }
                                 // Here we are simplifying and retrying on any error; in a real
                                 // application, it should retry only on unrecoverable errors
@@ -172,8 +171,7 @@ public class RegisterActivity extends BaseActivity {
                                 }
                                 try {
                                     Thread.sleep(backoff);
-                                }
-                                catch (InterruptedException e1) {
+                                } catch (InterruptedException e1) {
                                     // Activity finished before we complete - exit.
                                     Thread.currentThread().interrupt();
                                     break;
@@ -185,12 +183,11 @@ public class RegisterActivity extends BaseActivity {
 
                         @Override
                         protected void onPostExecute(Boolean result) {
-                            if(result) {
+                            if (result) {
                                 mPref.setRegistered(false);
                                 mPref.setRegisteredEmail(null);
                                 Toast.makeText(RegisterActivity.this, getString(R.string.unregistered), Toast.LENGTH_LONG).show();
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(RegisterActivity.this, getString(R.string.failed_unregister), Toast.LENGTH_LONG).show();
                             }
                             setButtonStates();
@@ -214,14 +211,14 @@ public class RegisterActivity extends BaseActivity {
 
                     Toast.makeText(RegisterActivity.this, getString(R.string.registering_server), Toast.LENGTH_LONG).show();
 
-                    mRegisterTask = new AsyncTask<Void, Void, Boolean>() {
+                    mRegisterTask = new AsyncTask<>() {
 
                         @Override
                         protected Boolean doInBackground(Void... vals) {
                             // Register on our server
                             // On server creates a new user
                             String serverUrl = NetworkHelper.getServer() + "register.php";
-                            Map<String, String> params = new HashMap<String, String>();
+                            Map<String, String> params = new HashMap<>();
                             params.put("name", "anonymous");
                             params.put("email", email);
                             params.put("regId", "");
@@ -234,8 +231,7 @@ public class RegisterActivity extends BaseActivity {
                                 try {
                                     NetworkHelper.post(serverUrl, params);
                                     return true;
-                                }
-                                catch (Exception e) {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                     // Here we are simplifying and retrying on any error; in a real
                                     // application, it should retry only on unrecoverable errors
@@ -245,8 +241,7 @@ public class RegisterActivity extends BaseActivity {
                                     }
                                     try {
                                         Thread.sleep(backoff);
-                                    }
-                                    catch (InterruptedException e1) {
+                                    } catch (InterruptedException e1) {
                                         // Activity finished before we complete - exit.
                                         Thread.currentThread().interrupt();
                                         break;
@@ -260,7 +255,7 @@ public class RegisterActivity extends BaseActivity {
 
                         @Override
                         protected void onPostExecute(Boolean result) {
-                            if(result) {
+                            if (result) {
                                 mPref.setRegistered(true);
                                 mPref.setRegisteredEmail(email);
 
@@ -274,11 +269,10 @@ public class RegisterActivity extends BaseActivity {
                                                 dialog.dismiss();
                                             }
                                         });
-                                if(!isFinishing()) {
+                                if (!isFinishing()) {
                                     alertDialogBuilder.create().show();
                                 }
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(RegisterActivity.this, getString(R.string.failed_register), Toast.LENGTH_LONG).show();
                             }
                             setButtonStates();

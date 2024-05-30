@@ -60,7 +60,7 @@ public class MapBase {
         mNumTiles = mXtiles * mYtiles;
         mapA = new BitmapHolder[mNumTiles];
         mapB = new BitmapHolder[mNumTiles];
-        mBitmapCache = new LruCache<String, BitmapHolder>(mSize * (mNumTiles + getOverhead())) {
+        mBitmapCache = new LruCache<>(mSize * (mNumTiles + getOverhead())) {
 
             @Override
             protected int sizeOf(String key, BitmapHolder value) {
@@ -105,7 +105,7 @@ public class MapBase {
      * @return
      */
     private ArrayList<Integer> ccwSpiral(int m, int n) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
 
         int[] matrix = new int[m * n];
         for(int i = 0; i < m * n; i++) {

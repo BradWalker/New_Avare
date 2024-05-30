@@ -63,7 +63,7 @@ public class ExternalPlanMgr {
 	public ArrayList<String> getPlanFileNames(String likeThis) {
 		
 		// The collection to hold our results
-		ArrayList<String> planNames = new ArrayList<String>();
+		ArrayList<String> planNames = new ArrayList<>();
 		
 		// fileList will be used to hold the collection of files in this directory
 		File dirFile = new File(getDir());
@@ -95,7 +95,7 @@ public class ExternalPlanMgr {
 	public ArrayList<String> getPlanNames(String likeThis) {
 		
 		// The collection to hold our results
-		ArrayList<String> planNames = new ArrayList<String>();
+		ArrayList<String> planNames = new ArrayList<>();
 		
 		for(ExternalFlightPlan plan : mPlans) {
 			String planName = plan.getName();
@@ -184,7 +184,7 @@ public class ExternalPlanMgr {
 		clear();
 		
 		// Start off with an empty collection
-		mPlans = new ArrayList<ExternalFlightPlan>();
+		mPlans = new ArrayList<>();
 
 		// Ensure that the directory we are given is semi-reasonable
 		if(null != directory && directory.length() > 0) {

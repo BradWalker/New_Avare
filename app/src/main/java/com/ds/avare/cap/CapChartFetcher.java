@@ -50,7 +50,7 @@ public class CapChartFetcher {
 	 * This is a singleton
 	 */
 	private CapChartFetcher() {
-		mCharts = new LinkedList<Chart>();
+		mCharts = new LinkedList<>();
 		mCharts.add(new Chart("SEA", new Coordinate(-125, 49), new Coordinate(-117, 44.5)));
 		mCharts.add(new Chart("GTF", new Coordinate(-117, 49), new Coordinate(-109, 44.5)));
 		mCharts.add(new Chart("BIL", new Coordinate(-109, 49), new Coordinate(-101, 44.5)));

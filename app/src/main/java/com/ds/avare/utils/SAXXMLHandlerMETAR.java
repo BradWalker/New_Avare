@@ -30,7 +30,7 @@ public class SAXXMLHandlerMETAR extends DefaultHandler {
     private String mTempVal;
  
     public SAXXMLHandlerMETAR() {
-        mText = new ArrayList<String>();
+        mText = new ArrayList<>();
     }
  
     public List<String> getText() {

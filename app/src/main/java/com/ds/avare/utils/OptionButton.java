@@ -39,7 +39,7 @@ public class OptionButton extends Button implements View.OnClickListener {
         mContext = context;
         mSelected = 0;
         setOnClickListener(this);
-        mOptions = new ArrayList<String>();
+        mOptions = new ArrayList<>();
         if(null == attrs) {
             return;
         }

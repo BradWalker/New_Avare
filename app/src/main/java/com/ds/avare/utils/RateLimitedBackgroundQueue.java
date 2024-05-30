@@ -36,7 +36,7 @@ public class RateLimitedBackgroundQueue {
 
     public RateLimitedBackgroundQueue(final StorageService service) {
 
-        mQueueMetar = new HashMap<String, Metar>();
+        mQueueMetar = new HashMap<>();
 
         TimerTask timer= new TimerTask() {
             @Override
@@ -49,7 +49,7 @@ public class RateLimitedBackgroundQueue {
                 }
 
                 // Do something, run in background
-                mProcessTask = new AsyncTask<Void, Void, Void>() {
+                mProcessTask = new AsyncTask<>() {
 
                     @Override
                     protected Void doInBackground(Void... vals) {
@@ -59,7 +59,7 @@ public class RateLimitedBackgroundQueue {
                             HashMap<String, Metar> metars = removeMetarsFromQueue();
 
                             // process all metars, find their lon/lat
-                            if(metars.size() > 0) {
+                            if (metars.size() > 0) {
                                 service.getDBResource().findLonLatMetar(metars);
                             }
                         }

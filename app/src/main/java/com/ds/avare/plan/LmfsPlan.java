@@ -315,7 +315,7 @@ public class LmfsPlan {
 	 * @return
 	 */
 	public Map<String, String> makeHashMap() {
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<>();
         put(params, "type", TYPE);
 		put(params, "flightRules", flightRule);
 		put(params, "aircraftIdentifier", aircraftId);

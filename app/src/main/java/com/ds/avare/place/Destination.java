@@ -124,7 +124,7 @@ public class Destination extends Observable {
         mEta = "--:--";
         mFuel = "-.-";
         mAltitude = 0;
-        mParams = new LinkedHashMap<String, String>();
+        mParams = new LinkedHashMap<>();
 
         mEteSec = Long.MAX_VALUE;
         mFuelGallons = Float.MAX_VALUE;
@@ -236,8 +236,9 @@ public class Destination extends Observable {
         }
 
         // from wind triangle
-        mGroundSpeed = Math.sqrt(ws * ws + tas * tas - 2 * ws * tas * Math.cos((hd - wd) * Math.PI / 180.0));
-        mWca = -Math.toDegrees(Math.atan2(ws * Math.sin((hd - wd) * Math.PI / 180.0), tas - ws * Math.cos((hd - wd) * Math.PI / 180.0)));
+        double cosine = Math.cos((hd - wd) * Math.PI / 180.0);
+        mGroundSpeed = Math.sqrt(ws * ws + tas * tas - 2 * ws * tas * cosine);
+        mWca = -Math.toDegrees(Math.atan2(ws * Math.sin((hd - wd) * Math.PI / 180.0), tas - ws * cosine));
         mCrs = (hd + mWca + 360) % 360;
 
         if(pref.useBearingForETEA() && (!StorageService.getInstance().getPlan().isActive())) {

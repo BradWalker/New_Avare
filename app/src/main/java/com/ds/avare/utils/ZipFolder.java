@@ -57,7 +57,7 @@ public class ZipFolder {
          */
 
         String look1 = folder + File.separator + SHARED_FOLDER;
-        List<File> fileList = new ArrayList<File>();
+        List<File> fileList = new ArrayList<>();
         getAllFiles(new File(look1), fileList);
 
 

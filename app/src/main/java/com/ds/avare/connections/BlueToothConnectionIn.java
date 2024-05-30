@@ -303,7 +303,7 @@ public class BlueToothConnectionIn extends Connection {
      */
     @Override
     public List<String> getDevices() {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         if(null == mBtAdapter) {
             return list;
         }

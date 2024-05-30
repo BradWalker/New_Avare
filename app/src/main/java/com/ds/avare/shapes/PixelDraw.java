@@ -47,7 +47,7 @@ public class PixelDraw {
     public PixelDraw() {
         mLastXDraw = 0;
         mLastYDraw = 0;
-        mDrawPoints = new LinkedList<PixelCoordinate>();
+        mDrawPoints = new LinkedList<>();
     }
     
     /**

@@ -198,9 +198,8 @@ public class NetworkHelper {
         }
 
         String out = "";
-        Iterator<String> it = piset.iterator();
-        while(it.hasNext()) {
-            out = out + it.next() + "::::";
+        for (String s : piset) {
+            out = out + s + "::::";
         }
 
         return out.replaceAll("::::$", "");
@@ -542,7 +541,7 @@ public class NetworkHelper {
     public static String getNotams(String plan) {
         String ret = null;
         try {
-            Map<String, String> params = new HashMap<String, String>();
+            Map<String, String> params = new HashMap<>();
             params.put("retrieveLocId", plan.replace(",", " "));
             params.put("reportType", "Raw");
             params.put("actionType", "notamRetrievalByICAOs");

@@ -30,7 +30,7 @@ public class SAXXMLHandlerPIREP extends DefaultHandler {
     private String mTempType;
  
     public SAXXMLHandlerPIREP() {
-        mText = new ArrayList<String>();
+        mText = new ArrayList<>();
     }
  
     public List<String> getText() {

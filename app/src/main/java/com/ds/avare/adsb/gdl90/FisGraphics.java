@@ -87,7 +87,7 @@ public class FisGraphics {
         mText = "";
         mStartTime = "";
         mEndTime = "";
-        mCoordinates = new LinkedList<Coordinate>();
+        mCoordinates = new LinkedList<>();
         mGeometryOverlayOptions = SHAPE_NONE;
         format = (((int) data[0]) & 0xF0) >> 4;
         count = (((int) data[1]) & 0xF0) >> 4;

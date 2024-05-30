@@ -42,7 +42,7 @@ public class UpTimer extends Observable {
 	public UpTimer() {
 		mCounting = false;
 		reset();
-        mObservers = new ArrayList<Observer>();
+        mObservers = new ArrayList<>();
 	}
 
     /**

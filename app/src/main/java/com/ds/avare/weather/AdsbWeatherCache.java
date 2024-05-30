@@ -59,15 +59,15 @@ public class AdsbWeatherCache {
      */
     public AdsbWeatherCache() {
         mPref = StorageService.getInstance().getPreferences();
-        mTaf = new HashMap<String, Taf>();
-        mMetar = new HashMap<String, Metar>();
-        mAirep = new HashMap<String, Airep>();
-        mWinds = new HashMap<String, WindsAloft>();
+        mTaf = new HashMap<>();
+        mMetar = new HashMap<>();
+        mAirep = new HashMap<>();
+        mWinds = new HashMap<>();
         mNexrad = new NexradImage();
         mMetarQueue = new RateLimitedBackgroundQueue(StorageService.getInstance());
         mNexradConus = new NexradImageConus();
-        mSua = new HashMap<String, Sua>();
-        mAirSig = new HashMap<String, AirSigMet>();
+        mSua = new HashMap<>();
+        mAirSig = new HashMap<>();
     }
 
     /**
@@ -333,17 +333,16 @@ public class AdsbWeatherCache {
             // Only draw polygons
             s.setShape(new MetShape(s.getRawText() == null ? "" : s.getRawText(), new Date(time)));
             String[] tokens = s.getPoints().split("[;]");
-            for(int j = 0; j < tokens.length; j++) {
-                String[] point = tokens[j].split("[:]");
+            for (String token : tokens) {
+                String[] point = token.split("[:]");
                 try {
                     double lon = Double.parseDouble(point[0]);
                     double lat = Double.parseDouble(point[1]);
-                    if(0 == lat || 0 == lon) {
+                    if (0 == lat || 0 == lon) {
                         continue;
                     }
                     s.getShape().add(lon, lat, false);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                 }
             }
             s.getShape().makePolygon();
@@ -484,7 +483,7 @@ public class AdsbWeatherCache {
      */
     public LinkedList<Airep> getAireps(double lon, double lat) {
         
-        LinkedList<Airep> ret = new LinkedList<Airep>();
+        LinkedList<Airep> ret = new LinkedList<>();
         
         /*
          * Find closest aireps
@@ -522,7 +521,7 @@ public class AdsbWeatherCache {
     }
 
     public LinkedList<AirSigMet> getAirSigMet() {
-        LinkedList<AirSigMet> ret = new LinkedList<AirSigMet>();
+        LinkedList<AirSigMet> ret = new LinkedList<>();
 
 
         for(AirSigMet s : mAirSig.values()) {
@@ -585,7 +584,7 @@ public class AdsbWeatherCache {
         /*
          * Winds
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mWinds.keySet()) {
             WindsAloft w = mWinds.get(key);
             long diff = (now - w.timestamp) - expiry;
@@ -600,7 +599,7 @@ public class AdsbWeatherCache {
         /*
          * Taf
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mTaf.keySet()) {
             Taf f = mTaf.get(key);
             long diff = (now - f.getTimestamp()) - expiry;
@@ -615,7 +614,7 @@ public class AdsbWeatherCache {
         /*
          * Metar
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mMetar.keySet()) {
             Metar m = mMetar.get(key);
             long diff = (now - m.getTimestamp()) - expiry;
@@ -630,7 +629,7 @@ public class AdsbWeatherCache {
         /*
          * Airep
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mAirep.keySet()) {
             Airep a = mAirep.get(key);
             long diff = (now - a.getTimestamp()) - expiry;
@@ -645,7 +644,7 @@ public class AdsbWeatherCache {
         /*
          * Sua
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mSua.keySet()) {
             Sua s = mSua.get(key);
             long diff = (now - s.getTimestamp()) - expiry;
@@ -660,7 +659,7 @@ public class AdsbWeatherCache {
         /*
          * AirSig
          */
-        keys = new LinkedList<String>();
+        keys = new LinkedList<>();
         for (String key : mAirSig.keySet()) {
             AirSigMet s = mAirSig.get(key);
             long diff = (now - s.getTimestamp()) - expiry;
@@ -675,7 +674,7 @@ public class AdsbWeatherCache {
         /*
          * Nexrad
          */
-        LinkedList<Integer>keyi = new LinkedList<Integer>();
+        LinkedList<Integer>keyi = new LinkedList<>();
         SparseArray<NexradBitmap> img = mNexrad.getImages();
         for(int i = 0; i < img.size(); i++) {
             NexradBitmap n = img.valueAt(i);

@@ -69,7 +69,7 @@ public class BlueToothInFragment extends IOFragment {
         mList = mBt.getDevices();
         if(mList.size() != 0) {
             // visual artifact avoid
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext,
                     android.R.layout.simple_spinner_item, mList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

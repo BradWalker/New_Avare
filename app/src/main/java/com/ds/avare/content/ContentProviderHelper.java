@@ -43,7 +43,7 @@ public class ContentProviderHelper {
     public static LinkedList<Obstacle> getObstacles(final Context ctx, double longitude, double latitude, double height) {
 
         Cursor c = null;
-        LinkedList<Obstacle> ret = new LinkedList<Obstacle>();
+        LinkedList<Obstacle> ret = new LinkedList<>();
 
         String qry =
                 "(" + ObstaclesContract.HEIGHT + " > ?)" + " and " +
@@ -88,10 +88,10 @@ public class ContentProviderHelper {
     public static LinkedList<Cifp> findProcedure(final Context ctx, String name, String approach) {
 
         Cursor c = null;
-        TreeMap<String, Cifp> map = new TreeMap<String, Cifp>();
+        TreeMap<String, Cifp> map = new TreeMap<>();
         String[] params = Cifp.getParams(approach);
         if(params[0] == null || params[1] == null) {
-            return new LinkedList<Cifp>();
+            return new LinkedList<>();
         }
 
         String qry =
@@ -123,7 +123,7 @@ public class ContentProviderHelper {
         }
 
         CursorManager.close(c);
-        return new LinkedList<Cifp>(map.values());
+        return new LinkedList<>(map.values());
     }
 
 
@@ -203,7 +203,7 @@ public class ContentProviderHelper {
     public static LinkedList<AirSigMet> getAirSigMets(Context ctx) {
 
         Cursor c = null;
-        LinkedList<AirSigMet> airsig = new LinkedList<AirSigMet>();
+        LinkedList<AirSigMet> airsig = new LinkedList<>();
 
         /*
          * Get all
@@ -281,8 +281,8 @@ public class ContentProviderHelper {
         CursorManager.close(c);
 
         // PIREPs can be duplicate. Make unique, and sort
-        LinkedList<Airep> list = new LinkedList<Airep>(aireps.values());
-        Collections.sort(list, new Comparator<Airep>() {
+        LinkedList<Airep> list = new LinkedList<>(aireps.values());
+        Collections.sort(list, new Comparator<>() {
             @Override
             public int compare(Airep a1, Airep a2) {
                 return a1.getRawText().compareTo(a2.getRawText());
@@ -347,7 +347,7 @@ public class ContentProviderHelper {
     public static LinkedList<LabelCoordinate> findGameTFRs(Context ctx) {
 
         Cursor c = null;
-        LinkedList<LabelCoordinate> ret = new LinkedList<LabelCoordinate>();
+        LinkedList<LabelCoordinate> ret = new LinkedList<>();
 
         // Find -6 hours to +12 hours
         Calendar begin = Calendar.getInstance();

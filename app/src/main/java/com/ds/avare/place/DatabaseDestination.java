@@ -33,9 +33,9 @@ public class DatabaseDestination extends Destination {
     public DatabaseDestination(String name, String type) {
         super(name);
 
-        mRunways = new LinkedList<Runway>();
-        mFreq = new LinkedHashMap<String, String>();
-        mAwos = new LinkedList<Awos> ();
+        mRunways = new LinkedList<>();
+        mFreq = new LinkedHashMap<>();
+        mAwos = new LinkedList<>();
         mAfdFound = null;
 
         mDbType = "";

@@ -674,25 +674,24 @@ public class WeatherHelper {
         String[] tokens = metar.split(" ");
 
         try {
-            for(int i = 0; i < tokens.length; i++) {
-                if(tokens[i].equals("RMK")) {
+            for (String token : tokens) {
+                if (token.equals("RMK")) {
                     break;
                 }
-                if(tokens[i].matches("M?[0-9]*/M?[0-9]*")) {
-                    String t = tokens[i].split("/")[0];
-                    if(t.startsWith("M")) {
+                if (token.matches("M?[0-9]*/M?[0-9]*")) {
+                    String t = token.split("/")[0];
+                    if (t.startsWith("M")) {
                         t = t.substring(1);
                         temp = Double.parseDouble(t);
                         temp = -temp;
-                    }
-                    else {
+                    } else {
                         temp = Double.parseDouble(t);
                     }
                     tmpset = true;
                     continue;
                 }
-                if(tokens[i].matches("A[0-9][0-9][0-9][0-9]")) {
-                    as = Double.parseDouble(tokens[i].split("A")[1]) / 100;
+                if (token.matches("A[0-9][0-9][0-9][0-9]")) {
+                    as = Double.parseDouble(token.split("A")[1]) / 100;
                     aset = true;
                     continue;
                 }
@@ -745,22 +744,22 @@ public class WeatherHelper {
         String[] tokens = metar.split(" ");
 
         try {
-            for(int i = 0; i < tokens.length; i++) {
-                if(tokens[i].equals("RMK")) {
+            for (String token : tokens) {
+                if (token.equals("RMK")) {
                     break;
                 }
-                if(tokens[i].matches(".*KT")) {
-                    wind = tokens[i];
+                if (token.matches(".*KT")) {
+                    wind = token;
                     // first 3 digits are direction true, or VRB.
                     String tmp = wind.substring(0, 3);
-                    if(tmp.equals("VRB")) {
+                    if (tmp.equals("VRB")) {
                         // variable, almost calm
                         tmp = "000";
                     }
                     wnd[0] = Double.parseDouble(tmp);
                     // next 2 digits are speed
                     wnd[1] = Double.parseDouble(wind.substring(3, 5));
-                    if(wind.contains("G")) {
+                    if (wind.contains("G")) {
                         // gusting to
                         wnd[2] = Double.parseDouble(wind.substring(6, 8));
                     }

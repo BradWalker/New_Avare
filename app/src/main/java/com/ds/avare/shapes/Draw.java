@@ -44,7 +44,7 @@ public class Draw {
     public Draw() {
         mLastXDraw = 0;
         mLastYDraw = 0;
-        mDrawPoints = new LinkedList<Coordinate>();
+        mDrawPoints = new LinkedList<>();
     }
     
     /**

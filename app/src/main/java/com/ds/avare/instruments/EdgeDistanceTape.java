@@ -161,7 +161,5 @@ public class EdgeDistanceTape {
 		    if(inRangeX(posX + offset, mBgndWidth, width))
 		    	canvas.drawText(strLabel, posX + offset, posY, mPaint);
 	    }
-
-	    return;
 	}
 }

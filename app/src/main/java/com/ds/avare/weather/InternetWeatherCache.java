@@ -152,11 +152,11 @@ public class InternetWeatherCache {
 
                     asm.setShape(new MetShape(b.toString(), mDate));
                     String[] tokens = asm.getPoints().split("[;]");
-                    for(int j = 0; j < tokens.length; j++) {
-                        String[] point = tokens[j].split("[:]");
+                    for (String token : tokens) {
+                        String[] point = token.split("[:]");
                         double lon = Double.parseDouble(point[0]);
                         double lat = Double.parseDouble(point[1]);
-                        if(0 == lat || 0 == lon) {
+                        if (0 == lat || 0 == lon) {
                             continue;
                         }
                         asm.getShape().add(lon, lat, false);

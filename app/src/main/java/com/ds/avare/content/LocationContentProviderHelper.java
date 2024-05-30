@@ -213,7 +213,7 @@ public class LocationContentProviderHelper {
 
         Cursor c = null;
         // Make a new hashmap and reuse values out of it that are still in the area
-        HashMap<String, Airport> airportsnew = new LinkedHashMap<String, Airport>();
+        HashMap<String, Airport> airportsnew = new LinkedHashMap<>();
 
         // Query runways for distance
 
@@ -257,7 +257,7 @@ public class LocationContentProviderHelper {
                         continue;
                     }
 
-                    LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
+                    LinkedHashMap<String, String> params = new LinkedHashMap<>();
                     // find airport
                     String[] parts = c.getString(3).trim().split("[.]"); //LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION
                     if(parts[0].isEmpty()) {
@@ -568,7 +568,7 @@ public class LocationContentProviderHelper {
 
 
     public static LinkedList<Coordinate> findAirway(Context ctx, String name) {
-        LinkedList<Coordinate> points = new LinkedList<Coordinate>();
+        LinkedList<Coordinate> points = new LinkedList<>();
         Cursor c = null;
 
         /*
@@ -600,7 +600,7 @@ public class LocationContentProviderHelper {
     public static LinkedList<String> findAFD(Context ctx, String airportId) {
 
         Cursor c = null;
-        LinkedList<String> ret = new LinkedList<String>();
+        LinkedList<String> ret = new LinkedList<>();
 
         String qry = LocationContract.AFD_LOCATION_ID + " = ?";
 
@@ -625,7 +625,7 @@ public class LocationContentProviderHelper {
 
         Cursor c = null;
 
-        LinkedList<String> ret = new LinkedList<String>();
+        LinkedList<String> ret = new LinkedList<>();
         /**
          * Search Minimums plates for this airport
          */
@@ -884,7 +884,7 @@ public class LocationContentProviderHelper {
     public static LinkedList<String> findRunways(Context ctx, String name) {
 
         Cursor c = null;
-        LinkedList<String> run = new LinkedList<String>();
+        LinkedList<String> run = new LinkedList<>();
 
         String qry = LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? ";
 
@@ -1237,10 +1237,11 @@ public class LocationContentProviderHelper {
 
         try {
 
+            boolean aNull = (null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"));
             if(type.equals(Destination.NAVAID)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if(aNull) {
                     qry = LocationContract.NAV_LOCATION_ID + " = ? and " + LocationContract.NAV_TYPE + " = ? ";
                     arguments = new String[] {name, dbType};
                 }
@@ -1256,7 +1257,7 @@ public class LocationContentProviderHelper {
             if(type.equals(Destination.FIX)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if(aNull) {
                     qry = LocationContract.FIX_LOCATION_ID + " = ? and " + LocationContract.FIX_TYPE + " = ?";
                     arguments = new String[] {name, dbType};
                 }
@@ -1270,7 +1271,7 @@ public class LocationContentProviderHelper {
             if(type.equals(Destination.BASE)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if(aNull) {
                     qry = LocationContract.AIRPORTS_LOCATION_ID + " = ? and " + LocationContract.AIRPORTS_TYPE + " = ?";
                     arguments = new String[] {name, dbType};
                 }

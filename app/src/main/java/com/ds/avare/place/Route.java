@@ -27,7 +27,7 @@ public class Route {
      * 
      */
     public Route() {
-        mDestinations = new LinkedList<Destination>();
+        mDestinations = new LinkedList<>();
     }
 
     /**

@@ -47,7 +47,7 @@ public class FlightStatus {
     
     public FlightStatus(GpsParams params) {
         mFlying = false;
-        mCallbacks = new LinkedList<FlightStatusInterface>();
+        mCallbacks = new LinkedList<>();
         
         if(null != params) {
             updateLocation(params);
@@ -72,9 +72,7 @@ public class FlightStatus {
                 mFlying = false;
                 
                 LinkedList<FlightStatusInterface> callbacks = (LinkedList<FlightStatusInterface>) mCallbacks.clone();
-                Iterator<FlightStatusInterface> it = callbacks.iterator();
-                while (it.hasNext()) {
-                    FlightStatusInterface fsi = it.next();
+                for (FlightStatusInterface fsi : callbacks) {
                     fsi.rollout();
                 }
             }

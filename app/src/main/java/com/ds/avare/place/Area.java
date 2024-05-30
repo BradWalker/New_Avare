@@ -49,7 +49,7 @@ public class Area {
         mLon = mLat = 0;
         mAltitude = 0;
         mLastTime = SystemClock.elapsedRealtime() - UPDATE_TIME;
-        mAirportCache = new LinkedHashMap<String, Airport>();
+        mAirportCache = new LinkedHashMap<>();
     }
 
     /**
@@ -169,9 +169,9 @@ public class Area {
              */
             int n = airports.length;
 
-            for(int i = 0; i < n; i++) {
-                if(airports[i] != null) {
-                    airports[i].updateLocation(mLon, mLat);
+            for (Airport airport : airports) {
+                if (airport != null) {
+                    airport.updateLocation(mLon, mLat);
                 }
             }
 

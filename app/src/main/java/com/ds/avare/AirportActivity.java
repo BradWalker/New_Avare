@@ -316,9 +316,9 @@ public class AirportActivity extends BaseActivity implements Observer {
         /*
          * Now add all Chart Supplement pages to the list
          */
-        String[] afd = mDestination.getAfd();            
-        for(int plate = 0; plate < afd.length; plate++) {
-            String[] tokens = afd[plate].split("/");
+        String[] afd = mDestination.getAfd();
+        for (String string : afd) {
+            String[] tokens = string.split("/");
             mListViews.add(tokens[tokens.length - 1]);
         }     
     }
@@ -487,10 +487,10 @@ public class AirportActivity extends BaseActivity implements Observer {
         /*
          * Initialize the lists
          */
-        mListViews = new ArrayList<String>();
+        mListViews = new ArrayList<>();
         mListViews.add(AirportActivity.this.getString(R.string.AFD));
 
-        mListAirports = new ArrayList<String>();
+        mListAirports = new ArrayList<>();
         mListAirports.add(mDestString);
         mListAirports.add(mNearString);
 
@@ -538,10 +538,10 @@ public class AirportActivity extends BaseActivity implements Observer {
          * Now add anything in the recently found list
          */
         String [] vals = mService.getDBResource().getUserRecents();
-        for(int pos=0; pos < vals.length; pos++) {
-            String destType = StringPreference.parseHashedNameDestType(vals[pos]);
-            if(destType != null && destType.equals(Destination.BASE)) {
-                String id = StringPreference.parseHashedNameId(vals[pos]);
+        for (String val : vals) {
+            String destType = StringPreference.parseHashedNameDestType(val);
+            if (destType != null && destType.equals(Destination.BASE)) {
+                String id = StringPreference.parseHashedNameId(val);
 
                 addAirport(id);
             }

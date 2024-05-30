@@ -434,7 +434,6 @@ public class Download {
                 mCode += e.getCause();
             }
             sendFailure();
-            return;
-        }        
+        }
     }
 }

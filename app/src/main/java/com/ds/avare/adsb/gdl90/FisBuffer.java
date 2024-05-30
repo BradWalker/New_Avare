@@ -39,7 +39,7 @@ public class FisBuffer {
             return;
         }
         mBuffer = buffer;
-        mProducts = new LinkedList<Product>();
+        mProducts = new LinkedList<>();
         mBuffer = new byte[mSize];
         System.arraycopy(buffer, offset, mBuffer, 0, mSize);
     }

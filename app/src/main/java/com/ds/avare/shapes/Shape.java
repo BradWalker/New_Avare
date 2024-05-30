@@ -48,7 +48,7 @@ public abstract class Shape {
      * 
      */
     public Shape(String label, Date date) {
-        mCoords = new ArrayList<Coordinate>();
+        mCoords = new ArrayList<>();
         mLonMin = 180;
         mLonMax = -180;
         mLatMin = 180;
