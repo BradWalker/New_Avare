@@ -302,7 +302,7 @@ public class LmfsPlan {
 	// Hashmap safety from null
 	private void put(Map<String, String> params, String name, String val) {
 		if(null != name && null != val) {
-			if(val.length() != 0) {
+			if(!val.isEmpty()) {
 				if(!val.equals("null")) {
 					params.put(name, val);					
 				}

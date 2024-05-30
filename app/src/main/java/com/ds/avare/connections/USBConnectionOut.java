@@ -82,7 +82,7 @@ public class USBConnectionOut extends Connection {
 
                             // Extract the autopilot sentences from the message
                             String apData = object.getString("apsentences");
-                            if(0 != apData.length()) {
+                            if(!apData.isEmpty()) {
                                 int wrote = writeToStream(apData.getBytes());
                                 if (wrote <= 0) {
                                     if (isStopped()) {

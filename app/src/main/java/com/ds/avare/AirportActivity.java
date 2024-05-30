@@ -93,7 +93,7 @@ public class AirportActivity extends BaseActivity implements Observer {
         mViewButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mListViews.size() == 0 || arePopupsShowing()) {
+                if(mListViews.isEmpty() || arePopupsShowing()) {
                     return;
                 }
                 
@@ -122,7 +122,7 @@ public class AirportActivity extends BaseActivity implements Observer {
         mAirportButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mListAirports == null || mListAirports.size() == 0 || arePopupsShowing()) {
+                if(mListAirports == null || mListAirports.isEmpty() || arePopupsShowing()) {
                     return;
                 }
                 

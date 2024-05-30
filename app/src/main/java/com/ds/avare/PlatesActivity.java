@@ -268,7 +268,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         mPlatesButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mListPlates.size() == 0 || arePopupsShowing()) {
+                if (mListPlates.isEmpty() || arePopupsShowing()) {
                     return;
                 }
 
@@ -302,7 +302,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                     return;
                 }
 
-                if (mListApproaches.size() == 0) {
+                if (mListApproaches.isEmpty()) {
                     mToast.setText(getString(R.string.NoApproachToShow));
                     mToast.show();
                     return;
@@ -413,7 +413,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         mAirportButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mListAirports == null || mListAirports.size() == 0 || arePopupsShowing()) {
+                if (mListAirports == null || mListAirports.isEmpty() || arePopupsShowing()) {
                     return;
                 }
 
@@ -533,7 +533,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         // Note: Move to BG task
         mListApproaches = new ArrayList<>();
         mCifp = mService.getDBResource().findProcedure(mAirportButton.getText().toString(), mPlatesButton.getText().toString());
-        if(mCifp.size() != 0) {
+        if(!mCifp.isEmpty()) {
             // Show which plates have approaches
             mApproachButton.setTextColor(0xFF007F00);
         }
@@ -620,7 +620,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                         }
                     }
 
-                    if (plates.size() > 0) {
+                    if (!plates.isEmpty()) {
                         mPlateFound = Arrays.asList(plates.values().toArray()).toArray(new String[plates.values().toArray().length]);
                         mListPlates = new ArrayList<>(plates.keySet());
                     }
@@ -671,7 +671,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                             plates.put("Min. " + plate, mapFolder + "/minimums/" + folder + plate);
                         }
                     }
-                    if (plates.size() > 0) {
+                    if (!plates.isEmpty()) {
                         mPlateFound = Arrays.asList(plates.values().toArray()).toArray(new String[plates.values().toArray().length]);
                         mListPlates = new ArrayList<>(plates.keySet());
                     }

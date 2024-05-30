@@ -47,7 +47,7 @@ public class GPSSimulatorFragment extends IOFragment {
 
     private double getValidValue(String val) {
         double ret = 0;
-        if(val.length() > 0) {
+        if(!val.isEmpty()) {
             try {
                 ret = Double.parseDouble(val);
             }

@@ -444,7 +444,7 @@ public class WebAppAircraftInterface {
     	/*
          * If text is 0 length or too long, then do not import
          */
-        if(0 == path.length()) {
+        if(path.isEmpty()) {
             return;
         }
         

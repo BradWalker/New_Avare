@@ -103,7 +103,7 @@ public class UDWMgr {
 		mPoints = new ArrayList<>();
 
 		// Ensure that the directory we are given is semi-reasonable
-		if(null != directory && directory.length() > 0) {
+		if(null != directory && !directory.isEmpty()) {
 			// Create the factory to parse the input files
 			UDWFactory factory = new UDWFactory();
 	

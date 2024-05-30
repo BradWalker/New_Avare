@@ -123,7 +123,7 @@ public class DatabaseDestination extends Destination {
                  */
                 mAfdFound = null;
                 final LinkedList<String> afdName = mDataSource.findAFD(mName);
-                if(afdName.size() > 0) {
+                if(!afdName.isEmpty()) {
                     FilenameFilter filter = new FilenameFilter() {
                         public boolean accept(File directory, String fileName) {
                             boolean match = false;

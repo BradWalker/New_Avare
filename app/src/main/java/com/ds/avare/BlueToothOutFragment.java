@@ -59,7 +59,7 @@ public class BlueToothOutFragment extends IOFragment {
         mBt = ConnectionFactory.getConnection(ConnectionFactory.CF_BlueToothConnectionOut, mContext);
 
         mList = mBt.getDevices();
-        if(mList.size() != 0) {
+        if(!mList.isEmpty()) {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext,
                     android.R.layout.simple_spinner_item, mList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -1108,7 +1108,7 @@ public class WebAppPlanInterface implements Observer {
     	/*
          * If text is 0 length or too long, then do not search, show last list
          */
-        if(0 == value.length()) {
+        if(value.isEmpty()) {
             return;
         }
         
@@ -1202,7 +1202,7 @@ public class WebAppPlanInterface implements Observer {
     	/*
          * If text is 0 length or too long, then do not search, show last list
          */
-        if(0 == value.length()) {
+        if(value.isEmpty()) {
             return;
         }
 
@@ -1350,7 +1350,7 @@ public class WebAppPlanInterface implements Observer {
 			if (null != s) {
 				s.putInHash(params);
 			}
-            if(params.size() > 0) {
+            if(!params.isEmpty()) {
                 selection = new String[params.size()];
                 int iterator = 0;
                 for(String key : params.keySet()){
@@ -1521,7 +1521,7 @@ public class WebAppPlanInterface implements Observer {
 				}
 
 				String stations = "";
-				if (ids.size() > 0) {
+				if (!ids.isEmpty()) {
 					String[] ida = new String[ids.size()];
 					ids.toArray(ida);
 					for (String s : ida) {

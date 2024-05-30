@@ -41,7 +41,7 @@ public class RateLimitedBackgroundQueue {
         TimerTask timer= new TimerTask() {
             @Override
             public void run() {
-                if(mQueueMetar.size() == 0) {
+                if(mQueueMetar.isEmpty()) {
                     return;
                 }
                 if(mProcessTask != null && mProcessTask.getStatus() == AsyncTask.Status.RUNNING) {
@@ -53,13 +53,13 @@ public class RateLimitedBackgroundQueue {
 
                     @Override
                     protected Void doInBackground(Void... vals) {
-                        if (mQueueMetar.size() > 0) {
+                        if (!mQueueMetar.isEmpty()) {
 
                             // copy queue to avoid concurrent modification
                             HashMap<String, Metar> metars = removeMetarsFromQueue();
 
                             // process all metars, find their lon/lat
-                            if (metars.size() > 0) {
+                            if (!metars.isEmpty()) {
                                 service.getDBResource().findLonLatMetar(metars);
                             }
                         }

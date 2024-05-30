@@ -67,7 +67,7 @@ public class BlueToothInFragment extends IOFragment {
         mBt = ConnectionFactory.getConnection(ConnectionFactory.CF_BlueToothConnectionIn, mContext);
 
         mList = mBt.getDevices();
-        if(mList.size() != 0) {
+        if(!mList.isEmpty()) {
             // visual artifact avoid
             ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext,
                     android.R.layout.simple_spinner_item, mList);

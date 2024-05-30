@@ -42,7 +42,7 @@ public class ExternalPlanMgr {
 	 * @return the plans
 	 */
 	public String[] getPlans() {
-		if(0 == mPlans.size()) {
+		if(mPlans.isEmpty()) {
 			return null;
 		}
 		
@@ -75,7 +75,7 @@ public class ExternalPlanMgr {
 		if(null != fileList) {
 			for(File file : fileList) {
 				String planName = file.getName();
-				if(null != likeThis && likeThis.length() > 0) { 
+				if(null != likeThis && !likeThis.isEmpty()) {
 					if(true == planName.contains(likeThis)) {
 						planNames.add(planName);
 					}
@@ -99,7 +99,7 @@ public class ExternalPlanMgr {
 		
 		for(ExternalFlightPlan plan : mPlans) {
 			String planName = plan.getName();
-			if(null != likeThis && likeThis.length() > 0) { 
+			if(null != likeThis && !likeThis.isEmpty()) {
 				if(true == planName.contains(likeThis)) {
 					planNames.add(planName);
 				}
@@ -187,7 +187,7 @@ public class ExternalPlanMgr {
 		mPlans = new ArrayList<>();
 
 		// Ensure that the directory we are given is semi-reasonable
-		if(null != directory && directory.length() > 0) {
+		if(null != directory && !directory.isEmpty()) {
 			// Create the factory to parse the input files
 			PlanFactory factory = new PlanFactory();
 	

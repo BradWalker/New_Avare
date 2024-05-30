@@ -128,7 +128,7 @@ public class OptionButton extends Button implements View.OnClickListener {
     public void setOptions(ArrayList<String> options) {
         mOptions = options;
         mSelected = 0;
-        if(mOptions != null && mOptions.size() > 0) {
+        if(mOptions != null && !mOptions.isEmpty()) {
             OptionButton.this.setText(mOptions.get(0));
         }
     }

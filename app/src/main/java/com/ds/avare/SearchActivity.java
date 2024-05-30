@@ -215,8 +215,6 @@ public class SearchActivity extends BaseActivity implements Observer {
                 }
                 return (true);
             }
-
-            ;
         });
 
         mDestinationAlertDialog = new DestinationAlertDialog(SearchActivity.this);
@@ -561,7 +559,7 @@ public class SearchActivity extends BaseActivity implements Observer {
                 if (null != s) {
                     s.putInHash(params);
                 }
-                if(params.size() > 0) {
+                if(!params.isEmpty()) {
                     selection = new String[params.size()];
                     int iterator = 0;
                     for(String key : params.keySet()){

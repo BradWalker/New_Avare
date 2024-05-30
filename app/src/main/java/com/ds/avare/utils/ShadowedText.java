@@ -67,7 +67,7 @@ public class ShadowedText {
     public void draw(Canvas canvas, Paint paint, String text, int shadowColor, float x, float y) {
 
     	// If nothing to draw, then get out of here now
-    	if((null == text) || 0 == text.length()) {
+    	if((null == text) || text.isEmpty()) {
     		return;
     	}
     	
@@ -116,7 +116,7 @@ public class ShadowedText {
     public void draw(Canvas canvas, Paint paint, String text, int shadowColor, int sector, float x, float y) {
     	
     	// If nothing to draw, then get out of here now
-    	if((null == text) || 0 == text.length()) {
+    	if((null == text) || text.isEmpty()) {
     		return;
     	}
 
@@ -172,7 +172,7 @@ public class ShadowedText {
     public void drawAlpha(Canvas canvas, Paint paint, String text, int shadowColor, float x, float y, int alpha) {
 
         // If nothing to draw, then get out of here now
-        if((null == text) || 0 == text.length()) {
+        if((null == text) || text.isEmpty()) {
             return;
         }
 
