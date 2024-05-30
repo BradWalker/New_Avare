@@ -31,12 +31,10 @@ public class GameTfrProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case GAMETFR:
-                return CONTENT_TYPE;
-            default:
-                return null;
+        if (uriType == GAMETFR) {
+            return CONTENT_TYPE;
         }
+        return null;
     }
 
     @Override
@@ -48,11 +46,10 @@ public class GameTfrProvider extends MainProvider {
 
         int uriType = mURIMatcher.match(uri);
         switch (uriType) {
-            case GAMETFR:
-                // no filter
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
+            case GAMETFR -> {
+            }
+            // no filter
+            default -> throw new IllegalArgumentException("Unknown URI");
         }
 
 

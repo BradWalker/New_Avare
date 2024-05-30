@@ -28,8 +28,8 @@
 
 package com.ds.avare.flight;
 
-import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 import com.ds.avare.gps.GpsParams;
 import com.ds.avare.utils.Helper;
@@ -43,7 +43,7 @@ public class FlightStatus {
     private static final double SPEED_FOR_FLIGHT = 50;
     
     private boolean mFlying;
-    private LinkedList<FlightStatusInterface> mCallbacks;
+    private List<FlightStatusInterface> mCallbacks;
     
     public FlightStatus(GpsParams params) {
         mFlying = false;
@@ -71,7 +71,7 @@ public class FlightStatus {
             if(currentSpeed < SPEED_FOR_ROLLOUT) {
                 mFlying = false;
                 
-                LinkedList<FlightStatusInterface> callbacks = (LinkedList<FlightStatusInterface>) mCallbacks.clone();
+                List<FlightStatusInterface> callbacks = new LinkedList<>(mCallbacks);
                 for (FlightStatusInterface fsi : callbacks) {
                     fsi.rollout();
                 }

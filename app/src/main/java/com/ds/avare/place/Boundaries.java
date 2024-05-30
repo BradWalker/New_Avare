@@ -20,7 +20,6 @@ import com.ds.avare.utils.BitmapHolder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * Created by zkhan on 8/18/15.

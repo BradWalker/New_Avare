@@ -22,7 +22,6 @@ package net.sf.jweather.metar;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 
 /**
  * Responsible for storing METAR data and providing methods for accessing

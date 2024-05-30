@@ -22,6 +22,7 @@ import com.ds.avare.weather.WindsAloft;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -102,7 +103,7 @@ public class AirportInfo extends AsyncTask<Object, String, String> {
         }
         // if lat lon not given then find from airport
         else if (null == lon || null == lat) {
-            LinkedHashMap<String, String> params = new LinkedHashMap();
+            Map<String, String> params = new LinkedHashMap<>();
             String ret = mService.getDBResource().findLonLat(airport, DatabaseDestination.BASE);
             String[] lonlat = ret.split(",");
             lon = Double.parseDouble(lonlat[0]);

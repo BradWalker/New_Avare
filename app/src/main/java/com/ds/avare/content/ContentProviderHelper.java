@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
 
@@ -542,7 +543,7 @@ public class ContentProviderHelper {
 
     public static LinkedHashMap<String, String> getUserPlans(Context ctx) {
         Cursor c = null;
-        LinkedHashMap<String, String> ret = new LinkedHashMap();
+        Map<String, String> ret = new LinkedHashMap<>();
 
         String[] proj = new String[]{UserContract.PLAN_COLUMN_ID, UserContract.PLAN_COLUMN_PATH};
         String order = UserContract.PLAN_COLUMN_ID + " asc";

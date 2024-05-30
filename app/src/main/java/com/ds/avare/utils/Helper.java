@@ -45,6 +45,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
@@ -548,7 +549,7 @@ public class Helper {
      * @return
      */
     public static LinkedList<File> getDirectoryContents(File dir, String filter) throws Exception {
-        LinkedList<File> list = new LinkedList();
+        List<File> list = new LinkedList<>();
         try {
             if(dir.isFile()) {
                 list.add(dir); // only 1 file asked
