@@ -312,7 +312,7 @@ public class NearestActivity extends BaseActivity  implements Observer {
             airport[id] = a.getId();
             airportname[id] = a.getName() + "(" + a.getId() + ")";
             fuel[id] = a.getFuel();
-            dist[id] = "" + ((float)(Math.round(a.getDistance() * 10.f)) / 10.f) + " " + Preferences.distanceConversionUnit;
+            dist[id] = ((float)(Math.round(a.getDistance() * 10.f)) / 10.f) + " " + Preferences.distanceConversionUnit;
             double heading = Helper.getMagneticHeading(a.getBearing(), params.getDeclinition());
             bearing[id] = Helper.correctConvertHeading(Math.round(heading)) + '\u00B0';
             elevation[id] = a.getElevation();

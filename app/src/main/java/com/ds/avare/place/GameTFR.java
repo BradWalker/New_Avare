@@ -9,7 +9,7 @@ package com.ds.avare.place;
  *
  */
 public class GameTFR {
-    /*
+    /**
      * wget http://www.aopa.org/Flight-Planning/Tfrs/Stadiums-and-Speedways
      * cat Stadiums-and-Speedways | grep "<p>[0-9].*\/.*</p>" | sed 's/<p>//' | sed 's/<\/p>//' > gtfr
      *

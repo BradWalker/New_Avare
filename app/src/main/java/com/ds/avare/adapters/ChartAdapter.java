@@ -342,7 +342,7 @@ public class ChartAdapter extends BaseExpandableListAdapter {
         }
     }
 
-    /*
+    /**
      * if chart is static
      * @param name
      */

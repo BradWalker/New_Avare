@@ -623,9 +623,8 @@ public class InfoLines {
             }
 
             case ID_FLD_HOB: {
-                return ""
-                        + mService.getFlightTimer()
-                                .getValue();
+                return mService.getFlightTimer()
+                        .getValue();
             }
 
             case ID_FLD_HDG: {
@@ -683,16 +682,14 @@ public class InfoLines {
 
             case ID_FLD_ETE: {
                 if (mService.getDestination() != null) {
-                    return ""
-                            + mService.getDestination().getEte();
+                    return mService.getDestination().getEte();
                 }
                 break;
             }
 
             case ID_FLD_ETA: {
                 if (mService.getDestination() != null) {
-                    return ""
-                            + mService.getDestination().getEta();
+                    return mService.getDestination().getEta();
                 }
                 break;
             }

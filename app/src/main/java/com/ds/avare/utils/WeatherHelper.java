@@ -728,7 +728,7 @@ public class WeatherHelper {
             // round to nearest 100
             da = ((int)(da / 100)) * 100;
 
-            return "" + (int)da + " ft";
+            return (int)da + " ft";
         }
 
         return "";

@@ -169,7 +169,6 @@ public class NetworkHelper {
 
     /**
      *
-     * @param plan
      * @return
      */
     public static String getPIREPSPlan(Coordinate[] coords) {

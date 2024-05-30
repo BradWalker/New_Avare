@@ -14,6 +14,8 @@ android {
     defaultConfig {
         applicationId "com.ds.avare"
         minSdkVersion 27 // Android 8.1
+
+        //noinspection OldTargetApi
         targetSdkVersion 33
     }
 
