@@ -85,7 +85,7 @@ public class WebAppMapInterface {
                 LongTouchDestination data = (LongTouchDestination)msg.obj;
                 String taf = "";
                 if(data.getTaf() != null) {
-                    String split[] = data.getTaf().getRawText().split(data.getTaf().getStationId(), 2);
+                    String[] split = data.getTaf().getRawText().split(data.getTaf().getStationId(), 2);
                     // Do not color code airport name
                     if(split.length == 2) {
                         taf = "<hr>" + WeatherHelper.addColor("TAF ", "yellow") + data.getTaf().getStationId() + " " + WeatherHelper.formatVisibilityHTML(WeatherHelper.formatTafHTML(WeatherHelper.formatWindsHTML(WeatherHelper.formatWeatherHTML(split[1], mPref.isWeatherTranslated()), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()));

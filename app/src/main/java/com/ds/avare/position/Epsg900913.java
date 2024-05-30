@@ -38,7 +38,7 @@ public class Epsg900913 {
     private static final double ORIGIN_SHIFT_180INV = 1.0 / ORIGIN_SHIFT_180;
 
     // Make a zoom table for resolution so we dont have to compute it often
-    private static double zoomTable[] = {
+    private static double[] zoomTable = {
             INITIAL_RESOLUTION / Math.pow(2, 0),
             INITIAL_RESOLUTION / Math.pow(2, 1),
             INITIAL_RESOLUTION / Math.pow(2, 2),
@@ -62,7 +62,7 @@ public class Epsg900913 {
     };
 
     // Make a zoom table for resolution so we dont have to compute it often
-    private static double zoomTableInv[] = {
+    private static double[] zoomTableInv = {
             1.0 / zoomTable[0],
             1.0 / zoomTable[1],
             1.0 / zoomTable[2],

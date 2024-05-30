@@ -28,8 +28,8 @@ public class AnimateButton {
     private boolean mShowing;
     private Context mContext;
     private View mView;
-    private View mReplaces[];
-    private int mReplacesVis[];
+    private View[] mReplaces;
+    private int[] mReplacesVis;
     private int mDir;
     
     public static final int DIRECTION_L_R = 1;

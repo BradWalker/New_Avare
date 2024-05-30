@@ -34,7 +34,7 @@ public class Obstacles {
 
 
     // Make a triangle representing the obstacle, rotate
-    private static float[] getObstacle(float tr[], int offset, float x, float y, float z) {
+    private static float[] getObstacle(float[] tr, int offset, float x, float y, float z) {
 
         tr[0  + offset * ELEMS] = x;
         tr[1  + offset * ELEMS] = y;

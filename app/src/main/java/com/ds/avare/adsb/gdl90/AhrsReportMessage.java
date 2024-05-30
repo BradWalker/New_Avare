@@ -65,7 +65,7 @@ public class AhrsReportMessage extends Message {
     /**
      * @param msg
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
 
         mValid = false;
         if (0x45 == msg[0]) {// iLevil

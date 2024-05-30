@@ -376,7 +376,7 @@ public class BufferProcessor {
                             }
                             if(type.equals("WINDS")) {
                                 
-                                String tokens[] = data.split("\n");
+                                String[] tokens = data.split("\n");
                                 if(tokens.length < 2) {
                                     /*
                                      * Must have line like
@@ -389,8 +389,8 @@ public class BufferProcessor {
                                 
                                 tokens[0] = tokens[0].replaceAll("\\s+", " ");
                                 tokens[1] = tokens[1].replaceAll("\\s+", " ");
-                                String winds[] = tokens[1].split(" ");
-                                String alts[] = tokens[0].split(" ");
+                                String[] winds = tokens[1].split(" ");
+                                String[] alts = tokens[0].split(" ");
                                                                         
                                 /*
                                  * Start from 3rd entry - alts

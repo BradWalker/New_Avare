@@ -104,7 +104,7 @@ public class AirportInfo extends AsyncTask<Object, String, String> {
         else if (null == lon || null == lat) {
             LinkedHashMap<String, String> params = new LinkedHashMap();
             String ret = mService.getDBResource().findLonLat(airport, DatabaseDestination.BASE);
-            String lonlat[] = ret.split(",");
+            String[] lonlat = ret.split(",");
             lon = Double.parseDouble(lonlat[0]);
             lat = Double.parseDouble(lonlat[1]);
         }

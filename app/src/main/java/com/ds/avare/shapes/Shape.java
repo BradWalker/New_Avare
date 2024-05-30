@@ -131,7 +131,7 @@ public abstract class Shape {
          * Draw the shape segment by segment
          */
         if(getNumCoords() > 0) {
-            float pts[] = new float[(getNumCoords()) * 4];
+            float[] pts = new float[(getNumCoords()) * 4];
             int i = 0;
             int coord = 0;
             float x1 = (float) origin.getOffsetX(mCoords.get(coord).getLongitude());

@@ -23,8 +23,8 @@ public class DataBuffer {
     
     int mSize;
     int mElem;
-    byte mBuffer[];
-    byte mBuffer2[];
+    byte[] mBuffer;
+    byte[] mBuffer2;
     LinkedList<Integer> mIndexes;
     
     /**
@@ -68,12 +68,12 @@ public class DataBuffer {
      * @return
      */
     private byte[] getAtBegin(int len) {
-        byte buffer[] = new byte[len];
+        byte[] buffer = new byte[len];
         System.arraycopy(mBuffer, 0, buffer, 0, len);
         mElem -= len;
         System.arraycopy(mBuffer, len, mBuffer2, 0, mElem);
         
-        byte tmp[] = mBuffer;
+        byte[] tmp = mBuffer;
         mBuffer = mBuffer2;
         mBuffer2 = tmp;
 
@@ -122,7 +122,7 @@ public class DataBuffer {
             return null;
         }
         
-        byte buf[] = getAtBegin(end - beg);
+        byte[] buf = getAtBegin(end - beg);
         return buf;
 
     }
@@ -132,7 +132,7 @@ public class DataBuffer {
      * @param data
      * @param len
      */
-    public void put(byte data[], int len) {
+    public void put(byte[] data, int len) {
         if((mElem + len) >= mBuffer.length) {
             /*
              * Something wrong.

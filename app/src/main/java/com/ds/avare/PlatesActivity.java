@@ -80,7 +80,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
     private ArrayList<String> mListPlates;
     private ArrayList<String> mListApproaches;
     private ArrayList<String> mListAirports;
-    private String mPlateFound[];
+    private String[] mPlateFound;
     private String mDestString;
     private String nearString;
     private String myString;
@@ -121,7 +121,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
         if(null == name) {
             return null;
         }
-        String parts[] = name.split("/");
+        String[] parts = name.split("/");
         if(parts.length < 2) {
             return null;
         }
@@ -143,16 +143,16 @@ public class PlatesActivity extends BaseActivity implements Observer  {
 
             String aname = getNameFromPath(mService.getPlateDiagram().getName());
             if(aname != null) {
-                float ret[];
+                float[] ret;
 
                 // find in user's own tags first
                 String tag = mService.getDBResource().getUserTag(aname);
                 if(null != tag) {
-                    String toks[] = tag.split(",");
+                    String[] toks = tag.split(",");
                    /*
                     * Found
                     */
-                    float matrix[] = new float[4];
+                    float[] matrix = new float[4];
                     matrix[0] = (float)Double.parseDouble(toks[0]);
                     matrix[1] = (float)Double.parseDouble(toks[1]);
                     matrix[2] = (float)Double.parseDouble(toks[2]);
@@ -508,7 +508,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
             String name = mListPlates.get(pos);
 
             mPlatesView.setParams(null, true);
-            float m[] = getMatrix(name);
+            float[] m = getMatrix(name);
             mService.setMatrix(null); // to small to show on map
             if(name.startsWith(AD)) {
                 mPlatesView.setParams(m, true);
@@ -610,12 +610,12 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                         }
                     };
 
-                    String aplates[] = new File(mapFolder + "/myplates/").list(filter);
+                    String[] aplates = new File(mapFolder + "/myplates/").list(filter);
                     TreeMap<String, String> plates = new TreeMap<String, String>();
 
                     if (aplates != null) {
                         for (String plate : aplates) {
-                            String tokens[] = plate.split(Preferences.IMAGE_EXTENSION);
+                            String[] tokens = plate.split(Preferences.IMAGE_EXTENSION);
                             plates.put(tokens[0], mapFolder + "/myplates/" + tokens[0]);
                         }
                     }
@@ -648,20 +648,20 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                      * chart loaded immediately)
                      */
 
-                    String dplates[] = new File(mapFolder + "/plates/" + airport).list(filter);
-                    String aplates[] = new File(mapFolder + "/area/" + airport).list(filter);
-                    String mins[] = mService.getDBResource().findMinimums(airport);
+                    String[] dplates = new File(mapFolder + "/plates/" + airport).list(filter);
+                    String[] aplates = new File(mapFolder + "/area/" + airport).list(filter);
+                    String[] mins = mService.getDBResource().findMinimums(airport);
 
                     TreeMap<String, String> plates = new TreeMap<String, String>(new PlatesComparable());
                     if (dplates != null) {
                         for (String plate : dplates) {
-                            String tokens[] = plate.split(Preferences.IMAGE_EXTENSION);
+                            String[] tokens = plate.split(Preferences.IMAGE_EXTENSION);
                             plates.put(tokens[0], mapFolder + "/plates/" + airport + "/" + tokens[0]);
                         }
                     }
                     if (aplates != null) {
                         for (String plate : aplates) {
-                            String tokens[] = plate.split(Preferences.IMAGE_EXTENSION);
+                            String[] tokens = plate.split(Preferences.IMAGE_EXTENSION);
                             plates.put(tokens[0], mapFolder + "/area/" + airport + "/" + tokens[0]);
                         }
                     }

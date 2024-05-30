@@ -95,7 +95,7 @@ public class NetworkHelper {
         }
         
         // Return value
-        byte ret[] = new byte[32768];
+        byte[] ret = new byte[32768];
         InputStream is = conn.getInputStream();
         int len = 0;
         int index = 0;

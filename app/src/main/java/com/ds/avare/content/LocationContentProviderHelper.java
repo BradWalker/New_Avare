@@ -64,7 +64,7 @@ public class LocationContentProviderHelper {
         Cursor c = null;
 
         String order;
-        String arguments[];
+        String[] arguments;
         String qry;
 
         /*
@@ -229,7 +229,7 @@ public class LocationContentProviderHelper {
             qry += " and " + LocationContract.AIRPORTS_TYPE + "='AIRPORT'";
         }
         // LocationID is ambiguous hence add table name with it
-        String projection[] = new String[] {
+        String[] projection = new String[] {
                 LocationContract.TABLE_AIRPORTS + "." + LocationContract.AIRPORTS_LOCATION_ID,
                 LocationContract.AIRPORT_RUNWAYS_LENGTH,
                 LocationContract.AIRPORT_RUNWAYS_WIDTH,
@@ -259,7 +259,7 @@ public class LocationContentProviderHelper {
 
                     LinkedHashMap<String, String> params = new LinkedHashMap<String, String>();
                     // find airport
-                    String parts[] = c.getString(3).trim().split("[.]"); //LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION
+                    String[] parts = c.getString(3).trim().split("[.]"); //LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION
                     if(parts[0].equals("")) {
                         parts = c.getString(8).trim().split("[.]");
                     }
@@ -293,7 +293,7 @@ public class LocationContentProviderHelper {
 
         if(type.equals(Destination.NAVAID)) {
             String qry = LocationContract.NAV_LOCATION_ID + " = ? and " + LocationContract.NAV_TYPE + " != ?";
-            String arguments[] = new String[] {name, "VOT"};
+            String[] arguments = new String[] {name, "VOT"};
             String order = LocationContract.NAV_LOCATION_ID + " limit 1";
             try {
                 c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_NAV, null, qry, arguments, order);
@@ -311,7 +311,7 @@ public class LocationContentProviderHelper {
 
         if(type.equals(Destination.FIX)) {
             String qry = LocationContract.FIX_LOCATION_ID + " = ?";
-            String arguments[] = new String[] {name};
+            String[] arguments = new String[] {name};
             String order = LocationContract.FIX_LOCATION_ID + " limit 1";
             try {
                 c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_FIX, null, qry, arguments, order);
@@ -329,7 +329,7 @@ public class LocationContentProviderHelper {
 
         if(type.equals(Destination.BASE)) {
             String qry = LocationContract.AIRPORTS_LOCATION_ID + " = ?";
-            String arguments[] = new String[] {name};
+            String[] arguments = new String[] {name};
             String order = LocationContract.AIRPORTS_LOCATION_ID + " limit 1";
             try {
                 c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, null, qry, arguments, order);
@@ -369,7 +369,7 @@ public class LocationContentProviderHelper {
             /*
              * GPS
              */
-            String c[] = name.split("&");
+            String[] c = name.split("&");
             if(c.length == 2) {
                 try {
                     double lat = Double.parseDouble(c[0]);
@@ -484,7 +484,7 @@ public class LocationContentProviderHelper {
         String v0 = String.valueOf(coordinate.getLongitude());
         String v1 = String.valueOf(coordinate.getLatitude());
 
-        String arguments[] = new String[] {v0, v0, v1, v1};
+        String[] arguments = new String[] {v0, v0, v1, v1};
 
         // Find Navaid
         qry =
@@ -544,7 +544,7 @@ public class LocationContentProviderHelper {
          */
         String qry = LocationContract.AIRPORTS_CITY + " = ?";
 
-        String arguments[] = new String[] {name.toUpperCase(Locale.getDefault())};
+        String[] arguments = new String[] {name.toUpperCase(Locale.getDefault())};
 
         Cursor c = null;
 
@@ -576,7 +576,7 @@ public class LocationContentProviderHelper {
          */
         String qry = LocationContract.AIRWAY_NAME + " = ?";
 
-        String arguments[] = new String[] {name};
+        String[] arguments = new String[] {name};
 
         String order = "cast(" + LocationContract.AIRWAY_SEQUENCE + " as integer)";
 
@@ -604,7 +604,7 @@ public class LocationContentProviderHelper {
 
         String qry = LocationContract.AFD_LOCATION_ID + " = ?";
 
-        String arguments[] = new String[] {airportId};
+        String[] arguments = new String[] {airportId};
 
         try {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AFD, null, qry, arguments, null);
@@ -638,7 +638,7 @@ public class LocationContentProviderHelper {
                 LocationContract.ALTERNATE_LOCATION_ID + " = ?" + " or " +
                 LocationContract.ALTERNATE_LOCATION_ID + " = ?";
 
-        String arguments[] = new String[] {airportId, "K" + airportId, "P" + airportId};
+        String[] arguments = new String[] {airportId, "K" + airportId, "P" + airportId};
 
         try {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_ALTERNATE, null, qry, arguments, null);
@@ -692,7 +692,7 @@ public class LocationContentProviderHelper {
     public static String findLonLat(Context ctx, String name, String type) {
         Cursor c = null;
 
-        String arguments[] = new String[] {name};
+        String[] arguments = new String[] {name};
 
         try {
             if(type.equals(Destination.BASE)) {
@@ -738,7 +738,7 @@ public class LocationContentProviderHelper {
         Cursor c = null;
 
         String qry = LocationContract.NAV_LOCATION_ID + " = ? and " + LocationContract.NAV_TYPE + " != ?";
-        String arguments[] = new String[] {name, "VOT"};
+        String[] arguments = new String[] {name, "VOT"};
         String order = LocationContract.NAV_LOCATION_ID +  " limit 1";
 
         try {
@@ -801,7 +801,7 @@ public class LocationContentProviderHelper {
         qry += LocationContract.AIRPORTS_LOCATION_ID + " = ?) and "; // last index without or
         qry += LocationContract.AIRPORTS_TYPE + " = 'AIRPORT'";
 
-        String arguments[] = keys.toArray(new String[0]);
+        String[] arguments = keys.toArray(new String[0]);
 
         try {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, null, qry, arguments, null);
@@ -841,7 +841,7 @@ public class LocationContentProviderHelper {
         String v0 = String.valueOf(lon);
         String v1 = String.valueOf(lat);
 
-        String arguments[] = new String[] {v0, v0, v1, v1};
+        String[] arguments = new String[] {v0, v0, v1, v1};
 
 
         try {
@@ -886,7 +886,7 @@ public class LocationContentProviderHelper {
 
         String qry = LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? ";
 
-        String arguments[] = new String[] {name, "K" + name};
+        String[] arguments = new String[] {name, "K" + name};
 
         try {
             /*
@@ -927,7 +927,7 @@ public class LocationContentProviderHelper {
                 LocationContract.AIRPORT_RUNWAYS_LE_IDENT + " = ? or " +
                 LocationContract.AIRPORT_RUNWAYS_HE_IDENT + " = ? )";
 
-        String arguments[] = new String[] {airport, "K" + airport, name, name};
+        String[] arguments = new String[] {airport, "K" + airport, name, name};
 
         try {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORT_RUNWAYS, null, qry, arguments, null);
@@ -957,7 +957,7 @@ public class LocationContentProviderHelper {
         Cursor c = null;
         String elev = "";
 
-        String arguments[] = new String[] {airport, "K" + airport};
+        String[] arguments = new String[] {airport, "K" + airport};
 
         String qry = LocationContract.AIRPORTS_LOCATION_ID + " = ? or " + LocationContract.AIRPORTS_LOCATION_ID + " = ? ";
 
@@ -989,7 +989,7 @@ public class LocationContentProviderHelper {
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + ") * (" +
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + "))";
 
-        String projection[] = new String[] {LocationContract.AIRPORTS_LOCATION_ID, asdistance + " as distance"};
+        String[] projection = new String[] {LocationContract.AIRPORTS_LOCATION_ID, asdistance + " as distance"};
         String order = "distance limit 1";
 
         String qry;
@@ -1029,7 +1029,7 @@ public class LocationContentProviderHelper {
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + ") * (" +
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + "))";
 
-        String projection[] = new String[] {LocationContract.AIRPORTS_LOCATION_ID, asdistance + " as distance"};
+        String[] projection = new String[] {LocationContract.AIRPORTS_LOCATION_ID, asdistance + " as distance"};
 
         String qry =  LocationContract.AIRPORTS_TYPE + "= 'AIRPORT' and distance < " + distance;
 
@@ -1063,7 +1063,7 @@ public class LocationContentProviderHelper {
         String v1 = String.valueOf(bottom.getLatitude());
         String v2 = String.valueOf(right.getLongitude());
         String v3 = String.valueOf(left.getLongitude());
-        String arguments[] = new String[] {"VOR", "VOR/DME", "VORTAC", v0, v1, v2, v3};
+        String[] arguments = new String[] {"VOR", "VOR/DME", "VORTAC", v0, v1, v2, v3};
 
         String order = "((" +
                 LocationContract.NAV_LONGITUDE + " - " + lon + ") * (" +
@@ -1112,7 +1112,7 @@ public class LocationContentProviderHelper {
 
     public static float[] findDiagramMatrix(Context ctx, String name) {
         Cursor c = null;
-        float ret[] = new float[12];
+        float[] ret = new float[12];
         int it;
 
         for(it = 0; it < 12; it++) { // zero out
@@ -1120,7 +1120,7 @@ public class LocationContentProviderHelper {
         }
 
         String qry = LocationContract.AIRPORT_DIAGS_LOCATION_ID + "= ?";
-        String arguments[] = new String[] {name};
+        String[] arguments = new String[] {name};
 
         try {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORT_DIAGS, null, qry, arguments, null);
@@ -1161,7 +1161,7 @@ public class LocationContentProviderHelper {
 
             try {
                 String qry = LocationContract.NAV_LOCATION_ID + " = ? and " + LocationContract.NAV_TYPE + " != ?";
-                String arguments[] = new String[] {chopname, "VOT"};
+                String[] arguments = new String[] {chopname, "VOT"};
 
                 c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_NAV, null, qry, arguments, null);
                 if (c != null) {
@@ -1194,7 +1194,7 @@ public class LocationContentProviderHelper {
                  * Did not find in NAV? Find in Fix
                  */
                 String qry = LocationContract.FIX_LOCATION_ID + " = ?";
-                String arguments[] = new String[] {chopname};
+                String[] arguments = new String[] {chopname};
 
                 c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_FIX, null, qry, arguments, null);
                 if(c != null) {
@@ -1429,7 +1429,7 @@ public class LocationContentProviderHelper {
          */
         try {
             String qry = LocationContract.AIRPORT_FREQ_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_FREQ_LOCATION_ID + " = ?";
-            String arguments[] = new String[] {name, "K" + name};
+            String[] arguments = new String[] {name, "K" + name};
 
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORT_FREQ, null, qry, arguments, null);
             /*
@@ -1481,7 +1481,7 @@ public class LocationContentProviderHelper {
 			 * Add each AWOS
 			 */
             String qry = LocationContract.AIRPORT_AWOS_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_AWOS_LOCATION_ID + " = ?";
-            String arguments[] = new String[] {name, "K" + name};
+            String[] arguments = new String[] {name, "K" + name};
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORT_AWOS, null, qry, arguments, null);
 
             if (c != null) {
@@ -1513,7 +1513,7 @@ public class LocationContentProviderHelper {
          */
         try {
             String qry = LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ?";
-            String arguments[] = new String[] {name, "K" + name};
+            String[] arguments = new String[] {name, "K" + name};
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORT_RUNWAYS, null, qry, arguments, null);
 
             /*

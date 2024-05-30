@@ -23,7 +23,7 @@ public class MessageFactory {
      * @param bufin
      * @return
      */
-    public static int checkSum(byte bufin[]) {
+    public static int checkSum(byte[] bufin) {
         int xor = 0;
         int i = 1;
         int len = bufin.length;
@@ -41,7 +41,7 @@ public class MessageFactory {
         return xor;
     }
     
-    public static Message buildMessage(byte bufin[]) {
+    public static Message buildMessage(byte[] bufin) {
         
         int len = bufin.length;
         
@@ -55,7 +55,7 @@ public class MessageFactory {
         /*
          * Check checksum
          */
-        byte cs[];
+        byte[] cs;
         cs = new byte[2];
         /*
          * Starts with $GP, ends with checksum *DD

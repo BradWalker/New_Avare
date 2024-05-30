@@ -45,7 +45,7 @@ public class MapBase {
 
 
     protected MapBase(int size) {
-        int tilesdim[] = StorageService.getInstance().getPreferences().getTilesNumber(
+        int[] tilesdim = StorageService.getInstance().getPreferences().getTilesNumber(
                 StorageService.getInstance().getApplicationContext(),
                 StorageService.getInstance().getPreferences().isScreenSizeCalculationForTiles());
         /*
@@ -107,7 +107,7 @@ public class MapBase {
     private ArrayList<Integer> ccwSpiral(int m, int n) {
         ArrayList<Integer> result = new ArrayList<Integer>();
 
-        int matrix[] = new int[m * n];
+        int[] matrix = new int[m * n];
         for(int i = 0; i < m * n; i++) {
             matrix[i] = i;
         }

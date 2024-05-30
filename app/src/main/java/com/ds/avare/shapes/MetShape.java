@@ -51,8 +51,8 @@ public class MetShape extends Shape {
         String txt = getTextIfTouched(lon, lat);
         String ret = "";
         if(null != txt) {
-            String typeArray[] = ctx.getResources().getStringArray(R.array.AirSig);
-            int colorArray[] = ctx.getResources().getIntArray(R.array.AirSigColor);
+            String[] typeArray = ctx.getResources().getStringArray(R.array.AirSig);
+            int[] colorArray = ctx.getResources().getIntArray(R.array.AirSigColor);
             int color = 0;
             String type = met.getHazard() + " " + met.getReportType();
             for(int j = 0; j < typeArray.length; j++) {
@@ -90,8 +90,8 @@ public class MetShape extends Shape {
 
         ctx.paint.setStrokeWidth(2 * ctx.dip2pix);
         ctx.paint.setShadowLayer(0, 0, 0, 0);
-        String typeArray[] = ctx.context.getResources().getStringArray(R.array.AirSig);
-        int colorArray[] = ctx.context.getResources().getIntArray(R.array.AirSigColor);
+        String[] typeArray = ctx.context.getResources().getStringArray(R.array.AirSig);
+        int[] colorArray = ctx.context.getResources().getIntArray(R.array.AirSigColor);
         String storeType = ctx.pref.getAirSigMetType();
 
         for(int i = 0; i < mets.size(); i++) {

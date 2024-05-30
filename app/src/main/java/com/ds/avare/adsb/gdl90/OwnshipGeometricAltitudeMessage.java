@@ -27,7 +27,7 @@ public class OwnshipGeometricAltitudeMessage extends Message {
     /**
      * @param msg
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
 
         /*
          *  bytes 0-1 are the altitude

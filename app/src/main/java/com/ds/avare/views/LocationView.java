@@ -436,7 +436,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
                          */
                         if (mPref.isTrackUp()) {
                             double thetab = mGpsParams.getBearing();
-                            double p[] = new double[2];
+                            double[] p = new double[2];
                             double c_x = mOrigin.getOffsetX(mGpsParams.getLongitude());
                             double c_y = mOrigin.getOffsetY(mGpsParams.getLatitude());
                             p = Helper.rotateCoord(c_x, c_y, thetab, pt.x, pt.y);
@@ -486,7 +486,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
                     double c_x = mOrigin.getOffsetX(mGpsParams.getLongitude());
                     double c_y = mOrigin.getOffsetY(mGpsParams.getLatitude());
                     double thetab = mGpsParams.getBearing();
-                    double p0[],p1[];
+                    double[] p0,p1;
                     p0 = Helper.rotateCoord(c_x, c_y, thetab, x0, y0);
                     p1 = Helper.rotateCoord(c_x, c_y, thetab, x1, y1);
                     lon0 = mOrigin.getLongitudeOf(p0[0]);
@@ -1013,7 +1013,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
          * Database query for new location / pan location.
          */
         if(mGpsTile != null) {
-            double offsets[] = new double[2];
+            double[] offsets = new double[2];
 
             /*
              * No need to load tiles when we are on current tile
@@ -1249,7 +1249,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
             double c_y = mOrigin.getOffsetY(mGpsParams.getLatitude());
             double thetab = mGpsParams.getBearing();
 
-            double p[];
+            double[] p;
             p = Helper.rotateCoord(c_x, c_y, thetab,x,y);
             lon2 = mOrigin.getLongitudeOf(p[0]);
             lat2 = mOrigin.getLatitudeOf(p[1]);

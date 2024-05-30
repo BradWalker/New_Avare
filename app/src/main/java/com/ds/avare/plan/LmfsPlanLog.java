@@ -213,7 +213,7 @@ public class LmfsPlanLog {
 		time = time.replace("PT", "");
 		long timeLong = 0;
 		try {
-			String tokens[] = time.split("[HMS]");
+			String[] tokens = time.split("[HMS]");
 			if(tokens.length == 3) {
 				timeLong = Integer.parseInt(tokens[0]) + Integer.parseInt(tokens[1]) * 60 + Integer.parseInt(tokens[2]) * 3600;
 			}

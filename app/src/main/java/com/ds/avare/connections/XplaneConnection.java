@@ -82,7 +82,7 @@ public class XplaneConnection extends Connection {
 
                     String input = new String(buffer, 0, red);
                     if(input.startsWith("XGPS")) {
-                        String tokens[] = input.split(",");
+                        String[] tokens = input.split(",");
                         if(tokens.length >= 6) {
                             /*
                              * Make a GPS location message from ownship message.

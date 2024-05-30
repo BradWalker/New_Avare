@@ -26,7 +26,7 @@ public class WindTriagle {
      * A
      */
     public static double[] getTrueFromGroundAndWind(double gs, double ga, double ws, double wa) {
-        double tr[] = new double[2];
+        double[] tr = new double[2];
         if(gs == 0) {
             gs = 0.01; // avoid NaN when gs = 0
         }

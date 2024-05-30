@@ -42,17 +42,17 @@ import java.util.Observer;
  */
 public class PlatesTagActivity extends BaseActivity implements Observer {
     private PlatesTagView                mPlatesView;
-    private PixelCoordinate              mPoint[];
-    private Coordinate                   mPointLL[];
+    private PixelCoordinate[] mPoint;
+    private Coordinate[] mPointLL;
     private Toast                        mToast;
     private AlertDialog                  mAlertDialog;
     private Destination                  mDest;
     private Destination                  mDestVerify;
-    private Destination                  mDestPoint[] = new Destination[POINTS];
+    private Destination[] mDestPoint = new Destination[POINTS];
     private String                       mName;
     private String                       mAirport;
     private boolean                      mTagged;
-    private Button                       mSetButton[] = new Button[POINTS];
+    private Button[] mSetButton = new Button[POINTS];
 
 
     private static final int POINTS = 2;
@@ -408,7 +408,7 @@ public class PlatesTagActivity extends BaseActivity implements Observer {
 
         String tag = mService.getDBResource().getUserTag(mName);
         if(null != tag) {
-            String tokens[] = tag.split(",");
+            String[] tokens = tag.split(",");
             mDx = Double.parseDouble(tokens[0]);
             mDy = Double.parseDouble(tokens[1]);
             mLonTopLeft = Double.parseDouble(tokens[2]);

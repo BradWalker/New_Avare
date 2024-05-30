@@ -31,7 +31,7 @@ public class Movement {
     /**
      * @param offset
      */
-    public Movement(double offset[]) {
+    public Movement(double[] offset) {
         /*
          * Store movement
          */

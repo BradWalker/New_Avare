@@ -328,7 +328,7 @@ public class Download {
                          */
                         String entryName = entry.getName();
                         String fn = path + "/" + entryName;
-                        String tokens[] = entryName.split("/");
+                        String[] tokens = entryName.split("/");
                         String folder = tokens[0];
                         
                         /*

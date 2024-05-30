@@ -55,8 +55,8 @@ public class NearestAdapter extends ArrayAdapter<String> {
     /**
      * @param context
      */
-    public NearestAdapter(Context context, String[] distance, String name[], 
-            String bearing[], String[] fuel, String[] elev, String[] runway, boolean[] glide) {
+    public NearestAdapter(Context context, String[] distance, String[] name,
+                          String[] bearing, String[] fuel, String[] elev, String[] runway, boolean[] glide) {
         super(context, R.layout.nearest, distance);
         mContext = context;
         mBearing = bearing;
@@ -76,9 +76,9 @@ public class NearestAdapter extends ArrayAdapter<String> {
      * @param fuel
      * @param elevation
      */
-    public void updateList(String[] distance, String name[], 
-            String bearing[], String[] fuel, String[] elevation, String[] runway,
-            boolean[] glide) {
+    public void updateList(String[] distance, String[] name,
+                           String[] bearing, String[] fuel, String[] elevation, String[] runway,
+                           boolean[] glide) {
         mBearing = bearing;
         mDistance = distance;
         mName = name;

@@ -468,7 +468,7 @@ public class PlatesView extends PanZoomView implements View.OnTouchListener {
         if (shouldRotate()) {
             // rotate pan
             double thetab = mGpsParams.getBearing();
-            double p[] = new double[2];
+            double[] p = new double[2];
             p = Helper.rotateCoord(getWidth() / 2, getHeight() / 2, thetab, e.getX(), e.getY());
             e.setLocation((float)p[0], (float)p[1]);
         }
@@ -490,7 +490,7 @@ public class PlatesView extends PanZoomView implements View.OnTouchListener {
                          */
                         if (mPref.isTrackUp()) {
                             double thetab = mGpsParams.getBearing();
-                            double p[] = new double[2];
+                            double[] p = new double[2];
                             p = Helper.rotateCoord(getWidth() / 2, getHeight() / 2, thetab, pt.x, pt.y);
                             mService.getPixelDraw().addPoint((float) p[0], (float) p[1]);
                         } else {

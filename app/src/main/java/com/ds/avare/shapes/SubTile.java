@@ -42,7 +42,7 @@ public class SubTile extends Tile {
     // 8x8 neighbor table where main tile top left (row = 0, col = 0) starts at [2][2] in it, and has 9 tiles for which neighbors apply
     // each entry is {neighbor relative row index, neighbor relative col index, tile in that neighbor
 
-    private static final int tilesNeighbors[][][] = {
+    private static final int[][][] tilesNeighbors = {
             {{-1, -1, 10}, {-1, -1, 11}, {-1,  0,  8}, {-1,  0,  9}, {-1,  0, 10}, {-1,  0, 11}, {-1,  1,  8}, {-1,  1,  9}},
             {{-1, -1, 14}, {-1, -1, 15}, {-1,  0, 12}, {-1,  0, 13}, {-1,  0, 14}, {-1,  0, 15}, {-1,  1, 12}, {-1,  1, 13}},
             {{ 0, -1,  2}, { 0, -1,  3}, { 0,  0,  0}, { 0,  0,  1}, { 0,  0,  2}, { 0,  0,  3}, { 0,  1,  0}, { 0,  1,  1}},
@@ -54,7 +54,7 @@ public class SubTile extends Tile {
     } ;
 
     //4x4 of 128 of 512
-    private static final int dims[][] = {
+    private static final int[][] dims = {
             {  0,   0}, {  0, 128}, {  0, 256}, {  0, 384},
             {128,   0}, {128, 128}, {128, 256}, {128, 384},
             {256,   0}, {256, 128}, {256, 256}, {256, 384},
@@ -112,7 +112,7 @@ public class SubTile extends Tile {
     private static int[][][] whatAreMyNeighbors(int row, int col) {
         // its 3x3 tiles with particulars of that tile in third col
         // row, col, location (use whatAreMyDims on location for actual dimensions of tile)
-        int neighbors[][][] = new int[3][3][3];
+        int[][][] neighbors = new int[3][3][3];
         neighbors[0][0][0] = tilesNeighbors[2 + row - 1][2 + col - 1][0];
         neighbors[0][0][1] = tilesNeighbors[2 + row - 1][2 + col - 1][1];
         neighbors[0][0][2] = tilesNeighbors[2 + row - 1][2 + col - 1][2];

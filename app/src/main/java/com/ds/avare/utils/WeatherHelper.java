@@ -115,7 +115,7 @@ public class WeatherHelper {
      */
     public static String formatTafHTML(String weatherAll, boolean translate) {
 
-        String strip[] = weatherAll.split("RMK");
+        String[] strip = weatherAll.split("RMK");
         String weather = strip[0];
 
         /*
@@ -217,7 +217,7 @@ public class WeatherHelper {
      */
     public static String formatMetarHTML(String weatherAll, boolean translate) {
 
-        String strip[] = weatherAll.split("RMK");
+        String[] strip = weatherAll.split("RMK");
 
         // a bit of a simplification but typically first 2 items are identifier and time; they need no translation
         Pair<String,String> p = splitOnSecondSpace(strip[0]);
@@ -594,7 +594,7 @@ public class WeatherHelper {
      */
     public static int decodeWindSpeed(String wind) {
         String windsd = decodeWind(wind);
-        String w[] = windsd.split("°");
+        String[] w = windsd.split("°");
         int speed = 0;
         try {
             speed = Integer.parseInt(w[1].split("kt")[0]);
@@ -612,7 +612,7 @@ public class WeatherHelper {
      */
     public static int decodeWindDir(String wind) {
         String windsd = decodeWind(wind);
-        String w[] = windsd.split("°");
+        String[] w = windsd.split("°");
         int dir = 0;
         try {
             dir = Integer.parseInt(w[0]);
@@ -644,7 +644,7 @@ public class WeatherHelper {
     public static String getMetarTime(String metar) {
         String time = "";
         // parse time, temp, altitude setting
-        String tokens[] = metar.split(" ");
+        String[] tokens = metar.split(" ");
         if(tokens.length > 1) {
             time = tokens[1];
         }
@@ -679,7 +679,7 @@ public class WeatherHelper {
         boolean melev = false;
 
         // parse time, temp, altitude setting
-        String tokens[] = metar.split(" ");
+        String[] tokens = metar.split(" ");
 
         try {
             for(int i = 0; i < tokens.length; i++) {
@@ -742,7 +742,7 @@ public class WeatherHelper {
             return null;
         }
 
-        double wnd[] = new double[3];
+        double[] wnd = new double[3];
         wnd[0] = 0;
         wnd[1] = 0;
         wnd[2] = 0;
@@ -750,7 +750,7 @@ public class WeatherHelper {
         String wind = "";
 
         // parse time, temp, altitude setting
-        String tokens[] = metar.split(" ");
+        String[] tokens = metar.split(" ");
 
         try {
             for(int i = 0; i < tokens.length; i++) {
@@ -817,7 +817,7 @@ public class WeatherHelper {
             double maxW = -1E10;
             String best = "";
             for(String s : runways) {
-                String run[] = s.split(",");
+                String[] run = s.split(",");
                 try {
                     double rhead = Double.parseDouble(run[1]);
                     // find cross and head wind components

@@ -35,7 +35,7 @@ public class GGAMessage extends Message {
      * @param msg
      */
     public void parse(String msg) {
-        String tokens[] = msg.split(",");
+        String[] tokens = msg.split(",");
         
         if(tokens.length < 10) {
             return;

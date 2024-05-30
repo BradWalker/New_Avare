@@ -26,7 +26,7 @@ import com.ds.avare.utils.BitmapHolder;
  *
  */
 public class NexradBitmap {
-    private double mCoords[];
+    private double[] mCoords;
     private double mScaleX;
     private double mScaleY;
     private BitmapHolder mBitmap;
@@ -36,7 +36,7 @@ public class NexradBitmap {
      * 
      * @param blockNumber
      */
-    private static double convertBlockNumberToLatLon(int blockNumber, double lonlat[]) {
+    private static double convertBlockNumberToLatLon(int blockNumber, double[] lonlat) {
         double lon;
         double lat;
         double scale;
@@ -76,7 +76,7 @@ public class NexradBitmap {
      * @param data
      * @param block
      */
-    public NexradBitmap(long time, int data[], int block, boolean conus, int cols, int rows) {
+    public NexradBitmap(long time, int[] data, int block, boolean conus, int cols, int rows) {
        
         timestamp = System.currentTimeMillis();
         mCoords = new double[2];

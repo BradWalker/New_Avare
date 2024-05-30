@@ -41,9 +41,9 @@ public class PngCommentReader {
                         String txt = new String(data);
                         if(txt.startsWith("Comment")) {
                             txt = txt.replace("Comment", "");
-                            String toks[] = txt.split("[|]");
+                            String[] toks = txt.split("[|]");
                             if(4 == toks.length) {
-                                float matrix[] = new float[4];
+                                float[] matrix = new float[4];
                                 matrix[0] = (float)Double.parseDouble(toks[0]);
                                 matrix[1] = (float)Double.parseDouble(toks[1]);
                                 matrix[2] = (float)Double.parseDouble(toks[2]);

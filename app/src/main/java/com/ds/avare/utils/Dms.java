@@ -24,7 +24,7 @@ public class Dms {
 	 * @return array of 3 doubles with DEG MIN SEC
 	 */
 	public static double[] fracToDMS(double frac) {
-		double dms[] = new double[3];
+		double[] dms = new double[3];
 		
 		// Degrees is just the integer part of the fraction
 		dms[0] = (int)(frac);

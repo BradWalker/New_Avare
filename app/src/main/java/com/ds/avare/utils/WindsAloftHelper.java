@@ -91,7 +91,7 @@ import java.util.Locale;
         final public String Dir, Speed, Temp;
         final boolean IsNull;
 
-        private DirSpeedTemp(String wind[], String t)
+        private DirSpeedTemp(String[] wind, String t)
         {
             Dir = wind[0]; Speed = wind[1]; Temp = t;
             IsNull = false;

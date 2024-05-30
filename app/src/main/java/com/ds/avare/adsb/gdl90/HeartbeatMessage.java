@@ -33,7 +33,7 @@ public class HeartbeatMessage extends Message {
     /**
      * @param msg
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
         /*
          * Some useful fields
          */

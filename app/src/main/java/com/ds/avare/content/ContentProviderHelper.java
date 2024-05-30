@@ -59,7 +59,7 @@ public class ContentProviderHelper {
         String v3 = String.valueOf(longitude - Obstacle.RADIUS);
         String v4 = String.valueOf(longitude + Obstacle.RADIUS);
 
-        String arguments[] = new String[] {v0, v1, v2, v3, v4};
+        String[] arguments = new String[] {v0, v1, v2, v3, v4};
 
         try {
             c = ctx.getContentResolver().query(ObstaclesContract.CONTENT_URI, null, qry, arguments, null);
@@ -89,7 +89,7 @@ public class ContentProviderHelper {
 
         Cursor c = null;
         TreeMap<String, Cifp> map = new TreeMap<String, Cifp>();
-        String params[] = Cifp.getParams(approach);
+        String[] params = Cifp.getParams(approach);
         if(params[0] == null || params[1] == null) {
             return new LinkedList<Cifp>();
         }
@@ -99,7 +99,7 @@ public class ContentProviderHelper {
                         "(" + ProceduresContract.APPROACH_TYPE + " like ?) and " +
                         "(" + ProceduresContract.RUNWAY + " like ?)";
 
-        String arguments[] = new String[] {name, "K" + name, params[0] + "%", "%" + params[1] + "%"};
+        String[] arguments = new String[] {name, "K" + name, params[0] + "%", "%" + params[1] + "%"};
 
         try {
             c = ctx.getContentResolver().query(ProceduresContract.CONTENT_URI, null, qry, arguments, null);
@@ -140,7 +140,7 @@ public class ContentProviderHelper {
 
         String qry = WeatherContract.TAF_STATION + " = ?";
 
-        String arguments[] = new String[] {"K" + station};
+        String[] arguments = new String[] {"K" + station};
 
         try {
             c = ctx.getContentResolver().query(WeatherContract.CONTENT_URI_TAF, null, qry, arguments, null);
@@ -173,7 +173,7 @@ public class ContentProviderHelper {
 
         String qry = WeatherContract.METAR_STATION + " = ?";
 
-        String arguments[] = new String[] {"K" + station};
+        String[] arguments = new String[] {"K" + station};
 
         try {
             c = ctx.getContentResolver().query(WeatherContract.CONTENT_URI_METAR, null, qry, arguments, null);
@@ -258,7 +258,7 @@ public class ContentProviderHelper {
         String v2 = String.valueOf(longitude - Airep.RADIUS);
         String v3 = String.valueOf(longitude + Airep.RADIUS);
 
-        String arguments[] = new String[] {v0, v1, v2, v3};
+        String[] arguments = new String[] {v0, v1, v2, v3};
 
 
         try {
@@ -363,7 +363,7 @@ public class ContentProviderHelper {
 
         String qry = GameTfrContract.TIME + " between ? and ?";
 
-        String arguments[] = new String[] {String.valueOf(mb), String.valueOf(me)};
+        String[] arguments = new String[] {String.valueOf(mb), String.valueOf(me)};
 
 
         try {
@@ -665,7 +665,7 @@ public class ContentProviderHelper {
         String qry = UserContract.RECENT_COLUMN_WID + " like ?";
         StringPreference s = null;
 
-        String arguments[] = new String[]{id};
+        String[] arguments = new String[]{id};
 
         try {
             c = ctx.getContentResolver().query(UserContract.CONTENT_URI_RECENT, null, qry, arguments, null);
@@ -690,7 +690,7 @@ public class ContentProviderHelper {
         ContentValues newValues = new ContentValues();
 
         String selection = UserContract.RECENT_COLUMN_WID + " = ?";
-        String selectionArg[] = new String[]{id};
+        String[] selectionArg = new String[]{id};
 
         newValues.put(UserContract.RECENT_COLUMN_WID, newName);
         ctx.getContentResolver().update(UserContract.CONTENT_URI_RECENT, newValues, selection, selectionArg);

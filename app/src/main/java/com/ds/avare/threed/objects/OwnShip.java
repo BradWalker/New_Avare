@@ -44,9 +44,9 @@ public class OwnShip {
     private static float mScanAngle = 0;
 
     // Make axis
-    private static float[] getAxis(float tr[], int offset, float x, float y, float z, float angle) {
+    private static float[] getAxis(float[] tr, int offset, float x, float y, float z, float angle) {
 
-        float vector[] = new float[4];
+        float[] vector = new float[4];
 
         // miniature aircraft wings right
         tr[0  + offset * ELEMS] = x + 0.001f;

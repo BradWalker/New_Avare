@@ -290,7 +290,7 @@ public class Helper {
      * @param paint
      */
     public static void invertCanvasColors(Paint paint) {
-       float mx [] = {
+       float[] mx = {
                 -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
                 0.0f,  -1.0f,  0.0f,  1.0f,  0.0f,
                 0.0f,  0.0f,  -1.0f,  1.0f,  0.0f,
@@ -595,7 +595,7 @@ public class Helper {
      */
     private static String readFromFile(String filename) {
         File file = new File(filename);
-        byte b[] = null;
+        byte[] b = null;
         try {
             if(file.exists()) {
                 b = new byte[(int)file.length()];
@@ -671,7 +671,7 @@ public class Helper {
             /*
              * Now read from file
              */
-            String tokens[] = data.split(",");
+            String[] tokens = data.split(",");
             TFRShape shape = null;
             /*
              * Add shapes from latitude, longitude
@@ -949,7 +949,7 @@ public class Helper {
         theta = theta + thetab* Math.PI / 180.0;
         double pc_x = r * Math.cos(theta );
         double pc_y = r * Math.sin(theta);
-        double p[]=new double[2];
+        double[] p =new double[2];
         p[0] = pc_x + c_x;
         p[1] = pc_y + c_y;
         return p;
@@ -969,7 +969,7 @@ public class Helper {
         return coords.contains("&") || ICAO_GPS_PATTERN.matcher(coords).matches();
     }
 
-    public static String decodeGpsAddress(String name, double coords[]) {
+    public static String decodeGpsAddress(String name, double[] coords) {
         /*
          * Match predictable GPS pattern of DDMMSS[N|S]DDDMMSS[E|W]
          */
@@ -1001,7 +1001,7 @@ public class Helper {
             return label;
         }
         else if(name.contains("&")) {
-            String token[] = new String[2];
+            String[] token = new String[2];
             token[1] = token[0] = name;
             if(name.contains("@")) {
                 /*
@@ -1012,7 +1012,7 @@ public class Helper {
             /*
              * This is lon/lat destination
              */
-            String tokens[] = token[1].split("&");
+            String[] tokens = token[1].split("&");
 
             try {
                 coords[0] = Double.parseDouble(tokens[1]);

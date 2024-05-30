@@ -354,7 +354,7 @@ public class NetworkHelper {
             /*
              * TFR date
              */
-            String dates[] = date.split("_");
+            String[] dates = date.split("_");
             if(dates.length < 4) {
                 return true;            
             }
@@ -364,7 +364,7 @@ public class NetworkHelper {
                 day = Integer.parseInt(dates[1]);
                 year = Integer.parseInt(dates[2]);
 
-                String time[] = dates[3].split(":");
+                String[] time = dates[3].split(":");
                 hour = Integer.parseInt(time[0]);
                 min = Integer.parseInt(time[1]);
             }
@@ -554,10 +554,10 @@ public class NetworkHelper {
         // NOTAMS are in form <PRE></PRE>. Parse them, and convert \n to BR
         String notams = "";
         if(ret != null) {
-            String rets[] = ret.split("\\<PRE\\>");
+            String[] rets = ret.split("\\<PRE\\>");
             for (String ret1 : rets) {
                 if(ret1.contains("</PRE>")) {
-                    String parsed[] = ret1.split("</PRE>");
+                    String[] parsed = ret1.split("</PRE>");
                     notams += parsed[0] + "\n\n";
                 }
             }

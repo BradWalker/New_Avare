@@ -54,7 +54,7 @@ public class Camera {
             MatrixHelper.rotatePoint(pos.getX(), pos.getY(), pos.getZ(),
                     orientation.getRotationX(true), look.getVectorArray(), look.getVectorArrayScratch(), 0,
                     1, 0, 0);
-            float out[] = look.getVectorArrayScratch();
+            float[] out = look.getVectorArrayScratch();
             look = new Vector3d(out[0], out[1], out[2]);
             // this is yaw
             MatrixHelper.rotatePoint(pos.getX(), pos.getY(), pos.getZ(),

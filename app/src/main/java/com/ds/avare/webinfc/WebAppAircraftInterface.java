@@ -273,7 +273,7 @@ public class WebAppAircraftInterface {
     public void newList() {
         clearList();
         
-        String steps[] = mList.getStepsArray();
+        String[] steps = mList.getStepsArray();
         if(steps == null) {
             updateList();
             return;

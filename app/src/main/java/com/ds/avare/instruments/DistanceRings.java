@@ -48,9 +48,9 @@ public class DistanceRings {
     public static final int RING_SPEED  = 3;
     
     private static final int STALLSPEED = 25;
-    private static final int RING_INNER_SIZE[]  = { 1,  2,  5, 10, 20,  40};
-    private static final int RING_MIDDLE_SIZE[] = { 2,  5, 10, 20, 40,  80};
-    private static final int RING_OUTER_SIZE[]  = { 5, 10, 20, 40, 80, 160};
+    private static final int[] RING_INNER_SIZE = { 1,  2,  5, 10, 20,  40};
+    private static final int[] RING_MIDDLE_SIZE = { 2,  5, 10, 20, 40,  80};
+    private static final int[] RING_OUTER_SIZE = { 5, 10, 20, 40, 80, 160};
     private static final int RINGS_1_2_5     = 0;
     private static final int RINGS_2_5_10    = 1;
     private static final int RINGS_5_10_20   = 2;
@@ -58,8 +58,8 @@ public class DistanceRings {
     private static final int RINGS_20_40_80  = 4;
     private static final int RINGS_40_80_160 = 5;
     
-    private static float mRings[]      = {0, 0, 0, 0};
-    private static String mRingsText[] = {null, null, null, null};
+    private static float[] mRings = {0, 0, 0, 0};
+    private static String[] mRingsText = {null, null, null, null};
 
     // Members that get set at object construction
     private StorageService mService;

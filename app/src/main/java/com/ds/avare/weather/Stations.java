@@ -18,7 +18,7 @@ package com.ds.avare.weather;
  */
 public class Stations {
 
-    private static final String mStations[] = {       
+    private static final String[] mStations = {
         "BHM","33.55","-86.73333",
         "HSV","34.55","-86.76667",
         "MGM","32.216667","-86.316666",
@@ -257,7 +257,7 @@ public class Stations {
     /**
      * Get station coordinates
      */
-    public static boolean getStationLocation(String station, float coords[]) {
+    public static boolean getStationLocation(String station, float[] coords) {
         for(int i = 0; i < mStations.length; i+= 3) {
             if(station.equals(mStations[i])) {
                 coords[0] = Float.parseFloat(mStations[i + 2]);

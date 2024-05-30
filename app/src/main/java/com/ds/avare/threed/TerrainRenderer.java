@@ -199,7 +199,7 @@ public class TerrainRenderer implements GLSurfaceView.Renderer {
         mTextureSet = mTexture != 0;
     }
 
-    public void setTerrain(short vertexArray[], float ratio) {
+    public void setTerrain(short[] vertexArray, float ratio) {
         mMapSet = mMap.loadTerrain(vertexArray, ratio);
     }
 
@@ -208,7 +208,7 @@ public class TerrainRenderer implements GLSurfaceView.Renderer {
     }
 
 
-    public void setShips(Vector4d traffic[]) {
+    public void setShips(Vector4d[] traffic) {
         if(traffic != null) {
             mShip.initShips(traffic.length);
             for (Vector4d t : traffic) {

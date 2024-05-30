@@ -19,7 +19,7 @@ import java.util.LinkedList;
  */
 public class Nexrad {
 
-    public static final int INTENSITY[] = {
+    public static final int[] INTENSITY = {
             0x00000000,
             0x00000000,
             0xFF007F00, // dark green
@@ -31,7 +31,7 @@ public class Nexrad {
     };
 
     private int mBlock;
-    private int mData[];
+    private int[] mData;
     private LinkedList<Integer> mEmpty;
 
     public Nexrad() {
@@ -44,7 +44,7 @@ public class Nexrad {
     /**
      * Parse graphics
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
         /*
          * Get blocks, skip first 3.
          */

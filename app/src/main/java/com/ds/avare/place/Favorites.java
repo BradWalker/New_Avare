@@ -25,7 +25,7 @@ import com.ds.avare.utils.ShadowedText;
  */
 public class Favorites {
 
-    private String mVals[];
+    private String[] mVals;
 
     public Favorites(StorageService service) {
         mVals = service.getDBResource().getUserRecents();
@@ -36,7 +36,7 @@ public class Favorites {
     }
 
     public void draw(DrawingContext ctx, boolean shouldShow) {
-        String vals[] = mVals.clone();
+        String[] vals = mVals.clone();
         if((vals == null) || (!shouldShow)) {
             return;
         }
@@ -60,7 +60,7 @@ public class Favorites {
                 /*
                  * This is lon/lat destination
                  */
-                String tokens[] = after.split("&");
+                String[] tokens = after.split("&");
 
                 try {
                     lon = Double.parseDouble(tokens[1]);

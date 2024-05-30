@@ -28,7 +28,7 @@ public class DeviceReportMessage extends Message {
     /**
      * @param msg
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
 
         /*
          * Battery status

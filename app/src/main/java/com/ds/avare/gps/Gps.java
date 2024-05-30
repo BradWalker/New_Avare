@@ -418,7 +418,7 @@ public class Gps implements LocationListener, android.location.GpsStatus.Listene
          */
         if(nmea.startsWith(GGAPacket.TAG) || nmea.startsWith(GGAPacket.TAGN)) {
             // Horozontal dilution
-            String val[] = nmea.split(",");
+            String[] val = nmea.split(",");
             if(val.length > GGAPacket.HD) {
                 try {
                     mHorDil = Double.parseDouble(val[GGAPacket.HD]);

@@ -21,7 +21,7 @@ import java.util.LinkedList;
 public class FisBuffer {
 
     private int mSize;
-    private byte mBuffer[];
+    private byte[] mBuffer;
     private LinkedList<Product> mProducts;
 
     /**
@@ -33,7 +33,7 @@ public class FisBuffer {
      * @param lat
      * @param lon
      */
-    public FisBuffer(byte buffer[], int offset, int slotId, int fisbId, boolean pvalid, float lat, float lon) {
+    public FisBuffer(byte[] buffer, int offset, int slotId, int fisbId, boolean pvalid, float lat, float lon) {
         mSize = buffer.length - offset;
         if (mSize <= 0) {
             return;

@@ -44,13 +44,13 @@ public class Ship {
 
 
     // Make a triangle representing the ship, rotate in ship's heading
-    private static float[] getShip(float tr[], int offset, float x, float y, float z, float angle) {
+    private static float[] getShip(float[] tr, int offset, float x, float y, float z, float angle) {
 
         // make a paper bird with two sides
         final float disp = 0.05f;
         final float intensity = 0.9f;
 
-        float vector[] = new float[4];
+        float[] vector = new float[4];
 
 
         // center base is location of ship triangle, left side wing

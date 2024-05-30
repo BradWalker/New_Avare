@@ -18,7 +18,7 @@ package com.ds.avare.utils;
 
 public class MovingAverage {
 
-    private double mNumbers[];
+    private double[] mNumbers;
     private int mSize;
 
     public MovingAverage(int size) {

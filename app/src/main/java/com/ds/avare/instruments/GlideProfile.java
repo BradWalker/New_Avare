@@ -118,7 +118,7 @@ public class GlideProfile {
         double[] waa = wa.getWindAtAltitude(altitudeGps, metarWinds);
         waa[0] = waa[0] * Preferences.feetConversion / 3600.0;
 
-        double t[] = WindTriagle.getTrueFromGroundAndWind(currentSpeed, bearing, waa[0], waa[1]);
+        double[] t = WindTriagle.getTrueFromGroundAndWind(currentSpeed, bearing, waa[0], waa[1]);
         double as = t[0];
 
         // Put wind/elevation/airspeed in string. this will be shown on the ring
@@ -180,7 +180,7 @@ public class GlideProfile {
             }
             int stepSizeHeight = (int)((altitude - elevation) / HEIGHT_STEPS);
             double thisAltitude = (double)alt * stepSizeHeight + elevation;
-            double wind[] = wa.getWindAtAltitude(thisAltitude, metarWinds);
+            double[] wind = wa.getWindAtAltitude(thisAltitude, metarWinds);
             wind[0] *= Preferences.feetConversion / 3600.0;
             double tas = as - as * (thisAltitude / 1000 * 2 / 100); // 2% per 1000 foot approx
             double gs = Math.sqrt(tas * tas + wind[0] * wind[0] - 2.0 * tas * wind[0] * Math.cos((bearingAt - wind[1]) * Math.PI / 180.0)); //fps

@@ -116,7 +116,7 @@ public class Destination extends Observable {
      * Dozens of parameters in a linked map because simple map would rearrange the importance
      */
     protected LinkedHashMap <String, String>mParams;
-    private double mWindMetar[] = null;
+    private double[] mWindMetar = null;
 
     public Destination(String name) {
         mTrackShape = new TrackShape();
@@ -206,7 +206,7 @@ public class Destination extends Observable {
         mCrs = mBearing;
         mWindString = "-";
         double hd = mBearing;
-        double wm[] = {0, 0};
+        double[] wm = {0, 0};
         if(mWindMetar != null) {
             // if low altitude flight use correction with metar
             wm[1] = mWindMetar[1];
@@ -217,7 +217,7 @@ public class Destination extends Observable {
         double tas = params.getSpeed();
         if(mWinds != null) {
             // wind calculation
-            double winds[] = mWinds.getWindAtAltitude(mAltitude, wm);
+            double[] winds = mWinds.getWindAtAltitude(mAltitude, wm);
             ws = winds[0];
             wd = winds[1];
             mWindString = String.format(Locale.getDefault(),
@@ -230,7 +230,7 @@ public class Destination extends Observable {
         Preferences pref = StorageService.getInstance().getPreferences();
 
         if(!pref.isSimulationMode()) {
-            double t[] = WindTriagle.getTrueFromGroundAndWind(params.getSpeed(), params.getBearing(), ws, wd);
+            double[] t = WindTriagle.getTrueFromGroundAndWind(params.getSpeed(), params.getBearing(), ws, wd);
             tas = t[0];
             hd = t[1];
         }

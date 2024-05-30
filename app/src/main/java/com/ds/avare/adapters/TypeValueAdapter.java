@@ -62,7 +62,7 @@ public class TypeValueAdapter extends ArrayAdapter<String> {
 
     /**
      */
-    public TypeValueAdapter(Context context, String[] type, String value[], int category[], boolean night) {
+    public TypeValueAdapter(Context context, String[] type, String[] value, int[] category, boolean night) {
         super(context, R.layout.typevalue, type);
         mContext = context;
         mType = type;

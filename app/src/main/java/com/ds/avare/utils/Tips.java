@@ -25,7 +25,7 @@ public class Tips {
     public static String getTip(Context ctx, Preferences pref) {
 
         // generate tips sequentially
-        String tips[] = ctx.getResources().getStringArray(R.array.Tips);
+        String[] tips = ctx.getResources().getStringArray(R.array.Tips);
         int index = pref.getTipIndex();
         if(index >= tips.length) {
             index = 0;

@@ -92,7 +92,7 @@ public class Checklist {
      * @param pos
      */
     public void removeStep(int pos) {
-        String steps[] = getStepsArray();
+        String[] steps = getStepsArray();
         if(pos < 0 || pos >= steps.length) {
             return;
         }
@@ -115,7 +115,7 @@ public class Checklist {
      * @param pos
      */
     public void insertStep(String step, int pos) {
-        String steps[] = getStepsArray();
+        String[] steps = getStepsArray();
         
         /*
          * Insert a step
@@ -140,7 +140,7 @@ public class Checklist {
      * @param to
      */
     public void moveStep(int from, int to) {
-        String steps[] = getStepsArray();
+        String[] steps = getStepsArray();
         if(from < 0 || from >= steps.length || to < 0 || to >= steps.length) {
             return;
         }
@@ -157,7 +157,7 @@ public class Checklist {
     	if(mSteps.equals("")) {
     		return new String[0];
     	}
-        String tokens[] = mSteps.split(DELIM);
+        String[] tokens = mSteps.split(DELIM);
         return tokens;
     }
     

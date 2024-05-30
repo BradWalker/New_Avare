@@ -18,7 +18,7 @@ package com.ds.avare.adsb.gdl90;
  */
 public class BitInputStream {
 
-    private byte mBuffer[];
+    private byte[] mBuffer;
     private int mLocation;
 
     private int mIBuffer;
@@ -29,7 +29,7 @@ public class BitInputStream {
     /**
      * @param buffer
      */
-    public BitInputStream(byte buffer[]) {
+    public BitInputStream(byte[] buffer) {
         mBuffer = buffer;
         mLocation = 0;
         mBitsLeft = 8;

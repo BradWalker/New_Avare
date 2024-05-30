@@ -39,6 +39,6 @@ public abstract class Message {
         return mType;
     }
 
-    protected abstract void parse(byte msg[]);
+    protected abstract void parse(byte[] msg);
 
 }

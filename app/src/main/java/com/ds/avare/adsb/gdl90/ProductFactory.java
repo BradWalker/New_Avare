@@ -16,7 +16,7 @@ package com.ds.avare.adsb.gdl90;
  */
 public class ProductFactory {
 
-    public static Product buildProduct(byte bufin[]) {
+    public static Product buildProduct(byte[] bufin) {
 
         BitInputStream s = new BitInputStream(bufin);
 
@@ -110,7 +110,7 @@ public class ProductFactory {
                 break;
         }
 
-        byte data[] = new byte[length];
+        byte[] data = new byte[length];
         System.arraycopy(bufin, offset, data, 0, length);
 
         /*

@@ -326,7 +326,7 @@ public class ToolsFragment extends IOFragment {
                 File dir = new File(folder);
                 LinkedList<File> files = Helper.getDirectoryContents(dir, null);
 
-                byte data[] = new byte[IO_BUFFER_SIZE];
+                byte[] data = new byte[IO_BUFFER_SIZE];
                 int total = files.size();
 
                 // process each file one by one
@@ -423,7 +423,7 @@ public class ToolsFragment extends IOFragment {
                 // get place of internal files
                 String folder = mPref.getServerDataFolder();
 
-                byte data[] = new byte[IO_BUFFER_SIZE];
+                byte[] data = new byte[IO_BUFFER_SIZE];
                 ZipEntry entry;
                 int total = inStream.available();
 

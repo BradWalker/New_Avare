@@ -131,7 +131,7 @@ public class FisGraphics {
 
             case 8:
 
-                byte recordData[] = Arrays.copyOfRange(data, 6, data.length);
+                byte[] recordData = Arrays.copyOfRange(data, 6, data.length);
 
                 mReportNumber = (((int) recordData[1] & 0x3F) << 8) + ((int) recordData[2] & 0xFF);
 
@@ -140,24 +140,24 @@ public class FisGraphics {
 
                 if (0 == flag) { // Numeric index.
                     mLabel = Integer.toString((((int) recordData[5] & 0xFF) << 8) + ((int) recordData[6] & 0xFF));
-                    byte recordDataA[] = Arrays.copyOfRange(recordData, 7, recordData.length);
+                    byte[] recordDataA = Arrays.copyOfRange(recordData, 7, recordData.length);
                     recordData = Arrays.copyOfRange(recordDataA, 0, recordDataA.length);
                 } else {
                     mLabel = Dlac.decode(recordData[5], recordData[6], recordData[7]) +
                             Dlac.decode(recordData[8], recordData[9], recordData[10]) +
                             Dlac.decode(recordData[11], recordData[12], recordData[13]);
                     mLabel = Dlac.format(mLabel);
-                    byte recordDataA[] = Arrays.copyOfRange(recordData, 14, recordData.length);
+                    byte[] recordDataA = Arrays.copyOfRange(recordData, 14, recordData.length);
                     recordData = Arrays.copyOfRange(recordDataA, 0, recordDataA.length);
                 }
 
                 flag = ((int) recordData[0] & 0x40) >> 6;
 
                 if (0 == flag) { //TODO: Check.
-                    byte recordDataA[] = Arrays.copyOfRange(recordData, 2, recordData.length);
+                    byte[] recordDataA = Arrays.copyOfRange(recordData, 2, recordData.length);
                     recordData = Arrays.copyOfRange(recordDataA, 0, recordDataA.length);
                 } else {
-                    byte recordDataA[] = Arrays.copyOfRange(recordData, 5, recordData.length);
+                    byte[] recordDataA = Arrays.copyOfRange(recordData, 5, recordData.length);
                     recordData = Arrays.copyOfRange(recordDataA, 0, recordDataA.length);
                 }
 
@@ -169,7 +169,7 @@ public class FisGraphics {
                 // Parse all of the dates.
                 switch (applicabilityOptions) {
                     case 0: // No times given. UFN.
-                        byte recordDataA[] = Arrays.copyOfRange(recordData, 2, recordData.length);
+                        byte[] recordDataA = Arrays.copyOfRange(recordData, 2, recordData.length);
                         recordData = Arrays.copyOfRange(recordDataA, 0, recordDataA.length);
                         break;
                     case 1: // Start time only. WEF.

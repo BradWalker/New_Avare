@@ -117,7 +117,7 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameId(String hashedName) {
-        String tokens[] = hashedName.split("::");
+        String[] tokens = hashedName.split("::");
         if(tokens.length > 0) {
             return (tokens[0]);
         }
@@ -130,7 +130,7 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameIdBefore(String hashedName) {
-        String tokens[] = hashedName.split("@");
+        String[] tokens = hashedName.split("@");
         if(tokens.length > 1) {
             return (tokens[0]);
         }
@@ -143,7 +143,7 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameIdAfter(String hashedName) {
-        String tokens[] = hashedName.split("@");
+        String[] tokens = hashedName.split("@");
         if(tokens.length > 1) {
             return (tokens[1]);
         }
@@ -156,9 +156,9 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameDestType(String hashedName) {
-        String tokens[] = hashedName.split("::");
+        String[] tokens = hashedName.split("::");
         if(tokens.length > 1) {
-            String token[] = tokens[1].split(";");
+            String[] token = tokens[1].split(";");
             if(token.length > 0) {
                 return (token[0]);
             }
@@ -172,9 +172,9 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameDesc(String hashedName) {
-        String tokens[] = hashedName.split("::");
+        String[] tokens = hashedName.split("::");
         if(tokens.length > 1) {
-            String token[] = tokens[1].split(";");
+            String[] token = tokens[1].split(";");
             if(token.length > 0) {
                 return (token[tokens.length - 1]);
             }
@@ -188,9 +188,9 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameDbType(String hashedName) {
-        String tokens[] = hashedName.split("::");
+        String[] tokens = hashedName.split("::");
         if(tokens.length > 1) {
-            String token[] = tokens[1].split(";");
+            String[] token = tokens[1].split(";");
             if(token.length > 1) {
                 return (token[1]);
             }
@@ -204,9 +204,9 @@ public class StringPreference {
      * @return
      */
     static public String parseHashedNameFacilityName(String hashedName) {
-        String tokens[] = hashedName.split("::");
+        String[] tokens = hashedName.split("::");
         if(tokens.length > 1) {
-            String token[] = tokens[1].split(";");
+            String[] token = tokens[1].split(";");
             if(token.length > 2) {
                 return (token[2]);
             }

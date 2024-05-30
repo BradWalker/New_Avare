@@ -488,7 +488,7 @@ public class Plan implements Observer {
             int segments = (int) p.getDistance() / MILES_PER_SEGMENT + 3; // Min
                                                                             // 3
                                                                             // points
-            Coordinate coord[] = p.findPoints(segments);
+            Coordinate[] coord = p.findPoints(segments);
 
             coord[0].makeSeparate();
             Coordinate.setLeg(coord, id - 1);

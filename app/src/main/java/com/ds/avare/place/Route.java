@@ -67,7 +67,7 @@ public class Route {
         if(0 == len) {
             return null;
         }
-        Coordinate coords[] = new Coordinate[len];
+        Coordinate[] coords = new Coordinate[len];
         loop = 0;
         for (Destination d : mDestinations) {
             coords[loop] = new Coordinate(d.getLocation().getLongitude(), d.getLocation().getLatitude());

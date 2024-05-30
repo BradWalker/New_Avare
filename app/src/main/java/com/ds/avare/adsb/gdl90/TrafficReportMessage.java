@@ -180,7 +180,7 @@ public class TrafficReportMessage extends Message {
         /*
          * next 8 bytes are callsign
          */
-        byte callsign[] = new byte[8];
+        byte[] callsign = new byte[8];
         callsign[0] = msg[18];
         callsign[1] = msg[19];
         callsign[2] = msg[20];

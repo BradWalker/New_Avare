@@ -19,7 +19,7 @@ import com.ds.avare.utils.Logger;
 public class MessageFactory {
 
 
-    public static Message buildMessage(byte bufin[]) {
+    public static Message buildMessage(byte[] bufin) {
 
         int len = bufin.length;
 
@@ -29,7 +29,7 @@ public class MessageFactory {
         if (len < 5) {
             return null;
         }
-        byte strp[] = new byte[len - 2];
+        byte[] strp = new byte[len - 2];
         System.arraycopy(bufin, 1, strp, 0, len - 2);
 
         /* Check CRC */
@@ -46,7 +46,7 @@ public class MessageFactory {
          * Strip type and CRC to get actual data
          */
         int type = inbuf[0] & 0xFF;
-        byte data[] = new byte[inbuf.length - 3];
+        byte[] data = new byte[inbuf.length - 3];
         System.arraycopy(inbuf, 1, data, 0, inbuf.length - 3);
 
         /*
@@ -113,12 +113,12 @@ public class MessageFactory {
      * @param msg
      * @return
      */
-    private static byte[] process(byte msg[]) {
+    private static byte[] process(byte[] msg) {
         int i = 0;
         int length = 0;
         int len = msg.length;
 
-        byte msgCrc[] = new byte[len];
+        byte[] msgCrc = new byte[len];
         byte msgChar;
         while (i < len) {
             /*
@@ -155,7 +155,7 @@ public class MessageFactory {
         /*
          * Return corrected message.
          */
-        byte ret[] = new byte[length];
+        byte[] ret = new byte[length];
         System.arraycopy(msgCrc, 0, ret, 0, length);
         return ret;
     }

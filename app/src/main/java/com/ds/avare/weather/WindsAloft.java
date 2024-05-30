@@ -211,7 +211,7 @@ public class WindsAloft {
 
         String wstring1;
         String wstring2;
-        double wind[] = new double[2]; // speed, direction
+        double[] wind = new double[2]; // speed, direction
         double higherAltitude;
         double lowerAltitude;
 

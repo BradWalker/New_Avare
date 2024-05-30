@@ -37,7 +37,7 @@ public class Map {
         mRatio = 0;
     }
 
-    public boolean loadTerrain(short vertexArray[], float ratio) {
+    public boolean loadTerrain(short[] vertexArray, float ratio) {
 
         if(null == vertexArray) {
             return false;
@@ -105,7 +105,7 @@ public class Map {
      * @param b
      * @return
      */
-    private static int makeVertix(short vertices[], int count, int row, int col, Bitmap b) {
+    private static int makeVertix(short[] vertices, int count, int row, int col, Bitmap b) {
 
         int px = b.getPixel(col, row) & 0xFF;
         int pxr = (px / 64) & 0x3F;
@@ -128,7 +128,7 @@ public class Map {
         if(null == b) {
             return null;
         }
-        short vertices[] = new short[NUM_VERTICES * COMPONENTS];
+        short[] vertices = new short[NUM_VERTICES * COMPONENTS];
         int count = 0;
         int col;
         int row;

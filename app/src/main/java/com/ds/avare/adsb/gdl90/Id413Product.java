@@ -19,7 +19,7 @@ import com.ds.avare.utils.Logger;
 public class Id413Product extends Product {
 
     String mText;
-    String mParts[];
+    String[] mParts;
 
     public Id413Product() {
         super(ProductType.PRODUCT_TYPE_TEXT);

@@ -138,7 +138,7 @@ public class Projection {
      */
     public Coordinate[] findPoints(int num) {
         
-        Coordinate mCoords[];
+        Coordinate[] mCoords;
         mCoords = new Coordinate[num];
         double d = mDistance / Preferences.earthRadiusConversion;
         double step = num / ((double)num - 1);

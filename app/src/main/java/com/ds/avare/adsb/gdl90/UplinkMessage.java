@@ -27,7 +27,7 @@ public class UplinkMessage extends Message {
     /**
      * @param msg
      */
-    public void parse(byte msg[]) {
+    public void parse(byte[] msg) {
 
         /*
          * First 3 bytes are Zulu time,

@@ -44,6 +44,6 @@ public abstract class Product {
         return mTime;
     }
 
-    protected abstract void parse(byte msg[]);
+    protected abstract void parse(byte[] msg);
 
 }

@@ -74,12 +74,12 @@ public class TileMap extends MapBase {
         }
 
         mTileTask = new AsyncTask<Void, Object, TileUpdate>() {
-            double offsets[] = new double[2];
-            double p[] = new double[2];
+            double[] offsets = new double[2];
+            double[] p = new double[2];
             int     movex;
             int     movey;
             float factor;
-            String   tileNames[];
+            String[] tileNames;
             Tile centerTile;
             Tile gpsTile;
             String chart = "";
@@ -112,7 +112,7 @@ public class TileMap extends MapBase {
                 double n_y = pan.getMoveY();
 
                 if (StorageService.getInstance().getPreferences().isTrackUp()) {
-                    double p[] = new double[2];
+                    double[] p = new double[2];
                     p = Helper.rotateCoord(0.0, 0.0, bearing, n_x, n_y);
                     pan.setMove((float) (p[0] * factor), (float) (p[1] * factor));
                 } else {
@@ -207,7 +207,7 @@ public class TileMap extends MapBase {
      */
     public class TileUpdate {
         public String chart;
-        public double offsets[];
+        public double[] offsets;
         public int movex;
         public int movey;
         public float factor;

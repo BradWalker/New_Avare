@@ -110,7 +110,7 @@ public class Orientation implements SensorEventListener {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            float q[] = new float[16];
+            float[] q = new float[16];
 
             if(0 == msg.what) {
                 SensorEvent event = (SensorEvent)msg.obj;

@@ -45,7 +45,7 @@ public class MatrixHelper {
      * @param z
      * @param angle
      */
-    public static void rotatePoint(float x, float y, float z, float angle, float vector[], float resultVector[], int offset, float xx, float yx, float zx) {
+    public static void rotatePoint(float x, float y, float z, float angle, float[] vector, float[] resultVector, int offset, float xx, float yx, float zx) {
         float[] modelView = new float[16];
 
         Matrix.setIdentityM(modelView, 0);

@@ -212,7 +212,7 @@ public class AdsbWeatherCache {
         }
 
         // parse SUA
-        String suaParts[] = data.split("\u0000"); // comes in with 0000 separation
+        String[] suaParts = data.split("\u0000"); // comes in with 0000 separation
         if(suaParts.length < 7) {
             return;
         }
@@ -332,9 +332,9 @@ public class AdsbWeatherCache {
             s.setPoints(points);
             // Only draw polygons
             s.setShape(new MetShape(s.getRawText() == null ? "" : s.getRawText(), new Date(time)));
-            String tokens[] = s.getPoints().split("[;]");
+            String[] tokens = s.getPoints().split("[;]");
             for(int j = 0; j < tokens.length; j++) {
-                String point[] = tokens[j].split("[:]");
+                String[] point = tokens[j].split("[:]");
                 try {
                     double lon = Double.parseDouble(point[0]);
                     double lat = Double.parseDouble(point[1]);
@@ -368,7 +368,7 @@ public class AdsbWeatherCache {
         if(null == lonlat) {
             return;
         }
-        String tokens[] = lonlat.split(",");
+        String[] tokens = lonlat.split(",");
         if(tokens.length != 2) {
             return;
         }
@@ -403,7 +403,7 @@ public class AdsbWeatherCache {
         /*
          * Clear garbage spaces etc. Convert to Avare format
          */
-        String winds[] = data.split(",");
+        String[] winds = data.split(",");
         if(winds.length < 9) {
             return;
         }
@@ -424,7 +424,7 @@ public class AdsbWeatherCache {
         /*
          * Find lon/lat of station
          */
-        float coords[] = new float[2];
+        float[] coords = new float[2];
         if(!Stations.getStationLocation(location, coords)) {
             return;
         }
@@ -445,7 +445,7 @@ public class AdsbWeatherCache {
      * @param cols
      * @param rows
      */
-    public void putImg(long time, int block, int empty[], boolean isConus, int data[], int cols, int rows) {
+    public void putImg(long time, int block, int[] empty, boolean isConus, int[] data, int cols, int rows) {
         if(!mPref.useAdsbWeather()) {
             return;
         }

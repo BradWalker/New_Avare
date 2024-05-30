@@ -36,7 +36,7 @@ public class Layer {
     private static final int ANIMATE_IMAGES = 3;
     // Layers can hog memory, show only one hence static bitmap
     //
-    private static BitmapHolder mBitmap[] = new BitmapHolder[ANIMATE_IMAGES];
+    private static BitmapHolder[] mBitmap = new BitmapHolder[ANIMATE_IMAGES];
     private float mLonL;
     private float mLatU;
     private float mLonR;
@@ -60,7 +60,7 @@ public class Layer {
         //127d37'45.70"W, 50d24'56.20"N
         double lon, lat;
         line = line.replaceAll(" ", "");
-        String tokens[] = line.split("[d'\",]");
+        String[] tokens = line.split("[d'\",]");
         try {
             lon = Double.parseDouble(tokens[0]) + Double.parseDouble(tokens[1]) / 60.0 + Double.parseDouble(tokens[2]) / 3600.0;
             if (tokens[3].equals("W")) {

@@ -370,7 +370,7 @@ public class ThreeDActivity extends BaseActivity {
                             LinkedList<Obstacle> obs = mObstacles;
                             if (null != obs) {
 
-                                Vector4d obstacles[] = new Vector4d[obs.size()];
+                                Vector4d[] obstacles = new Vector4d[obs.size()];
                                 int count = 0;
                                 for (Obstacle ob : obs) {
                                     obstacles[count++] = mAreaMapper.gpsToAxis(ob.getLongitude(), ob.getLatitude(), ob.getHeight(), 0);

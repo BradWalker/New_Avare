@@ -176,7 +176,7 @@ public class USBConnectionOut extends Connection {
             mPort = mDriver.getPorts().get(0);
             mPort.open(mDriverConnection);
 
-            String tokens[] = mParams.split(",");
+            String[] tokens = mParams.split(",");
             // 115200, 8, n, 1
             // rate, data, parity, stop
             int rate = Integer.parseInt(tokens[0]);

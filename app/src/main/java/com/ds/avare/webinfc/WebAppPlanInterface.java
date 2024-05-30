@@ -1241,7 +1241,7 @@ public class WebAppPlanInterface implements Observer {
 
             Thread.currentThread().setName("Create");
 
-            String srch[] = ((String)vals[0]).toUpperCase(Locale.US).split(" ");
+            String[] srch = ((String)vals[0]).toUpperCase(Locale.US).split(" ");
             
             /*
              * Here we guess types since we do not have user select
@@ -1325,7 +1325,7 @@ public class WebAppPlanInterface implements Observer {
      */
     private class SearchTask extends AsyncTask<Object, Void, Boolean> {
 
-    	String selection[] = null;
+    	String[] selection = null;
 
         /* (non-Javadoc)
          * @see android.os.AsyncTask#doInBackground(Params[])
@@ -1520,7 +1520,7 @@ public class WebAppPlanInterface implements Observer {
 
 			Plan p = mService.getPlan();
 			// find points on this plan on greater circle
-			Coordinate c[] = p.getCoordinates();
+			Coordinate[] c = p.getCoordinates();
 			// now find airports in the circle
 			if(null != c) {
 				for (Coordinate point : c) {
@@ -1547,7 +1547,7 @@ public class WebAppPlanInterface implements Observer {
 				 */
 				try {
 					String out = NetworkHelper.getPIREPSPlan(c);
-					String outm[] = out.split("::::");
+					String[] outm = out.split("::::");
 					for (int i = 0; i < outm.length; i++) {
 						outm[i] = WeatherHelper.formatPirepHTML(outm[i], mPref.isWeatherTranslated());
 						Pirep += "<font size='5' color='white'>" + outm[i] + "<br></br>";
@@ -1566,10 +1566,10 @@ public class WebAppPlanInterface implements Observer {
 					 */
 					if (!stations.equals("")) {
 						String out = NetworkHelper.getTAFPlan(stations);
-						String outm[] = out.split("::::");
+						String[] outm = out.split("::::");
 						for (int i = 0; i < outm.length; i++) {
 							String taf = WeatherHelper.formatWeatherHTML(outm[i], mPref.isWeatherTranslated());
-							String vals[] = taf.split(" ");
+							String[] vals = taf.split(" ");
 							taf = WeatherHelper.formatVisibilityHTML(WeatherHelper.formatTafHTML(WeatherHelper.formatWindsHTML(WeatherHelper.formatWeatherHTML(taf.replace(vals[0], ""), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()), mPref.isWeatherTranslated()));
 							Taf += "<b><font size='5' color='white'>" + vals[0] + "</b><br>";
 							Taf += "<font size='5' color='white'>" + taf + "<br></br>";
@@ -1589,10 +1589,10 @@ public class WebAppPlanInterface implements Observer {
 					 */
 					if (!stations.equals("")) {
 						String out = NetworkHelper.getMETARPlan(stations);
-						String outm[] = out.split("::::");
+						String[] outm = out.split("::::");
 						for (int i = 0; i < outm.length; i++) {
-							String vals[] = outm[i].split(",");
-							String vals2[] = vals[1].split(" ");
+							String[] vals = outm[i].split(",");
+							String[] vals2 = vals[1].split(" ");
 							String color = WeatherHelper.metarColorString(vals[0]);
 							Metar += "<b><font size='5' + color='" + color + "'>" + vals2[0] + "</b><br>";
 							Metar += "<font size='5'>" + WeatherHelper.addColorWithStroke(WeatherHelper.formatMetarHTML(vals[1].replace(vals2[0], ""), mPref.isWeatherTranslated()), color) + "<br></br>";

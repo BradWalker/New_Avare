@@ -17,8 +17,8 @@ package com.ds.avare.adsb.gdl90;
 public class Fis {
 
     int type;
-    byte mBuffer[];
-    public Fis(int type, byte buffer[], int offset, int len) {
+    byte[] mBuffer;
+    public Fis(int type, byte[] buffer, int offset, int len) {
 
         mBuffer = new byte[len];
         System.arraycopy(buffer, offset, mBuffer, 0, len);

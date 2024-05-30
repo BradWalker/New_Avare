@@ -318,7 +318,7 @@ public class AirportActivity extends BaseActivity implements Observer {
          */
         String[] afd = mDestination.getAfd();            
         for(int plate = 0; plate < afd.length; plate++) {
-            String tokens[] = afd[plate].split("/");
+            String[] tokens = afd[plate].split("/");
             mListViews.add(tokens[tokens.length - 1]);
         }     
     }

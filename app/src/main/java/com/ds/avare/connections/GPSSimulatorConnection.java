@@ -191,7 +191,7 @@ public class GPSSimulatorConnection extends Connection {
 
     @Override
     public boolean connect(String to, boolean securely) {
-        String data[] = to.split(",");
+        String[] data = to.split(",");
         try {
             mLatInit = Double.parseDouble(data[0]);
             mLonInit = Double.parseDouble(data[1]);

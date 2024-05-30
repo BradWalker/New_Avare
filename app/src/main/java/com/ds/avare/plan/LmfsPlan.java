@@ -421,7 +421,7 @@ public class LmfsPlan {
 	 * @return
 	 */
 	public static String durationToTime(String input) {
-		String ret[] = input.split("PT");
+		String[] ret = input.split("PT");
 		if(ret.length < 2) {
 			return input;
 		}
