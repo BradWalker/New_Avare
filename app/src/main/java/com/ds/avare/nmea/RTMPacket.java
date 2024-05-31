@@ -47,8 +47,8 @@ public class RTMPacket extends Packet {
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         mPacket += sdf.format(date) + ",";
         
-        //icao
-        mPacket += Integer.toString(icaoAddress) + ",";
+        // ICAO
+        mPacket += icaoAddress + ",";
 
         /*
          * Put latitude

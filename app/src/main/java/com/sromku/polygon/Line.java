@@ -106,6 +106,6 @@ public class Line
 	@Override
 	public String toString()
 	{
-		return String.format("%s-%s", _start.toString(), _end.toString());
+		return String.format("%s-%s", _start, _end);
 	}
 }

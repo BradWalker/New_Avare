@@ -33,39 +33,20 @@ public class ConnectionFactory {
     public static final String CF_USBConnectionOut       = "USBConnectionOut";
 
     public static Connection getConnection(String type, Context ctx) {
-        if(type.equals(CF_BlueToothConnectionIn)) {
-            return BlueToothConnectionIn.getInstance(ctx);
-        }
-        if(type.equals(CF_BlueToothConnectionOut)) {
-            return BlueToothConnectionOut.getInstance(ctx);
-        }
-        if(type.equals(CF_FileConnectionIn)) {
-            return FileConnectionIn.getInstance(ctx);
-        }
-        if(type.equals(CF_GPSSimulatorConnection)) {
-            return GPSSimulatorConnection.getInstance(ctx);
-        }
-        if(type.equals(CF_MsfsConnection)) {
-            return MsfsConnection.getInstance(ctx);
-        }
-        if(type.equals(CF_USBConnectionIn)) {
-            return USBConnectionIn.getInstance(ctx);
-        }
-        if(type.equals(CF_WifiConnection)) {
-            return WifiConnection.getInstance(ctx);
-        }
-        if(type.equals(CF_XplaneConnection)) {
-            return XplaneConnection.getInstance(ctx);
-        }
-        if(type.equals(CF_Dump1090Connection)) {
-            return Dump1090Connection.getInstance(ctx);
-        }
-        if(type.equals(CF_USBConnectionOut)) {
-            return USBConnectionOut.getInstance(ctx);
-        }
-        return null;
+        return switch (type) {
+            case CF_BlueToothConnectionIn -> BlueToothConnectionIn.getInstance(ctx);
+            case CF_BlueToothConnectionOut -> BlueToothConnectionOut.getInstance(ctx);
+            case CF_FileConnectionIn -> FileConnectionIn.getInstance(ctx);
+            case CF_GPSSimulatorConnection -> GPSSimulatorConnection.getInstance(ctx);
+            case CF_MsfsConnection -> MsfsConnection.getInstance(ctx);
+            case CF_USBConnectionIn -> USBConnectionIn.getInstance(ctx);
+            case CF_WifiConnection -> WifiConnection.getInstance(ctx);
+            case CF_XplaneConnection -> XplaneConnection.getInstance(ctx);
+            case CF_Dump1090Connection -> Dump1090Connection.getInstance(ctx);
+            case CF_USBConnectionOut -> USBConnectionOut.getInstance(ctx);
+            default -> null;
+        };
     }
-
 
     /*
  * Find names of all running connections.
@@ -87,5 +68,4 @@ public class ConnectionFactory {
         }
         return "(" + s + ")";
     }
-
 }

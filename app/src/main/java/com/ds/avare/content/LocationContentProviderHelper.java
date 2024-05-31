@@ -224,7 +224,7 @@ public class LocationContentProviderHelper {
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + ") * (" +
                 LocationContract.AIRPORTS_LATITUDE  + " - " + lat + "))";
 
-        String qry = "cast(" + LocationContract.AIRPORT_RUNWAYS_LENGTH + " as decimal) >= " + String.valueOf(minRunwayLength);
+        String qry = "cast(" + LocationContract.AIRPORT_RUNWAYS_LENGTH + " as decimal) >= " + minRunwayLength;
         if(!showAll) {
             qry += " and " + LocationContract.AIRPORTS_TYPE + "='AIRPORT'";
         }
@@ -997,10 +997,10 @@ public class LocationContentProviderHelper {
         String qry;
 
         if(!showAll) {
-            qry =  LocationContract.AIRPORTS_TYPE + "= 'AIRPORT' and distance < " + String.valueOf(Preferences.MIN_TOUCH_MOVEMENT_SQ_DISTANCE);
+            qry =  LocationContract.AIRPORTS_TYPE + "= 'AIRPORT' and distance < " + Preferences.MIN_TOUCH_MOVEMENT_SQ_DISTANCE;
         }
         else {
-            qry =  "distance < " + String.valueOf(Preferences.MIN_TOUCH_MOVEMENT_SQ_DISTANCE);
+            qry =  "distance < " + Preferences.MIN_TOUCH_MOVEMENT_SQ_DISTANCE;
         }
 
 
@@ -1115,10 +1115,12 @@ public class LocationContentProviderHelper {
     public static float[] findDiagramMatrix(Context ctx, String name) {
         Cursor c = null;
         float[] ret = new float[12];
-        int it;
 
-        for(it = 0; it < 12; it++) { // zero out
+        // Initialize local variable
+        int it = 0;
+        while (it < ret.length) {
             ret[it] = 0;
+            it++;
         }
 
         String qry = LocationContract.AIRPORT_DIAGS_LOCATION_ID + "= ?";
