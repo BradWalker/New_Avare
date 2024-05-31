@@ -14,7 +14,6 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.place;
 
 import com.ds.avare.shapes.ChartShape;
-import com.ds.avare.shapes.Shape;
 import com.ds.avare.utils.BitmapHolder;
 
 import java.util.ArrayList;

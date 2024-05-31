@@ -346,10 +346,9 @@ public class BitmapHolder {
             BitmapRegionDecoder decoder = BitmapRegionDecoder.newInstance(name, false);
             mBitmap = decoder.decodeRegion(r, opt);
         }
-        catch(OutOfMemoryError e) {
+        catch(OutOfMemoryError | IOException e) {
         }
-        catch (IOException e) {
-        }
+
         if(null != mBitmap) {
             mWidth = mBitmap.getWidth();
             mHeight = mBitmap.getHeight();

@@ -954,7 +954,6 @@ public class Plan implements Observer {
      *            collection of known flight plans
      * @return plans to save
      */
-    @SuppressWarnings("unchecked")
     public static Map<String, String> putAllPlans(Map<String, String> map) {
 
         // We need to make a copy here to work on. "map" as passed in may

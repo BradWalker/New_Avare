@@ -1242,7 +1242,7 @@ public class LocationContentProviderHelper {
             if(type.equals(Destination.NAVAID)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if((null != dbType) && (!dbType.isEmpty()) && (false == dbType.equalsIgnoreCase("null"))) {
                     qry = LocationContract.NAV_LOCATION_ID + " = ? and " + LocationContract.NAV_TYPE + " = ? ";
                     arguments = new String[] {name, dbType};
                 }
@@ -1258,7 +1258,7 @@ public class LocationContentProviderHelper {
             if(type.equals(Destination.FIX)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if((null != dbType) && (!dbType.isEmpty()) && (false == dbType.equalsIgnoreCase("null"))) {
                     qry = LocationContract.FIX_LOCATION_ID + " = ? and " + LocationContract.FIX_TYPE + " = ?";
                     arguments = new String[] {name, dbType};
                 }
@@ -1272,7 +1272,7 @@ public class LocationContentProviderHelper {
             if(type.equals(Destination.BASE)) {
                 String qry;
                 String[] arguments;
-                if((null != dbType) && (dbType.length() > 0) && (false == dbType.equalsIgnoreCase("null"))) {
+                if((null != dbType) && (!dbType.isEmpty()) && (false == dbType.equalsIgnoreCase("null"))) {
                     qry = LocationContract.AIRPORTS_LOCATION_ID + " = ? and " + LocationContract.AIRPORTS_TYPE + " = ?";
                     arguments = new String[] {name, dbType};
                 }

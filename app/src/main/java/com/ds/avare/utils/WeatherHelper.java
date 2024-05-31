@@ -198,7 +198,7 @@ public class WeatherHelper {
         int i = s.indexOf(' ', 1 + s.indexOf(' '));
         String firstPart = s.substring(0, i);
         String secondPart = s.substring(i+1);
-        return new Pair<String, String>(firstPart, secondPart);
+        return new Pair<>(firstPart, secondPart);
     }
 
     /**

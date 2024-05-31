@@ -326,8 +326,8 @@ public class AirportActivity extends BaseActivity implements Observer {
     /*
      * Add an airport to the airports list if it doesn't already exist
      */
-    private void addAirport(String name) {  
-        if(mListAirports.indexOf(name) < 0) {
+    private void addAirport(String name) {
+        if (!mListAirports.contains(name)) {
             mListAirports.add(name);
         }
     }
