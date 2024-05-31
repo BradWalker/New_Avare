@@ -53,6 +53,7 @@ import java.io.OutputStream;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.ZipEntry;
@@ -324,7 +325,7 @@ public class ToolsFragment extends IOFragment {
                 // get list of internal files
                 String folder = mPref.getServerDataFolder() + File.separatorChar + filter;
                 File dir = new File(folder);
-                LinkedList<File> files = Helper.getDirectoryContents(dir, null);
+                List<File> files = Helper.getDirectoryContents(dir, null);
 
                 byte[] data = new byte[IO_BUFFER_SIZE];
                 int total = files.size();
@@ -376,7 +377,7 @@ public class ToolsFragment extends IOFragment {
 
             try {
                 // get list of internal files
-                LinkedList<File> files;
+                List<File> files;
                 if(filter.startsWith("*")) {
                     String folder = mPref.getServerDataFolder();
                     File dir = new File(folder);

@@ -112,26 +112,26 @@ public class VNAV {
 		if(null == mVNAVPaint) {
 			return;
 		}
-		
+
 		// If we have no destination set, then do not draw anything
-		if(dest == null || (!mShow)) {
-		    mShow = false;
+		if (dest == null || (!mShow)) {
+			mShow = false;
 			return;
 		}
-		
+
 		// If we are more than 30 miles from our target, then do not
 		// draw anything
-		double destDist = dest.getDistance(); 
-		if(destDist > APPROACH_DISTANCE) {
-		    mShow = false;
+		double destDist = dest.getDistance();
+		if (destDist > APPROACH_DISTANCE) {
+			mShow = false;
 			return;
 		}
 
 		// Calculate the top position of the instrument
-        mInstTop = (screenY - mInstHeight) / 2;
+		mInstTop = (screenY - mInstHeight) / 2;
 
-        // Now the left side
-        mInstLeft  = screenX - (int) (mInstWidth * 1.75); // Right side of display
+		// Now the left side
+		mInstLeft = screenX - (int) (mInstWidth * 1.75); // Right side of display
 	    
         // Draw the background
 	    mVNAVPaint.setColor(mBackColor);// Color
@@ -198,19 +198,19 @@ public class VNAV {
 		
 		mDspOffset = 0;
 		mBackColor = mColorOn;
-		
+
 		// If either of these objects are null, there is nothing
 		// we can do
-		if(dest == null || gpsParams == null) {
-		    mShow = false;
+		if (dest == null || gpsParams == null) {
+			mShow = false;
 			return;
 		}
-		
+
 		// Fetch the elevation of our destination. If we can't find it
 		// then we don't want to display any vertical information
 		double destElev = dest.getElevation();
-		if(destElev <= Destination.INVALID_ELEVATION) {
-		    mShow = false;
+		if (destElev <= Destination.INVALID_ELEVATION) {
+			mShow = false;
 			return;
 		}
 		

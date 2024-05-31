@@ -32,5 +32,5 @@ package com.ds.avare.orientation;
  * Created by zkhan on 12/19/16.
  */
 public interface OrientationInterface {
-    public void onSensorChanged(double yaw, double pitch, double roll, double slip, double acceleration, double yawrate, double aoa, double airspeed, double altitude, double vsi);
+    void onSensorChanged(double yaw, double pitch, double roll, double slip, double acceleration, double yawrate, double aoa, double airspeed, double altitude, double vsi);
 }

@@ -49,6 +49,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -65,7 +66,7 @@ public class WebAppPlanInterface implements Observer {
     private CreateTask mCreateTask;
     private WeatherTask mWeatherTask;
     private Thread mWeatherThread;
-    private LinkedHashMap<String, String> mSavedPlans;
+    private Map<String, String> mSavedPlans;
     private GenericCallback mCallback;
     private Context mContext;
     private int mPlanIdx;

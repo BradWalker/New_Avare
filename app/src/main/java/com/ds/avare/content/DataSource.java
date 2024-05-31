@@ -41,6 +41,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -186,11 +187,11 @@ public class DataSource {
     }
 
     //user
-    public LinkedHashMap<String, String> getUserPlans() {
+    public Map<String, String> getUserPlans() {
         return ContentProviderHelper.getUserPlans(mContext);
     }
 
-    public void setUserPlans(LinkedHashMap<String, String> plans) {
+    public void setUserPlans(Map<String, String> plans) {
         ContentProviderHelper.setUserPlans(mContext, plans);
     }
 

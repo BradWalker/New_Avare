@@ -128,14 +128,14 @@ public class CDI {
 		// Calculate the left position of the instrument
         mInstLeft = (screenX - mInstWidth) / 2;
 
-        // Now where is the top of it
-        mInstTop  = screenY * 3 / 4;
-	    
-        // Draw the background
-	    mCDIPaint.setColor(mBackColor);	// Color
-	    mCDIPaint.setAlpha(0x7F);		// Make it see-thru
-	    mCDIPaint.setStrokeWidth(mInstHeight);	// How tall the inst is
-	    mCDIPaint.setStyle(Paint.Style.STROKE);	// Type of brush
+		// Now where is the top of it
+		mInstTop = screenY * 3 / 4;
+
+		// Draw the background
+		mCDIPaint.setColor(mBackColor);    // Color
+		mCDIPaint.setAlpha(0x7F);        // Make it see-thru
+		mCDIPaint.setStrokeWidth(mInstHeight);    // How tall the inst is
+		mCDIPaint.setStyle(Paint.Style.STROKE);    // Type of brush
 	    
 	    // Draw the background of the instrument. This is a horo swipe left to right,
 	    // so we need to specify the vertical middle as the source Y, not the top
@@ -267,11 +267,11 @@ public class CDI {
 		mDeviation = dstCur * Math.sin(Math.toRadians(brgDif));
 
 		// The amount of display offset varies depending upon how large the deviation is
-		double maxDeflection = mBarDegrees * (double)(mBarCount - 1) / 2f; 
-		if(brgDif > maxDeflection) {
-		    brgDif = maxDeflection;
+		double maxDeflection = mBarDegrees * (double) (mBarCount - 1) / 2f;
+		if (brgDif > maxDeflection) {
+			brgDif = maxDeflection;
 		}
-        mDspOffset = (int) ((mBarWidth + mBarSpace) * (brgDif / mBarDegrees));
+		mDspOffset = (int) ((mBarWidth + mBarSpace) * (brgDif / mBarDegrees));
 
 		// Assume we are to the RIGHT of the courseline
 		mBackColor = mColorRight;

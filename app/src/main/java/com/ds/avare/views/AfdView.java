@@ -131,7 +131,6 @@ public class AfdView extends PanZoomView {
                 mPan.getMoveY() * scale
                         + getHeight() / 2
                         - mBitmap.getHeight() / 2 * scale);
-        
         if(StorageService.getInstance().getPreferences().isNightMode()) {
             Helper.invertCanvasColors(mPaint);
         }

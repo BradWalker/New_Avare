@@ -121,12 +121,12 @@ public class PlanActivity extends BaseActivity {
              * (non-Javadoc)
              * @see com.ds.avare.utils.GenericCallback#callback(java.lang.Object)
              */
-        	@Override
-        	public Object callback(Object o, Object o1) {
-            	Message m = mHandler.obtainMessage((Integer)o, o1);
-            	mHandler.sendMessage(m);
-        		return null;
-        	}
+            @Override
+            public Object callback(Object o, Object o1) {
+                Message m = mHandler.obtainMessage((Integer) o, o1);
+                mHandler.sendMessage(m);
+                return null;
+            }
         });
         mWebView.addJavascriptInterface(mInfc, "AndroidPlan");
         mWebView.setWebChromeClient(new WebChromeClient() {

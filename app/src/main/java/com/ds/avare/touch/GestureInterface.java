@@ -37,9 +37,9 @@ import com.ds.avare.utils.InfoLines.InfoLineFieldLoc;
  */
 public interface GestureInterface {
 
-    public static final int LONG_PRESS = 1;
-    public static final int DOUBLE_TAP = 2;
-    public static final int TOUCH = 3;
+    int LONG_PRESS = 1;
+    int DOUBLE_TAP = 2;
+    int TOUCH = 3;
     
     void gestureCallBack(int event, LongTouchDestination data);
     void gestureCallBack(int event, InfoLineFieldLoc infoLineFieldLoc);

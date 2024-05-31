@@ -20,6 +20,7 @@ import com.ds.avare.utils.BitmapHolder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zkhan on 8/18/15.
@@ -27,7 +28,7 @@ import java.util.HashMap;
  */
 public class Boundaries {
 
-    private HashMap<String, Shape> mPolygons;
+    private Map<String, ChartShape> mPolygons;
     private static Boundaries mInstance = null;
 
     private Boundaries() {
@@ -43,8 +44,8 @@ public class Boundaries {
      * @return
      */
     public String findChartOn(String chartIndex, double lon, double lat) {
-        for (java.util.Map.Entry<String, Shape> stringShapeEntry : mPolygons.entrySet()) {
-            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>) stringShapeEntry;
+        for (Map.Entry<String, ChartShape> stringShapeEntry : mPolygons.entrySet()) {
+            Map.Entry<String, ChartShape> pair = stringShapeEntry;
             ChartShape s = pair.getValue();
             String name = pair.getKey();
             String type = s.getName();
@@ -83,7 +84,7 @@ public class Boundaries {
             double lat = Double.parseDouble(mData[i + 3]);
 
             // add to hash, but check if it exists first
-            Shape s = mPolygons.get(name);
+            ChartShape s = mPolygons.get(name);
             if (s == null) {
                 // hashmap will save name, shape will save type
                 s = new ChartShape(type);
@@ -94,8 +95,8 @@ public class Boundaries {
         }
 
         // Make all shapes
-        for (java.util.Map.Entry<String, Shape> stringShapeEntry : mPolygons.entrySet()) {
-            HashMap.Entry<String, ChartShape> pair = (HashMap.Entry<String, ChartShape>) stringShapeEntry;
+        for (Map.Entry<String, ChartShape> stringShapeEntry : mPolygons.entrySet()) {
+            Map.Entry<String, ChartShape> pair = stringShapeEntry;
             ChartShape s = pair.getValue();
             s.makePolygon();
         }

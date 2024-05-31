@@ -186,12 +186,12 @@ public class Airway extends Observable {
 				lastcoord = c;
 
 				// find a fix/navaid here.
-                StringPreference nav = service.getDBResource().getNavaidOrFixFromCoordinate(lastcoord);
-                if(nav == null) {
-                    // not found, add GPS
-                    nav = (new StringPreference(Destination.GPS, Destination.GPS, Destination.GPS,
-                            name + "@" + Helper.truncGeo(c.getLatitude()) + "&" + Helper.truncGeo(c.getLongitude())));
-                }
+				StringPreference nav = service.getDBResource().getNavaidOrFixFromCoordinate(lastcoord);
+				if (nav == null) {
+					// not found, add GPS
+					nav = (new StringPreference(Destination.GPS, Destination.GPS, Destination.GPS,
+							name + "@" + Helper.truncGeo(c.getLatitude()) + "&" + Helper.truncGeo(c.getLongitude())));
+				}
 
 				ret.add(nav.getHashedName());
 			}			

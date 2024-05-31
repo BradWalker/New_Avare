@@ -548,7 +548,7 @@ public class Helper {
      * @param dir
      * @return
      */
-    public static LinkedList<File> getDirectoryContents(File dir, String filter) throws Exception {
+    public static List<File> getDirectoryContents(File dir, String filter) throws Exception {
         List<File> list = new LinkedList<>();
         try {
             if(dir.isFile()) {

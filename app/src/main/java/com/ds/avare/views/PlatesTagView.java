@@ -111,13 +111,13 @@ public class PlatesTagView extends PanZoomView {
         mBitmap.getTransform().setScale(scale, scale);
         mBitmap.getTransform().postTranslate(
                 mPan.getMoveX() * scale
-                + getWidth() / 2
-                - mBitmap.getWidth() / 2 * scale ,
+                        + getWidth() / 2
+                        - mBitmap.getWidth() / 2 * scale,
                 mPan.getMoveY() * scale
-                + getHeight() / 2
-                - mBitmap.getHeight() / 2 * scale);
-        
-    	canvas.drawBitmap(mBitmap.getBitmap(), mBitmap.getTransform(), mPaint);
+                        + getHeight() / 2
+                        - mBitmap.getHeight() / 2 * scale);
+
+        canvas.drawBitmap(mBitmap.getBitmap(), mBitmap.getTransform(), mPaint);
     	
     	/*
     	 * The cross in the middle

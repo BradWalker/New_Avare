@@ -29,6 +29,7 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -931,7 +932,7 @@ public class Plan implements Observer {
      * 
      * @return
      */
-    public static LinkedHashMap<String, String> getAllPlans(LinkedHashMap<String, String> map) {
+    public static Map<String, String> getAllPlans(Map<String, String> map) {
 
         // fetch the external plans
         ExternalPlanMgr epm = StorageService.getInstance().getExternalPlanMgr();
@@ -954,13 +955,12 @@ public class Plan implements Observer {
      * @return plans to save
      */
     @SuppressWarnings("unchecked")
-    public static LinkedHashMap<String, String> putAllPlans(LinkedHashMap<String, String> map) {
+    public static Map<String, String> putAllPlans(Map<String, String> map) {
 
         // We need to make a copy here to work on. "map" as passed in may
         // contain externally saved
         // flight plans.
-        LinkedHashMap<String, String> localMap = (LinkedHashMap<String, String>) map
-                .clone();
+        Map<String, String> localMap = new LinkedHashMap<>(map);
 
         // For all of the known external flight plans, we need to remove that
         // name from the cloned

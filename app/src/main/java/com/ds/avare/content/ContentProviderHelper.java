@@ -530,7 +530,7 @@ public class ContentProviderHelper {
         ctx.getContentResolver().delete(UserContract.CONTENT_URI_PLAN, selection, selectionArg);
     }
 
-    public static void setUserPlans(Context ctx, LinkedHashMap<String, String> plans) {
+    public static void setUserPlans(Context ctx, Map<String, String> plans) {
 
         for (String key : plans.keySet()) {
             ContentValues newValues = new ContentValues();
@@ -541,7 +541,7 @@ public class ContentProviderHelper {
         }
     }
 
-    public static LinkedHashMap<String, String> getUserPlans(Context ctx) {
+    public static Map<String, String> getUserPlans(Context ctx) {
         Cursor c = null;
         Map<String, String> ret = new LinkedHashMap<>();
 

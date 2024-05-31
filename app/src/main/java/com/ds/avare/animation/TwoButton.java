@@ -137,7 +137,7 @@ public class TwoButton extends Button implements OnClickListener {
 	 *
 	 */
 	public interface TwoClickListener {
-		public void onClick(View v);
+		void onClick(View v);
 	}
 	
 	/**
