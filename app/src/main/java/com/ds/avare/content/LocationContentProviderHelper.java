@@ -701,8 +701,8 @@ public class LocationContentProviderHelper {
                     c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, null, qry, arguments, null);
                     if (c != null) {
                         if (c.moveToFirst()) {
-                            return new String(c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)) + "," +
-                                    c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE)));
+                            return c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.AIRPORTS_LATITUDE));
                         }
                     }
                 }
@@ -711,8 +711,8 @@ public class LocationContentProviderHelper {
                     c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_NAV, null, qry, arguments, null);
                     if (c != null) {
                         if (c.moveToFirst()) {
-                            return new String(c.getString(c.getColumnIndex(LocationContract.NAV_LONGITUDE)) + "," +
-                                    c.getString(c.getColumnIndex(LocationContract.NAV_LATITUDE)));
+                            return c.getString(c.getColumnIndex(LocationContract.NAV_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.NAV_LATITUDE));
                         }
                     }
                 }
@@ -721,8 +721,8 @@ public class LocationContentProviderHelper {
                     c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_FIX, null, qry, arguments, null);
                     if (c != null) {
                         if (c.moveToFirst()) {
-                            return new String(c.getString(c.getColumnIndex(LocationContract.FIX_LONGITUDE)) + "," +
-                                    c.getString(c.getColumnIndex(LocationContract.FIX_LATITUDE)));
+                            return c.getString(c.getColumnIndex(LocationContract.FIX_LONGITUDE)) + "," +
+                                    c.getString(c.getColumnIndex(LocationContract.FIX_LATITUDE));
                         }
                     }
                 }
@@ -1040,7 +1040,7 @@ public class LocationContentProviderHelper {
             if(c != null) {
                 while(c.moveToNext()) {
                     // put all found airports in a given distance around a point in a set (unique)
-                    ids.add(new String(c.getString(0))); // LocationContract.AIRPORTS_LOCATION_ID
+                    ids.add(c.getString(0)); // LocationContract.AIRPORTS_LOCATION_ID
                 }
             }
         }

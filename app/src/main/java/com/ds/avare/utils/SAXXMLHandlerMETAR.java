@@ -41,8 +41,8 @@ public class SAXXMLHandlerMETAR extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
         mTempVal = "";
         if(qName.equalsIgnoreCase("METAR")) {
-            mTempText = new String();
-            mTempCategory = new String();
+            mTempText = "";
+            mTempCategory = "";
         }
     }
  

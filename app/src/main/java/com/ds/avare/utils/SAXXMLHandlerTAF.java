@@ -36,7 +36,7 @@ public class SAXXMLHandlerTAF extends DefaultHandler {
             Attributes attributes) {
         mTempVal = "";
         if(qName.equalsIgnoreCase("TAF")) {
-            mTempText = new String();
+            mTempText = "";
         }
     }
  

@@ -429,9 +429,8 @@ public class MetarParser {
 				}
 
 				if (token.startsWith("M")) {
-
 					isLessThan = true;
-					token = token.substring(1, token.length());
+					token = token.substring(1);
 				}
 
 				if (token.endsWith("SM") || token.endsWith("KM")) {
@@ -484,9 +483,8 @@ public class MetarParser {
 
 
 					if (token.startsWith("M")) {
-
 						isLessThan = true;
-						token = token.substring(1, token.length());
+						token = token.substring(1);
 					}
 
 					metar.setVisibilityInMeters(new Float(token));

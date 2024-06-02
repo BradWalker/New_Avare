@@ -340,7 +340,7 @@ public class WeatherHelper {
         try {
             while((start = weather.indexOf("KT")) >= 0) {
                 String portion = weather.substring(0, start);
-                String windString = portion.substring(portion.length() - 2, portion.length());
+                String windString = portion.substring(portion.length() - 2);
                 int winds = Integer.parseInt(windString);
 
                 if(winds < 10) {
@@ -356,7 +356,7 @@ public class WeatherHelper {
                     portion = portion.substring(0, portion.length() - 2) + WeatherHelper.addColorWithStroke(windString, "#ff54f9") + "KT";
                 }
                 output += portion;
-                weather = weather.substring(start + 2, weather.length());
+                weather = weather.substring(start + 2);
             }
             output += weather;
         }
@@ -488,7 +488,7 @@ public class WeatherHelper {
                     portion = portion.substring(0, visstart) + WeatherHelper.addColorWithStroke(visString, "#ff54f9") + "SM";
                 }
                 output += portion;
-                weather = weather.substring(start + 2, weather.length());
+                weather = weather.substring(start + 2);
             }
             output += weather;
         }

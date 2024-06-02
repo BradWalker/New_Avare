@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class SAXXMLHandlerPIREP extends DefaultHandler {
     private List<String> mText;
-    private String mTempText;
+    private String mTempText = "";
     private String mTempVal;
     private String mTempType;
  
@@ -42,8 +42,8 @@ public class SAXXMLHandlerPIREP extends DefaultHandler {
             Attributes attributes) {
         mTempVal = "";
         if(qName.equalsIgnoreCase("AircraftReport")) {
-            mTempText = new String();
-            mTempType = new String();
+            mTempText = "";
+            mTempType = "";
         }
     }
  

@@ -186,7 +186,7 @@ public class Preferences implements SharedPreferences.OnSharedPreferenceChangeLi
             }
             case "2" -> {
                 val = mPref.getString(mContext.getString(R.string.PrivateServer), "http://127.0.0.1/");
-                if (!val.substring(val.length() - 1).equals("/")) {
+                if (!val.endsWith("/")) {
                     val = val + "/";
                 }
                 return val;
