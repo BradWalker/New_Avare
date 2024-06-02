@@ -85,15 +85,11 @@ public class ElevationTile {
         mTile = t;
         BitmapHolder b = new BitmapHolder(StorageService.getInstance().getApplicationContext(),
                 StorageService.getInstance().getPreferences(), t.getName(), 1, Bitmap.Config.ARGB_8888);
-        if(b.getName() == null) {
-            return;
-        }
-        else {
+        if (b.getName() != null) {
             mElevBitmap.drawInBitmap(b, t.getName(), 0, 0);
             b.recycle();
             b = null;
         }
-
     }
     
     /**

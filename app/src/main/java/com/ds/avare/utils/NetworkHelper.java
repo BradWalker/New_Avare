@@ -235,13 +235,7 @@ public class NetworkHelper {
             return(root + "/" + file);
         }
         switch (file) {
-            case "GameTFRs.zip" -> {
-                return (root + "/" + file);
-            }
-            case "weather.zip" -> {
-                return (root + "/" + file);
-            }
-            case "conus.zip" -> {
+            case "GameTFRs.zip", "weather.zip", "conus.zip" -> {
                 return (root + "/" + file);
             }
         }

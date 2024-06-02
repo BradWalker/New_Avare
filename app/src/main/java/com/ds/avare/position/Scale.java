@@ -96,12 +96,7 @@ public class Scale {
         if(mScaleFactor > mMaxScale) {
             s = mMaxScale;
         }
-        else if(mScaleFactor < mMinScale) {
-            s = mMinScale;
-        }
-        else {
-            s = mScaleFactor;
-        }
+        else s = Math.max(mScaleFactor, mMinScale);
         return((float)s);
     }
 

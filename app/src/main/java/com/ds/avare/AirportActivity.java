@@ -207,9 +207,9 @@ public class AirportActivity extends BaseActivity implements Observer {
         for (Awos awos1 : awos) {
             // We should hide/display UHF frequencies as a preference.
             // Military pilots may want to use Avare too!
-            String separator = new String("");
-            String f1p1 = new String("");
-            String f2p2 = new String("");
+            String separator = "";
+            String f1p1 = "";
+            String f2p2 = "";
 
             views[iterator] = awos1.getType();
             // Create the string for the first frequency/phone pair

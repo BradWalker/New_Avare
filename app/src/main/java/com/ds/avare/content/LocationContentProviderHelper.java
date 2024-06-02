@@ -1008,7 +1008,7 @@ public class LocationContentProviderHelper {
             c = ctx.getContentResolver().query(LocationContract.CONTENT_URI_AIRPORTS, projection, qry, null, order);
             if(c != null) {
                 if(c.moveToFirst()) {
-                    ret = new String(c.getString(0)); // LocationContract.AIRPORTS_LOCATION_ID
+                    ret = c.getString(0); // LocationContract.AIRPORTS_LOCATION_ID
                 }
             }
         }

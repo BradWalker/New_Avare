@@ -667,7 +667,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                     }
                     if (mins != null) {
                         for (String plate : mins) {
-                            String folder = plate.substring(0, 1) + "/";
+                            String folder = plate.charAt(0) + "/";
                             plates.put("Min. " + plate, mapFolder + "/minimums/" + folder + plate);
                         }
                     }
