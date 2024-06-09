@@ -254,30 +254,19 @@ public class NetworkHelper {
      */
     private static final int getFirstDate(int year) {
         // Date for first cycle every year in January starting 2014
-        switch(year) {
-            case 2020:
-                return 2;
-            case 2021:
-                return 28;
-            case 2022:
-                return 27;
-            case 2023:
-                return 26;
-            case 2024:
-                return 25;
-            case 2025:
-                return 23;
-            case 2026:
-                return 22;
-            case 2027:
-                return 21;
-            case 2028:
-                return 20;
-            case 2029:
-                return 18;
-            default:
-                return 0;
-        }
+        return switch (year) {
+            case 2020 -> 2;
+            case 2021 -> 28;
+            case 2022 -> 27;
+            case 2023 -> 26;
+            case 2024 -> 25;
+            case 2025 -> 23;
+            case 2026 -> 22;
+            case 2027 -> 21;
+            case 2028 -> 20;
+            case 2029 -> 18;
+            default -> 0;
+        };
     }
     
     /**

@@ -20,18 +20,12 @@ import com.ds.avare.storage.Preferences;
 // Small class to handle loading the proper display icon based upon the config setting
 public class DisplayIcon {
 	public static BitmapHolder getDisplayIcon(Context ctx, Preferences pref) {
-		switch (pref.getDisplayIcon()) {
-			case 1:
-				return new BitmapHolder(ctx, R.drawable.heli);
-			case 2:
-				return new BitmapHolder(ctx, R.drawable.canard);
-			case 3:
-				return new BitmapHolder(ctx, R.drawable.plane_green);
-			case 4:
-				return null;
-			case 0:
-			default:
-				return new BitmapHolder(ctx, R.drawable.plane);
-		}
+        return switch (pref.getDisplayIcon()) {
+            case 1 -> new BitmapHolder(ctx, R.drawable.heli);
+            case 2 -> new BitmapHolder(ctx, R.drawable.canard);
+            case 3 -> new BitmapHolder(ctx, R.drawable.plane_green);
+            case 4 -> null;
+            default -> new BitmapHolder(ctx, R.drawable.plane);
+        };
 	}
 }

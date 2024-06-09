@@ -103,16 +103,12 @@ public class Boundaries {
 
 
     public static int getZoom(int index) {
-        switch (BitmapHolder.WIDTH) {
-            case 256:
-                return mZooms[index] + 1;
-            case 512:
-                return mZooms[index];
-
-        }
-        return 0;
+        return switch (BitmapHolder.WIDTH) {
+            case 256 -> mZooms[index] + 1;
+            case 512 -> mZooms[index];
+            default -> 0;
+        };
     }
-
 
     public static String getChartType(int index) {
         return mChartType[index];

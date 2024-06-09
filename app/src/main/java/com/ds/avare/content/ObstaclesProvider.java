@@ -31,12 +31,10 @@ public class ObstaclesProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case OBSTACLES:
-                return CONTENT_TYPE;
-            default:
-                return null;
-        }
+        return switch (uriType) {
+            case OBSTACLES -> CONTENT_TYPE;
+            default -> null;
+        };
     }
 
     @Override

@@ -76,19 +76,12 @@ public class AnimateButton {
             return;
         }
         
-        int id;
-        switch(mDir) {
-            case DIRECTION_L_R:
-                id = R.anim.xlate_left;
-                break;
-            case DIRECTION_R_L:
-                id = R.anim.xlate_right_end;
-                break;
-            default:
-                id = R.anim.xlate_up_end;
-                break;
-                
-        }
+        int id = switch (mDir) {
+            case DIRECTION_L_R -> R.anim.xlate_left;
+            case DIRECTION_R_L -> R.anim.xlate_right_end;
+            default -> R.anim.xlate_up_end;
+        };
+
         /*
          * Take the button in
          */
@@ -147,19 +140,12 @@ public class AnimateButton {
          * Animates a button from left to right.
          */
         if(visible) {
-            int id;
-            switch(mDir) {
-                case DIRECTION_L_R:
-                    id = R.anim.xlate_right;
-                    break;
-                case DIRECTION_R_L:
-                    id = R.anim.xlate_left_end;
-                    break;
-                default:
-                    id = R.anim.xlate_up;
-                    break;
-                    
-            }
+            int id = switch (mDir) {
+                case DIRECTION_L_R -> R.anim.xlate_right;
+                case DIRECTION_R_L -> R.anim.xlate_left_end;
+                default -> R.anim.xlate_up;
+            };
+
             /*
              * Bring the button out
              */
@@ -173,19 +159,13 @@ public class AnimateButton {
             if(!mShowing) {
                 return;
             }
-            int id;
-            switch(mDir) {
-                case DIRECTION_L_R:
-                    id = R.anim.xlate_left_delay;
-                    break;
-                case DIRECTION_R_L:
-                    id = R.anim.xlate_right_end_delay;
-                    break;
-                default:
-                    id = R.anim.xlate_up_end;
-                    break;
-                    
-            }
+            
+            int id = switch (mDir) {
+                case DIRECTION_L_R -> R.anim.xlate_left_delay;
+                case DIRECTION_R_L -> R.anim.xlate_right_end_delay;
+                default -> R.anim.xlate_up_end;
+            };
+            
             /*
              * Take the button in
              */
@@ -264,8 +244,8 @@ public class AnimateButton {
             default:
                 id = R.anim.xlate_up;
                 break;
-                
         }
+        
         /*
          * Bring the button out
          */

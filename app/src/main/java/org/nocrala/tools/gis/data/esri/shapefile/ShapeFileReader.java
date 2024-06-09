@@ -193,45 +193,25 @@ public class ShapeFileReader {
     }
 
     try {
-      switch (shapeType) {
-      case NULL:
-        return new NullShape(shapeHeader, shapeType, this.is, this.rules);
-
-      case POINT:
-        return new PointShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYLINE:
-        return new PolylineShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYGON:
-        return new PolygonShape(shapeHeader, shapeType, this.is, this.rules);
-      case MULTIPOINT:
-        return new MultiPointPlainShape(shapeHeader, shapeType, this.is,
-            this.rules);
-
-      case POINT_Z:
-        return new PointZShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYLINE_Z:
-        return new PolylineZShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYGON_Z:
-        return new PolygonZShape(shapeHeader, shapeType, this.is, this.rules);
-      case MULTIPOINT_Z:
-        return new MultiPointZShape(shapeHeader, shapeType, this.is, this.rules);
-
-      case POINT_M:
-        return new PointMShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYLINE_M:
-        return new PolylineMShape(shapeHeader, shapeType, this.is, this.rules);
-      case POLYGON_M:
-        return new PolygonMShape(shapeHeader, shapeType, this.is, this.rules);
-      case MULTIPOINT_M:
-        return new MultiPointMShape(shapeHeader, shapeType, this.is, this.rules);
-
-      case MULTIPATCH:
-        return new MultiPatchShape(shapeHeader, shapeType, this.is, this.rules);
-
-      default:
-        throw new InvalidShapeFileException("Unexpected shape type '"
-            + shapeType + "'");
-      }
+        return switch (shapeType) {
+            case NULL -> new NullShape(shapeHeader, shapeType, this.is, this.rules);
+            case POINT -> new PointShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYLINE -> new PolylineShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYGON -> new PolygonShape(shapeHeader, shapeType, this.is, this.rules);
+            case MULTIPOINT -> new MultiPointPlainShape(shapeHeader, shapeType, this.is,
+                    this.rules);
+            case POINT_Z -> new PointZShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYLINE_Z -> new PolylineZShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYGON_Z -> new PolygonZShape(shapeHeader, shapeType, this.is, this.rules);
+            case MULTIPOINT_Z -> new MultiPointZShape(shapeHeader, shapeType, this.is, this.rules);
+            case POINT_M -> new PointMShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYLINE_M -> new PolylineMShape(shapeHeader, shapeType, this.is, this.rules);
+            case POLYGON_M -> new PolygonMShape(shapeHeader, shapeType, this.is, this.rules);
+            case MULTIPOINT_M -> new MultiPointMShape(shapeHeader, shapeType, this.is, this.rules);
+            case MULTIPATCH -> new MultiPatchShape(shapeHeader, shapeType, this.is, this.rules);
+            default -> throw new InvalidShapeFileException("Unexpected shape type '"
+                    + shapeType + "'");
+        };
 
     } catch (EOFException e) {
       throw new InvalidShapeFileException("Unexpected end of stream. "

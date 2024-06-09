@@ -43,19 +43,17 @@ public class FisGraphics {
     int mGeometryOverlayOptions;
 
     private static String parseDate(byte b0, byte b1, byte b2, byte b3, int format) {
-        switch (format) {
-            case 0: // No date/time used.
-                return "";
-            case 1: // Month, Day, Hours, Minutes.
-
-                return String.format("%02d-%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2, (int) b3);
-            case 2: // Day, Hours, Minutes.
-                return String.format("%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2);
-            case 3: // Hours, Minutes.
-                return String.format("%02d:%02d:00Z", (int) b0, (int) b1);
-        }
-
-        return "";
+        return switch (format) {
+            case 0 -> // No date/time used.
+                    "";
+            case 1 -> // Month, Day, Hours, Minutes.
+                    String.format("%02d-%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2, (int) b3);
+            case 2 -> // Day, Hours, Minutes.
+                    String.format("%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2);
+            case 3 -> // Hours, Minutes.
+                    String.format("%02d:%02d:00Z", (int) b0, (int) b1);
+            default -> "";
+        };
     }
 
     private Coordinate parseLatLon(int lat, int lon, boolean alt) {
@@ -314,19 +312,13 @@ public class FisGraphics {
     }
 
     public String getShapeString() {
-        switch (mGeometryOverlayOptions) {
-
-            case SHAPE_POINT3D_AGL:
-                return "point";
-            case SHAPE_POLYGON_MSL:
-                return "polygon";
-            case SHAPE_PRISM_MSL:
-                return "prism.msl";
-            case SHAPE_PRISM_AGL:
-                return "prism";
-            default:
-                return "";
-        }
+        return switch (mGeometryOverlayOptions) {
+            case SHAPE_POINT3D_AGL -> "point";
+            case SHAPE_POLYGON_MSL -> "polygon";
+            case SHAPE_PRISM_MSL -> "prism.msl";
+            case SHAPE_PRISM_AGL -> "prism";
+            default -> "";
+        };
     }
 
     public class Coordinate {

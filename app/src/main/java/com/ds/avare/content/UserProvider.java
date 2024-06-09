@@ -72,31 +72,16 @@ public class UserProvider extends MainProvider {
 
         String table = null;
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case PLANS:
-                table = UserContract.TABLE_PLAN;
-                break;
-            case LISTS:
-                table = UserContract.TABLE_LIST;
-                break;
-            case WNBS:
-                table = UserContract.TABLE_WNB;
-                break;
-            case RECENTS:
-                table = UserContract.TABLE_RECENT;
-                break;
-            case TAGS:
-                table = UserContract.TABLE_TAG;
-                break;
-            case DRAWS:
-                table = UserContract.TABLE_DRAW;
-                break;
-            case AIRCRAFTS:
-                table = UserContract.TABLE_AIRCRAFT;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case PLANS -> UserContract.TABLE_PLAN;
+            case LISTS -> UserContract.TABLE_LIST;
+            case WNBS -> UserContract.TABLE_WNB;
+            case RECENTS -> UserContract.TABLE_RECENT;
+            case TAGS -> UserContract.TABLE_TAG;
+            case DRAWS -> UserContract.TABLE_DRAW;
+            case AIRCRAFTS -> UserContract.TABLE_AIRCRAFT;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         int rows = 0;
         try {
@@ -115,31 +100,16 @@ public class UserProvider extends MainProvider {
         String table = null;
         int uriType = mURIMatcher.match(uri);
         int rows = 0;
-        switch (uriType) {
-            case PLANS:
-                table = UserContract.TABLE_PLAN;
-                break;
-            case LISTS:
-                table = UserContract.TABLE_LIST;
-                break;
-            case WNBS:
-                table = UserContract.TABLE_WNB;
-                break;
-            case RECENTS:
-                table = UserContract.TABLE_RECENT;
-                break;
-            case TAGS:
-                table = UserContract.TABLE_TAG;
-                break;
-            case DRAWS:
-                table = UserContract.TABLE_DRAW;
-                break;
-            case AIRCRAFTS:
-                table = UserContract.TABLE_AIRCRAFT;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case PLANS -> UserContract.TABLE_PLAN;
+            case LISTS -> UserContract.TABLE_LIST;
+            case WNBS -> UserContract.TABLE_WNB;
+            case RECENTS -> UserContract.TABLE_RECENT;
+            case TAGS -> UserContract.TABLE_TAG;
+            case DRAWS -> UserContract.TABLE_DRAW;
+            case AIRCRAFTS -> UserContract.TABLE_AIRCRAFT;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         try {
             SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
@@ -204,54 +174,31 @@ public class UserProvider extends MainProvider {
 
         String table = null;
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case PLANS:
-                table = UserContract.TABLE_PLAN;
-                break;
-            case LISTS:
-                table = UserContract.TABLE_LIST;
-                break;
-            case WNBS:
-                table = UserContract.TABLE_WNB;
-                break;
-            case RECENTS:
-                table = UserContract.TABLE_RECENT;
-                break;
-            case TAGS:
-                table = UserContract.TABLE_TAG;
-                break;
-            case DRAWS:
-                table = UserContract.TABLE_DRAW;
-                break;
-            case AIRCRAFTS:
-                table = UserContract.TABLE_AIRCRAFT;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case PLANS -> UserContract.TABLE_PLAN;
+            case LISTS -> UserContract.TABLE_LIST;
+            case WNBS -> UserContract.TABLE_WNB;
+            case RECENTS -> UserContract.TABLE_RECENT;
+            case TAGS -> UserContract.TABLE_TAG;
+            case DRAWS -> UserContract.TABLE_DRAW;
+            case AIRCRAFTS -> UserContract.TABLE_AIRCRAFT;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         try {
             SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
             long id = db.insert(table, null, values);
             if (id > 0) {
-                switch (uriType) {
-                    case PLANS:
-                        return UserContract.buildPlansUri(id);
-                    case LISTS:
-                        return UserContract.buildListsUri(id);
-                    case WNBS:
-                        return UserContract.buildWnbsUri(id);
-                    case RECENTS:
-                        return UserContract.buildRecentsUri(id);
-                    case TAGS:
-                        return UserContract.buildTagsUri(id);
-                    case DRAWS:
-                        return UserContract.buildDrawsUri(id);
-                    case AIRCRAFTS:
-                        return UserContract.buildAircraftUri(id);
-                    default:
-                        throw new IllegalArgumentException("Unknown URI");
-                }
+                return switch (uriType) {
+                    case PLANS -> UserContract.buildPlansUri(id);
+                    case LISTS -> UserContract.buildListsUri(id);
+                    case WNBS -> UserContract.buildWnbsUri(id);
+                    case RECENTS -> UserContract.buildRecentsUri(id);
+                    case TAGS -> UserContract.buildTagsUri(id);
+                    case DRAWS -> UserContract.buildDrawsUri(id);
+                    case AIRCRAFTS -> UserContract.buildAircraftUri(id);
+                    default -> throw new IllegalArgumentException("Unknown URI");
+                };
             }
             else {
                 throw new android.database.SQLException("Failed to insert row into: " + uri);

@@ -30,12 +30,10 @@ public class ProceduresProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case PROCEDURES:
-                return CONTENT_TYPE;
-            default:
-                return null;
-        }
+        return switch (uriType) {
+            case PROCEDURES -> CONTENT_TYPE;
+            default -> null;
+        };
     }
 
     @Override

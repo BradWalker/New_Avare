@@ -48,16 +48,10 @@ public class WeatherProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case AIRMET:
-            case PIREP:
-            case METAR:
-            case TAF:
-            case WIND:
-                return CONTENT_TYPE;
-            default:
-                return null;
-        }
+        return switch (uriType) {
+            case AIRMET, PIREP, METAR, TAF, WIND -> CONTENT_TYPE;
+            default -> null;
+        };
     }
 
 
@@ -66,25 +60,14 @@ public class WeatherProvider extends MainProvider {
 
         String table = null;
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case AIRMET:
-                table = WeatherContract.TABLE_AIRMET;
-                break;
-            case PIREP:
-                table = WeatherContract.TABLE_PIREP;
-                break;
-            case TAF:
-                table = WeatherContract.TABLE_TAF;
-                break;
-            case METAR:
-                table = WeatherContract.TABLE_METAR;
-                break;
-            case WIND:
-                table = WeatherContract.TABLE_WIND;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case AIRMET -> WeatherContract.TABLE_AIRMET;
+            case PIREP -> WeatherContract.TABLE_PIREP;
+            case TAF -> WeatherContract.TABLE_TAF;
+            case METAR -> WeatherContract.TABLE_METAR;
+            case WIND -> WeatherContract.TABLE_WIND;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         int rows = 0;
         try {
@@ -103,25 +86,14 @@ public class WeatherProvider extends MainProvider {
         String table = null;
         int uriType = mURIMatcher.match(uri);
         int rows = 0;
-        switch (uriType) {
-            case AIRMET:
-                table = WeatherContract.TABLE_AIRMET;
-                break;
-            case PIREP:
-                table = WeatherContract.TABLE_PIREP;
-                break;
-            case TAF:
-                table = WeatherContract.TABLE_TAF;
-                break;
-            case METAR:
-                table = WeatherContract.TABLE_METAR;
-                break;
-            case WIND:
-                table = WeatherContract.TABLE_WIND;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case AIRMET -> WeatherContract.TABLE_AIRMET;
+            case PIREP -> WeatherContract.TABLE_PIREP;
+            case TAF -> WeatherContract.TABLE_TAF;
+            case METAR -> WeatherContract.TABLE_METAR;
+            case WIND -> WeatherContract.TABLE_WIND;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         try {
             SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
@@ -141,44 +113,27 @@ public class WeatherProvider extends MainProvider {
 
         String table = null;
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case AIRMET:
-                table = WeatherContract.TABLE_AIRMET;
-                break;
-            case PIREP:
-                table = WeatherContract.TABLE_PIREP;
-                break;
-            case TAF:
-                table = WeatherContract.TABLE_TAF;
-                break;
-            case METAR:
-                table = WeatherContract.TABLE_METAR;
-                break;
-            case WIND:
-                table = WeatherContract.TABLE_WIND;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI");
-        }
+        table = switch (uriType) {
+            case AIRMET -> WeatherContract.TABLE_AIRMET;
+            case PIREP -> WeatherContract.TABLE_PIREP;
+            case TAF -> WeatherContract.TABLE_TAF;
+            case METAR -> WeatherContract.TABLE_METAR;
+            case WIND -> WeatherContract.TABLE_WIND;
+            default -> throw new IllegalArgumentException("Unknown URI");
+        };
 
         try {
             SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
             long id = db.insert(table, null, values);
             if (id > 0) {
-                switch (uriType) {
-                    case AIRMET:
-                        return WeatherContract.buildAirmetUri(id);
-                    case PIREP:
-                        return WeatherContract.buildPirepUri(id);
-                    case TAF:
-                        return WeatherContract.buildTafUri(id);
-                    case METAR:
-                        return WeatherContract.buildMetarUri(id);
-                    case WIND:
-                        return WeatherContract.buildWindUri(id);
-                    default:
-                        throw new IllegalArgumentException("Unknown URI");
-                }
+                return switch (uriType) {
+                    case AIRMET -> WeatherContract.buildAirmetUri(id);
+                    case PIREP -> WeatherContract.buildPirepUri(id);
+                    case TAF -> WeatherContract.buildTafUri(id);
+                    case METAR -> WeatherContract.buildMetarUri(id);
+                    case WIND -> WeatherContract.buildWindUri(id);
+                    default -> throw new IllegalArgumentException("Unknown URI");
+                };
             }
             else {
                 throw new android.database.SQLException("Failed to insert row into: " + uri);

@@ -53,49 +53,18 @@ public class MessageFactory {
          * data has actual data and type is its type
          * Parse now
          */
-        Message m = null;
-        switch (type) {
-
-            case MessageType.HEARTBEAT:
-                m = new HeartbeatMessage();
-                break;
-
-            case MessageType.UPLINK:
-                m = new UplinkMessage();
-                break;
-
-            case MessageType.OWNSHIP:
-                m = new OwnshipMessage();
-                break;
-
-            case MessageType.OWNSHIP_GEOMETRIC_ALTITUDE:
-                m = new OwnshipGeometricAltitudeMessage();
-                break;
-
-            case MessageType.TRAFFIC_REPORT:
-                m = new TrafficReportMessage();
-                break;
-
-            case MessageType.BASIC_REPORT:
-                m = new BasicReportMessage();
-                break;
-
-            case MessageType.LONG_REPORT:
-                m = new LongReportMessage();
-                break;
-
-            case MessageType.AHRS_REPORT:
-                m = new AhrsReportMessage();
-                break;
-
-            case MessageType.DEVICE_REPORT:
-                m = new DeviceReportMessage();
-                break;
-
-            default:
-                m = null;
-                break;
-        }
+        Message m = switch (type) {
+            case MessageType.HEARTBEAT -> new HeartbeatMessage();
+            case MessageType.UPLINK -> new UplinkMessage();
+            case MessageType.OWNSHIP -> new OwnshipMessage();
+            case MessageType.OWNSHIP_GEOMETRIC_ALTITUDE -> new OwnshipGeometricAltitudeMessage();
+            case MessageType.TRAFFIC_REPORT -> new TrafficReportMessage();
+            case MessageType.BASIC_REPORT -> new BasicReportMessage();
+            case MessageType.LONG_REPORT -> new LongReportMessage();
+            case MessageType.AHRS_REPORT -> new AhrsReportMessage();
+            case MessageType.DEVICE_REPORT -> new DeviceReportMessage();
+            default -> null;
+        };
 
         /*
          * Parse it.
@@ -104,7 +73,6 @@ public class MessageFactory {
             m.parse(data);
         }
         return (m);
-
     }
 
     /**

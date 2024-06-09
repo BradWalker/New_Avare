@@ -78,23 +78,11 @@ public class LocationProvider extends MainProvider {
     @Override
     public String getType(Uri uri) {
         int uriType = mURIMatcher.match(uri);
-        switch (uriType) {
-            case AIRPORTS:
-            case AIRPORT_DIAGS:
-            case AIRPORT_FREQ:
-            case AIRPORT_AWOS:
-            case AIRPORT_RUNWAYS:
-            case FIX:
-            case NAV:
-            case TAKEOFF:
-            case ALTERNATE:
-            case AFD:
-            case SUA:
-            case AIRWAYS:
-                return CONTENT_TYPE;
-            default:
-                return null;
-        }
+        return switch (uriType) {
+            case AIRPORTS, AIRPORT_DIAGS, AIRPORT_FREQ, AIRPORT_AWOS, AIRPORT_RUNWAYS, FIX, NAV,
+                    TAKEOFF, ALTERNATE, AFD, SUA, AIRWAYS -> CONTENT_TYPE;
+            default -> null;
+        };
     }
 
     @Override
