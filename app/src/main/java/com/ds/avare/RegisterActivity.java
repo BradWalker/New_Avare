@@ -38,7 +38,7 @@ import java.util.Random;
  */
 public class RegisterActivity extends BaseActivity {
     
-    private static final int MAX_ATTEMPTS = 5;
+    private static final int MAX_ATTEMPTS = 3;
     private static final int BACKOFF_MILLI_SECONDS = 2000;
     
     static AsyncTask<Void, Void, Boolean> mRegisterTask = null;
@@ -178,7 +178,7 @@ public class RegisterActivity extends BaseActivity {
                                 }
                                 backoff *= 2;
                             }
-                            return false;
+                            return true; // pass anyways as people keep using old devices
                         }
 
                         @Override
@@ -250,7 +250,7 @@ public class RegisterActivity extends BaseActivity {
                                     backoff *= 2;
                                 }
                             }
-                            return false;
+                            return true; // pass anyways as people keep using old devices
                         }
 
                         @Override
