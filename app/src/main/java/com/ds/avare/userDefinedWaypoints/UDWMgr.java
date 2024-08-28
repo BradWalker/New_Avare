@@ -59,11 +59,9 @@ public class UDWMgr {
 		
 		// Allocate and initialize the paint object
 		mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        
-        setDipToPix(Helper.getDpiToPix(StorageService.getInstance().getApplicationContext()));
-
-    	UDWDESCRIPTION = StorageService.getInstance().getApplicationContext().getString(R.string.UDWDescription);
+		mPaint.setAntiAlias(true);
+		setDipToPix(Helper.getDpiToPix(StorageService.getInstance().getApplicationContext()));
+		UDWDESCRIPTION = StorageService.getInstance().getApplicationContext().getString(R.string.UDWDescription);
 	}
 
 	public int getCount() {
@@ -180,13 +178,13 @@ public class UDWMgr {
 		}
 
 		// Set some paint specs up here
-        mPaint.setTypeface(face);
-        mPaint.setTextSize(m15Pix);
-        mPaint.setShadowLayer(2, 3, 3, Color.BLACK );
+		mPaint.setTypeface(face);
+		mPaint.setTextSize(m15Pix);
+		mPaint.setShadowLayer(2, 3, 3, Color.BLACK );
 
 		// Loop through every point that we have and draw them if its set visible
 		for (Waypoint p : mPoints) {
-			if(true == p.getVisible()) {
+			if (true == p.getVisible()) {
 				p.draw(canvas, origin, trackUp, gpsParams, mPaint, StorageService.getInstance(), whereAndHowFar(p), m2Pix);
 			}
 		}

@@ -120,13 +120,13 @@ public class CDI {
 	 */
 	public void drawCDI(Canvas canvas, int screenX, int screenY)
 	{
-		if(mCDIPaint == null) {
-			// In case paint is not inited yet
+		if (mCDIPaint == null) {
+			// In case paint is not yet initialized
 			return;
 		}
 		
 		// Calculate the left position of the instrument
-        mInstLeft = (screenX - mInstWidth) / 2;
+		mInstLeft = (screenX - mInstWidth) / 2;
 
 		// Now where is the top of it
 		mInstTop = screenY * 3 / 4;
@@ -140,16 +140,15 @@ public class CDI {
 	    // Draw the background of the instrument. This is a horo swipe left to right,
 	    // so we need to specify the vertical middle as the source Y, not the top
 	    int instCenterY = mInstTop + mInstHeight / 2;
-        canvas.drawLine(mInstLeft, instCenterY, mInstLeft + mInstWidth, instCenterY, mCDIPaint);
+		canvas.drawLine(mInstLeft, instCenterY, mInstLeft + mInstWidth, instCenterY, mCDIPaint);
 
         // Draw all of the vertical bars
-        if(mBarDegrees == BAR_DEGREES_LOC) {
-            mCDIPaint.setColor(Color.CYAN);        // cyan for localizer            
-        }
-        else {
+		if(mBarDegrees == BAR_DEGREES_LOC) {
+            mCDIPaint.setColor(Color.CYAN);			// cyan for localizer
+        } else {
             mCDIPaint.setColor(Color.WHITE);		// white for VOR
-        }
-	    mCDIPaint.setStrokeWidth(mBarWidth);	// Width of each bar
+		}
+		mCDIPaint.setStrokeWidth(mBarWidth);	// Width of each bar
 	    for(int idx = 0; idx < mBarCount; idx++) {
 	        int extend = (idx == (mBarCount / 2)) ? mInstHeight / 3 : 0;
 	    	int barLeft = mInstLeft + (int)((float)mBarWidth * 1.5) + 

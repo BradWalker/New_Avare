@@ -79,10 +79,10 @@ public class DistanceRings {
     	mContext = mService.getApplicationContext();
         mDipToPix = Helper.getDpiToPix(mContext);
         mPref = mService.getPreferences();
-    	mPaint = new Paint();
-    	mPaint.setAntiAlias(true);
-    	mPaint.setTextSize(textSize);
-    	mPaint.setTypeface(Helper.getTypeFace(mContext));
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setTextSize(textSize);
+        mPaint.setTypeface(Helper.getTypeFace(mContext));
     }
     
     /***
@@ -119,11 +119,11 @@ public class DistanceRings {
         /*
          * Set the paint accordingly
          */
-    	mPaint.setStrokeWidth(3 * mDipToPix);
-    	mPaint.setShadowLayer(0, 0, 0, 0);
+        mPaint.setStrokeWidth(3 * mDipToPix);
+        mPaint.setShadowLayer(0, 0, 0, 0);
         mPaint.setColor(mPref.getDistanceRingColor());
         mPaint.setStyle(Style.STROKE);
-    	mPaint.setAlpha(0x7F);
+        mPaint.setAlpha(0x7F);
 
     	/*
          * Draw the 3 distance circles now

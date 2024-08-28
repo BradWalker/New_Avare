@@ -139,9 +139,9 @@ public class KMLRecorder {
      * of gps points
      */
     public KMLRecorder() {
-    	mPositionHistory = new LinkedList<>();
-    	mShape = new CrumbsShape();
-    	mLastFix = new GpsParams(null);
+		mPositionHistory = new LinkedList<>();
+		mShape = new CrumbsShape();
+		mLastFix = new GpsParams(null);
 		mFolder = StorageService.getInstance().getPreferences().getUserDataFolder() + File.separator + "tracks";
     }
     
@@ -158,11 +158,11 @@ public class KMLRecorder {
      * @return A URI of the file just closed
      */
 	public URI stop(){
-	    mShape.clearShape();
-    	if(mTracksFile != null) {
+		mShape.clearShape();
+		if(mTracksFile != null) {
     		// File operations can cause exceptions and we need to account for that
     		try {
-    			mTracksFile.write(KMLCOORDINATESTRAILER);	// Close off the coordinates section
+				mTracksFile.write(KMLCOORDINATESTRAILER);	// Close off the coordinates section
 				// Write out each track point of this flight as its own entry. This
 				// saves out more detail than just lat/long of the point.
 				for(int idx = 0, max = mPositionHistory.size(); idx < max; idx++) {
@@ -183,7 +183,7 @@ public class KMLRecorder {
     			}
     			
     			// Close off the overall KML file now
-        		mTracksFile.write(KMLFILESUFFIX);	// The last of the file data
+				mTracksFile.write(KMLFILESUFFIX);	// The last of the file data
 				mTracksFile.flush();
     			mTracksFile.close();				// close the file
     		} catch (IOException ignore) {
@@ -228,12 +228,11 @@ public class KMLRecorder {
         	
         	// Create a new writer, then a buffered writer for this file
         	FileWriter fileWriter = new FileWriter(mFile);
-    		mTracksFile = new BufferedWriter(fileWriter, 8192);
+			mTracksFile = new BufferedWriter(fileWriter, 8192);
 
     		// Write out the opening file prefix
-    		mTracksFile.write(KMLFILEPREFIX);			// Overall file prelude
-    		mTracksFile.write(KMLCOORDINATESHEADER);	// Open coordinates data
-
+			// mTracksFile.write(KMLFILEPREFIX);			// Overall file prelude
+			mTracksFile.write(KMLCOORDINATESHEADER);	// Open coordinates data
 			mPositionHistory.clear();
     	} catch (Exception ignore) { }
     }
@@ -246,13 +245,13 @@ public class KMLRecorder {
      * @param gpsParams Current location information
      */
     public void setGpsParams(GpsParams gpsParams) {
-    	if(mTracksFile == null) {
+		if (mTracksFile == null) {
     		// File closed means nothing to do
     		return;
     	}
 
     	// Start recording faster than 3 knots
-		if((gpsParams.getSpeed() < 3)) {
+		if ((gpsParams.getSpeed() < 3)) {
 			// Not going fast enough yet to record
 			return;
 		}
@@ -272,12 +271,12 @@ public class KMLRecorder {
 		}
 		
 		// If the bearing is 15 degrees or more different - that's 24 samples per 360 turn
-    	if(Helper.angularDifference(gpsParams.getBearing(), mLastFix.getBearing()) > 15) {
+		if(Helper.angularDifference(gpsParams.getBearing(), mLastFix.getBearing()) > 15) {
     		bRecordPoint = true;
     	}
 
     	// If the time of the last point and now is greater than 30 seconds
-		if(((gpsParams.getTime() - mLastFix.getTime()) > 30 * 1000)) {
+		if (((gpsParams.getTime() - mLastFix.getTime()) > 30 * 1000)) {
 			bRecordPoint = true;
 		}
 

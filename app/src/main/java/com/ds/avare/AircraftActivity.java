@@ -89,8 +89,8 @@ public class AircraftActivity extends BaseActivity {
         	@Override
         	public Object callback(Object o, Object o1) {
             	Message m = mHandler.obtainMessage((Integer)o, o1);
-            	mHandler.sendMessage(m);
-        		return null;
+                mHandler.sendMessage(m);
+                return null;
         	}
         });
         mWebView.addJavascriptInterface(mInfc, "AndroidList");
@@ -109,9 +109,8 @@ public class AircraftActivity extends BaseActivity {
 	     	// This is needed to remove title from Confirm dialog
 	        @Override
 	        public boolean onJsConfirm(WebView view, String url, String message, final android.webkit.JsResult result) {
-                if(!isFinishing()) {
-
-                    new DecoratedAlertDialogBuilder(AircraftActivity.this)
+                 if(!isFinishing()) {
+                     new DecoratedAlertDialogBuilder(AircraftActivity.this)
                             .setTitle("")
                             .setCancelable(true)
                             .setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -133,8 +132,8 @@ public class AircraftActivity extends BaseActivity {
                             })
                             .create()
                             .show();
-                }
-	            return true;
+                 }
+                 return true;
 	        }
 
 	    });
@@ -205,7 +204,7 @@ public class AircraftActivity extends BaseActivity {
             mInfc.loadList(overList);
             mService.setOverrideListName(null);
         }
-		mWebView.requestFocus();        
+        mWebView.requestFocus();
     }
 
     /*

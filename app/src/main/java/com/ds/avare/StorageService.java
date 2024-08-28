@@ -1174,7 +1174,7 @@ public class StorageService  {
             mShadowedText = new ShadowedText();
             mShadowedText = new ShadowedText();
         }
-    	return mShadowedText;
+        return mShadowedText;
     }
     
     public UDWMgr getUDWMgr() {

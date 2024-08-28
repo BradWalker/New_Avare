@@ -144,7 +144,7 @@ public class PlanActivity extends BaseActivity {
 	     	// This is needed to remove title from Confirm dialog
 	        @Override
 	        public boolean onJsConfirm(WebView view, String url, String message, final android.webkit.JsResult result) {
-                if(!isFinishing()) {
+                 if(!isFinishing()) {
 
                     new DecoratedAlertDialogBuilder(PlanActivity.this)
                             .setTitle("")
@@ -169,8 +169,8 @@ public class PlanActivity extends BaseActivity {
                             })
                             .create()
                             .show();
-                }
-	            return true;
+                 }
+                 return true;
 	        }
 	    });
         mWebView.loadUrl(com.ds.avare.utils.Helper.getWebViewFile(getApplicationContext(), "plan"));
@@ -240,7 +240,7 @@ public class PlanActivity extends BaseActivity {
         mTimer = new Timer();
         TimerTask sim = new UpdateTask();
         mTimer.scheduleAtFixedRate(sim, 0, 1000);
-		mWebView.requestFocus();
+        mWebView.requestFocus();
     }
 
     /*
@@ -321,8 +321,8 @@ public class PlanActivity extends BaseActivity {
     		}
     		else if(msg.what == INIT) {
                 mProgressBarSearch.setVisibility(View.INVISIBLE);
-  				mInfc.newPlan();
-   				mInfc.newSavePlan();
+                mInfc.newPlan();
+                mInfc.newSavePlan();
     		}
         }
     };

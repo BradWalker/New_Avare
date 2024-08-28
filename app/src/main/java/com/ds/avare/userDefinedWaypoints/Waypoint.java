@@ -37,8 +37,8 @@ public class Waypoint {
     public Waypoint(String name, String type, float lon, float lat, float ele, boolean showDist, int markerType, boolean bLocked) {
 		mName = (null != name) ? name : "UNDEF";
 		mType = type;
-    	mLat = lat;
-        mLon = lon;
+		mLat = lat;
+		mLon = lon;
 		mEle = ele;
         mShowDist = showDist;
         mMarkerType = markerType;
@@ -92,17 +92,17 @@ public class Waypoint {
 			}
 			
 			case MT_CROSSHAIRS: {
-		        paint.setStyle(Style.STROKE);
-		        paint.setColor(Color.BLACK);
-		        paint.setStrokeWidth(size);
-		        canvas.drawLine(x - size * 6,  y,  x + size * 6,  y, paint);
-		        canvas.drawLine(x,  y - size * 6,  x,  y + size * 6, paint);
+				paint.setStyle(Style.STROKE);
+				paint.setColor(Color.BLACK);
+				paint.setStrokeWidth(size);
+				canvas.drawLine(x - size * 6,  y,  x + size * 6,  y, paint);
+				canvas.drawLine(x,  y - size * 6,  x,  y + size * 6, paint);
 
 		        // A black ring to highlight it a bit
-		        canvas.drawCircle(x, y,  size * 3, paint);
+				canvas.drawCircle(x, y,  size * 3, paint);
 		        
 		        // Solid (almost) white chewy center
-		        paint.setStyle(Style.FILL);
+				paint.setStyle(Style.FILL);
 				paint.setColor(Color.CYAN);
 				paint.setAlpha(0xF0);
 		        canvas.drawCircle(x, y,  size * 2, paint);
@@ -133,14 +133,14 @@ public class Waypoint {
 	    // If we are in track up mode, then we need to rotate the text so it shows
 	    // properly
 	    boolean bRotated = false;
-        if (trackUp && (gpsParams != null)) {
-        	bRotated = true;
-            canvas.save();
-            canvas.rotate((int) gpsParams.getBearing(), x, y);
-        }
+		if (trackUp && (gpsParams != null)) {
+			bRotated = true;
+			canvas.save();
+			canvas.rotate((int) gpsParams.getBearing(), x, y);
+		}
 
 	    // Draw the name above
-	    service.getShadowedText().draw(canvas, paint, mName, Color.BLACK, ShadowedText.ABOVE, x, y);
+		service.getShadowedText().draw(canvas, paint, mName, Color.BLACK, ShadowedText.ABOVE, x, y);
 	    
 	    // and the distance/brg below IF that piece of metadata is true
 	    if(mShowDist) {

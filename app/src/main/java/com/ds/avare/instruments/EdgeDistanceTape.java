@@ -60,11 +60,11 @@ public class EdgeDistanceTape {
 		mPaint.setTextAlign(Align.LEFT);
 
 	    // Find out how big our shadow needs to be
-	    mPaint.getTextBounds("000", 0, 3, mTextBounds);
+		mPaint.getTextBounds("000", 0, 3, mTextBounds);
 	    
 	    // Determine the margin pixel values
-	    mTextWidth  = mTextBounds.width();
-	    mTextHeight = mTextBounds.height();
+		mTextWidth  = mTextBounds.width();
+		mTextHeight = mTextBounds.height();
 		mBgndWidth  = (int) (mTextWidth  * 1.4);
 		mLeftMargin = (int) (mTextWidth  * 0.2);
 		mBgndHeight = (int) (mTextHeight * 1.4);

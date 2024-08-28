@@ -649,7 +649,7 @@ public class MetarParser {
 			}
 
 			// if we have a descriptor
-		    if (((String)tokens.get(index)).substring(pos,pos+2).startsWith(MetarConstants.METAR_SHALLOW) ||
+			if (((String)tokens.get(index)).substring(pos,pos+2).startsWith(MetarConstants.METAR_SHALLOW) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).startsWith(MetarConstants.METAR_PARTIAL) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).startsWith(MetarConstants.METAR_PATCHES) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).startsWith(MetarConstants.METAR_LOW_DRIFTING) ||
@@ -666,7 +666,7 @@ public class MetarParser {
 			}
 
 			// if we have phenomena (we should always!)
-		    if (((String)tokens.get(index)).substring(pos,pos+2).equals(MetarConstants.METAR_DRIZZLE) ||
+			if (((String)tokens.get(index)).substring(pos,pos+2).equals(MetarConstants.METAR_DRIZZLE) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).equals(MetarConstants.METAR_RAIN) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).equals(MetarConstants.METAR_SNOW) ||
 		        ((String)tokens.get(index)).substring(pos,pos+2).equals(MetarConstants.METAR_SNOW_GRAINS) ||

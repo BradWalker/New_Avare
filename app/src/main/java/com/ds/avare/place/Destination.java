@@ -182,7 +182,7 @@ public class Destination extends Observable {
         mDeclination = params.getDeclinition();
         mAltitude = (int)params.getAltitude();
 
-		if(!mFound) {
+        if(!mFound) {
 			return;
 		}
 
@@ -261,7 +261,7 @@ public class Destination extends Observable {
     	/*
     	 * ETA when speed != 0
     	 */
-    	mEte = Helper.calculateEte(mDistance, mGroundSpeed, 0, true);
+        mEte = Helper.calculateEte(mDistance, mGroundSpeed, 0, true);
         if(mGroundSpeed < 1) { // practically stationary
             mEteSec = Long.MAX_VALUE;
             mFuelGallons = Float.MAX_VALUE;
@@ -275,7 +275,7 @@ public class Destination extends Observable {
 
     	// Calculate the time of arrival at our destination based on the system time
         // We SHOULD be taking in to account the timezone at that location
-    	mEta = Helper.calculateEta(CalendarHelper.getInstance(System.currentTimeMillis()), mDistance, mGroundSpeed);
+        mEta = Helper.calculateEta(CalendarHelper.getInstance(System.currentTimeMillis()), mDistance, mGroundSpeed);
 	}
 
 
@@ -500,7 +500,7 @@ public class Destination extends Observable {
             return Double.parseDouble(mParams.get(LocationContentProviderHelper.ELEVATION));
         }
         catch (Exception ignore) { }
-		return INVALID_ELEVATION;
+        return INVALID_ELEVATION;
 	}
 
     public void setElevation(Float ele) {

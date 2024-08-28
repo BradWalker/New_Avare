@@ -134,7 +134,8 @@ public class AfdView extends PanZoomView {
         if(StorageService.getInstance().getPreferences().isNightMode()) {
             Helper.invertCanvasColors(mPaint);
         }
-    	canvas.drawBitmap(mBitmap.getBitmap(), mBitmap.getTransform(), mPaint);
+
+        canvas.drawBitmap(mBitmap.getBitmap(), mBitmap.getTransform(), mPaint);
         Helper.restoreCanvasColors(mPaint);
     }
 }

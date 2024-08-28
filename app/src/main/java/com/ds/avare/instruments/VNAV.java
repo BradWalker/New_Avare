@@ -134,16 +134,16 @@ public class VNAV {
 		mInstLeft = screenX - (int) (mInstWidth * 1.75); // Right side of display
 	    
         // Draw the background
-	    mVNAVPaint.setColor(mBackColor);// Color
-	    mVNAVPaint.setAlpha(0x7F);		// Make it see-thru
-	    mVNAVPaint.setStrokeWidth(mInstWidth);	// How tall the inst is
-	    mVNAVPaint.setStyle(Paint.Style.STROKE);	// Type of brush
+		mVNAVPaint.setColor(mBackColor);// Color
+		mVNAVPaint.setAlpha(0x7F);		// Make it see-thru
+		mVNAVPaint.setStrokeWidth(mInstWidth);	// How tall the inst is
+		mVNAVPaint.setStyle(Paint.Style.STROKE);	// Type of brush
 	    
 	    // Draw the background of the instrument. This is a vertical swipe top to bottom.
-        canvas.drawLine(mInstLeft, mInstTop, mInstLeft, mInstTop + mInstHeight, mVNAVPaint);
+		canvas.drawLine(mInstLeft, mInstTop, mInstLeft, mInstTop + mInstHeight, mVNAVPaint);
 
         // Draw all of the horizontal bars
-	    mVNAVPaint.setColor(Color.WHITE);		// white
+		mVNAVPaint.setColor(Color.WHITE);		// white
 	    mVNAVPaint.setStrokeWidth(mBarHeight);	// height of each bar
 	    for(int idx = 0; idx < mBarCount; idx++) {
 	        float extend = (idx == mBarCount / 2) ? mInstWidth / 3 : 0;

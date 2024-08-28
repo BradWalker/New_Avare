@@ -899,7 +899,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
     	// canvas and rotate it based upon our bearing if we have one
     	boolean bRotated = false;
         if(mPref.isTrackUp() && (mGpsParams != null)) {
-        	bRotated = true;
+            bRotated = true;
             canvas.save();
             /*
              * Rotate around current position
@@ -940,7 +940,7 @@ public class LocationView extends PanZoomView implements OnTouchListener {
         drawRunways(canvas, ctx);
         drawAircraft(canvas, ctx);
         drawFavorites(canvas, ctx);
-      	drawUserDefinedWaypoints(canvas, ctx);
+        drawUserDefinedWaypoints(canvas, ctx);
         
       	// Restore the canvas to be upright again
         if(true == bRotated) {
@@ -953,8 +953,8 @@ public class LocationView extends PanZoomView implements OnTouchListener {
         drawCDI(canvas);
         drawVASI(canvas);
         drawStatusLines(canvas);
-      	drawEdgeMarkers(canvas); // Must be after the infolines
-      	drawNavComments(canvas);
+        drawEdgeMarkers(canvas); // Must be after the infolines
+        drawNavComments(canvas);
     }    
 
     /**

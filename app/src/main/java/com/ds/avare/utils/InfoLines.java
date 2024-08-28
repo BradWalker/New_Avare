@@ -524,7 +524,7 @@ public class InfoLines {
         mFieldWidth   = fieldWidth;
 
         // In what direction is the display used  ?
-    	mDisplayOrientation = (aDisplayWidth > aDisplayHeight) ?
+        mDisplayOrientation = (aDisplayWidth > aDisplayHeight) ?
                                 ID_DO_LANDSCAPE : ID_DO_PORTRAIT;
 
         // Now we can determine the max fields per line we can display

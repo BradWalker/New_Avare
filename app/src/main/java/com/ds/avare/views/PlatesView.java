@@ -362,13 +362,10 @@ public class PlatesView extends PanZoomView implements View.OnTouchListener {
                                     + mPan.getMoveY() * scale
                                     - mBitmap.getHeight() / 2 * scale);
                     canvas.drawBitmap(mLineHeadingBitmap.getBitmap(), mLineHeadingBitmap.getTransform(), mPaint);
-
-
                     mAirplaneBitmap.getTransform().setRotate((float)mGpsParams.getBearing() + angle,
 	                        mAirplaneBitmap.getWidth() / 2,
 	                        mAirplaneBitmap.getHeight() / 2);
-	                
-	                mAirplaneBitmap.getTransform().postTranslate(
+                    mAirplaneBitmap.getTransform().postTranslate(
 	                        pixx * scale
 	                        + getWidth() / 2
 	                        - mAirplaneBitmap.getWidth() / 2
@@ -379,14 +376,14 @@ public class PlatesView extends PanZoomView implements View.OnTouchListener {
 	                        - mAirplaneBitmap.getHeight() / 2
 	                        + mPan.getMoveY() * scale 
 	                        - mBitmap.getHeight() / 2 * scale);
-	                canvas.drawBitmap(mAirplaneBitmap.getBitmap(), mAirplaneBitmap.getTransform(), mPaint);
+                    canvas.drawBitmap(mAirplaneBitmap.getBitmap(), mAirplaneBitmap.getTransform(), mPaint);
                 }
             }
         }
     	/*
     	 * Draw drawing
     	 */
-    	this.drawDrawing(canvas);
+        this.drawDrawing(canvas);
 
         /*
          * restore

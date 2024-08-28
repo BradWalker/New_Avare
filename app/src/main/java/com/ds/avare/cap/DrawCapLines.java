@@ -58,11 +58,11 @@ public class DrawCapLines {
      * Setup paint and styles to draw
      */
 	public DrawCapLines(float textSize) {
-    	mPaint = new Paint();
-    	mPaint.setTextSize(textSize);
-        mPaint.setStyle(Style.FILL);
-        mPaint.setStrokeWidth(Helper.getDpiToPix(StorageService.getInstance().getApplicationContext()) * 2);
-    	mPaint.setAntiAlias(true);
+		mPaint = new Paint();
+		mPaint.setTextSize(textSize);
+		mPaint.setStyle(Style.FILL);
+		mPaint.setStrokeWidth(Helper.getDpiToPix(StorageService.getInstance().getApplicationContext()) * 2);
+		mPaint.setAntiAlias(true);
     	
     	// Get charts from static list
     	mCharts = CapChartFetcher.getInstance().getCharts();
@@ -108,7 +108,7 @@ public class DrawCapLines {
 		}
 
 		// text color
-        mPaint.setColor(Color.WHITE);
+		mPaint.setColor(Color.WHITE);
 
 		// Now draw names of grids
 		for(double lat = latitudeUpper; lat > latitudeLower; lat -= CapChartFetcher.GRID_SIZE) {

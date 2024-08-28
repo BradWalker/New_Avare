@@ -104,8 +104,7 @@ public class LmfsPlanLog {
 			mLog = "";
 			return;
 		}
-    	mLog = 
-    			"<table class=\"table\"><th>WP</th><th>Wind/Temp</th><th>Leg</th><th>Remain</th><th>MC</th><th>MH</th><th>Time</th><th>Fuel</th>";
+		mLog = "<table class=\"table\"><th>WP</th><th>Wind/Temp</th><th>Leg</th><th>Remain</th><th>MC</th><th>MH</th><th>Time</th><th>Fuel</th>";
 		try {
 			/*
 			 * Get all item logs".

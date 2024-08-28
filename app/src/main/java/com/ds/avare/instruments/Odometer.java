@@ -79,12 +79,12 @@ public class Odometer {
 			// Adjust our odometer by the calculated distance
 			// for display reasons, roll it over at 100,000 miles
 			mValue += distance;
-    		if (mValue > 100000) {
+			if (mValue > 100000) {
     			mValue -= 100000;
     		}
     		
 			// If we traveled more than a half mile, then write it to the preferences for safe keeping
-	    	if((mValue - mValueSave) > .5) {
+			if((mValue - mValueSave) > .5) {
 	    		mPref.setOdometer(mValue);
 	    		mValueSave = mValue;
 	    	}

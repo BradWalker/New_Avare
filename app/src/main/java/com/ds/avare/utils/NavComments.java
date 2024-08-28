@@ -94,8 +94,8 @@ public class NavComments {
             int topY = (mMenuButton.getHeight() / 2) + mMenuButton.getTop();
 
             // Draw them with background shadow
-	        paint.setColor(Color.WHITE);
-        	shadowedText.draw(canvas, paint, mLeftComment, Color.BLACK, leftX, topY);
+			paint.setColor(Color.WHITE);
+			shadowedText.draw(canvas, paint, mLeftComment, Color.BLACK, leftX, topY);
         	shadowedText.draw(canvas, paint, mRightComment, Color.BLACK, rightX, topY);
         }
 	}

@@ -101,14 +101,14 @@ public class WebAppPlanInterface implements Observer {
      * Instantiate the interface and set the context
      */
     public WebAppPlanInterface(WebView ww, GenericCallback cb) {
-        mWebView = ww;
-        mCallback = cb;
-        mService = StorageService.getInstance();
-        mContext = mService.getApplicationContext();
-        mPref = mService.getPreferences();
-        mPlanIdx = 0;
-        mPlanCnt = 0;
-        mPlanFilter = "";
+		mWebView = ww;
+		mCallback = cb;
+		mService = StorageService.getInstance();
+		mContext = mService.getApplicationContext();
+		mPref = mService.getPreferences();
+		mPlanIdx = 0;
+		mPlanCnt = 0;
+		mPlanFilter = "";
 		// TODO: refactor in abstract plan management
 		mSavedPlans = Plan.getAllPlans(mService.getDBResource().getUserPlans());
 		setFilteredSize();
@@ -445,7 +445,7 @@ public class WebAppPlanInterface implements Observer {
 			return;
 		}
 		mHandler.sendEmptyMessage(MSG_BUSY);
-        switch (action) {
+		switch (action) {
             case "Activate" ->
                 // Activate plan with given ID
                     infc.activateFlightPlan(id, ver, arg);
@@ -570,9 +570,9 @@ public class WebAppPlanInterface implements Observer {
 	    
 	    // Also update active state
 	    if(plan.isActive()) {
-	    	mHandler.sendEmptyMessage(MSG_ACTIVE);	    	
+			mHandler.sendEmptyMessage(MSG_ACTIVE);
 	    	// Set destination next if plan active only
-			if(plan.getDestination(plan.findNextNotPassed()) != null) {
+			if (plan.getDestination(plan.findNextNotPassed()) != null) {
 				mService.setDestinationPlanNoChange(plan.getDestination(plan.findNextNotPassed()));
 			}
 	    }
@@ -716,7 +716,7 @@ public class WebAppPlanInterface implements Observer {
     @JavascriptInterface
     public void refreshPlanList() {
 		mHandler.sendEmptyMessage(MSG_BUSY);
-    	mService.getExternalPlanMgr().forceReload();
+		mService.getExternalPlanMgr().forceReload();
 		mSavedPlans = Plan.getAllPlans(mService.getDBResource().getUserPlans());
 		setFilteredSize();
     	newSavePlan();
@@ -840,13 +840,12 @@ public class WebAppPlanInterface implements Observer {
     public void activateToggle() {
     	Plan plan = mService.getPlan();
     	if(plan.isActive()) {
-    		plan.makeInactive();
-	    	mHandler.sendEmptyMessage(MSG_INACTIVE);
+			plan.makeInactive();
+			mHandler.sendEmptyMessage(MSG_INACTIVE);
     		mService.setDestination(null);
-    	}
-    	else {
-    		plan.makeActive(mService.getGpsParams());    		
-	    	mHandler.sendEmptyMessage(MSG_ACTIVE);
+    	} else {
+			plan.makeActive(mService.getGpsParams());
+			mHandler.sendEmptyMessage(MSG_ACTIVE);
     		if(plan.getDestination(plan.findNextNotPassed()) != null) {
     			mService.setDestinationPlanNoChange(plan.getDestination(plan.findNextNotPassed()));
     		}
@@ -969,7 +968,7 @@ public class WebAppPlanInterface implements Observer {
     	// If we have an active plan, we need to turn it off now since we are
     	// loading a new one.
     	Plan plan = mService.getPlan();
-    	if(null != plan) {
+		if(null != plan) {
     		plan.makeInactive();
     		
     		// If it is an external plan, tell it to unload
@@ -1074,10 +1073,10 @@ public class WebAppPlanInterface implements Observer {
     	// If we have a plan that is active, and it is the plan
     	// we are attempting to delete, then make it inactive
     	Plan plan = mService.getPlan();
-    	if(null != plan) {
-    		if(null != plan.getName()) {
-	    		if(true == plan.getName().equalsIgnoreCase(name)) {
-	        		if(true == plan.isActive()) {
+		if (null != plan) {
+    		if (null != plan.getName()) {
+				if (true == plan.getName().equalsIgnoreCase(name)) {
+	        		if (true == plan.isActive()) {
 		    			plan.makeInactive();
 	        		}
 	    		}
@@ -1085,18 +1084,17 @@ public class WebAppPlanInterface implements Observer {
     	}
     	
     	// Remove the plan from our internal list of names
-    	mSavedPlans.remove(name);
+		mSavedPlans.remove(name);
 
     	// Now remove the plan from storage
     	// TODO: all plans should be a single abstraction
-    	if(true == mService.getExternalPlanMgr().isExternal(name)) {
+		if (true == mService.getExternalPlanMgr().isExternal(name)) {
     		mService.getExternalPlanMgr().delete(name);
     	} else {
 			mService.getDBResource().deleteUserPlan(name);
     	}
-    	
-    	setFilteredSize();
-	    newSavePlan();
+		setFilteredSize();
+		newSavePlan();
     	mHandler.sendEmptyMessage(MSG_NOTBUSY);
     }
 
@@ -1109,11 +1107,10 @@ public class WebAppPlanInterface implements Observer {
     	/*
          * If text is 0 length or too long, then do not search, show last list
          */
-        if(value.isEmpty()) {
+		if(value.isEmpty()) {
             return;
         }
-        
-        if(null != mSearchTask) {
+		if(null != mSearchTask) {
             if (!mSearchTask.getStatus().equals(AsyncTask.Status.FINISHED)) {
                 /*
                  * Cancel the last query
@@ -1122,7 +1119,7 @@ public class WebAppPlanInterface implements Observer {
             }
         }
 
-    	mHandler.sendEmptyMessage(MSG_BUSY);
+		mHandler.sendEmptyMessage(MSG_BUSY);
         mSearchTask = new SearchTask();
         mSearchTask.execute(value);
     }
@@ -1203,11 +1200,10 @@ public class WebAppPlanInterface implements Observer {
     	/*
          * If text is 0 length or too long, then do not search, show last list
          */
-        if(value.isEmpty()) {
+		if(value.isEmpty()) {
             return;
         }
-
-        if(null != mCreateTask) {
+		if(null != mCreateTask) {
             if (!mCreateTask.getStatus().equals(AsyncTask.Status.FINISHED)) {
                 /*
                  * Cancel the last query
@@ -1215,8 +1211,7 @@ public class WebAppPlanInterface implements Observer {
                 mCreateTask.cancel(true);
             }
         }
-
-    	mHandler.sendEmptyMessage(MSG_BUSY);
+		mHandler.sendEmptyMessage(MSG_BUSY);
         mCreateTask = new CreateTask();
         mCreateTask.execute(value);
     }
@@ -1287,8 +1282,7 @@ public class WebAppPlanInterface implements Observer {
             /*
              * Set new search adapter
              */
-
-            if(null == selection || false == result) {
+			if(null == selection || false == result) {
             	mHandler.sendEmptyMessage(MSG_NOTBUSY);
 				Message m = mHandler.obtainMessage(MSG_ERROR, mContext.getString(R.string.InvalidPoint));
 				mHandler.sendMessage(m);
@@ -1298,7 +1292,7 @@ public class WebAppPlanInterface implements Observer {
             /*
              * Add each to the plan search
              */
-            for (String val : selection) {
+			for (String val : selection) {
 	            String id = StringPreference.parseHashedNameId(val);
 	            String type = StringPreference.parseHashedNameDestType(val);
 	            String dbtype = StringPreference.parseHashedNameDbType(val);
@@ -1310,7 +1304,7 @@ public class WebAppPlanInterface implements Observer {
 	        	d.addObserver(WebAppPlanInterface.this);
 	        	d.find(dbtype);
             }
-        	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+			mHandler.sendEmptyMessage(MSG_NOTBUSY);
         }
     }
 
@@ -1344,8 +1338,7 @@ public class WebAppPlanInterface implements Observer {
             }
             
             LinkedHashMap<String, String> params = new LinkedHashMap<>();
-
-            mService.getDBResource().search(srch, params, true);
+			mService.getDBResource().search(srch, params, true);
 			mService.getUDWMgr().search(srch, params);			// From user defined points of interest
 			StringPreference s = mService.getDBResource().getUserRecent(srch);
 			if (null != s) {
@@ -1370,8 +1363,7 @@ public class WebAppPlanInterface implements Observer {
             /*
              * Set new search adapter
              */
-
-            if(null == selection || false == result) {
+			if(null == selection || false == result) {
             	mHandler.sendEmptyMessage(MSG_NOTBUSY);
                 return;
             }
@@ -1379,7 +1371,7 @@ public class WebAppPlanInterface implements Observer {
             /*
              * Add each to the plan search
              */
-            for (String val : selection) {
+			for (String val : selection) {
                 String id = StringPreference.parseHashedNameId(val);
                 String name = StringPreference.parseHashedNameFacilityName(val);
                 String type = StringPreference.parseHashedNameDestType(val);
@@ -1388,7 +1380,7 @@ public class WebAppPlanInterface implements Observer {
                 Message m = mHandler.obtainMessage(MSG_ADD_SEARCH, "'" + Helper.formatJsArgs(id) + "','" + Helper.formatJsArgs(name) + "','" + Helper.formatJsArgs(type) + "','" + Helper.formatJsArgs(dbtype) + "'");
                 mHandler.sendMessage(m);
             }
-        	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+			mHandler.sendEmptyMessage(MSG_NOTBUSY);
         }
     }
 
@@ -1501,10 +1493,8 @@ public class WebAppPlanInterface implements Observer {
          */
         @Override
         public void run() {
-
-            Thread.currentThread().setName("Weather");
-
-        	mHandler.sendEmptyMessage(MSG_BUSY);
+			Thread.currentThread().setName("Weather");
+			mHandler.sendEmptyMessage(MSG_BUSY);
 
             String Pirep = "";
             String Metar = "";
@@ -1624,13 +1614,13 @@ public class WebAppPlanInterface implements Observer {
 
 			String plan = "";
 			plan = "<font size='5' color='white'>" + plan + "</font><br>";
-            plan = "<form>" + plan.replaceAll("'", "\"") + "</form>";
-            Metar = "<h3><font size='6' color='cyan'>METARs</font><br></h3>" + Metar;
-            Metar = "<form>" + Metar.replaceAll("'", "\"") + "</form>";
-            Taf = "<h3><font size='6' color='cyan'>TAFs</font><br></h3>" + Taf;
-            Taf = "<form>" + Taf.replaceAll("'", "\"") + "</form>";
-            Pirep = "<h3><font size='6' color='cyan'>PIREPs</font><br></h3>" + Pirep;
-            Pirep = "<form>" + Pirep.replaceAll("'", "\"") + "</form>";
+			plan = "<form>" + plan.replaceAll("'", "\"") + "</form>";
+			Metar = "<h3><font size='6' color='cyan'>METARs</font><br></h3>" + Metar;
+			Metar = "<form>" + Metar.replaceAll("'", "\"") + "</form>";
+			Taf = "<h3><font size='6' color='cyan'>TAFs</font><br></h3>" + Taf;
+			Taf = "<form>" + Taf.replaceAll("'", "\"") + "</form>";
+			Pirep = "<h3><font size='6' color='cyan'>PIREPs</font><br></h3>" + Pirep;
+			Pirep = "<form>" + Pirep.replaceAll("'", "\"") + "</form>";
 			notams = "<h3><font size='6' color='cyan'>NOTAMS</font><br></h3>" + notams;
 
             String time = NetworkHelper.getVersion("", "weather", null);

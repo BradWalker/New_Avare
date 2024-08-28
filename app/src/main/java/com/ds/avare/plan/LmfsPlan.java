@@ -162,29 +162,30 @@ public class LmfsPlan {
 	public LmfsPlan(Preferences pref) {
 		init();
 
-        flightRule = RULE_VFR;
-        aircraftId = StorageService.getInstance().getAircraft().getId();
+		flightRule = RULE_VFR;
+		aircraftId = StorageService.getInstance().getAircraft().getId();
 		aircraftType = StorageService.getInstance().getAircraft().getType();
 
 
 		flightType = "G"; // GA
-        noOfAircraft = "1";
-        wakeTurbulence = StorageService.getInstance().getAircraft().getWake();
-        route = DIRECT;
-        otherInfo = "";
+		noOfAircraft = "1";
+		wakeTurbulence = StorageService.getInstance().getAircraft().getWake();
+		route = DIRECT;
+		otherInfo = "";
 		surveillanceEquipment = StorageService.getInstance().getAircraft().getSurveillance();
-        aircraftEquipment = StorageService.getInstance().getAircraft().getEquipment();
-        cruisingSpeed = String.valueOf(StorageService.getInstance().getAircraft().getCruiseTas());
+		aircraftEquipment = StorageService.getInstance().getAircraft().getEquipment();
+		cruisingSpeed = String.valueOf(StorageService.getInstance().getAircraft().getCruiseTas());
 		pilotInfo = StorageService.getInstance().getAircraft().getPilotInfo();
 		pilotInCommand = StorageService.getInstance().getAircraft().getPic();
-        peopleOnBoard = "1";
-        aircraftColor = StorageService.getInstance().getAircraft().getColor();
+		peopleOnBoard = "1";
+		aircraftColor = StorageService.getInstance().getAircraft().getColor();
 		fuelEndurance = String.valueOf(StorageService.getInstance().getAircraft().getEndurance());
 
-        if(surveillanceEquipment == null || surveillanceEquipment.isEmpty()) {
+		if (surveillanceEquipment == null || surveillanceEquipment.isEmpty()) {
             surveillanceEquipment = "N";
         }
-        if(aircraftEquipment == null || aircraftEquipment.isEmpty()) {
+
+		if (aircraftEquipment == null || aircraftEquipment.isEmpty()) {
             aircraftEquipment = "N";
         }
 		mValid = true;
@@ -256,13 +257,13 @@ public class LmfsPlan {
 				}
 			}
 
-            try {
+			try {
                 otherInfo = icao.getString("otherInfo");
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 otherInfo = null;
-            }
-            if(otherInfo != null) {
+			}
+
+			if(otherInfo != null) {
                 if(otherInfo.equals("null")) {
                     otherInfo = null;
                 }
@@ -281,7 +282,7 @@ public class LmfsPlan {
 			aircraftColor = icao.getString("aircraftColor");
 			pilotInfo = icao.getString("pilotData");
 			flightType = icao.getString("typeOfFlight");
-            surveillanceEquipment = icao.getString("surveillanceEquipment");
+			surveillanceEquipment = icao.getString("surveillanceEquipment");
 			supplementalRemarks = icao.getString("suppRemarks");
 			if(supplementalRemarks.equals("null")) {
 				supplementalRemarks = "";
@@ -316,32 +317,33 @@ public class LmfsPlan {
 	 */
 	public Map<String, String> makeHashMap() {
 		Map<String, String> params = new HashMap<>();
-        put(params, "type", TYPE);
+
+		put(params, "type", TYPE);
 		put(params, "flightRules", flightRule);
 		put(params, "aircraftIdentifier", aircraftId);
 		put(params, "departure", departure);
 		put(params, "destination", destination); 
 		put(params, "departureInstant", LmfsPlan.getTimeFromInput(LmfsPlan.getTimeFromInstance(departureDate)));
 		put(params, "flightDuration", totalElapsedTime);
-        put(params, "route", route);
+		put(params, "route", route);
 		put(params, "altDestination1", alternate1);
 		put(params, "altDestination2", alternate2);
-        put(params, "aircraftType", aircraftType);
-        put(params, "otherInfo", otherInfo);
-        put(params, "aircraftType", aircraftType);
-        put(params, "aircraftEquipment", aircraftEquipment);
-        put(params, "numberOfAircraft", noOfAircraft);
+		put(params, "aircraftType", aircraftType);
+		put(params, "otherInfo", otherInfo);
+		put(params, "aircraftType", aircraftType);
+		put(params, "aircraftEquipment", aircraftEquipment);
+		put(params, "numberOfAircraft", noOfAircraft);
 		put(params, "wakeTurbulence", wakeTurbulence);
 		put(params, "speedKnots", cruisingSpeed);
 		put(params, "altitudeTypeA", level);
 		put(params, "fuelOnBoard", fuelEndurance);
-        put(params, "peopleOnBoard", peopleOnBoard);
-        put(params, "aircraftColor", aircraftColor);
-        put(params, "pilotData", pilotInfo);
-        put(params, "typeOfFlight", flightType);
-        put(params, "surveillanceEquipment", surveillanceEquipment);
+		put(params, "peopleOnBoard", peopleOnBoard);
+		put(params, "aircraftColor", aircraftColor);
+		put(params, "pilotData", pilotInfo);
+		put(params, "typeOfFlight", flightType);
+		put(params, "surveillanceEquipment", surveillanceEquipment);
 		put(params, "suppRemarks", supplementalRemarks);
-        put(params, "pilotInCommand", pilotInfo);
+		put(params, "pilotInCommand", pilotInfo);
 		return params;
 	}
 	

@@ -67,7 +67,7 @@ public class TypeValueAdapter extends ArrayAdapter<String> {
         mContext = context;
         mType = type;
         mValue = value;
-		mCategory = category;
+        mCategory = category;
         mNight = night;
     }
 

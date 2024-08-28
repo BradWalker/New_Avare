@@ -145,10 +145,8 @@ public class WebActivity extends BaseActivity  {
     @Override
     public void onResume() {
         super.onResume();
-
         mService.registerGpsListener(mGpsInfc);
-
-		mWebView.requestFocus();
+        mWebView.requestFocus();
     }
 
     /**

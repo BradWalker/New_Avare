@@ -122,7 +122,7 @@ public class DatabaseDestination extends Destination {
                  * Find Chart Supplement
                  */
                 mAfdFound = null;
-                String afd[] = null;
+                String[] afd = null;
                 afd = new File(StorageService.getInstance().getPreferences().getServerDataFolder() + File.separator + "afd" + File.separator+ mName + File.separator).list(new FilenameFilter() {
                     @Override
                     public boolean accept(File file, String s) {
@@ -132,7 +132,7 @@ public class DatabaseDestination extends Destination {
                 if(null != afd) {
                     java.util.Arrays.sort(afd);
                     int len1 = afd.length;
-                    String tmp1[] = new String[len1];
+                    String[] tmp1 = new String[len1];
                     for(int count = 0; count < len1; count++) {
                         if(afd[count].equals(".nomedia")) {
                             continue;
@@ -140,7 +140,7 @@ public class DatabaseDestination extends Destination {
                         /*
                          * Add Chart Supplement
                          */
-                        String tokens[] = afd[count].split(Preferences.IMAGE_EXTENSION);
+                        String[] tokens = afd[count].split(Preferences.IMAGE_EXTENSION);
                         tmp1[count] = StorageService.getInstance().getPreferences().getServerDataFolder() + File.separator + "afd" + File.separator + mName + File.separator +
                                 tokens[0];
                     }

@@ -294,8 +294,8 @@ public class WebAppAircraftInterface {
 
     @JavascriptInterface
     public void moveForward() {
-    	mList.moveForward();
-		updateList();
+        mList.moveForward();
+        updateList();
     }
 
 
@@ -317,8 +317,8 @@ public class WebAppAircraftInterface {
      */
     @JavascriptInterface
     public void moveTo(int item) {
-    	mList.moveTo(item);
-		updateList();
+        mList.moveTo(item);
+        updateList();
     }
 
     /**
@@ -342,8 +342,8 @@ public class WebAppAircraftInterface {
     public void discardList() {
     	mHandler.sendEmptyMessage(MSG_BUSY);
         mList = new Checklist("");
-    	newList();
-    	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+        newList();
+        mHandler.sendEmptyMessage(MSG_NOTBUSY);
     }
 
     /**
@@ -399,9 +399,8 @@ public class WebAppAircraftInterface {
          * Make a new working list since last one stored already 
          */
         mList = new Checklist(mList.getName(), mList.getSteps());
-
         newSaveList();
-    	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+        mHandler.sendEmptyMessage(MSG_NOTBUSY);
     }
 
     /**
@@ -413,11 +412,11 @@ public class WebAppAircraftInterface {
     	mHandler.sendEmptyMessage(MSG_BUSY);
 
         mList = mService.getDBResource().getUserList(name);
-        if(null == mList) {
+        if (null == mList) {
             mList = new Checklist("");
         }
-    	newList();
-    	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+        newList();
+        mHandler.sendEmptyMessage(MSG_NOTBUSY);
     }
 
     /**
@@ -447,7 +446,7 @@ public class WebAppAircraftInterface {
         if(path.isEmpty()) {
             return;
         }
-        
+
         if(null != mImportTask) {
             if (!mImportTask.getStatus().equals(AsyncTask.Status.FINISHED)) {
                 /*
@@ -457,7 +456,7 @@ public class WebAppAircraftInterface {
             }
         }
 
-    	mHandler.sendEmptyMessage(MSG_BUSY);
+        mHandler.sendEmptyMessage(MSG_BUSY);
 
         /*
          * New list add from file
@@ -522,16 +521,14 @@ public class WebAppAircraftInterface {
 
         @Override
         protected void onPostExecute(String result) {
-        	
             if(null == result) {
                 // show done with result
             }
             /*
              * Set new list in UI
              */
-           	newList();
-           	
-        	mHandler.sendEmptyMessage(MSG_NOTBUSY);
+            newList();
+            mHandler.sendEmptyMessage(MSG_NOTBUSY);
         }
 
         @Override

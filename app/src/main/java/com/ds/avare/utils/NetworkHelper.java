@@ -499,10 +499,10 @@ public class NetworkHelper {
         then.add(Calendar.DAY_OF_MONTH, 28 * (cyclelower - 1 + offset));
         
         // find upper two digits of cycle.
-    	cycleupper = (then.get(Calendar.YEAR) - 2000);
+        cycleupper = (then.get(Calendar.YEAR) - 2000);
     	
     	// find cyclelower
-    	firstdate = getFirstDate(2000 + cycleupper);
+        firstdate = getFirstDate(2000 + cycleupper);
         GregorianCalendar first = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
         first.set(2000 + cycleupper, Calendar.JANUARY, firstdate, 9, 0, 0);
 
