@@ -37,8 +37,8 @@ public class AirportInfo extends AsyncTask<Object, String, String> {
     private String textMets = "";
     private String sua;
     private String layer;
-    private LinkedList<Airep> aireps;
-    private LinkedList<String> runways;
+    private List<Airep> aireps;
+    private List<String> runways;
     private Taf taf;
     private WindsAloft wa;
     private Metar metar;

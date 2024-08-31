@@ -14,6 +14,7 @@ package com.ds.avare.adsb.gdl90;
 import com.ds.avare.utils.Logger;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author zkhan
@@ -22,7 +23,7 @@ public class FisBuffer {
 
     private int mSize;
     private byte[] mBuffer;
-    private LinkedList<Product> mProducts;
+    private List<Product> mProducts;
 
     /**
      * @param buffer
@@ -84,7 +85,7 @@ public class FisBuffer {
     /**
      * @return
      */
-    public LinkedList<Product> getProducts() {
+    public List<Product> getProducts() {
         return mProducts;
     }
 }

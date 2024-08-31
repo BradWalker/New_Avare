@@ -29,6 +29,7 @@
 package com.ds.avare.cap;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -50,7 +51,7 @@ import com.ds.avare.utils.Helper;
 public class DrawCapLines {
 
     private Paint mPaint;
-	private LinkedList<Chart> mCharts;
+	private List<Chart> mCharts;
 	private Chart mRecentChart;
 	
 
@@ -67,7 +68,7 @@ public class DrawCapLines {
     	// Get charts from static list
     	mCharts = CapChartFetcher.getInstance().getCharts();
     	// Get the first chart in the cache
-    	mRecentChart = mCharts.getFirst();
+    	mRecentChart = mCharts.get(0);
 	}
 
 	/*

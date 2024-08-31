@@ -28,6 +28,7 @@
 package com.ds.avare.cap;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import com.ds.avare.position.Coordinate;
 
@@ -43,7 +44,7 @@ public class CapChartFetcher {
 	// 15 minute, quarter degree
 	public static final double GRID_SIZE = 0.25;
 	
-	private LinkedList<Chart> mCharts;
+	private List<Chart> mCharts;
 	private static CapChartFetcher mInstance;
 
 	/*
@@ -104,7 +105,7 @@ public class CapChartFetcher {
 	 * Get charts and their boundaries
 	 * @return
 	 */
-	public LinkedList<Chart> getCharts() {
+	public List<Chart> getCharts() {
 		return mCharts;
 	}
 }

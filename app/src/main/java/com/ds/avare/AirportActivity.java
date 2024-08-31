@@ -42,6 +42,7 @@ import com.ds.avare.views.AfdView;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -169,9 +170,9 @@ public class AirportActivity extends BaseActivity implements Observer {
          * Get Text Chart Supplement
          */
         LinkedHashMap <String, String>map = mDestination.getParams();
-        LinkedList<Awos> awos = mDestination.getAwos();
+        List<Awos> awos = mDestination.getAwos();
         LinkedHashMap <String, String>freq = mDestination.getFrequencies();
-        LinkedList<Runway> runways = mDestination.getRunways();
+        List<Runway> runways = mDestination.getRunways();
         String[] views = new String[map.size() + freq.size() + awos.size() + runways.size()];
         String[] values = new String[map.size() + freq.size() + awos.size() + runways.size()];
         int[] categories = new int[map.size() + freq.size() + awos.size() + runways.size()];

@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.TreeMap;
@@ -86,7 +87,7 @@ public class PlatesActivity extends BaseActivity implements Observer  {
     private String myString;
     private boolean mIsTimerOn;
     private long mTimerInit;
-    private LinkedList<Cifp> mCifp;
+    private List<Cifp> mCifp;
     private TankObserver mTankObserver;
     private TimerObserver mTimerObserver;
 

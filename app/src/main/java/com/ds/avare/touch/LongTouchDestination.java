@@ -34,6 +34,7 @@ import com.ds.avare.weather.Taf;
 import com.ds.avare.weather.WindsAloft;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Works with LongTouchGesture
@@ -51,7 +52,7 @@ public class LongTouchDestination {
     private Metar metar;
     private String sua;
     private String layer;
-    private LinkedList<Airep> airep;
+    private List<Airep> airep;
     private String performance;
     private String navaids;
     private boolean more;
@@ -129,11 +130,11 @@ public class LongTouchDestination {
         this.layer = layer;
     }
 
-    public LinkedList<Airep> getAirep() {
+    public List<Airep> getAirep() {
         return airep;
     }
 
-    public void setAirep(LinkedList<Airep> airep) {
+    public void setAirep(List<Airep> airep) {
         this.airep = airep;
     }
 

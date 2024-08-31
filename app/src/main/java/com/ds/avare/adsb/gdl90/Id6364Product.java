@@ -12,7 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.adsb.gdl90;
 
 import java.util.LinkedList;
-
+import java.util.List;
 
 /**
  * @author zkhan
@@ -58,7 +58,7 @@ public class Id6364Product extends Product {
     /**
      * @return
      */
-    public LinkedList<Integer> getEmpty() {
+    public List<Integer> getEmpty() {
         return mNexrad.getEmpty();
     }
 

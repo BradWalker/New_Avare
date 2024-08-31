@@ -129,7 +129,7 @@ public class Traffic {
         return color;
     }
 
-    public static void draw(DrawingContext ctx, LinkedList<Traffic> traffic, double altitude, GpsParams params, boolean shouldDraw,
+    public static void draw(DrawingContext ctx, List<Traffic> traffic, double altitude, GpsParams params, boolean shouldDraw,
                             BitmapHolder bRed, BitmapHolder bGreen, BitmapHolder bBlue, BitmapHolder bMagenta) {
 
         boolean circles = ctx.pref.shouldDrawTrafficCircles();

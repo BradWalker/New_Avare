@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
-
+import java.util.List;
 
 /**
  * Created by zkhan on 1/18/17.
@@ -20,9 +20,9 @@ import java.util.LinkedList;
 
 public class DatabaseDestination extends Destination {
 
-    private LinkedList<Runway> mRunways;
+    private List<Runway> mRunways;
     private LinkedHashMap<String, String> mFreq;
-    private LinkedList<Awos> mAwos;
+    private List<Awos> mAwos;
     private String[] mAfdFound;
 
     /**
@@ -191,7 +191,7 @@ public class DatabaseDestination extends Destination {
     }
 
     @Override
-    public LinkedList<Awos> getAwos() {
+    public List<Awos> getAwos() {
         return(mAwos);
     }
 
@@ -201,7 +201,7 @@ public class DatabaseDestination extends Destination {
     }
 
     @Override
-    public LinkedList<Runway> getRunways() {
+    public List<Runway> getRunways() {
         return(mRunways);
     }
 

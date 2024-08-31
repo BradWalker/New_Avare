@@ -13,6 +13,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.adsb.gdl90;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author zkhan
@@ -32,7 +33,7 @@ public class Nexrad {
 
     private int mBlock;
     private int[] mData;
-    private LinkedList<Integer> mEmpty;
+    private List<Integer> mEmpty;
 
     public Nexrad() {
         mEmpty = null;
@@ -167,7 +168,7 @@ public class Nexrad {
     /**
      * @return
      */
-    public LinkedList<Integer> getEmpty() {
+    public List<Integer> getEmpty() {
         return mEmpty;
     }
 }

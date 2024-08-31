@@ -32,6 +32,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -41,7 +42,7 @@ import java.util.LinkedList;
  */
 public class LmfsPlanList {
 
-	private LinkedList<LmfsPlan> mPlans;
+	private List<LmfsPlan> mPlans;
 	public int mSelectedIndex;
 	
 	/*
@@ -86,7 +87,7 @@ public class LmfsPlanList {
 	 * List of all plans (may not be filled in except the ID)
 	 * @return
 	 */
-	public LinkedList<LmfsPlan> getPlans() {
+	public List<LmfsPlan> getPlans() {
 		return mPlans;
 	}
 }

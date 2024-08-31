@@ -79,7 +79,7 @@ public class FileConnectionIn extends Connection {
                      * Put both in Decode and ADBS buffers
                      */
                     bp.put(buffer, red);
-                    LinkedList<String> objs = bp.decode((Preferences)o);
+                    List<String> objs = bp.decode((Preferences)o);
                     for(String s : objs) {
                         sendDataToHelper(s);
                     }

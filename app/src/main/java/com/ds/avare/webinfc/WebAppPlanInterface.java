@@ -48,6 +48,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Observable;
@@ -1222,7 +1223,7 @@ public class WebAppPlanInterface implements Observer {
      */
     private class CreateTask extends AsyncTask<Object, Void, Boolean> {
 
-    	LinkedList<String> selection = new LinkedList<>();
+    	List<String> selection = new LinkedList<>();
 
         /* (non-Javadoc)
          * @see android.os.AsyncTask#doInBackground(Params[])
@@ -1258,7 +1259,7 @@ public class WebAppPlanInterface implements Observer {
 	            }
 	            else if(num > 0 && num < (srch.length - 1)) {
 	            	// Federal airway? Must start and end at some point
-	            	LinkedList<String> ret = Airway.find(mService, srch[num - 1], srch[num], srch[num + 1]);
+	            	List<String> ret = Airway.find(mService, srch[num - 1], srch[num], srch[num + 1]);
 	            	if(ret != null) {
 	            		// Found airway, insert. Airway is always a sequence of GPS points.
 	            		selection.addAll(ret);

@@ -12,6 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.place;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import com.ds.avare.position.Coordinate;
 
@@ -21,7 +22,7 @@ import com.ds.avare.position.Coordinate;
  */
 public class Route {
 
-    LinkedList<Destination> mDestinations;
+    List<Destination> mDestinations;
     
     /**
      * 
@@ -35,7 +36,7 @@ public class Route {
      * @return
      */
     public Destination getDestination() {
-        return mDestinations.getFirst();
+        return mDestinations.get(0);
     }
 
     /**

@@ -31,6 +31,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
@@ -481,9 +482,9 @@ public class AdsbWeatherCache {
      * @param lat
      * @return
      */
-    public LinkedList<Airep> getAireps(double lon, double lat) {
+    public List<Airep> getAireps(double lon, double lat) {
         
-        LinkedList<Airep> ret = new LinkedList<>();
+        List<Airep> ret = new LinkedList<>();
         
         /*
          * Find closest aireps
@@ -520,9 +521,8 @@ public class AdsbWeatherCache {
         return ret;
     }
 
-    public LinkedList<AirSigMet> getAirSigMet() {
-        LinkedList<AirSigMet> ret = new LinkedList<>();
-
+    public List<AirSigMet> getAirSigMet() {
+        List<AirSigMet> ret = new LinkedList<>();
 
         for(AirSigMet s : mAirSig.values()) {
             ret.add(s);
@@ -577,9 +577,8 @@ public class AdsbWeatherCache {
 
         /*
          * Go at them one by one
-         * LinkedList saves against concurrent modification exception
          */
-        LinkedList<String> keys;
+        List<String> keys;
         
         /*
          * Winds
@@ -674,7 +673,7 @@ public class AdsbWeatherCache {
         /*
          * Nexrad
          */
-        LinkedList<Integer>keyi = new LinkedList<>();
+        List<Integer>keyi = new LinkedList<>();
         SparseArray<NexradBitmap> img = mNexrad.getImages();
         for(int i = 0; i < img.size(); i++) {
             NexradBitmap n = img.valueAt(i);

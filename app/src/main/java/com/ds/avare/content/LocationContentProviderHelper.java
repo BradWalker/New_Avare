@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.Vector;
@@ -567,8 +568,8 @@ public class LocationContentProviderHelper {
     }
 
 
-    public static LinkedList<Coordinate> findAirway(Context ctx, String name) {
-        LinkedList<Coordinate> points = new LinkedList<>();
+    public static List<Coordinate> findAirway(Context ctx, String name) {
+        List<Coordinate> points = new LinkedList<>();
         Cursor c = null;
 
         /*
@@ -597,10 +598,10 @@ public class LocationContentProviderHelper {
         return points;
     }
 
-    public static LinkedList<String> findAFD(Context ctx, String airportId) {
+    public static List<String> findAFD(Context ctx, String airportId) {
 
         Cursor c = null;
-        LinkedList<String> ret = new LinkedList<>();
+        List<String> ret = new LinkedList<>();
 
         String qry = LocationContract.AFD_LOCATION_ID + " = ?";
 
@@ -625,7 +626,7 @@ public class LocationContentProviderHelper {
 
         Cursor c = null;
 
-        LinkedList<String> ret = new LinkedList<>();
+        List<String> ret = new LinkedList<>();
         /**
          * Search Minimums plates for this airport
          */
@@ -881,10 +882,10 @@ public class LocationContentProviderHelper {
     }
 
 
-    public static LinkedList<String> findRunways(Context ctx, String name) {
+    public static List<String> findRunways(Context ctx, String name) {
 
         Cursor c = null;
-        LinkedList<String> run = new LinkedList<>();
+        List<String> run = new LinkedList<>();
 
         String qry = LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? or " + LocationContract.AIRPORT_RUNWAYS_LOCATION_ID + " = ? ";
 
@@ -1234,7 +1235,7 @@ public class LocationContentProviderHelper {
     /**
      * Find all information about a facility / destination based on its name
      */
-    public static void findDestination(Context ctx, String name, String type, String dbType, LinkedHashMap<String, String> params, LinkedList<Runway> runways, LinkedHashMap<String, String> freq, LinkedList<Awos> awos) {
+    public static void findDestination(Context ctx, String name, String type, String dbType, LinkedHashMap<String, String> params, List<Runway> runways, LinkedHashMap<String, String> freq, List<Awos> awos) {
         Cursor c = null;
 
         try {

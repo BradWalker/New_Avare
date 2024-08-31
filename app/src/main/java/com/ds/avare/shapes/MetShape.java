@@ -21,6 +21,7 @@ import com.ds.avare.weather.AirSigMet;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -74,7 +75,7 @@ public class MetShape extends Shape {
      * @param mets
      * @param shouldShow
      */
-    public static void draw(DrawingContext ctx, LinkedList<AirSigMet> mets, boolean shouldShow) {
+    public static void draw(DrawingContext ctx, List<AirSigMet> mets, boolean shouldShow) {
 
         ctx.paint.setShadowLayer(0, 0, 0, 0);
 

@@ -21,6 +21,7 @@ package com.ds.avare.adsb.gdl90;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by zkhan on 7/10/17.
@@ -39,7 +40,7 @@ public class FisGraphics {
     String mStartTime;
     String mEndTime;
     int mReportNumber;
-    LinkedList<Coordinate> mCoordinates;
+    List<Coordinate> mCoordinates;
     int mGeometryOverlayOptions;
 
     private static String parseDate(byte b0, byte b1, byte b2, byte b3, int format) {
@@ -303,7 +304,7 @@ public class FisGraphics {
         return mEndTime;
     }
 
-    public LinkedList<Coordinate> getCoordinates() {
+    public List<Coordinate> getCoordinates() {
         return mCoordinates;
     }
 

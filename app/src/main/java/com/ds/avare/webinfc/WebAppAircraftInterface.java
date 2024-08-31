@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.util.List;
 
 import com.ds.avare.AircraftActivity;
 import com.ds.avare.StorageService;
@@ -108,7 +109,7 @@ public class WebAppAircraftInterface {
     public void newSaveWnb() {
 
         clearWnbSave();
-        LinkedList<WeightAndBalance> wnbs = mService.getDBResource().getUserWnbs();
+        List<WeightAndBalance> wnbs = mService.getDBResource().getUserWnbs();
 
         for (WeightAndBalance wnb : wnbs) {
             Message m = mHandler.obtainMessage(MSG_ADD_WNB_SAVE, "'" + Helper.formatJsArgs(wnb.getName()) + "'");
@@ -174,7 +175,7 @@ public class WebAppAircraftInterface {
     public void newSaveAc() {
 
         clearAcSave();
-        LinkedList<Aircraft> ac = mService.getDBResource().getUserAircraft();
+        List<Aircraft> ac = mService.getDBResource().getUserAircraft();
 
         for (Aircraft a : ac) {
             Message m = mHandler.obtainMessage(MSG_ADD_AC_SAVE, "'" + Helper.formatJsArgs(a.getId()) + "'");
@@ -256,7 +257,7 @@ public class WebAppAircraftInterface {
     public void newSaveList() {
     	clearListSave();
     	
-        LinkedList<Checklist> lists = mService.getDBResource().getUserLists();
+        List<Checklist> lists = mService.getDBResource().getUserLists();
         if(lists == null) {
             return;
         }

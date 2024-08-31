@@ -20,8 +20,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
-
 
 /**
  * 
@@ -35,7 +35,7 @@ public class InternetWeatherCache {
      */
     private WeatherTask                mWeatherTask; 
     private Thread                     mWeatherThread;
-    private LinkedList<AirSigMet>      mAirSig;
+    private List<AirSigMet>      mAirSig;
     private StorageService             mService;
     private Date                       mDate;
 
@@ -86,7 +86,7 @@ public class InternetWeatherCache {
      * 
      * @return
      */
-    public LinkedList<AirSigMet> getAirSigMet() {
+    public List<AirSigMet> getAirSigMet() {
         return mAirSig;
     }
 

@@ -57,6 +57,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -90,9 +91,9 @@ public class BufferProcessor {
      * 
      * @return
      */
-    public LinkedList<String> decode(Preferences pref) {
+    public List<String> decode(Preferences pref) {
 
-        LinkedList<String> objs = new LinkedList<>();
+        List<String> objs = new LinkedList<>();
         
         byte[] buf;
         
@@ -289,7 +290,7 @@ public class BufferProcessor {
                 if(null == fis) {
                     continue;
                 }
-                LinkedList<Product> pds = fis.getProducts();
+                List<Product> pds = fis.getProducts();
                 for(Product p : pds) {
                     if(p instanceof Id8Product) {
                         Id8Product pn = (Id8Product)p;
@@ -332,7 +333,7 @@ public class BufferProcessor {
                                 arrayData.put(datum);
                             }
                         }
-                        LinkedList<Integer> empty = pn.getEmpty();
+                        List<Integer> empty = pn.getEmpty();
                         if(null != empty) {
                             for(int e : empty) {
                                 arrayEmpty.put(e);
@@ -556,7 +557,7 @@ public class BufferProcessor {
             object.put("number", fisg.getReportNumber());
 
             if(null != fisg.getShapeString()) {
-                LinkedList<FisGraphics.Coordinate> coords = fisg.getCoordinates();
+                List<FisGraphics.Coordinate> coords = fisg.getCoordinates();
                 String data = "";
                 for (FisGraphics.Coordinate c : coords) {
                     String lon = Double.toString(c.lon);

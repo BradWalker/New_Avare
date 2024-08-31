@@ -14,6 +14,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.place;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Observable;
 
 import com.ds.avare.StorageService;
@@ -37,9 +38,9 @@ public class Airway extends Observable {
 	 * Find where two airways intersect.
 	 * @return
 	 */
-	public static Coordinate findIntersectionOfAirways(StorageService service, String name, LinkedList<Coordinate> coords0) {
+	public static Coordinate findIntersectionOfAirways(StorageService service, String name, List<Coordinate> coords0) {
 
-		LinkedList<Coordinate> coords1 = service.getDBResource().findAirway(name);
+		List<Coordinate> coords1 = service.getDBResource().findAirway(name);
 		if(coords1.size() <= 0) {
 			return null;
 		}
@@ -65,11 +66,11 @@ public class Airway extends Observable {
 	 * @param end Name of ending Navaid/Fix
 	 * @return
 	 */
-	public static LinkedList<String> find(StorageService service, String start, String name, String end) {
+	public static List<String> find(StorageService service, String start, String name, String end) {
 		
 		String match = "[A-Z]\\d+";
 		
-		LinkedList<String> ret = new LinkedList<>();
+		List<String> ret = new LinkedList<>();
 		
 		if(!name.matches(match)) {
 			// Not an airway
@@ -77,7 +78,7 @@ public class Airway extends Observable {
 		}
 		
 		// Now find airway
-		LinkedList<Coordinate> coords = service.getDBResource().findAirway(name);
+		List<Coordinate> coords = service.getDBResource().findAirway(name);
 		if(coords.size() <= 0) {
 			return null;
 		}

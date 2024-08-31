@@ -41,6 +41,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -106,7 +107,7 @@ public class DataSource {
 
     // location helper
 
-    public void findDestination(String name, String type, String dbType, LinkedHashMap<String, String> params, LinkedList<Runway> runways, LinkedHashMap<String, String> freq, LinkedList<Awos> awos) {
+    public void findDestination(String name, String type, String dbType, LinkedHashMap<String, String> params, List<Runway> runways, LinkedHashMap<String, String> freq, List<Awos> awos) {
         LocationContentProviderHelper.findDestination(mContext, name, type, dbType, params, runways, freq, awos);
     }
 
@@ -151,7 +152,7 @@ public class DataSource {
         return LocationContentProviderHelper.getSua(mContext, lon, lat);
     }
 
-    public LinkedList<String> findRunways(String name) {
+    public List<String> findRunways(String name) {
         return LocationContentProviderHelper.findRunways(mContext, name);
     }
 
@@ -159,7 +160,7 @@ public class DataSource {
         return LocationContentProviderHelper.findElev(mContext, name);
     }
 
-    public LinkedList<Coordinate> findAirway(String name) {
+    public List<Coordinate> findAirway(String name) {
         return LocationContentProviderHelper.findAirway(mContext, name);
     }
 
@@ -193,7 +194,7 @@ public class DataSource {
         ContentProviderHelper.deleteUserPlan(mContext, name);
     }
 
-    public LinkedList<Checklist> getUserLists() {
+    public List<Checklist> getUserLists() {
         return ContentProviderHelper.getUserLists(mContext);
     }
 
@@ -201,7 +202,7 @@ public class DataSource {
         return ContentProviderHelper.getUserRecents(mContext);
     }
 
-    public void setUserRecents(LinkedList<StringPreference> s) {
+    public void setUserRecents(List<StringPreference> s) {
         ContentProviderHelper.setUserRecents(mContext, s);
     }
 
@@ -221,15 +222,15 @@ public class DataSource {
         ContentProviderHelper.replaceUserRecentName(mContext, id, newName);
     }
 
-    public LinkedList<Coordinate> getUserDraw() {
+    public List<Coordinate> getUserDraw() {
         return ContentProviderHelper.getUserDraw(mContext);
     }
 
-    public void setUserDraw(LinkedList<Coordinate> points) {
+    public void setUserDraw(List<Coordinate> points) {
         ContentProviderHelper.setUserDraw(mContext, points);
     }
 
-    public void setUserLists(LinkedList<Checklist> lists) {
+    public void setUserLists(List<Checklist> lists) {
         ContentProviderHelper.setUserLists(mContext, lists);
     }
 
@@ -245,11 +246,11 @@ public class DataSource {
         return ContentProviderHelper.getUserList(mContext, name);
     }
 
-    public LinkedList<WeightAndBalance> getUserWnbs() {
+    public List<WeightAndBalance> getUserWnbs() {
         return ContentProviderHelper.getUserWnbs(mContext);
     }
 
-    public void setUserWnbs(LinkedList<WeightAndBalance> wnbs) {
+    public void setUserWnbs(List<WeightAndBalance> wnbs) {
         ContentProviderHelper.setUserWnbs(mContext, wnbs);
     }
 
@@ -281,7 +282,7 @@ public class DataSource {
         return ContentProviderHelper.getUserWnb(mContext, name);
     }
 
-    public LinkedList<Aircraft> getUserAircraft() {
+    public List<Aircraft> getUserAircraft() {
         return ContentProviderHelper.getUserAircraft(mContext);
     }
     public Aircraft getUserAircraft(String id) {
@@ -292,7 +293,7 @@ public class DataSource {
         ContentProviderHelper.setUserAircraft(mContext, aircraft);
     }
 
-    public void setUserAircraft(LinkedList<Aircraft> aircraft) {
+    public void setUserAircraft(List<Aircraft> aircraft) {
         ContentProviderHelper.setUserAircraft(mContext, aircraft);
     }
 
@@ -302,11 +303,11 @@ public class DataSource {
 
     // other helper
 
-    public LinkedList<Obstacle> getObstacles(double lon, double lat, double height) {
+    public List<Obstacle> getObstacles(double lon, double lat, double height) {
         return ContentProviderHelper.getObstacles(mContext, lon, lat, height);
     }
 
-    public LinkedList<LabelCoordinate> findGameTFRs() {
+    public List<LabelCoordinate> findGameTFRs() {
         return ContentProviderHelper.findGameTFRs(mContext);
     }
 
@@ -318,7 +319,7 @@ public class DataSource {
         return ContentProviderHelper.getMetar(mContext, station);
     }
 
-    public LinkedList<Airep> getAireps(double lon, double lat) {
+    public List<Airep> getAireps(double lon, double lat) {
         return ContentProviderHelper.getAireps(mContext, lon, lat);
     }
 
@@ -326,11 +327,11 @@ public class DataSource {
         return ContentProviderHelper.getWindsAloft(mContext, lon, lat);
     }
 
-    public LinkedList<AirSigMet> getAirSigMets() {
+    public List<AirSigMet> getAirSigMets() {
         return ContentProviderHelper.getAirSigMets(mContext);
     }
 
-    public LinkedList<Cifp> findProcedure(String name, String approach) {
+    public List<Cifp> findProcedure(String name, String approach) {
         return ContentProviderHelper.findProcedure(mContext, name, approach);
     }
 

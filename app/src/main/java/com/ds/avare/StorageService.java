@@ -260,7 +260,7 @@ public class StorageService  {
 
     Favorites mFavorites;
 
-    LinkedList<LabelCoordinate> mGameTfrLabels;
+    List<LabelCoordinate> mGameTfrLabels;
 
     private Aircraft mAircraft;
 

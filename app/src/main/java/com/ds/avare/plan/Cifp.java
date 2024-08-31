@@ -38,6 +38,7 @@ import com.ds.avare.storage.StringPreference;
 import com.ds.avare.utils.Helper;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by zkhan on 11/8/15.
@@ -180,8 +181,8 @@ public class Cifp {
             String[] wpAlts = ((String) vals[2]).split(",");
 
             String last = "";
-            LinkedList<String> set = new LinkedList<>();
-            LinkedList<String> alt = new LinkedList<>();
+            List<String> set = new LinkedList<>();
+            List<String> alt = new LinkedList<>();
 
             // start from current position
             set.add(service.getGpsParams().getLatitude() + "&" + service.getGpsParams().getLongitude());

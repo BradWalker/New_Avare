@@ -32,6 +32,7 @@ import com.ds.avare.weather.WindsAloft;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Observable;
 
@@ -401,7 +402,7 @@ public class Destination extends Observable {
     /**
      * @return
      */
-    public LinkedList<Runway> getRunways() {
+    public List<Runway> getRunways() {
         return(null);
     }
 
@@ -486,7 +487,7 @@ public class Destination extends Observable {
         return mTrackShape;
     }
 
-	public LinkedList<Awos> getAwos() {
+	public List<Awos> getAwos() {
 		return(null);
 	} 
 

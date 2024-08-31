@@ -24,6 +24,7 @@ import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Helper;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -143,7 +144,7 @@ public class TileMap extends MapBase {
                 Thread.currentThread().setName("Tile");
 
                 // Get obstacles where user is looking
-                LinkedList<Obstacle> obs = null;
+                List<Obstacle> obs = null;
                 if(StorageService.getInstance().getPreferences().showObstacles()) {
                     obs = StorageService.getInstance().getDBResource().getObstacles(centerTile.getLongitude(), centerTile.getLatitude(), altitude);
                 }
@@ -213,7 +214,7 @@ public class TileMap extends MapBase {
         public float factor;
         public Tile centerTile;
         public Tile gpsTile;
-        public LinkedList<Obstacle> obstacles;
+        public List<Obstacle> obstacles;
     }
 
 }

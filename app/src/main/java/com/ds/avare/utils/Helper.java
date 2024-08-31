@@ -639,12 +639,12 @@ public class Helper {
      * @param ctx
      * @return
      */
-    public static LinkedList<TFRShape> getShapesInTFR(Context ctx) {
+    public static List<TFRShape> getShapesInTFR(Context ctx) {
         
         /*
          * Create a shapes list
          */
-        LinkedList<TFRShape> shapeList = new LinkedList<>();
+        List<TFRShape> shapeList = new LinkedList<>();
         Preferences p = StorageService.getInstance().getPreferences();
 
         String filename = p.getServerDataFolder() + File.separator + "tfr.txt";

@@ -13,7 +13,7 @@ package com.ds.avare.utils;
 
 import android.util.Pair;
 
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -782,7 +782,7 @@ public class WeatherHelper {
      * @param runways
      * @return
      */
-    public static String getBestRunway(String metar, LinkedList<String> runways) {
+    public static String getBestRunway(String metar, List<String> runways) {
 
         if(null == runways || null == metar) {
             return "";

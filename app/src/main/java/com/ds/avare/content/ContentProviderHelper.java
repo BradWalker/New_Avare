@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
@@ -41,10 +42,10 @@ public class ContentProviderHelper {
         return c.getColumnIndex(id);
     }
 
-    public static LinkedList<Obstacle> getObstacles(final Context ctx, double longitude, double latitude, double height) {
+    public static List<Obstacle> getObstacles(final Context ctx, double longitude, double latitude, double height) {
 
         Cursor c = null;
-        LinkedList<Obstacle> ret = new LinkedList<>();
+        List<Obstacle> ret = new LinkedList<>();
 
         String qry =
                 "(" + ObstaclesContract.HEIGHT + " > ?)" + " and " +
@@ -86,7 +87,7 @@ public class ContentProviderHelper {
      *
      * @return
      */
-    public static LinkedList<Cifp> findProcedure(final Context ctx, String name, String approach) {
+    public static List<Cifp> findProcedure(final Context ctx, String name, String approach) {
 
         Cursor c = null;
         TreeMap<String, Cifp> map = new TreeMap<>();
@@ -201,10 +202,10 @@ public class ContentProviderHelper {
      *
      * @return
      */
-    public static LinkedList<AirSigMet> getAirSigMets(Context ctx) {
+    public static List<AirSigMet> getAirSigMets(Context ctx) {
 
         Cursor c = null;
-        LinkedList<AirSigMet> airsig = new LinkedList<>();
+        List<AirSigMet> airsig = new LinkedList<>();
 
         /*
          * Get all
@@ -240,7 +241,7 @@ public class ContentProviderHelper {
      *
      * @return
      */
-    public static LinkedList<Airep> getAireps(Context ctx, double longitude, double latitude) {
+    public static List<Airep> getAireps(Context ctx, double longitude, double latitude) {
 
         Cursor c = null;
         HashMap<String, Airep> aireps = new HashMap<>();
@@ -282,7 +283,7 @@ public class ContentProviderHelper {
         CursorManager.close(c);
 
         // PIREPs can be duplicate. Make unique, and sort
-        LinkedList<Airep> list = new LinkedList<>(aireps.values());
+        List<Airep> list = new LinkedList<>(aireps.values());
         Collections.sort(list, new Comparator<>() {
             @Override
             public int compare(Airep a1, Airep a2) {
@@ -345,10 +346,10 @@ public class ContentProviderHelper {
      *
      * @return
      */
-    public static LinkedList<LabelCoordinate> findGameTFRs(Context ctx) {
+    public static List<LabelCoordinate> findGameTFRs(Context ctx) {
 
         Cursor c = null;
-        LinkedList<LabelCoordinate> ret = new LinkedList<>();
+        List<LabelCoordinate> ret = new LinkedList<>();
 
         // Find -6 hours to +12 hours
         Calendar begin = Calendar.getInstance();
@@ -390,7 +391,7 @@ public class ContentProviderHelper {
         return ret;
     }
 
-    public static void setUserLists(Context ctx, LinkedList<Checklist> lists) {
+    public static void setUserLists(Context ctx, List<Checklist> lists) {
         for (Checklist l : lists) {
             setUserList(ctx, l);
         }
@@ -435,9 +436,9 @@ public class ContentProviderHelper {
         return ret;
     }
 
-    public static LinkedList<Checklist> getUserLists(Context ctx) {
+    public static List<Checklist> getUserLists(Context ctx) {
         Cursor c = null;
-        LinkedList<Checklist> ret = new LinkedList<>();
+        List<Checklist> ret = new LinkedList<>();
 
         String[] proj = new String[]{UserContract.LIST_COLUMN_ID, UserContract.LIST_COLUMN_TEXT};
         String order = UserContract.LIST_COLUMN_ID + " asc";
@@ -466,7 +467,7 @@ public class ContentProviderHelper {
         ctx.getContentResolver().insert(UserContract.CONTENT_URI_WNB, newValues);
     }
 
-    public static void setUserWnbs(Context ctx, LinkedList<WeightAndBalance> wnbs) {
+    public static void setUserWnbs(Context ctx, List<WeightAndBalance> wnbs) {
         for (WeightAndBalance w : wnbs) {
             setUserWnb(ctx, w);
         }
@@ -479,9 +480,9 @@ public class ContentProviderHelper {
     }
 
 
-    public static LinkedList<WeightAndBalance> getUserWnbs(Context ctx) {
+    public static List<WeightAndBalance> getUserWnbs(Context ctx) {
         Cursor c = null;
-        LinkedList<WeightAndBalance> ret = new LinkedList<>();
+        List<WeightAndBalance> ret = new LinkedList<>();
 
         String[] proj = new String[]{UserContract.WNB_COLUMN_ID, UserContract.WNB_COLUMN_TEXT};
         String order = UserContract.WNB_COLUMN_ID + " asc";
@@ -566,7 +567,7 @@ public class ContentProviderHelper {
 
     public static String[] getUserRecents(Context ctx) {
         Cursor c = null;
-        LinkedList<String> ret = new LinkedList<>();
+        List<String> ret = new LinkedList<>();
 
         String[] proj = new String[]{UserContract.RECENT_COLUMN_WID, UserContract.RECENT_COLUMN_DESTTYPE, UserContract.RECENT_COLUMN_DBTYPE, UserContract.RECENT_COLUMN_NAME};
         String order = UserContract.RECENT_COLUMN_ID + " desc";
@@ -602,7 +603,7 @@ public class ContentProviderHelper {
         ctx.getContentResolver().insert(UserContract.CONTENT_URI_RECENT, newValues);
     }
 
-    public static void setUserRecents(Context ctx, LinkedList<StringPreference> recents) {
+    public static void setUserRecents(Context ctx, List<StringPreference> recents) {
         for (StringPreference s : recents) {
             setUserRecent(ctx, s);
         }
@@ -614,9 +615,9 @@ public class ContentProviderHelper {
         ctx.getContentResolver().delete(UserContract.CONTENT_URI_RECENT, selection, selectionArg);
     }
     
-    public static LinkedList<Coordinate> getUserDraw(Context ctx) {
+    public static List<Coordinate> getUserDraw(Context ctx) {
         Cursor c = null;
-        LinkedList<Coordinate> ret = new LinkedList<>();
+        List<Coordinate> ret = new LinkedList<>();
 
         String[] proj = new String[]{UserContract.DRAW_COLUMN_POINTS_X, UserContract.DRAW_COLUMN_POINTS_Y, UserContract.DRAW_COLUMN_SEP};
         String order = UserContract.DRAW_COLUMN_ID + " asc";
@@ -642,7 +643,7 @@ public class ContentProviderHelper {
         return ret;
     }
 
-    public static void setUserDraw(Context ctx, LinkedList<Coordinate> points) {
+    public static void setUserDraw(Context ctx, List<Coordinate> points) {
 
         // delete all
         ctx.getContentResolver().delete(UserContract.CONTENT_URI_DRAW, null, null);
@@ -742,10 +743,10 @@ public class ContentProviderHelper {
     /**
      *
      */
-    public static LinkedList<Aircraft> getUserAircraft(Context ctx) {
+    public static List<Aircraft> getUserAircraft(Context ctx) {
 
         Cursor c = null;
-        LinkedList<Aircraft> aircraft = new LinkedList<>();
+        List<Aircraft> aircraft = new LinkedList<>();
 
         try {
             c = ctx.getContentResolver().query(UserContract.CONTENT_URI_AIRCRAFT, null, null, null, null);
@@ -844,7 +845,7 @@ public class ContentProviderHelper {
         ctx.getContentResolver().insert(UserContract.CONTENT_URI_AIRCRAFT, newValues);
     }
 
-    public static void setUserAircraft(Context ctx, LinkedList<Aircraft> aircraft) {
+    public static void setUserAircraft(Context ctx, List<Aircraft> aircraft) {
         for (Aircraft a : aircraft) {
             setUserAircraft(ctx, a);
         }

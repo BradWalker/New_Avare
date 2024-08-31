@@ -172,8 +172,8 @@ public class TrafficCache {
      * 
      * @return
      */
-    public LinkedList<Traffic> getTraffic() {
-        LinkedList<Traffic> t = new LinkedList<>();
+    public List<Traffic> getTraffic() {
+        List<Traffic> t = new LinkedList<>();
 
         for(int i = 0; i < MAX_ENTRIES; i++) {
             if(null != mTraffic[i]) {

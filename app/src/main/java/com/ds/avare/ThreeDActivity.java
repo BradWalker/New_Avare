@@ -50,6 +50,7 @@ import com.ds.avare.views.GlassView;
 import com.ds.avare.views.ThreeDSurfaceView;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author zkhan
@@ -80,7 +81,7 @@ public class ThreeDActivity extends BaseActivity {
     private ThreeDSurfaceView mGlSurfaceView;
     private TerrainRenderer mRenderer = null;
 
-    private LinkedList<Obstacle> mObstacles;
+    private List<Obstacle> mObstacles;
 
     // This task loads bitmaps and makes elevation vertices in background
     private AsyncTask<Object, Void, Float> mLoadTask;
@@ -364,7 +365,7 @@ public class ThreeDActivity extends BaseActivity {
                             Traffic.draw(mService, mAreaMapper, mRenderer);
 
                             // Draw obstacles
-                            LinkedList<Obstacle> obs = mObstacles;
+                            List<Obstacle> obs = mObstacles;
                             if (null != obs) {
 
                                 Vector4d[] obstacles = new Vector4d[obs.size()];

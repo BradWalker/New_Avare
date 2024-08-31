@@ -11,6 +11,7 @@ Redistribution and use in source and binary forms, with or without modification,
 */
 package com.ds.avare.nmea;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -25,7 +26,7 @@ public class DataBuffer {
     int mElem;
     byte[] mBuffer;
     byte[] mBuffer2;
-    LinkedList<Integer> mIndexes;
+    List<Integer> mIndexes;
     
     /**
      * 
@@ -89,7 +90,7 @@ public class DataBuffer {
         if(mIndexes.isEmpty()) {
             return -1;
         }
-        return mIndexes.remove();
+        return mIndexes.remove(0);
     }
     
     /**

@@ -37,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 import android.annotation.SuppressLint;
@@ -56,7 +57,7 @@ import com.ds.avare.utils.Helper;
  */
 public class KMLRecorder {
 	private BufferedWriter  mTracksFile;			// File handle to use for writing the data
-    private final LinkedList<GpsParams> mPositionHistory; // Stored GPS points
+    private final List<GpsParams> mPositionHistory; // Stored GPS points
 	private URI 			mFileURI;				// The URI of the file created for these datapoints
 	private GpsParams		mLastFix;				// the last time we wrote a position
 	private final CrumbsShape     mShape;
