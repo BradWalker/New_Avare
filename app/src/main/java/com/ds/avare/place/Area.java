@@ -22,6 +22,7 @@ import com.ds.avare.storage.Preferences;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class Area {
 
     private DataSource mDataSource;
     private Airport[] mAirports = new Airport[Preferences.MAX_AREA_AIRPORTS];
-    private HashMap<String, Airport> mAirportCache;
+    private Map<String, Airport> mAirportCache;
     private DataBaseAreaTask mDt;
     private double mLon;
     private double mLat;

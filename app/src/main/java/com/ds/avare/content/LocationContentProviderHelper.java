@@ -24,6 +24,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
@@ -61,7 +62,7 @@ public class LocationContentProviderHelper {
      * @param name
      * @param params
      */
-    public static void search(Context ctx, String name, LinkedHashMap<String, String> params, boolean exact, boolean showAll) {
+    public static void search(Context ctx, String name, Map<String, String> params, boolean exact, boolean showAll) {
         Cursor c = null;
 
         String order;
@@ -210,11 +211,13 @@ public class LocationContentProviderHelper {
     /**
      * Find airports in an particular area
      */
-    public static HashMap<String, Airport> findClosestAirports(Context ctx, double lon, double lat, HashMap<String, Airport> airports, String minRunwayLength, boolean showAll) {
+    public static Map<String, Airport> findClosestAirports(Context ctx, double lon, double lat,
+                                                           Map<String, Airport> airports,
+                                                           String minRunwayLength, boolean showAll) {
 
         Cursor c = null;
         // Make a new hashmap and reuse values out of it that are still in the area
-        HashMap<String, Airport> airportsnew = new LinkedHashMap<>();
+        Map<String, Airport> airportsnew = new LinkedHashMap<>();
 
         // Query runways for distance
 
@@ -258,7 +261,7 @@ public class LocationContentProviderHelper {
                         continue;
                     }
 
-                    LinkedHashMap<String, String> params = new LinkedHashMap<>();
+                    Map<String, String> params = new LinkedHashMap<>();
                     // find airport
                     String[] parts = c.getString(3).trim().split("[.]"); //LocationContract.AIRPORT_RUNWAYS_HE_ELEVATION
                     if(parts[0].isEmpty()) {
@@ -539,7 +542,7 @@ public class LocationContentProviderHelper {
     }
 
 
-    public static void searchCity(Context ctx, String name, LinkedHashMap<String, String> params) {
+    public static void searchCity(Context ctx, String name, Map<String, String> params) {
         /*
          * City in upper case in DB
          */
@@ -787,7 +790,7 @@ public class LocationContentProviderHelper {
     /**
      * Find the lat/lon of an array of airports, and update in the objects
      */
-    public static void findLonLatMetar(Context ctx, HashMap<String, Metar> metars) {
+    public static void findLonLatMetar(Context ctx, Map<String, Metar> metars) {
 
         Cursor c = null;
 
@@ -1235,7 +1238,7 @@ public class LocationContentProviderHelper {
     /**
      * Find all information about a facility / destination based on its name
      */
-    public static void findDestination(Context ctx, String name, String type, String dbType, LinkedHashMap<String, String> params, List<Runway> runways, LinkedHashMap<String, String> freq, List<Awos> awos) {
+    public static void findDestination(Context ctx, String name, String type, String dbType, Map<String, String> params, List<Runway> runways, Map<String, String> freq, List<Awos> awos) {
         Cursor c = null;
 
         try {

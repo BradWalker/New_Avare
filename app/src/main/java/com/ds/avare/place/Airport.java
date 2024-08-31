@@ -17,6 +17,7 @@ import com.ds.avare.position.Projection;
 import com.ds.avare.utils.Helper;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 /**
@@ -42,7 +43,7 @@ public class Airport {
      * @param cLon
      * @param cLat
      */
-    public Airport(LinkedHashMap<String, String> params, double cLon, double cLat) {
+    public Airport(Map<String, String> params, double cLon, double cLat) {
         mLon = Double.parseDouble(params.get(LocationContentProviderHelper.LONGITUDE));
         mLat = Double.parseDouble(params.get(LocationContentProviderHelper.LATITUDE));
         mId = params.get(LocationContentProviderHelper.LOCATION_ID);

@@ -12,6 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 package com.ds.avare.storage;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author zkhan
@@ -46,7 +47,7 @@ public class StringPreference {
      * 
      * @return
      */
-    public void putInHash(LinkedHashMap<String, String> params) {
+    public void putInHash(Map<String, String> params) {
         /*
          * Make a large key and small ID
          */

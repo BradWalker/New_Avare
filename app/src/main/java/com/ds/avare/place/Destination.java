@@ -34,6 +34,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Observable;
 
 /**
@@ -116,7 +117,7 @@ public class Destination extends Observable {
      * Contains all info in a hash map for the destination
      * Dozens of parameters in a linked map because simple map would rearrange the importance
      */
-    protected LinkedHashMap <String, String>mParams;
+    protected Map <String, String>mParams;
     private double[] mWindMetar = null;
 
     public Destination(String name) {
@@ -410,14 +411,14 @@ public class Destination extends Observable {
     /**
      * @return
      */
-    public LinkedHashMap<String, String> getParams() {
+    public Map<String, String> getParams() {
     	return(mParams);
     }
 
     /**
      * @return
      */
-    public LinkedHashMap<String, String> getFrequencies() {
+    public Map<String, String> getFrequencies() {
         return(null);
     }
 

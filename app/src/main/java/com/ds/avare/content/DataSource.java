@@ -107,11 +107,13 @@ public class DataSource {
 
     // location helper
 
-    public void findDestination(String name, String type, String dbType, LinkedHashMap<String, String> params, List<Runway> runways, LinkedHashMap<String, String> freq, List<Awos> awos) {
+    public void findDestination(String name, String type, String dbType, Map<String, String> params,
+                                List<Runway> runways, Map<String, String> freq, List<Awos> awos) {
         LocationContentProviderHelper.findDestination(mContext, name, type, dbType, params, runways, freq, awos);
     }
 
-    public HashMap<String, Airport> findClosestAirports(double lon, double lat, HashMap<String, Airport> airports, String minRunwayLength) {
+    public Map<String, Airport> findClosestAirports(double lon, double lat,
+                                                        Map<String, Airport> airports, String minRunwayLength) {
         return LocationContentProviderHelper.findClosestAirports(mContext, lon, lat, airports, minRunwayLength, mPref.isShowAllFacilities());
     }
 
@@ -127,7 +129,7 @@ public class DataSource {
         return LocationContentProviderHelper.findDiagramMatrix(mContext, name);
     }
 
-    public void search(String name, LinkedHashMap<String, String> params, boolean exact) {
+    public void search(String name, Map<String, String> params, boolean exact) {
         LocationContentProviderHelper.search(mContext, name, params, exact, mPref.isShowAllFacilities());
     }
 
@@ -144,7 +146,7 @@ public class DataSource {
         return LocationContentProviderHelper.findLonLat(mContext, name, type);
     }
 
-    public void findLonLatMetar(HashMap<String, Metar> metars) {
+    public void findLonLatMetar(Map<String, Metar> metars) {
         LocationContentProviderHelper.findLonLatMetar(mContext, metars);
     }
 
@@ -270,7 +272,7 @@ public class DataSource {
         ContentProviderHelper.setUserTag(mContext, name, tag);
     }
 
-    public void setUserTags(HashMap<String, String> tags) {
+    public void setUserTags(Map<String, String> tags) {
         ContentProviderHelper.setUserTags(mContext, tags);
     }
 

@@ -1338,7 +1338,7 @@ public class WebAppPlanInterface implements Observer {
                 return true;
             }
             
-            LinkedHashMap<String, String> params = new LinkedHashMap<>();
+            Map<String, String> params = new LinkedHashMap<>();
 			mService.getDBResource().search(srch, params, true);
 			mService.getUDWMgr().search(srch, params);			// From user defined points of interest
 			StringPreference s = mService.getDBResource().getUserRecent(srch);

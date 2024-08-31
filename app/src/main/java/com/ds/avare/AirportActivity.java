@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -169,9 +170,9 @@ public class AirportActivity extends BaseActivity implements Observer {
         /*
          * Get Text Chart Supplement
          */
-        LinkedHashMap <String, String>map = mDestination.getParams();
+        Map<String, String> map = mDestination.getParams();
         List<Awos> awos = mDestination.getAwos();
-        LinkedHashMap <String, String>freq = mDestination.getFrequencies();
+        Map <String, String>freq = mDestination.getFrequencies();
         List<Runway> runways = mDestination.getRunways();
         String[] views = new String[map.size() + freq.size() + awos.size() + runways.size()];
         String[] values = new String[map.size() + freq.size() + awos.size() + runways.size()];

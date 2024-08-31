@@ -16,6 +16,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ds.avare.R;
 import com.ds.avare.StorageService;
@@ -213,7 +214,7 @@ public class UDWMgr {
     
     // Search our list for a name that closely matches what is passed in.
     //
-    public void search(String name, LinkedHashMap<String, String> params) {
+    public void search(String name, Map<String, String> params) {
     	if(null != mPoints) {
     		String uName = name.toUpperCase();
     		for(Waypoint p : mPoints) {

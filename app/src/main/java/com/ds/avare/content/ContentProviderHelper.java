@@ -244,7 +244,7 @@ public class ContentProviderHelper {
     public static List<Airep> getAireps(Context ctx, double longitude, double latitude) {
 
         Cursor c = null;
-        HashMap<String, Airep> aireps = new HashMap<>();
+        Map<String, Airep> aireps = new HashMap<>();
 
         /*
          * All aireps/pireps sep by \n
@@ -734,7 +734,7 @@ public class ContentProviderHelper {
         return ret;
     }
 
-    public static void setUserTags(Context ctx, HashMap<String, String> tags) {
+    public static void setUserTags(Context ctx, Map<String, String> tags) {
         for (String key : tags.keySet()) {
             setUserTag(ctx, key, tags.get(key));
         }

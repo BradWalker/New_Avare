@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
@@ -44,16 +45,16 @@ import java.util.TimeZone;
  */
 public class AdsbWeatherCache {
 
-    private HashMap<String, Taf> mTaf;
-    private HashMap<String, Metar> mMetar;
-    private HashMap<String, Airep> mAirep;
-    private HashMap<String, WindsAloft> mWinds;
-    private HashMap<String, Sua> mSua;
+    private Map<String, Taf> mTaf;
+    private Map<String, Metar> mMetar;
+    private Map<String, Airep> mAirep;
+    private Map<String, WindsAloft> mWinds;
+    private Map<String, Sua> mSua;
     private NexradImage mNexrad;
     private NexradImageConus mNexradConus;
     private Preferences mPref;
     private RateLimitedBackgroundQueue mMetarQueue;
-    private HashMap<String, AirSigMet> mAirSig;
+    private Map<String, AirSigMet> mAirSig;
 
     /**
      * 
@@ -134,7 +135,7 @@ public class AdsbWeatherCache {
      * @param map
      * @param shouldDraw
      */
-    public static void drawMetars(DrawingContext ctx, HashMap<String, Metar> map, boolean shouldDraw) {
+    public static void drawMetars(DrawingContext ctx, Map<String, Metar> map, boolean shouldDraw) {
         if(0 == ctx.pref.showLayer() || (!shouldDraw) || (!ctx.pref.useAdsbWeather())) {
             // This shows only for metar layer, and when adsb is used
             return;
@@ -177,7 +178,7 @@ public class AdsbWeatherCache {
      *
      * @return
      */
-    public HashMap<String, Metar> getAllMetars() {
+    public Map<String, Metar> getAllMetars() {
         return mMetar;
     }
 

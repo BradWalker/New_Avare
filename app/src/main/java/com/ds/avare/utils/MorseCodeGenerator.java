@@ -14,6 +14,7 @@ package com.ds.avare.utils;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * Created by zkhan on 12/23/16.
@@ -21,7 +22,7 @@ import java.util.Locale;
 
 public class MorseCodeGenerator {
 
-    private HashMap<String, String> mMap;
+    private Map<String, String> mMap;
     private static MorseCodeGenerator mInstance;
 
 

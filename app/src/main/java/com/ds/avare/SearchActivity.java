@@ -41,6 +41,7 @@ import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Helper;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
  
@@ -548,7 +549,7 @@ public class SearchActivity extends BaseActivity implements Observer {
 
             String srch = (String)vals[0];
 
-            LinkedHashMap<String, String> params = new LinkedHashMap<>();
+            Map<String, String> params = new LinkedHashMap<>();
             synchronized (SearchActivity.class) {
                 /*
                  * This is not to be done repeatedly with new text input so sync.
