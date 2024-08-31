@@ -33,7 +33,6 @@ import com.ds.avare.weather.Metar;
 import com.ds.avare.weather.Taf;
 import com.ds.avare.weather.WindsAloft;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**

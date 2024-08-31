@@ -11,7 +11,6 @@ Redistribution and use in source and binary forms, with or without modification,
 */
 package com.ds.avare.adsb.gdl90;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**

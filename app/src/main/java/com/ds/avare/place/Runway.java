@@ -20,7 +20,6 @@ import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

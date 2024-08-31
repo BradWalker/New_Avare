@@ -18,7 +18,6 @@ import com.ds.avare.storage.StringPreference;
 import com.ds.avare.utils.Helper;
 import com.ds.avare.weather.Metar;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;

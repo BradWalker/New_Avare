@@ -36,7 +36,6 @@ import com.ds.avare.utils.Logger;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

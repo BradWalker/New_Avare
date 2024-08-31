@@ -16,7 +16,6 @@ import com.ds.avare.content.LocationContentProviderHelper;
 import com.ds.avare.position.Projection;
 import com.ds.avare.utils.Helper;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 

@@ -24,7 +24,6 @@ import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 

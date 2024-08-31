@@ -28,7 +28,6 @@
 
 package com.ds.avare.cap;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import android.graphics.Canvas;

@@ -15,7 +15,6 @@ import com.ds.avare.threed.data.Vector4d;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class Traffic {

@@ -62,7 +62,6 @@ import com.ds.avare.utils.InfoLines.InfoLineFieldLoc;
 import com.ds.avare.utils.NavComments;
 import com.ds.avare.weather.AdsbWeatherCache;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**

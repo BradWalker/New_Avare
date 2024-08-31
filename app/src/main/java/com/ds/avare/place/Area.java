@@ -20,7 +20,6 @@ import com.ds.avare.content.DataSource;
 import com.ds.avare.gps.GpsParams;
 import com.ds.avare.storage.Preferences;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

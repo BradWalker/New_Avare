@@ -20,7 +20,6 @@ import com.ds.avare.R;
 import com.ds.avare.weather.AirSigMet;
 
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

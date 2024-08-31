@@ -49,7 +49,6 @@ import com.ds.avare.utils.OptionButton;
 import com.ds.avare.views.GlassView;
 import com.ds.avare.views.ThreeDSurfaceView;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**

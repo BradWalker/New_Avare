@@ -23,7 +23,6 @@ import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.GenericCallback;
 import com.ds.avare.utils.Helper;
 
-import java.util.LinkedList;
 import java.util.List;
 
 
