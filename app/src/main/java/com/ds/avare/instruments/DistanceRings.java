@@ -27,6 +27,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 
+import java.util.Locale;
+
 /**
  * 
  * A static class because we do not want allocations in the draw task where this
@@ -171,8 +173,9 @@ public class DistanceRings {
             mPaint.setStyle(Style.FILL);
             mPaint.setColor(Color.WHITE);
 
+            // FIXME - need better Locale support
             mService.getShadowedText().draw(canvas, mPaint,
-            		String.format("%d", mPref.getTimerRingSize()), Color.BLACK,
+            		String.format(Locale.US,"%d", mPref.getTimerRingSize()), Color.BLACK,
             		x + mRings[DistanceRings.RING_SPEED] * adjX,
             		y - mRings[DistanceRings.RING_SPEED] * adjY);
         }
@@ -252,9 +255,10 @@ public class DistanceRings {
         mRings[RING_INNER]  = (float)(origin.getPixelsInNmAtLatitude(RING_INNER_SIZE[ringScale] / fac, lat));
         mRings[RING_MIDDLE] = (float)(origin.getPixelsInNmAtLatitude(RING_MIDDLE_SIZE[ringScale] / fac, lat));
         mRings[RING_OUTER]  = (float)(origin.getPixelsInNmAtLatitude(RING_OUTER_SIZE[ringScale] / fac, lat));
-        
-        mRingsText[RING_INNER]  = String.format("%d", RING_INNER_SIZE[ringScale]);
-        mRingsText[RING_MIDDLE] = String.format("%d", RING_MIDDLE_SIZE[ringScale]);
-        mRingsText[RING_OUTER]  = String.format("%d", RING_OUTER_SIZE[ringScale]);
+
+        // FIXME - need better Locale support
+        mRingsText[RING_INNER]  = String.format(Locale.US, "%d", RING_INNER_SIZE[ringScale]);
+        mRingsText[RING_MIDDLE] = String.format(Locale.US, "%d", RING_MIDDLE_SIZE[ringScale]);
+        mRingsText[RING_OUTER]  = String.format(Locale.US, "%d", RING_OUTER_SIZE[ringScale]);
     }
 }

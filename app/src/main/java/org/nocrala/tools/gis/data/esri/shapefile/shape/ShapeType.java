@@ -23,7 +23,7 @@ public enum ShapeType {
 
   private int id;
 
-  private ShapeType(int id) {
+  ShapeType(int id) {
     this.id = id;
   }
 

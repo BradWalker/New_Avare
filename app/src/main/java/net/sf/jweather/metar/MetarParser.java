@@ -29,6 +29,7 @@ import org.apache.oro.text.regex.Perl5Matcher;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /*
@@ -102,7 +103,7 @@ public class MetarParser {
 
 	private ArrayList tokens = new ArrayList();
 
-	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US);      // FIXME - need better Locale support
 	private static TimeZone gmtZone = TimeZone.getTimeZone("GMT");
 
 	private WeatherCondition weatherCondition = null;

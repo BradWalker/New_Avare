@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
@@ -360,7 +361,7 @@ public class ContentProviderHelper {
         long mb = begin.getTimeInMillis();
         long me = end.getTimeInMillis();
 
-        SimpleDateFormat formatterZulu = new SimpleDateFormat("ddHH:mm'Z'");
+        SimpleDateFormat formatterZulu = new SimpleDateFormat("ddHH:mm'Z'", Locale.US);      // FIXME - need better Locale support
         formatterZulu.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         String qry = GameTfrContract.TIME + " between ? and ?";

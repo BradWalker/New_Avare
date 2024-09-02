@@ -15,6 +15,7 @@ package com.ds.avare.userDefinedWaypoints;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import com.ds.avare.R;
@@ -208,7 +209,8 @@ public class UDWMgr {
     	double dst = Projection.getStaticDistance(gpsParams.getLongitude(), gpsParams.getLatitude(), p.mLon, p.mLat);
     	
     	// return  a formatted string
-    	return String.format("%03d %03d", (int) dst, (int) hdg);
+		// FIXME - need better Locale support
+    	return String.format(Locale.US, "%03d %03d", (int) dst, (int) hdg);
     }
     
     // Search our list for a name that closely matches what is passed in.

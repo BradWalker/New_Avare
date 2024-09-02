@@ -60,8 +60,8 @@ public class RTMPacket extends Packet {
             lat = (int)latitude;
             deg = (latitude - (double)lat) * 60.0;
             
-            mPacket += String.format("%02d", lat);
-            mPacket += String.format("%06.3f", deg);
+            mPacket += String.format(Locale.US, "%02d", lat);
+            mPacket += String.format(Locale.US,"%06.3f", deg);
             mPacket += ",N,";
         }
         else {
@@ -71,8 +71,8 @@ public class RTMPacket extends Packet {
             lat = (int)latitude;
             deg = (latitude - (double)lat) * 60.0;
             
-            mPacket += String.format("%02d", lat);
-            mPacket += String.format("%06.3f", deg);
+            mPacket += String.format(Locale.US,"%02d", lat);
+            mPacket += String.format(Locale.US,"%06.3f", deg);
             mPacket += ",S,";            
         }
 
@@ -86,8 +86,8 @@ public class RTMPacket extends Packet {
             lon = (int)longitude;
             deg = (longitude - (double)lon) * 60.0;
             
-            mPacket += String.format("%03d", lon);
-            mPacket += String.format("%06.3f", deg);
+            mPacket += String.format(Locale.US,"%03d", lon);
+            mPacket += String.format(Locale.US,"%06.3f", deg);
             mPacket += ",E,";
         }
         else {
@@ -97,33 +97,33 @@ public class RTMPacket extends Packet {
             lon = (int)longitude;
             deg = (longitude - (double)lon) * 60.0;
             
-            mPacket += String.format("%03d", lon);
-            mPacket += String.format("%06.3f", deg);
+            mPacket += String.format(Locale.US,"%03d", lon);
+            mPacket += String.format(Locale.US,"%06.3f", deg);
             mPacket += ",W,";            
         }
 
         /*
          * Put altitude
          */
-        mPacket += String.format("%.1f", altitude);
+        mPacket += String.format(Locale.US,"%.1f", altitude);
         mPacket += ",";
 
         /*
          * Put heading
          */
-        mPacket += String.format("%05.1f", heading);
+        mPacket += String.format(Locale.US,"%05.1f", heading);
         mPacket += ",";
 
         /*
          * Put speed in knots
          */
-        mPacket += String.format("%05.1f", horizVelocity);
+        mPacket += String.format(Locale.US,"%05.1f", horizVelocity);
         mPacket += ",";
 
         /*
          * Put vert velocity in ft/min
          */
-        mPacket += String.format("%05.1f", vertVelocity);
+        mPacket += String.format(Locale.US,"%05.1f", vertVelocity);
         mPacket += ",";
 
         /*
@@ -133,7 +133,5 @@ public class RTMPacket extends Packet {
         mPacket += ",";
 
         assemble();
-        
     }
-
 }

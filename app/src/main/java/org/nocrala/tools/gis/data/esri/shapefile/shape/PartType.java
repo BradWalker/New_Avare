@@ -11,7 +11,7 @@ public enum PartType {
 
   private int id;
 
-  private PartType(int id) {
+  PartType(int id) {
     this.id = id;
   }
 

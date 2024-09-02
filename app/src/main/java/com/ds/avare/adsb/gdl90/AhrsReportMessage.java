@@ -16,7 +16,6 @@ package com.ds.avare.adsb.gdl90;
  */
 public class AhrsReportMessage extends Message {
 
-
     // all static because this info comes from various messages and it is important to keep old values for untouched variables
     static public float mYaw;
     static public float mYawRate;

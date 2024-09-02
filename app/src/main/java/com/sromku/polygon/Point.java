@@ -1,5 +1,7 @@
 package com.sromku.polygon;
 
+import java.util.Locale;
+
 /**
  * Point on 2D landscape
  * 
@@ -19,6 +21,7 @@ public class Point
 	@Override
 	public String toString()
 	{
-		return String.format("(%.2f,%.2f)", x, y);
+		// FIXME - better Locale support needed
+		return String.format(Locale.US, "(%.2f,%.2f)", x, y);
 	}
 }

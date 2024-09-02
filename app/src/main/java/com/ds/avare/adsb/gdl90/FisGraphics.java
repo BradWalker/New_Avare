@@ -22,6 +22,7 @@ package com.ds.avare.adsb.gdl90;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by zkhan on 7/10/17.
@@ -48,11 +49,11 @@ public class FisGraphics {
             case 0 -> // No date/time used.
                     "";
             case 1 -> // Month, Day, Hours, Minutes.
-                    String.format("%02d-%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2, (int) b3);
+                    String.format(Locale.US, "%02d-%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2, (int) b3);
             case 2 -> // Day, Hours, Minutes.
-                    String.format("%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2);
+                    String.format(Locale.US, "%02dT%02d:%02d:00Z", (int) b0, (int) b1, (int) b2);
             case 3 -> // Hours, Minutes.
-                    String.format("%02d:%02d:00Z", (int) b0, (int) b1);
+                    String.format(Locale.US, "%02d:%02d:00Z", (int) b0, (int) b1);
             default -> "";
         };
     }

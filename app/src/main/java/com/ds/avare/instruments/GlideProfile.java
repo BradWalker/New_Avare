@@ -21,6 +21,8 @@ import com.ds.avare.utils.WindTriagle;
 import com.ds.avare.weather.Metar;
 import com.ds.avare.weather.WindsAloft;
 
+import java.util.Locale;
+
 public class GlideProfile {
 
     // Members that get set at object construction
@@ -122,7 +124,8 @@ public class GlideProfile {
         double as = t[0];
 
         // Put wind/elevation/airspeed in string. this will be shown on the ring
-        mWind = String.format("w%03d@%d/t%d", (int)waa[1],
+        // FIXME - need better Locale support
+        mWind = String.format(Locale.US, "w%03d@%d/t%d", (int)waa[1],
                 (int)(waa[0] / Preferences.feetConversion * 3600),
                 (int)(as * 3600 / Preferences.feetConversion));
 

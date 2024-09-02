@@ -30,6 +30,8 @@ import com.ds.avare.R;
 import com.ds.avare.utils.BitmapHolder;
 import com.ds.avare.utils.Helper;
 
+import java.util.Locale;
+
 /**
  * Preferences for main activity
  */
@@ -764,7 +766,8 @@ public class Preferences implements SharedPreferences.OnSharedPreferenceChangeLi
      * @param value
      */
     public void setOdometer(double value) {
-        mPref.edit().putString(mContext.getString(R.string.prefOdometer), String.format("%f", value)).commit();
+        mPref.edit().putString(mContext.getString(R.string.prefOdometer),
+                String.format(Locale.US, "%f", value)).commit();                // FIXME - better Locale support
     }
 
     /**

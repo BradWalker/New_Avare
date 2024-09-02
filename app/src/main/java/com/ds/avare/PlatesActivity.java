@@ -52,6 +52,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.TreeMap;
@@ -338,11 +339,10 @@ public class PlatesActivity extends BaseActivity implements Observer  {
                 int seconds = (int)((System.currentTimeMillis() - mTimerInit) / 1000L);
                 int mins = seconds / 60;
                 seconds -= mins * 60;
-                mPlatesTimerButton.setText(String.format("%02d:%02d", mins, seconds));
+                mPlatesTimerButton.setText(String.format(Locale.US, "%02d:%02d", mins, seconds));   // FIXME - better Locale support
                 sendEmptyMessageDelayed(0,1000);
             }
         };
-
 
         mPlatesTimerButton = view.findViewById(R.id.plates_button_timer);
         mPlatesTimerButton.setOnClickListener(new OnClickListener() {

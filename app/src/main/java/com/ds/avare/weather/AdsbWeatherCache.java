@@ -234,8 +234,8 @@ public class AdsbWeatherCache {
             return;
         }
         // convert date format
-        DateFormat df = new SimpleDateFormat("yyMMddHHmm");
-        DateFormat dfr = new SimpleDateFormat("ddHHmm");
+        DateFormat df = new SimpleDateFormat("yyMMddHHmm", Locale.US);      // FIXME - need better Locale support
+        DateFormat dfr = new SimpleDateFormat("ddHHmm", Locale.US);         // FIXME - need better Locale support
         try {
             java.util.Date startDate =  df.parse(start);
             java.util.Date endDate =  df.parse(end);

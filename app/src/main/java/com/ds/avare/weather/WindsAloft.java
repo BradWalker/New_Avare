@@ -15,6 +15,8 @@ import com.ds.avare.position.Projection;
 import com.ds.avare.storage.Preferences;
 import com.ds.avare.utils.WindsAloftHelper;
 
+import java.util.Locale;
+
 /**
  * 
  * @author zkhan
@@ -225,7 +227,8 @@ public class WindsAloft {
                 mdir += 50;
             }
 
-            w0k = String.format("%02d%02d", (int)mdir, (int)mspeed);
+            // FIXME - need better Locale support
+            w0k = String.format(Locale.US, "%02d%02d", (int)mdir, (int)mspeed);
             if (w3k.isEmpty()) {
                 w3k = w0k;
             }
